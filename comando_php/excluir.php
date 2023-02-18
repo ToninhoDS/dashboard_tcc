@@ -1,5 +1,5 @@
 <?php
-include_once "conexao.php";
+include_once "crud_php/conexao_cadastro.php";
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
@@ -7,7 +7,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)){
 
-    $query_usuario ="DELETE FROM usuarios WHERE id=:id";
+    $query_usuario ="DELETE FROM teste01 WHERE cd_teste=:id";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->bindParam(':id',$id);
     

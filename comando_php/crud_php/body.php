@@ -141,6 +141,27 @@
                                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2"><i class="fas fa-users"></i>Área Clientes</a>
                                             <div id="submenu-1-2" class="collapse submenu">
                                                 <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                        <!-- cadastro de cliente -->
+                                                        <a class="nav-link active"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1"><i class="fa fa-fw fa-user-circle"></i>Cadastro<span class="badge badge-success">6</span></a>
+                                                       
+                                                        <div id="submenu-1-1" class="collapse submenu">
+                                                            <ul class="nav flex-column">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="/dashboard_tcc/comando_php/form-validation.php">Cliente</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-elements.html">Carro</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="/dashboard_tcc/ecommerce-product-checkout.html">Bicicleta</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Outros</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li> 
                                                     <li class="nav-item">
                                                         <!-- cadastro de cliente -->
                                                         <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-5" aria-controls="submenu-1-5">Tabela Clientes</a>
@@ -160,28 +181,8 @@
                                                         
                                                         <a class="nav-link" href="/dashboard_tcc/ecommerce-product-single.html">Detalhamento Cliente</a>
                                                     </li>
+                                                     
                                                     
-                                                    <li class="nav-item">
-                                                        <!-- cadastro de cliente -->
-                                                        <a class="nav-link active"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1"><i class="fa fa-fw fa-user-circle"></i>Cadastro<span class="badge badge-success">6</span></a>
-                                                       
-                                                        <div id="submenu-1-1" class="collapse submenu">
-                                                            <ul class="nav flex-column">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-elements.html">Carro</a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/ecommerce-product-checkout.html">Moto</a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-validation.html">Bicicleta</a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Outros</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>  
                                                     <!-- fim do cadastro cliente -->
                                                     
                                                 </ul>

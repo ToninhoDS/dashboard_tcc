@@ -1,7 +1,7 @@
  
 <?php
-include_once "conexao.php";
-include("body.php");
+
+include("crud_php/body.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,11 +26,7 @@ include("body.php");
     <title>VAGASPARK</title>
 </head>
 
-<body>
-   
-        
-        <!-- end left sidebar -->
-        
+<body> 
         <div class="dashboard-wrapper">
             <div class="container-fluid  dashboard-content">
                 <!-- ============================================================== -->
@@ -44,9 +40,9 @@ include("body.php");
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tables</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Área Cliente</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tabela</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Informações de Cadastro</li>
                                     </ol>
                                 </nav>
                             </div>

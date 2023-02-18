@@ -1,6 +1,6 @@
 <?php
 session_start(); // iniciar a sessao
-include('body.php');
+include('crud_php/body.php');
 ?> 
 <!doctype html>
 <html lang="en"> 
@@ -13,6 +13,7 @@ include('body.php');
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
@@ -124,10 +125,18 @@ include('body.php');
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                                                
                                             </div>
                                         </div>
                                     </form>
+                                         <!-- ir para tabelas cliente cadastrado -->               
+                                        <div class="botao-ir-tabela">
+                                             <form action="data-tables.php" class="needs-validation">
+                                              <button class="btn btn-info" type="submdit">Ir para tabela Cadastro</button>
+                                            </form>
+                                        </div>
+                                        <!-- fim -->
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 <?php
-include_once "conexao.php";
+include_once "crud_php/conexao_cadastro.php";
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -13,7 +13,7 @@ if(empty($dados['id'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o Email!</div>"];
 }else{
     // depois da avalidação sera add no banco de dados 
-    $query_usuario = "UPDATE usuarios SET nome=:nome, email=:email WHERE id=:id";
+    $query_usuario = "UPDATE teste01 SET nm_cliente=:nome, cd_login=:email WHERE cd_teste=:id";
     $edit_usuario = $conn->prepare($query_usuario);
     $edit_usuario->bindParam(':nome', $dados['nome']);
     $edit_usuario->bindParam(':email', $dados['email']);

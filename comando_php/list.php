@@ -1,5 +1,5 @@
 <?php
-include_once "conexao.php";
+include_once "crud_php/conexao_cadastro.php";
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
@@ -9,18 +9,14 @@ if (!empty($pagina)) {
     $qnt_result_pg = 40; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
-    $query_usuarios = "SELECT id, nome, email FROM usuarios ORDER BY id DESC LIMIT $inicio, $qnt_result_pg";
+    $query_usuarios = "SELECT cd_teste, nm_cliente, cd_login FROM teste01 ORDER BY cd_teste DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
 
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
 
-        $dados = "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'>
-        <div class='card'>
-            <h5 class='card-header'>Basic Table</h5>
-            <div class='card-body'>
-                <div class='table-responsive'>
-                    <table class='table table-striped table-bordered first'>
+        $dados = "<div class='table-responsive'>
+            <table class='table table-striped table-bordered'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -33,22 +29,22 @@ if (!empty($pagina)) {
         while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
             extract($row_usuario);
             $dados .= "<tr>
-                    <td id='valor_id$id'>$id </td>
-                    <td id='valor_nome$id'>$nome</td>
-                    <td id='valor_email$id'>$email</td>
+                    <td id='valor_id$cd_teste'>$cd_teste </td>
+                    <td id='valor_nome$cd_teste'>$nm_cliente</td>
+                    <td id='valor_email$cd_teste'>$cd_login</td>
                     <td class='d-flex botaov'>
                         
-                        <button type='button' id='botao_editar$id' class='btn btn-warning btn-sm me-1' onclick='editar_registro($id)'>Editar</button>
+                        <button type='button' id='botao_editar$cd_teste' class='btn btn-warning btn-sm me-1' onclick='editar_registro($cd_teste)'>Editar</button>
                         
-                        <button type='button' id='botao_salvar$id' class='btn btn-warning btn-sm me-1'onclick='salvar_registro($id)' style='display:none;font-size:12px;'>Salvar  </button>
+                        <button type='button' id='botao_salvar$cd_teste' class='btn btn-warning btn-sm me-1'onclick='salvar_registro($cd_teste)' style='display:none;font-size:12px;'>Salvar  </button>
 
-                        <button type='button' id='cancelarRG_salvar$id' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($id)' style='display:none;font-size:12px'>Cancelar  </button>
+                        <button type='button' id='cancelarRG_salvar$cd_teste' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($cd_teste)' style='display:none;font-size:12px'>Cancelar  </button>
                         
-                        <button type='button' id='botao_excluir$id' class='btn btn-danger btn-sm me-1'onclick='excluir_registro($id)'>Excluir</button>
-                        <button type='button' id='botao_confirma$id' value='$id'name='id_confirma$id'class='btn btn-danger btn-sm me-1'onclick='confirma_registro($id)' style='display:none;font-size:9px'>Confirma</button>
-                        <button type='button' id='botao_excluir_cancelar$id' value='$id'name='id_cancela$id'class='btn btn-danger btn-sm me-1'onclick='cancelar_excluir($id)' style='display:none;font-size:10px'>Cancelar</button>
+                        <button type='button' id='botao_excluir$cd_teste' class='btn btn-danger btn-sm me-1'onclick='excluir_registro($cd_teste)'>Excluir</button>
+                        <button type='button' id='botao_confirma$cd_teste' value='$cd_teste'name='id_confirma$cd_teste'class='btn btn-danger btn-sm me-1'onclick='confirma_registro($cd_teste)' style='display:none;font-size:9px'>Confirma</button>
+                        <button type='button' id='botao_excluir_cancelar$cd_teste' value='$cd_teste'name='id_cancela$cd_teste'class='btn btn-danger btn-sm me-1'onclick='cancelar_excluir($cd_teste)' style='display:none;font-size:10px'>Cancelar</button>
 
-                        <button type='button' id='botao_visualizar$id' value='$id'name='id_visualizar$id'class='btn btn-info btn-sm me-1'onclick='visualizar($id)'>Informações</button>
+                        <button type='button' id='botao_visualizar$cd_teste' value='$cd_teste'name='id_visualizar$cd_teste'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_teste)'>Informações</button>
                         
                         
                     </td>
@@ -60,7 +56,7 @@ if (!empty($pagina)) {
     </div>";
 
         //Paginação - Somar a quantidade de usuários
-        $query_pg = "SELECT COUNT(id) AS num_result FROM usuarios";
+        $query_pg = "SELECT COUNT(cd_teste) AS num_result FROM teste01";
         $result_pg = $conn->prepare($query_pg);
         $result_pg->execute();
         $row_pg = $result_pg->fetch(PDO::FETCH_ASSOC);
