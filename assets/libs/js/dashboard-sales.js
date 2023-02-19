@@ -12,7 +12,7 @@ $(function() {
                     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     datasets: [{
                         label: 'Current Week',
-                        data: [12, 19, 3, 17, 6, 3, 7],
+                        data: [12, 19, 00, 170, 60, 300, 70000],
                       backgroundColor: "rgba(89, 105, 255,0.5)",
                                     borderColor: "rgba(89, 105, 255,0.7)",
                                     borderWidth: 2
