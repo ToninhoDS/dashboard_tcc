@@ -1,14 +1,12 @@
 $(function() {
     "use strict";
-    // ============================================================== 
-    // Gender Js
-    // ============================================================== 
-
+ 
+// vagas dimoniveis
     Morris.Donut({
         element: 'gender_donut',
         data: [
-            { value: 60, label: 'Female' },
-            { value: 40, label: 'Male' }
+            { value: 60, label: 'Vagas' },
+            { value: 40, label: 'Ocupadas' }
 
         ],
 
@@ -32,7 +30,7 @@ $(function() {
         type: 'horizontalBar',
 
         data: {
-            labels: ["US", "Brazil", "Canada", "UK", "Australia", "India", "China"],
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
             datasets: [{
                 label: 'Country',
                 data: [2800, 24000, 19000, 17000, 14000, 10000, 7000],
