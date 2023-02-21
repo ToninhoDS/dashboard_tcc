@@ -7,7 +7,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Vagas Park</a>
+                <a class="navbar-brand" href="../index.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -150,15 +150,11 @@
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/form-validation.php">Cliente</a>
                                                                 </li>
+                                                                
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-elements.html">Carro</a>
+                                                                    <a class="nav-link" href="/dashboard_tcc/cadastro_bike.html">Bicicleta</a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/ecommerce-product-checkout.html">Bicicleta</a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Outros</a>
-                                                                </li>
+                                                              
                                                             </ul>
                                                         </div>
                                                     </li> 
@@ -171,7 +167,7 @@
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/general-table.html">Listas de Planos</a>
+                                                                    <a class="nav-link" href="../dashboard_tcc/pages/detalhamento_servico_tabela.html">Planilha de Serviços</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -179,7 +175,7 @@
                                                    
                                                     <li class="nav-item">
                                                         
-                                                        <a class="nav-link" href="/dashboard_tcc/ecommerce-product-single.html">Detalhamento Cliente</a>
+                                                        <a class="nav-link" href="/dashboard_tcc/detalhamento_cliente.html">Detalhamento Cliente</a>
                                                     </li>
                                                      
                                                     
@@ -194,12 +190,13 @@
                                 <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                                 <div id="submenu-16" class="collapse submenu">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/dashboard-sales.html">Graficos</a>
-                                        </li>
                                         
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/invoice.html">Planilha</a>
+                                        
+                                         <li class="nav-item">
+                                   	 <a class="nav-link" href="../dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                    </li>
+                                     <li class="nav-item">
+                                            <a class="nav-link" href="../dashboard_tcc/pages/nota_gastos.html">Planilha</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" >vazio </a>
@@ -216,13 +213,11 @@
 	                                        <div id="submenu-1-4" class="collapse submenu">
 	                                            <ul class="nav flex-column">
 	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/dashboard-influencer.html">Meu Feedback</a>
+	                                                    <a class="nav-link" href="/dashboard_tcc/meu_feedback.html">Meu Feedback</a>
 	                                                </li>
+	                                               
 	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/influencer-finder.html">Feedback Cliente</a>
-	                                                </li>
-	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Feedback Empresa</a>
+	                                                    <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Feedback Empresa</a>
 	                                                </li>
 	                                            </ul>
 	                                        </div>
@@ -237,21 +232,13 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/general.html">General</a>
-                                        </li>
+                                        
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/carousel.html">Carousel</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/listgroup.html">List Group</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/typography.html">Typography</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/accordions.html">Accordions</a>
-                                        </li>
+                                        
+                                        
+                                        
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/tabs.html">Tabs</a>
                                         </li>
@@ -264,7 +251,7 @@
                                 <div id="submenu-4" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/multiselect.html">Reservas Avulso</a>
+                                            <a class="nav-link" href="#">Reservas Avulso</a>
                                         </li>
                                         
                                     </ul>
@@ -276,11 +263,11 @@
                                 <div id="submenu-11" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/ecommerce-product.html">Nossos Produtos</a>
+                                            <a class="nav-link" href="/dashboard_tcc/venda_produto.html">Nossos Produtos</a>
                                         </li>
                                         
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/pricing.html">Planos</a>
+                                            <a class="nav-link" href="/dashboard_tcc/pages/venda_planos.html">Planos</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" >vazio </a>
@@ -293,47 +280,25 @@
                                 Suporte Empresa
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Pages </a>
+                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Paginação</a>
                                 <div id="submenu-6" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/blank-page-header.html">Área em Branco</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/login.html">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/404-page.html">404 página</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/sign-up.html">Registro</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/forgot-password.html">Esqueci o Password</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/pricing.html">Tabela de Preços</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/timeline.html">Linha do Tempo</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/calendar.html">Calendario</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/sortable-nestable-lists.html">Listas encaixáveis ​​ordenáveis</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/widgets.html">Gráfico Dinâmico</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/media-object.html">Objetos de mídia</a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/color-picker.html">Seletor de cores</a>
-                                        </li>
-                                    </ul>
+                                     <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/avisos_suporte.html">Avisos do Suporte</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/regras_de_negocio.html">Regras de Negocio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/calendario_de_folga.html">Calendario</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/erro_404.html">404 página</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/configuracao.html">Configuracao</a>
+                                </li>
+                            </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -355,31 +320,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Icons</a>
-                                <div id="submenu-8" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-fontawesome.html">FontAwesome Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-material.html">Material Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-simple-lineicon.html">Simpleline Icon</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-themify.html">Themify Icon</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-flag.html">Flag Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/icon-weather.html">Weather Icon</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
                                 <div id="submenu-9" class="collapse submenu">
@@ -387,9 +328,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/map-google.html">Google Maps</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/map-vector.html">Vector Maps</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>

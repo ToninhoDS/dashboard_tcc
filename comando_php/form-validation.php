@@ -7,14 +7,12 @@ include('crud_php/body.php');
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/bootstrap.min.css"> 
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_dash/caixa_estilo.css"> 
+    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/morris.css">
+    <link rel="stylesheet" href="../css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
@@ -396,7 +394,7 @@ include('crud_php/body.php');
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                          
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">
@@ -417,11 +415,11 @@ include('crud_php/body.php');
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+      <script src="../chart_js/jquery-3.3.1.min.js"></script>
+    <script src="../chart_js/bootstrap.bundle.js"></script>
+    <script src="../chart_js/jquery.slimscroll.js"></script>
     <script src="../assets/vendor/parsley/parsley.js"></script>
-    <script src="../assets/libs/js/main-js.js"></script>
+    <script src="../chart_js/main-js.js"></script>
     <script>
     $('#form').parsley();
     </script>

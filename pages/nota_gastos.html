@@ -1,20 +1,21 @@
 <!doctype html>
 <html lang="en">
-
  
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/bootstrap.min.css">
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="../css_dash/caixa_estilo.css">
+    
+    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link href="../assets/vendor/bootstrap-colorpicker/%40claviska/jquery-minicolors/jquery.minicolors.css" rel="stylesheet">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
+
 
 <body>
     <!-- ============================================================== -->
@@ -26,7 +27,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Vagas Park</a>
+                <a class="navbar-brand" href="../index.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -168,16 +169,17 @@
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/general-table.html">Listas de Planos</a>
+                                                                 <li class="nav-item">
+                                                                    <a class="nav-link" href="pages/general-table.html">Serviços</a>
                                                                 </li>
+                                                            
                                                             </ul>
                                                         </div>
                                                     </li>  
                                                    
                                                     <li class="nav-item">
                                                         
-                                                        <a class="nav-link" href="/dashboard_tcc/ecommerce-product-single.html">Detalhamento Cliente</a>
+                                                        <a class="nav-link" href="/dashboard_tcc/detalhamento_cliente.html">Detalhamento Cliente</a>
                                                     </li>
                                                     
                                                     <li class="nav-item">
@@ -186,18 +188,14 @@
                                                        
                                                         <div id="submenu-1-1" class="collapse submenu">
                                                             <ul class="nav flex-column">
+                                                                
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-elements.html">Carro</a>
+                                                                    <a class="nav-link" href="/dashboard_tcc/comando_php/form-validation.php">Cliente</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/ecommerce-product-checkout.html">Moto</a>
+                                                                    <a class="nav-link" href="/dashboard_tcc/pages/cadastro_bike.html">Bicicleta</a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/pages/form-validation.html">Bicicleta</a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Outros</a>
-                                                                </li>
+                                                              
                                                             </ul>
                                                         </div>
                                                     </li>  
@@ -212,12 +210,13 @@
                                 <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                                 <div id="submenu-16" class="collapse submenu">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/dashboard-sales.html">Graficos</a>
-                                        </li>
                                         
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/invoice.html">Planilha</a>
+                                        
+                                         <li class="nav-item">
+                                   	 <a class="nav-link" href="../dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                    </li>
+                                     <li class="nav-item">
+                                            <a class="nav-link" href="../dashboard_tcc/pages/nota_gastos.html">Planilha</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" >vazio </a>
@@ -234,13 +233,11 @@
 	                                        <div id="submenu-1-4" class="collapse submenu">
 	                                            <ul class="nav flex-column">
 	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/dashboard-influencer.html">Meu Feedback</a>
+	                                                    <a class="nav-link" href="/dashboard_tcc/meu_feedback.html">Meu Feedback</a>
 	                                                </li>
+	                                               
 	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/influencer-finder.html">Feedback Cliente</a>
-	                                                </li>
-	                                                <li class="nav-item">
-	                                                    <a class="nav-link" href="/dashboard_tcc/influencer-profile.html">Feedback Empresa</a>
+	                                                    <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Feedback Empresa</a>
 	                                                </li>
 	                                            </ul>
 	                                        </div>
@@ -255,21 +252,13 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/general.html">General</a>
-                                        </li>
+                                       
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/carousel.html">Carousel</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/listgroup.html">List Group</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/typography.html">Typography</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/accordions.html">Accordions</a>
-                                        </li>
+                                        
+                                        
+                                        
                                         <li class="nav-item">
                                             <a class="nav-link" href="/dashboard_tcc/pages/tabs.html">Tabs</a>
                                         </li>
@@ -282,7 +271,7 @@
                                 <div id="submenu-4" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/multiselect.html">Reservas Avulso</a>
+                                            <a class="nav-link" href="#">Reservas Avulso</a>
                                         </li>
                                         
                                     </ul>
@@ -294,11 +283,11 @@
                                 <div id="submenu-11" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/ecommerce-product.html">Nossos Produtos</a>
+                                            <a class="nav-link" href="/dashboard_tcc/venda_produto.html">Nossos Produtos</a>
                                         </li>
                                         
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/pricing.html">Planos</a>
+                                            <a class="nav-link" href="/dashboard_tcc/pages/venda_planos.html">Planos</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" >vazio </a>
@@ -311,47 +300,25 @@
                                 Suporte Empresa
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Pages </a>
+                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Paginação</a>
                                 <div id="submenu-6" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/blank-page-header.html">Área em Branco</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/login.html">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/404-page.html">404 página</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/sign-up.html">Registro</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/forgot-password.html">Esqueci o Password</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/pricing.html">Tabela de Preços</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/timeline.html">Linha do Tempo</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/calendar.html">Calendario</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/sortable-nestable-lists.html">Listas encaixáveis ​​ordenáveis</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/widgets.html">Gráfico Dinâmico</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/media-object.html">Objetos de mídia</a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/dashboard_tcc/pages/color-picker.html">Seletor de cores</a>
-                                        </li>
-                                    </ul>
+                                     <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/avisos_suporte.html">Avisos do Suporte</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/regras_de_negocio.html">Regras de Negocio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/calendario_de_folga.html">Calendario</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/erro_404.html">404 página</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard_tcc/pages/configuracao.html">Configuracao</a>
+                                </li>
+                            </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -445,6 +412,7 @@
         </div>
 
         <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
@@ -452,219 +420,191 @@
         <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
-            <div class="container-fluid dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Listgroup </h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">UI Elements</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Listgroup</li>
-                                    </ol>
-                                </nav>
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">E-commerce Product Invoice </h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Invoice</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header p-4">
+                                     <a class="pt-2 d-inline-block" href="index.html">Concept</a>
+                                   
+                                    <div class="float-right"> <h3 class="mb-0">Invoice #1</h3>
+                                    Date: 3 Dec, 2020</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-6">
+                                            <h5 class="mb-3">From:</h5>                                            
+                                            <h3 class="text-dark mb-1">Gerald A. Garcia</h3>
+                                         
+                                            <div>2546 Penn Street</div>
+                                            <div>Sikeston, MO 63801</div>
+                                            <div>Email: info@gerald.com.pl</div>
+                                            <div>Phone: +573-282-9117</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5 class="mb-3">To:</h5>
+                                            <h3 class="text-dark mb-1">Anthony K. Friel</h3>                                            
+                                            <div>478 Collins Avenue</div>
+                                            <div>Canal Winchester, OH 43110</div>
+                                            <div>Email: info@anthonyk.com</div>
+                                            <div>Phone: +614-837-8483</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive-sm">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">#</th>
+                                                    <th>Item</th>
+                                                    <th>Description</th>
+                                                    <th class="right">Unit Cost</th>
+                                                    <th class="center">Qty</th>
+                                                    <th class="right">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">1</td>
+                                                    <td class="left strong">Origin License</td>
+                                                    <td class="left">Extended License</td>
+                                                    <td class="right">$1500,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$1500,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">2</td>
+                                                    <td class="left">Custom Services</td>
+                                                    <td class="left">Instalation and Customization (cost per hour)</td>
+                                                    <td class="right">$110,00</td>
+                                                    <td class="center">20</td>
+                                                    <td class="right">$22.000,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">3</td>
+                                                    <td class="left">Hosting</td>
+                                                    <td class="left">1 year subcription</td>
+                                                    <td class="right">$309,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$309,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">4</td>
+                                                    <td class="left">Platinum Support</td>
+                                                    <td class="left">1 year subcription 24/7</td>
+                                                    <td class="right">$5.000,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$5.000,00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-5">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-5 ml-auto">
+                                            <table class="table table-clear">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Subtotal</strong>
+                                                        </td>
+                                                        <td class="right">$28,809,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Discount (20%)</strong>
+                                                        </td>
+                                                        <td class="right">$5,761,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">VAT (10%)</strong>
+                                                        </td>
+                                                        <td class="right">$2,304,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Total</strong>
+                                                        </td>
+                                                        <td class="right">
+                                                            <strong class="text-dark">$20,744,00</strong>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- end pageheader -->
+                <!-- footer -->
                 <!-- ============================================================== -->
-             
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- basic list  -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Basic</h5>
-                                <div class="card-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item active">Cras justo odio</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Morbi leo risus</li>
-                                        <li class="list-group-item">Porta ac consectetur ac</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                    </ul>
-                                </div>
+                <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                              
                             </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end basic list  -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <!-- ============================================================== -->
-                            <!-- hover list  -->
-                            <!-- ============================================================== -->
-                            <div class="card">
-                                <h5 class="card-header">Hover List Group</h5>
-                                <div class="card-body">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action active"> Cras justo odio </a>
-                                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                                        <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-                                    </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="text-md-right footer-links d-none d-sm-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
                                 </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end hoverlist  -->
-                            <!-- ============================================================== -->
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <!-- ============================================================== -->
-                            <!-- flush list  -->
-                            <!-- ============================================================== -->
-                            <div class="card">
-                                <h5 class="card-header">Flush List</h5>
-                                <div class="card-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Cras justo odio</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Morbi leo risus</li>
-                                        <li class="list-group-item">Porta ac consectetur ac</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                    </ul>
-                                </div>
-                                <!-- ============================================================== -->
-                                <!-- end flush list -->
-                                <!-- ============================================================== -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- contectual list  -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Contextual List</h5>
-                                <div class="card-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-                                        <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-                                        <li class="list-group-item list-group-item-success">This is a success list group item</li>
-                                        <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
-                                        <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
-                                        <li class="list-group-item list-group-item-info">This is a info list group item</li>
-                                        <li class="list-group-item list-group-item-light">This is a light list group item</li>
-                                        <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end contectual list  -->
-                            <!-- ============================================================== -->
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <!-- ============================================================== -->
-                            <!-- custom content list  -->
-                            <!-- ============================================================== -->
-                            <div class="card">
-                                <h5 class="card-header">Custom Content</h5>
-                                <div class="card-body">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1 text-white">List group item heading</h5>
-                                                <small>3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                            <small>Donec id elit non mi porta.</small>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end custom content list  -->
-                            <!-- ============================================================== -->
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- custom list badge -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">List with Badges</h5>
-                                <div class="card-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Cras justo odio
-                                            <span class="badge badge-primary badge-pill">14</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Dapibus ac facilisis in
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Morbi leo risus
-                                            <span class="badge badge-primary badge-pill">1</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end custom list badge -->
-                        <!-- ============================================================== -->
-                    </div>
-                
-            </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end footer -->
+            <!-- end wrapper  -->
             <!-- ============================================================== -->
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../assets/libs/js/main-js.js"></script>
+        <!-- ============================================================== -->
+        <!-- end main wrapper  -->
+        <!-- ============================================================== -->
+        <!-- Optional JavaScript -->
+        <!-- jquery 3.3.1 -->
+          <script src="../chart_js/jquery-3.3.1.min.js"></script>
+        <!-- bootstap bundle js -->
+        <script src="../chart_js/bootstrap.bundle.js"></script>
+        <!-- slimscroll js -->
+        <script src="../chart_js/jquery.slimscroll.js"></script>
+        <!-- main js -->
+        <script src="../chart_js/main-js.js"></script>
 </body>
-
+ 
 </html>

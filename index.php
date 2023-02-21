@@ -5,16 +5,14 @@ include("comando_php/crud_php/body.php");
 <html lang="pt-BR">
  
 <head>
-    <!-- Required meta tags -->
+    
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
+    <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 
+    <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="css_dash/morris.css">
+    <link rel="stylesheet" href="css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
@@ -406,37 +404,23 @@ include("comando_php/crud_php/body.php");
   
     
     <!-- Optional JavaScript -->
-     <!-- jquery 3.3.1 js-->
-     <script  src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-     <!-- bootstrap bundle js-->
-     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-     <!-- slimscroll js-->
-     <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
-   <!-- java do Chats js Antonio  Graficos -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js" integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script src="chart_js/chart.js"></script>
-      <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-	<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-	                    <!-- chart js -->
-	                    <script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
-	                    <script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
-	                    <!-- dashboard js Antonio -->
-	                    <script src="chart_js/dashboard-influencer.js"></script>
+    <script src="chart_js/jquery-3.3.1.min.js"></script>
+    <script src="chart_js/bootstrap.bundle.js"></script>
+    <script src="chart_js/jquery.slimscroll.js"></script>     
+    <script src="chart_js/main-js.js"></script>
+    <script src="chart_js/chartist.min.js"></script>
+    <script src="chart_js/jquery.sparkline.js"></script>
+    <script src="chart_js/raphael.min.js"></script>
+    <script src="chart_js/morris.js"></script>
+    <script src="chart_js/c3.min.js"></script>
+    <script src="chart_js/d3-5.4.0.min.js"></script>
+    <script src="chart_js/C3chartjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js" integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart_js/chart.js"></script>
+	<script src="chart_js/Chart.bundle.js"></script>
+	<script src="chart_js/chartjs.js"></script>
+      <script src="chart_js/dashboard-influencer.js"></script>
     <!-- fim -->
 </body>
  
