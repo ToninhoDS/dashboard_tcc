@@ -59,7 +59,7 @@ include("comando_php/crud_php/body.php");
                                         </div>
                                     </div>
                                     
-                                    <canvas id="myChart"  width="415" height="100"></canvas>
+                                    <canvas id="apiAleatoria"  width="415" height="100"></canvas>
                                 </div>
                             </div>
                           
