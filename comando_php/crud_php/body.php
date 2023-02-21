@@ -1,10 +1,7 @@
  <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
+   <!-- navbar e lateral do menu -->
+   
     <div class="dashboard-main-wrapper">
-         <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="../index.php">Vagas Park</a>
@@ -171,21 +168,15 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                    </li>  
-                                                   
-                                                    <li class="nav-item">
-                                                        
+                                                    </li>                                                    
+                                                    <li class="nav-item">                                                        
                                                         <a class="nav-link" href="/dashboard_tcc/detalhamento_cliente.html">Detalhamento Cliente</a>
-                                                    </li>
-                                                     
-                                                    
-                                                    <!-- fim do cadastro cliente -->
-                                                    
+                                                    </li>                                                   
+                                                    <!-- fim do cadastro cliente -->                                                   
                                                 </ul>
                                             </div>
                                         </li>
-                                        <!-- detalhamento financeiro -->
-                                        
+                                        <!-- detalhamento financeiro -->                                       
                             <li class="nav-item">
                                 <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                                 <div id="submenu-16" class="collapse submenu">
@@ -204,9 +195,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <!-- fim do comercio -->
-                                       
-                                        
+                            <!-- fim do comercio -->  
                                         <!-- Feedback  -->
                                         <li class="nav-item">
                                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-4" aria-controls="submenu-1-4"><i class=" fas fa-star-half"></i>Feedback</a>

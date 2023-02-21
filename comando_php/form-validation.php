@@ -46,7 +46,7 @@ include('crud_php/body.php');
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Cadastro Cliente</h5>
+                                <h2 class="card-header">Cadastro Cliente</h2>
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate action="cadastrar_crud.php" method="GET"  id="contact_form">
 
@@ -149,7 +149,7 @@ include('crud_php/body.php');
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Basic Form</h5>
+                                <h2 class="card-header">Cadastro Simples de Carro</h2>
                                 <div class="card-body">
                                     <form action="#" id="basicform" data-parsley-validate="">
                                         <div class="form-group">
@@ -176,8 +176,8 @@ include('crud_php/body.php');
                                             </div>
                                             <div class="col-sm-6 pl-0">
                                                 <p class="text-right">
-                                                    <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                                    <button type="submit" class="btn btn-space btn-primary">Confirmar</button>
+                                                    <button class="btn btn-space btn-secondary">Cancelar</button>
                                                 </p>
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@ include('crud_php/body.php');
                         <!-- ============================================================== -->
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Horizontal Form</h5>
+                                <h2 class="card-header">Cadastro Login </h2>
                                 <div class="card-body">
                                     <form id="form" data-parsley-validate="" novalidate="">
                                     <div class="form-group row">
@@ -209,21 +209,27 @@ include('crud_php/body.php');
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputWebSite" class="col-3 col-lg-2 col-form-label text-right">Web Site</label>
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Password Repita</label>
                                             <div class="col-9 col-lg-10">
-                                                <input id="inputWebSite" type="url" required="" data-parsley-type="url" placeholder="URL" class="form-control">
+                                                <input id="inputPassword2" type="password" required="" placeholder="Password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputWebSite" class="col-3 col-lg-2 col-form-label text-right">Placa  do Carro</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputWebSite" type="url" required="" data-parsley-type="url" placeholder="Numero da Placa" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row pt-2 pt-sm-5 mt-1">
                                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                                 <label class="be-checkbox custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"><span class="custom-control-label">Remember me</span>
+                                                    <input type="checkbox" class="custom-control-input"><span class="custom-control-label">Está tudo correto?</span>
                                                 </label>
                                             </div>
                                             <div class="col-sm-6 pl-0">
                                                 <p class="text-right">
-                                                    <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                                    <button type="submit" class="btn btn-space btn-primary">Confirmar</button>
+                                                    <button class="btn btn-space btn-secondary">Cancelar</button>
                                                 </p>
                                             </div>
                                         </div>
@@ -241,7 +247,7 @@ include('crud_php/body.php');
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Validation Types</h5>
+                                <h2 class="card-header">Cadastro Completo - Mensalista</h2>
                                 <div class="card-body">
                                     <form id="validationform" data-parsley-validate="" novalidate="">
                                         <div class="form-group row">
@@ -373,8 +379,8 @@ include('crud_php/body.php');
                                         </div>
                                         <div class="form-group row text-right">
                                             <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
-                                                <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                                <button class="btn btn-space btn-secondary">Cancel</button>
+                                                <button type="submit" class="btn btn-space btn-primary">Confirmar</button>
+                                                <button class="btn btn-space btn-secondary">Cancelar</button>
                                             </div>
                                         </div>
                                     </form>
