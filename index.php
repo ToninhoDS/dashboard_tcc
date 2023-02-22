@@ -74,7 +74,7 @@ include("comando_php/crud_php/body.php");
                                             <span>N/A</span>
                                         </div>
                                     </div>
-                                    <canvas id="myChart_maior"  width="415" height="100"></canvas>
+                                    <canvas id="apiAleatoriaLinha"  width="380" height="100"></canvas>
                                 </div>
                             </div>
                             
@@ -420,6 +420,7 @@ include("comando_php/crud_php/body.php");
     <script src="chart_js/chart.js"></script>
 	<script src="chart_js/Chart.bundle.js"></script>
 	<script src="chart_js/chartjs.js"></script>
+	<script src="chart_js/api_chart.js"></script>
       <script src="chart_js/dashboard-influencer.js"></script>
     <!-- fim -->
 </body>
