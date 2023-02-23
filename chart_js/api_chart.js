@@ -60,12 +60,15 @@ const upDados_Atualizar=()=>{
                 var totalVagas = 49; // total de vagas no estacionamento
                 var totalDesistencia = 0;
                 var somaVagasOcupadas = 0;
+               
                 somaVagasOcupadas += vagasLivres + vagasOcupadas + vagasResevadas;
                 totalDesistencia = (desistencia / 100) * totalVagas;
-                document.getElementById('vagasLivesOcupadas').innerHTML = somaVagasOcupadas; // valor total de vagas
-                document.getElementById('reservasCanceladas').innerHTML = totalDesistencia.toFixed(2)+ptg; //calcular o resto, concatenar uma string '+' toFixed(2) duas casas depois da virgula
-                // dar update na varivael com as informções da variavel -> array
+                document.getElementById('vagasLivesOcupadas').innerHTML = somaVagasOcupadas; 
+                document.getElementById('reservasCanceladas').innerHTML = totalDesistencia.toFixed(2)+ptg;
+            //     document.getElementById("cardVagas").innerHTML = 10;
+            // document.getElementById("cardOcupado").innerHTML = 10;
                 graficoTcc.update()
+               
             })
             .catch(erro=>{
                console.log("Erro" +erro) 

@@ -232,7 +232,7 @@ include("comando_php/crud_php/body.php");
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Vagas Livres</h5>
-	                                        <h2 class="mb-0"> 10</h2>
+	                                        <h2 class="mb-0" id="cardVagas">0</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
 	                                        <i class="fa fa-eye fa-fw fa-sm text-info"></i>
@@ -245,7 +245,7 @@ include("comando_php/crud_php/body.php");
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Vagas Ocupadas</h5>
-	                                        <h2 class="mb-0"> 24</h2>
+	                                        <h2 class="mb-0" id="cardOcupado">0</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
 	                                        <i class="fa fa-user fa-fw fa-sm text-primary"></i>
@@ -258,7 +258,7 @@ include("comando_php/crud_php/body.php");
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Quantos usaram o Serviço</h5>
-	                                        <h2 class="mb-0">20</h2>
+	                                        <h2 class="mb-0" id="lucroMensal">$0.00</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
 	                                        <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
@@ -270,8 +270,8 @@ include("comando_php/crud_php/body.php");
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Lucro do Dia</h5>
-	                                        <h2 class="mb-0"> $1.049.00</h2>
+	                                        <h5 class="text-muted">Lucro anual</h5>
+	                                        <h2 class="mb-0" id="lucroAnual"> $0.00</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
 	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
@@ -286,29 +286,29 @@ include("comando_php/crud_php/body.php");
 	                      
 	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
-	                                <h5 class="card-header">Followers by Gender</h5>
+	                                <h2 class="card-header"><img src="img/feedback-do-cliente.png"  width="35px" height="35px"> Feedback</h2>
 	                                <div class="card-body">
 	                                    <div id="gender_donut" style="height: 230px;"></div>
 	                                </div>
 	                                <div class="card-footer p-0 bg-white d-flex">
 	                                    <div class="card-footer-item card-footer-item-bordered w-50">
-	                                        <h2 class="mb-0"> 50% </h2>
-	                                        <p>Vagas</p>
+	                                        <h2  id="graficoPizzaP"></h2>
+	                                        <p>Votos</p>
 	                                    </div>
 	                                    <div class="card-footer-item card-footer-item-bordered">
-	                                        <h2 class="mb-0">40% </h2>
-	                                        <p>Ocupado</p>
+	                                        <h2  id="graficoPizzaN"> </h2>
+	                                        <p>Não Voltaram</p></p>
 	                                    </div>
 	                                </div>
 	                            </div>
 	                        </div>
 						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
 							<div class="card">
-								<h5 class="card-header">Followers by Age</h5>
+								<h5 class="card-header"><img src="img/registro-de-tempo.png"  width="35px" height="35px"> Tempo por Vaga</h5>
 								<div class="card-body">
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">15 - 20</h4>
+											<h4 class="mb-0">Vaga - 1</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 60%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -316,7 +316,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">20 - 25</h4>
+											<h4 class="mb-0">Vaga - 2</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 55%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -324,7 +324,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">25 - 30</h4>
+											<h4 class="mb-0">Vaga - 3</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -332,7 +332,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">30 - 35</h4>
+											<h4 class="mb-0">Vaga - 4</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 35%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -340,7 +340,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">35 - 40</h4>
+											<h4 class="mb-0">Vaga - 5</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 21%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -348,7 +348,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">45 - 50</h4>
+											<h4 class="mb-0">Vaga - 6</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 85%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -356,7 +356,7 @@ include("comando_php/crud_php/body.php");
 									</div>
 									<div class="mb-3">
 										<div class="d-inline-block">
-											<h4 class="mb-0">50 - 55</h4>
+											<h4 class="mb-0">Vaga - 7</h4>
 										</div>
 										<div class="progress mt-2 float-right progress-md">
 											<div class="progress-bar bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -367,7 +367,7 @@ include("comando_php/crud_php/body.php");
 						</div>
 	                        <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
-	                                <h5 class="card-header">Top Folllowes by Locations </h5>
+	                                <h5 class="card-header"><img src="img/dinheiro.png"  width="35px" height="35px"> Receita Mensal </h5>
 	                                <div class="card-body">
 	                                    <canvas id="chartjs_bar_horizontal"></canvas>
 	                                </div>
