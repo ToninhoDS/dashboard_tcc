@@ -184,7 +184,7 @@ console.log("acessou a função " +id); // olhar se chamou a função
 
 
 // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
-const dados = await fetch('excluir.php?id=' + id); // atribuir a uma constante
+const dados = await fetch('excluir_restricao.php?id=' + id); // atribuir a uma constante
 
 const retorna = await dados.json();
 if(retorna['erro']){

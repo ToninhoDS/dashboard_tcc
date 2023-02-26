@@ -1,4 +1,7 @@
-
+usuarioscreate database db_tcc_estacionamento;
+/*drop database db_tcc_estacionamento;/*CUIDADO COM ESSE COMANDO, PROCURE TER DUMP OU UMA COPIA*/
+show databases;
+SELECT @@autocommit;
 
 create database db_tcc_estacionamento;
 
@@ -162,6 +165,8 @@ references tb_horario(cd_horario),
 foreign key(cd_veiculo)
 references tb_veiculo(cd_veiculo))
 engine=InnoDB; 
+
+
 
 create table if not exists tb_vaga(
 cd_vaga int not null auto_increment,
@@ -394,28 +399,27 @@ insert into tb_veiculo values
 select * from tb_veiculo;
 
 -- 12
-
 insert into tb_estacionamento values
-('1','20220510','20220511','1','1','Tonho Estacionamento'),
-('2','20220610','20220612','2','2','Enzo Park'),
-('3','20220615','20220621','3','3','Enzo Park'),
-('4','20220712','20220713','4','4','Enzo Park'),
-('5','20220610','20220622','5','5','Tonho Estacionamento'),
-('6','20220720','20220721','6','6','Enzo Park'),
-('7','20220510','20220511','7','7','Tonho Estacionamento'),
-('8','20220701','20220703','8','8','Enzo Park'),
-('9','20220530','20220531','9','9','Tonho Estacionamento'),
-('10','20220800','20220802','10','10','Enzo Park'),
-('11','20220622','20220623','11','11','Tonho Estacionamento'),
-('12','20220920','20220921','12','12','Tonho Estacionamento'),
-('13','20220510','20220521','13','13','Tonho Estacionamento'),
-('14','20220910','20220911','14','14','Enzo Park'),
-('15','20220625','20220626','15','15','Enzo Park'),
-('16','20220721','20220726','16','16','Tonho Estacionamento'),
-('17','20220801','20220802','17','17','Tonho Estacionamento'),
-('18','20220620','20220629','18','18','Tonho Estacionamento'),
-('19','20220723','20220824','19','19','Enzo Park'),
-('20','20220810','20220815','20','20','Tonho Estacionamento');
+('1','Tonho Estacionamento','20220510','20220511','1','1'),
+('2','Tonho Estacionamento','20220610','20220612','2','2'),
+('3','Enzo Park','20220615','20220621','3','3'),
+('4','Enzo Park','20220712','20220713','4','4'),
+('5','Tonho Estacionamento','20220610','20220622','5','5'),
+('6','Enzo Park','20220720','20220721','6','6'),
+('7','Tonho Estacionamento','20220510','20220511','7','7'),
+('8','Enzo Park','20220701','20220703','8','8'),
+('9','Tonho Estacionamento','20220530','20220531','9','9'),
+('10','Tonho Estacionamento','20220800','20220802','10','10'),
+('11','Enzo Park','20220622','20220623','11','11'),
+('12','Enzo Park','20220920','20220921','12','12'),
+('13','Tonho Estacionamento','20220510','20220521','13','13'),
+('14','Tonho Estacionamento','20220910','20220911','14','14'),
+('15','Enzo Park','20220625','20220626','15','15'),
+('16','Enzo Park','20220721','20220726','16','16'),
+('17','Enzo Park','20220801','20220802','17','17'),
+('18','Enzo Park','20220620','20220629','18','18'),
+('19','Enzo Park','20220723','20220824','19','19'),
+('20','Enzo Park','20220810','20220815','20','20');
 select * from tb_estacionamento;
 
 -- 13

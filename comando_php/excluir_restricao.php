@@ -7,7 +7,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)){
 
-    $query_usuario ="DELETE FROM teste01 WHERE cd_teste=:id";
+    $query_usuario ="DELETE FROM tb_cliente WHERE cd_cliente=:id";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->bindParam(':id',$id);
     
@@ -29,4 +29,3 @@ if (!empty($id)){
 
 
 echo json_encode($retorna);
-
