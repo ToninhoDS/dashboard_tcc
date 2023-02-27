@@ -1,18 +1,20 @@
-usuarioscreate database db_tcc_estacionamento;
+
 /*drop database db_tcc_estacionamento;/*CUIDADO COM ESSE COMANDO, PROCURE TER DUMP OU UMA COPIA*/
 show databases;
 SELECT @@autocommit;
 
+drop database   db_tcc_estacionamento;
 create database db_tcc_estacionamento;
 
 use db_tcc_estacionamento;
 
 create table if not exists tb_uf(
 cd_uf int not null auto_increment,
-sg_uf char(2),
+sg_uf char(10),
 constraint pk_uf
 primary key(cd_uf))
 engine=InnoDB;
+
 
 create table if not exists tb_cidade(
 cd_cidade int not null auto_increment,
@@ -21,7 +23,9 @@ cd_uf int,
 constraint 
 primary key(cd_cidade),
 foreign key(cd_uf)
-references tb_uf(cd_uf))
+references tb_uf(cd_uf)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
 
@@ -32,7 +36,9 @@ cd_cidade int,
 constraint pk_bairro
 primary key (cd_bairro),
 foreign key(cd_cidade)
-references tb_cidade(cd_cidade))
+references tb_cidade(cd_cidade)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
 
@@ -53,8 +59,12 @@ nm_cliente varchar (75),
 constraint pk_cliente
 primary key(cd_cliente),
 foreign key(cd_login)
-references tb_login(cd_login))
+references tb_login(cd_login)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
+
 engine=InnoDB;
+
 
 create table if not exists tb_telefone(
 cd_telefone int not null auto_increment,
@@ -64,8 +74,11 @@ cd_cliente int,
 constraint pk_telefone
 primary key(cd_telefone),
 foreign key(cd_cliente)
-references tb_cliente(cd_cliente))
+references tb_cliente(cd_cliente)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
+
 
 create table if not exists tb_pessoa_juridica(
 cd_pessoa_juridica int not null auto_increment,
@@ -75,7 +88,9 @@ cd_cliente int,
 constraint pk_pessoa_juridica
 primary key(cd_pessoa_juridica),
 foreign key(cd_cliente)
-references tb_cliente(cd_cliente))
+references tb_cliente(cd_cliente)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
 
@@ -87,7 +102,9 @@ cd_bairro int,
 constraint pk_pessoa_fisica
 primary key(cd_pessoa_fisica),
 foreign key(cd_bairro)
-references tb_bairro(cd_bairro))
+references tb_bairro(cd_bairro)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
 create table if not exists tb_marca(
@@ -112,9 +129,12 @@ cd_marca int,
 constraint pk_modelo
 primary key(cd_modelo),
 foreign key(cd_marca)
-references tb_marca(cd_marca))
+references tb_marca(cd_marca)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
+drop table tb_veiculo;
 select *from tb_veiculo;
 create table if not exists tb_veiculo(
 cd_veiculo int not null auto_increment,
@@ -132,8 +152,11 @@ foreign key(cd_modelo)
 references tb_modelo(cd_modelo),
 constraint fk_cor
 foreign key(cd_cor)
-references tb_cor(cd_cor))
+references tb_cor(cd_cor)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
+
 
 create table if not exists tb_horario(
 cd_horario int not null auto_increment,
@@ -150,7 +173,7 @@ constraint pk_patio
 primary key(cd_patio))
 engine=InnoDB;
 
-
+drop table tb_estacionamento;
 create table if not exists tb_estacionamento(
 cd_estacionamento int not null auto_increment,
 nm_estacionamento varchar(100),
@@ -163,11 +186,13 @@ primary key(cd_estacionamento),
 foreign key (cd_horario)
 references tb_horario(cd_horario),
 foreign key(cd_veiculo)
-references tb_veiculo(cd_veiculo))
+references tb_veiculo(cd_veiculo)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB; 
 
 
-
+drop table tb_vaga;
 create table if not exists tb_vaga(
 cd_vaga int not null auto_increment,
 cd_numero int ,
@@ -181,7 +206,9 @@ foreign key(cd_patio)
 references tb_patio(cd_patio),
 constraint fk_estacionamento
 foreign key(cd_estacionamento)
-references tb_estacionamento(cd_estacionamento))
+references tb_estacionamento(cd_estacionamento)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
 engine=InnoDB;
 
 insert into tb_login values
@@ -209,26 +236,26 @@ select * from tb_login;
  
  
  insert into tb_cliente values
-('2888', 'julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs', '1', 'Julio Thiago Pereira'),
-('2930', 'francisco_bernardes@petrobrais.com.br', 'tpRjDeDiSI', '2',  'Francisco Caleb Vitor Bernardes'),
-('1383', 'rebeca_silveira@wwlimpador.com.br', '66kt9COrDu', '3',  'Rebeca Sophie Silveira'),
-('3344', 'enrico_martins@live.com.pt', 'EMOXEdB81Y', '4',  'Enrico Bento Tiago Martins'),
-('1858', 'laviniamarciarocha@pisbrasil.com.br', 'eBkzc3zruE', '5',  'Lavínia Márcia Rocha'),
-('3172', 'eliane_jennifer_dacruz@damha.com.br', 'XIXaXAdkgx', '6',  'Eliane Jennifer da Cruz'),
-('3532', 'elisa_malu_rodrigues@moyageorges.com.br', 'B9ifWchxsJ', '7',  'Elisa Malu Nair Rodrigues'),
-('1531', 'henriqueerickmelo@wredenborg.se', 'dw4d4uicW3', '8',  'Henrique Erick Melo'),
-('3893', 'giovanni_darosa@kof.com.mx', 'hGKoIJAPcI', '9',  'Giovanni Antonio Luís da Rosa'),
-('2727', 'rebeca_agatha_viana@tanby.com.br', '7wqU0tHtEu', '10',  'Rebeca Agatha Viana'),
-('3214', 'raimunda-aparicio70@qmagico.com.br', 'fL58W9J7Yi', '11',  'Raimunda Analu Aparício'),
-('1855', 'mirellavanessadacosta@live.se', 'bLzkcIiz8l', '12',  'Mirella Vanessa Alessandra da Costa'),
-('2615', 'noahjuliocortereal@santander.com.br', 'tk5cQaf89N', '13',  'Noah Julio Thomas Corte Real'),
-('3684', 'larissa-campos96@genesyslab.com', 'AdsBFGGGT2', '14',  'Larissa Marlene Josefa Campos'),
-('1056', 'marcio.henry.ribeiro@oi15.com.br', 'TOOaG6ZrGa', '15',  'Márcio Henry Ruan Ribeiro'),
-('1229', 'ruan_dasilva@stembalagens.com.br', 'Cz3Jt7lWTq', '16',  'Ruan Murilo da Silva"'),
-('3407', 'vanessa-lima80@2014fwcao.com', 'j4G4p7PckW', '17',  'Vanessa Luna Lima'),
-('3203', 'lavinia.andreia.almada@yahoo.com.br', 'r2BiF1Im9D', '18',  'Lavínia Andreia Almada'),
-('1640', 'leandro_emanuel_peixoto@piemme.com.br', 'ZXmAHxBKF3', '19',  'Leandro Emanuel Cláudio Peixoto'),
-('2220', 'emanuelly_sara_barbosa@tanet.com.br', 'hYYjbWOOcf', '20',  'Emanuelly Sara Tânia Barbosa');
+('1', 'julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs', '1', 'Julio Thiago Pereira'),
+('2', 'francisco_bernardes@petrobrais.com.br', 'tpRjDeDiSI', '2',  'Francisco Caleb Vitor Bernardes'),
+('3', 'rebeca_silveira@wwlimpador.com.br', '66kt9COrDu', '3',  'Rebeca Sophie Silveira'),
+('4', 'enrico_martins@live.com.pt', 'EMOXEdB81Y', '4',  'Enrico Bento Tiago Martins'),
+('5', 'laviniamarciarocha@pisbrasil.com.br', 'eBkzc3zruE', '5',  'Lavínia Márcia Rocha'),
+('6', 'eliane_jennifer_dacruz@damha.com.br', 'XIXaXAdkgx', '6',  'Eliane Jennifer da Cruz'),
+('7', 'elisa_malu_rodrigues@moyageorges.com.br', 'B9ifWchxsJ', '7',  'Elisa Malu Nair Rodrigues'),
+('8', 'henriqueerickmelo@wredenborg.se', 'dw4d4uicW3', '8',  'Henrique Erick Melo'),
+('9', 'giovanni_darosa@kof.com.mx', 'hGKoIJAPcI', '9',  'Giovanni Antonio Luís da Rosa'),
+('10', 'rebeca_agatha_viana@tanby.com.br', '7wqU0tHtEu', '10',  'Rebeca Agatha Viana'),
+('11', 'raimunda-aparicio70@qmagico.com.br', 'fL58W9J7Yi', '11',  'Raimunda Analu Aparício'),
+('12', 'mirellavanessadacosta@live.se', 'bLzkcIiz8l', '12',  'Mirella Vanessa Alessandra da Costa'),
+('13', 'noahjuliocortereal@santander.com.br', 'tk5cQaf89N', '13',  'Noah Julio Thomas Corte Real'),
+('14', 'larissa-campos96@genesyslab.com', 'AdsBFGGGT2', '14',  'Larissa Marlene Josefa Campos'),
+('15', 'marcio.henry.ribeiro@oi15.com.br', 'TOOaG6ZrGa', '15',  'Márcio Henry Ruan Ribeiro'),
+('16', 'ruan_dasilva@stembalagens.com.br', 'Cz3Jt7lWTq', '16',  'Ruan Murilo da Silva"'),
+('17', 'vanessa-lima80@2014fwcao.com', 'j4G4p7PckW', '17',  'Vanessa Luna Lima'),
+('18', 'lavinia.andreia.almada@yahoo.com.br', 'r2BiF1Im9D', '18',  'Lavínia Andreia Almada'),
+('19', 'leandro_emanuel_peixoto@piemme.com.br', 'ZXmAHxBKF3', '19',  'Leandro Emanuel Cláudio Peixoto'),
+('20', 'emanuelly_sara_barbosa@tanet.com.br', 'hYYjbWOOcf', '20',  'Emanuelly Sara Tânia Barbosa');
 select * from  tb_cliente;
 
 -- 3
@@ -328,17 +355,47 @@ insert into tb_marca values
 ('2','Volkswagen'),
 ('3','Bentley'),
 ('4','Hyundai'),
-('5','Chevrolet');
+('5','Fiat'),
+('6','Volkswagen'),
+('7','Bentley'),
+('8','Hyundai'),
+('9','Fiat'),
+('10','Volkswagen'),
+('11','Bentley'),
+('12','Hyundai'),
+('13','Fiat'),
+('14','Volkswagen'),
+('15','Bentley'),
+('16','Hyundai'),
+('17','Fiat'),
+('18','Volkswagen'),
+('19','Bentley'),
+('20','Chevrolet');
 select * from tb_marca;
 
 -- 8
 
 insert into tb_modelo values
-('1','Volkswagen Gol','2'),
-('2','Fiat Strada','1'),
-('3','Chevrolet Onix','5'),
+('1','Volkswagen Gol','1'),
+('2','Fiat Strada','2'),
+('3','Chevrolet Onix','3'),
 ('4','Hyundai HB20','4'),
-('5','Chevrolet Onix Plus','5');
+('5','Volkswagen Gol','5'),
+('6','Fiat Strada','6'),
+('7','Chevrolet Onix','7'),
+('8','Hyundai HB20','8'),
+('9','Volkswagen Gol','9'),
+('10','Fiat Strada','10'),
+('11','Chevrolet Onix','11'),
+('12','Hyundai HB20','12'),
+('13','Volkswagen Gol','13'),
+('14','Fiat Strada','14'),
+('15','Chevrolet Onix','15'),
+('16','Hyundai HB20','16'),
+('17','Volkswagen Gol','17'),
+('18','Fiat Strada','18'),
+('19','Chevrolet Onix','19'),
+('20','Chevrolet Onix Plus','20');
 select * from tb_modelo;
 
 -- 9
@@ -376,26 +433,26 @@ select * from tb_patio;
 -- 11
 
 insert into tb_veiculo values
-('1','11','2888','1','1'),
-('2','22','2930','2','2'),
-('3','33','1383','3','3'),
-('4','44','3344','4','4'),
-('5','55','1858','5','5'),
-('6','66','3172','6','5'),
-('7','77','3532','7','4'),
-('8','88','1531','8','3'),
-('9','99','3893','9','2'),
-('10','101','2727','10','1'),
-('11','111','3214','2','1'),
-('12','122','1855','5','2'),
-('13','133','2615','9','3'),
-('14','144','3684','7','4'),
-('15','155','1056','8','5'),
-('16','166','1229','6','1'),
-('17','177','3407','7','1'),
-('18','188','3203','8','2'),
-('19','199','1640','9','5'),
-('20','202','2220','2','4');
+('1','11','1','1','1'),
+('2','22','2','2','2'),
+('3','33','3','3','3'),
+('4','44','4','4','4'),
+('5','55','5','5','5'),
+('6','66','6','6','6'),
+('7','77','7','7','7'),
+('8','88','8','8','8'),
+('9','99','9','9','9'),
+('10','101','10','10','10'),
+('11','111','11','2','11'),
+('12','122','12','5','12'),
+('13','133','13','9','13'),
+('14','144','14','7','14'),
+('15','155','15','8','15'),
+('16','166','16','6','16'),
+('17','177','17','7','17'),
+('18','188','18','8','18'),
+('19','199','19','9','19'),
+('20','202','20','2','20');
 select * from tb_veiculo;
 
 -- 12
@@ -450,76 +507,76 @@ select * from tb_vaga;
 -- 14
 
 insert into tb_pessoa_fisica values
-('1', '136.230.852-86', '2888', '1'),
-('2', '558.882.025-84', '2930', '2'),
-('3', '067.846.794-31', '1383', '3'),
-('4', null, '3344', '4'),
-('5','743.721.422-93', '1858', '5'),
-('6', null, '3172', '6'),
-('7','399.443.846-23', '3532', '7'),
-('8', null, '1531', '8'),
-('9', null, '3893', '9'),
-('10', null, '2727', '10'),
-('11','991.851.233-40', '3214', '11'),
-('12', null, '1855', '12'),
-('13','567.596.008-27', '2615', '13'),
-('14','031.574.345-00', '3684', '14'),
-('15','248.969.750-14', '1056', '15'),
-('16', null, '1229', '16'),
-('17', null, '3407', '17'),
-('18', null, '3203', '18'),
-('19','049.161.186-26', '1640', '19'),
-('20','652.159.799-01', '2220', '20');
+('1', '136.230.852-86', '1', '1'),
+('2', '558.882.025-84', '2', '2'),
+('3', '067.846.794-31', '3', '3'),
+('4', null, '4', '4'),
+('5','743.721.422-93', '5', '5'),
+('6', null, '6', '6'),
+('7','399.443.846-23', '7', '7'),
+('8', null, '8', '8'),
+('9', null, '9', '9'),
+('10', null, '10', '10'),
+('11','991.851.233-40', '11', '11'),
+('12', null, '12', '12'),
+('13','567.596.008-27', '13', '13'),
+('14','031.574.345-00', '14', '14'),
+('15','248.969.750-14', '15', '15'),
+('16', null, '16', '16'),
+('17', null, '17', '17'),
+('18', null, '18', '18'),
+('19','049.161.186-26', '19', '19'),
+('20','652.159.799-01', '20', '20');
 select * from tb_pessoa_fisica;
 
 -- 15
 
 insert into tb_pessoa_juridica values
-('1', null,'1', '2888'),
-('2', null, '2', '2930'),
-('3', null, '3', '1383'),
-('4', '42.511.777/0001-60', '4', '3344'),
-('5', null, '5', '1858'),
-('6', '59.067.078/0001-76', '6', '3172'),
-('7', null, '7', '3532'),
-('8', '43.861.452/0001-70', '8', '1531'),
-('9', '37.962.613/0001-10', '9', '3893'),
-('10', '65.254.503/0001-39', '10', '2727'),
-('11', null, '11', '3214'),
-('12', '31.492.526/0001-60', '12', '1855'),
-('13', null, '13', '2615'),
-('14', null, '14', '3684'),
-('15', null, '15', '1056'),
-('16', '72.181.135/0001-01', '16', '1229'),
-('17', '36.062.069/0001-97', '17', '3407'),
-('18', '01.695.631/0001-35', '18', '3203'),
-('19', null, '19', '1640'),
-('20', null, '20', '2220');
+('1', null,'1', '1'),
+('2', null, '2', '2'),
+('3', null, '3', '3'),
+('4', '42.511.777/0001-60', '4', '4'),
+('5', null, '5', '5'),
+('6', '59.067.078/0001-76', '6', '6'),
+('7', null, '7', '7'),
+('8', '43.861.452/0001-70', '8', '8'),
+('9', '37.962.613/0001-10', '9', '9'),
+('10', '65.254.503/0001-39', '10', '10'),
+('11', null, '11', '11'),
+('12', '31.492.526/0001-60', '12', '12'),
+('13', null, '13', '13'),
+('14', null, '14', '14'),
+('15', null, '15', '15'),
+('16', '72.181.135/0001-01', '16', '16'),
+('17', '36.062.069/0001-97', '17', '17'),
+('18', '01.695.631/0001-35', '18', '18'),
+('19', null, '19', '19'),
+('20', null, '20', '20');
 select * from tb_pessoa_juridica; 
 
 -- 16
 
 insert into tb_telefone values
-('1','(66) 99163-1531', null,'2888'),
-('2','(61) 98153-5596','(61) 3763-1803','2930'),
-('3','(79) 98421-1175','(79) 2914-8488','1383'),
-('4','(92) 98271-7282', null,'3344'),
-('5','(16) 99124-3887', null,'1858'),
-('6','(68) 99917-1591','(68) 2557-3140','3172'),
-('7','(86) 98133-6502', null,'3532'),
-('8','(67) 99200-4118', null,'1531'),
-('9','(91) 99787-5532', null,'3893'),
-('10','(61) 98421-5775','(61) 2905-4970','2727'),
-('11','(81) 98767-3939','(81) 2737-2601','3214'),
-('12','(42) 99649-3133', null,'1855'),
-('13','(83) 99772-7749', null,'2615'),
-('14','(69) 98671-7424','(69) 2809-1847','3684'),
-('15','(95) 98322-1696','(95) 2674-0425','1056'),
-('16','(91) 98458-0538','(91) 3919-0690','1229'),
-('17','(32) 98561-5622','(32) 3923-5321','3407'),
-('18','(41) 99549-8073', null,'3203'),
-('19','(16) 99195-9999', null,'1640'),
-('20','(11) 99214-9687', null,'2220');
+('1','(66) 99163-1531', null,'1'),
+('2','(61) 98153-5596','(61) 3763-1803','2'),
+('3','(79) 98421-1175','(79) 2914-8488','3'),
+('4','(92) 98271-7282', null,'4'),
+('5','(16) 99124-3887', null,'5'),
+('6','(68) 99917-1591','(68) 2557-3140','6'),
+('7','(86) 98133-6502', null,'7'),
+('8','(67) 99200-4118', null,'8'),
+('9','(91) 99787-5532', null,'9'),
+('10','(61) 98421-5775','(61) 2905-4970','10'),
+('11','(81) 98767-3939','(81) 2737-2601','11'),
+('12','(42) 99649-3133', null,'12'),
+('13','(83) 99772-7749', null,'13'),
+('14','(69) 98671-7424','(69) 2809-1847','14'),
+('15','(95) 98322-1696','(95) 2674-0425','15'),
+('16','(91) 98458-0538','(91) 3919-0690','16'),
+('17','(32) 98561-5622','(32) 3923-5321','17'),
+('18','(41) 99549-8073', null,'18'),
+('19','(16) 99195-9999', null,'19'),
+('20','(11) 99214-9687', null,'20');
 select * from tb_telefone;
 
 

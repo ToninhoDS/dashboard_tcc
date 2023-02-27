@@ -48,7 +48,7 @@ include('crud_php/body.php');
                             <div class="card">
                                 <h2 class="card-header">Cadastro Cliente</h2>
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate action="cadastrar_crud.php" method="GET"  id="contact_form">
+                                    <form class="needs-validation" novalidate action="cadastrar_cliente.php" method="POST"  id="contact_form">
 
 <?php   // iniciar a sessao depois de feito o cadastro ou erro
     if(isset($_SESSION['msg'])){
@@ -91,9 +91,26 @@ include('crud_php/body.php');
                                                 <label for="validationCustomUsername">Email</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                                        <span class="input-group-text" id="inputGroupPrepend">📧 </span>
                                                     </div>
                                                     <input name="cd_email_cliente" id="cd_email_cliente" placeholder="Email" class="form-control"  type="text">
+                                                    <div class="invalid-feedback">
+                                                        Email incorreto!.
+                                                    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    
+                                                
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroupPrepend">🔒</span>
+                                                    </div>
+                                                                                                        
+                                                    <input name="cd_senha_cliente" id="cd_senha_cliente" placeholder="Senha" class="form-control"  type="text">
+                                                    <div class="invalid-feedback">
+                                                        Email incorreto!.
+                                                    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroupPrepend">🔒👍</span>
+                                                    </div>
+                                                    <input name="cd_senha_cliente_confirmar" id="cd_senha_cliente_confirmar" placeholder="Confirmar senha" class="form-control"  type="text">
                                                     <div class="invalid-feedback">
                                                         Email incorreto!.
                                                     </div>
@@ -106,6 +123,20 @@ include('crud_php/body.php');
                                                 <input type="text" name="cd_placa" id="cd_placa" placeholder="NUMERO DA PLACA" required="" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Placa do Carro invalida!.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom03">Modelo</label>
+                                                <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo" required="" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Modelo do Carro invalido!.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom03">Cor</label>
+                                                <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" required="" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Cor do Carro invalido!.
                                                 </div>
                                             </div>
                                             

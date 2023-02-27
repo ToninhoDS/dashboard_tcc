@@ -51,6 +51,8 @@ document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
 
    var nome = document.getElementById("valor_nome" + id);
    var email= document.getElementById("valor_email" + id);
+   var senha = document.getElementById("valor_senha" + id);
+   var telefone= document.getElementById("valor_telefone" + id);
 
 // controle do input 
    
@@ -58,6 +60,8 @@ document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
 email.innerHTML = "<input type='text' id='email_text"  + id + "' value='"+ email.innerHTML +"' size='20' maxlength='50'>";
+senha.innerHTML = "<input type='text' id='senha_text" + id + "' value='"+ senha.innerHTML +"' size='10' maxlength='50'>";
+telefone.innerHTML = "<input type='text' id='telefone_text"  + id + "' value='"+ telefone.innerHTML +"' size='20' maxlength='50'>";
 
 
 }
@@ -81,13 +85,18 @@ async function salvar_registro(id){
     // recuperar o valor do camppo
     var nome_valor = document.getElementById("nome_text" +id).value;
     var email_valor = document.getElementById("email_text" +id).value;
+    var senha_valor = document.getElementById("senha_text" +id).value;
+    var telefone_valor = document.getElementById("telefone_text" +id).value;
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
     document.getElementById("valor_email" + id).innerHTML = email_valor;
+    document.getElementById("valor_senha" + id).innerHTML = senha_valor;
+    document.getElementById("valor_telefone" + id).innerHTML = telefone_valor;
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
-    var dadosForm = "id=" + id + "&nome=" + nome_valor + "&email=" + email_valor ;
+    var dadosForm = "id=" + id + "&nome=" + nome_valor + "&email=" + email_valor 
+    + "&senha=" + senha_valor + "&telefone=" + telefone_valor ;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    
@@ -180,7 +189,7 @@ async function excluir_registro(id){
 async function confirma_registro(id){
 
 var  $id_valor = document.getElementById("valor_id" + id).innerHTML;
-console.log("acessou a função " +id); // olhar se chamou a função
+console.log("js id> " +id); // olhar se chamou a função
 
 
 // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
