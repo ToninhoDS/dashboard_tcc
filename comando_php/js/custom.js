@@ -240,3 +240,7 @@ async  function visualizar(id){
     }
     
 }
+
+// mandar dropdawn aberto 
+
+
