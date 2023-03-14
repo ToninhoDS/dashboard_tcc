@@ -8,10 +8,18 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //avaliar se recebir os dados
 var_dump($dados);
 
-// criar uma variavel fazia para não da erro, corrigir no banco
- $null = '';
+// deixar o nome tudo maiuscula
+$cliente = $dados['nm_cliente'];
+$cliente =strtoupper($cliente );
 
-if(empty($dados['id'])){
+
+
+// avalidar cd_senha_cliente_confirmar
+
+if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
+    $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'><p style='font-size: 20px;' >ERRRO!!! Senha não são iguais</p></div>";
+     header("Location: form-validation.php");
+}else{
     
     // depois da avalidação sera add no banco de dados 
     $query_cliente =    "INSERT INTO tb_cliente (cd_email_cliente, cd_senha_cliente, nm_cliente) 
@@ -34,13 +42,6 @@ if(empty($dados['id'])){
     $id_telefone = $conn->lastInsertId();
 
     // vou precisar puxar outros insert para fazer da pessoa fisica
-    $query_bairro = "INSERT INTO tb_bairro (nm_bairro, cd_cidade)
-    VALUES (:nm_bairro, :cd_cidade)";
-    $cadastrar_bairro= $conn->prepare($query_bairro);
-    $cadastrar_bairro->bindParam(':nm_bairro',  $null, PDO::PARAM_STR);
-    $cadastrar_bairro->bindParam(':cd_cidade', $cd_cidade, PDO::PARAM_INT);
-    $cadastrar_bairro->execute();
-    $id_bairro = $conn->lastInsertId();
     
     $query_cidade = "INSERT INTO tb_cidade (nm_cidade, cd_uf)
     VALUES (:nm_cidade, :cd_uf)";
@@ -50,11 +51,17 @@ if(empty($dados['id'])){
     $cadastrar_cidade->execute();
     $id_cidade = $conn->lastInsertId();
 
+    $query_bairro = "INSERT INTO tb_bairro (nm_bairro, cd_cidade)
+    VALUES (null, :cd_cidade)";
+    $cadastrar_bairro= $conn->prepare($query_bairro);
+    $cadastrar_bairro->bindParam(':cd_cidade', $cd_cidade, PDO::PARAM_INT);
+    $cadastrar_bairro->execute();
+    $id_bairro = $conn->lastInsertId();
+
     $query_sg_uf = "INSERT INTO tb_uf (sg_uf)
-    VALUES (:sg_uf)";
+    VALUES (null)";
     $cadastrar_sg_uf= $conn->prepare($query_sg_uf);
-    $cadastrar_sg_uf->bindParam(':sg_uf',  $null, PDO::PARAM_STR);
-    $cadastrar_cidade->execute();
+    $cadastrar_sg_uf->execute();
     $id_sg_uf = $conn->lastInsertId();
 
     $query_pessoa_fisica = "INSERT INTO tb_pessoa_fisica (cd_cpf, cd_cliente, cd_bairro)
@@ -66,52 +73,51 @@ if(empty($dados['id'])){
     $cadastrar_pessoa_fisica->execute();
     $id_pessoa_fisica = $conn->lastInsertId();
 
+    // DADOS DO CARRO
+    $query_marca = "INSERT INTO tb_marca (nm_marca)
+    VALUES (:nm_marca)";
+    $cadastrar_marca = $conn->prepare($query_marca);
+    $cadastrar_marca->bindParam(':nm_marca', $dados['nm_marca'], PDO::PARAM_STR);
+    $cadastrar_marca->execute();
+    $id_marca = $conn->lastInsertId();
 
+    $query_cor = "INSERT INTO tb_cor (nm_cor)
+    VALUES (:nm_cor)";
+    $cadastrar_cor = $conn->prepare($query_cor);
+    $cadastrar_cor->bindParam(':nm_cor', $dados['nm_cor'], PDO::PARAM_STR);
+    $cadastrar_cor->execute();
+    $id_cor = $conn->lastInsertId();
 
-
-    }else{
-        echo 'erro';
-
-    }
-
+    $query_modelo = "INSERT INTO tb_modelo (nm_modelo, cd_marca)
+    VALUES (:nm_modelo, :cd_marca)";
+    $cadastrar_modelo = $conn->prepare($query_modelo);
+    $cadastrar_modelo->bindParam(':nm_modelo', $dados['nm_modelo'], PDO::PARAM_STR);
+    $cadastrar_modelo->bindParam(':cd_marca', $id_marca, PDO::PARAM_INT);
+    $cadastrar_modelo->execute();
+    $id_modelo = $conn->lastInsertId();
     
+    $query_veiculo = "INSERT INTO tb_veiculo (cd_placa, cd_cliente, cd_cor, cd_modelo)
+    VALUES (:cd_placa, :cd_cliente, :cd_cor, :cd_modelo)";
+    $cadastrar_veiculo = $conn->prepare($query_veiculo);
+    $cadastrar_veiculo->bindParam(':cd_placa',  $dados['cd_placa'], PDO::PARAM_STR);
+    $cadastrar_veiculo->bindParam(':cd_cliente', $id_cliente, PDO::PARAM_INT);
+    $cadastrar_veiculo->bindParam(':cd_cor', $id_cor, PDO::PARAM_INT);
+    $cadastrar_veiculo->bindParam(':cd_modelo', $id_modelo, PDO::PARAM_INT);
+    $cadastrar_veiculo->execute();
+    $id_veiculo = $conn->lastInsertId();
 
 
 
+if($cadastrar_pessoa_fisica->execute()){
+    $_SESSION['msg'] = "<div class='alert alert-success' role='alert'><p style='font-size: 20px;' >Cadastro do Usuário <string>$cliente</string> concluido com Sucesso!</p></div>";
+     header("Location: form-validation.php");
+
+}else{
+    $_SESSION['msg'] = "<div class='alert alert-danger' role='alert' ><p style='font-size: 15px;'>ERRO!  Usuário não Cadastrado!</p></div>";
+     header("Location: form-validation.php");
+}
+
+}
 
 
-
-
-
-
-
-
-
-
-
-// if($conn->query($sql) === TRUE){
-//     //criar a variavel global para salvar a mensagem de sucesso    
-//     $_SESSION['msg'] = '<div class="alert alert-success" style="text-align: center;font-size:40px" role="alert">
-//     "Usuário Cadastrado com sucesso!!!
-//   </div>';
-//     //Redirecionar o Usuário
-//     header("Location: form-validation.php");
-  
-//  }else{
-//  //criar a variavel global para salvar a mensagem de sucesso    
-//  $_SESSION['msg'] = '<div class="alert alert-danger" style="text-align: center;font-size:40px" role="alert">
-//  "Usuário Cadastrado com sucesso!!!
-// </div>';
-//  //Redirecionar o Usuário
-//  header("Location: form-validation.php").$sql . "<br>" . $conn->error;
-// }
-
-
-// $conn->close();
-
-
- 
-
-
-
-
+echo json_encode($retorna);

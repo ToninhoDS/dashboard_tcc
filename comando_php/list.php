@@ -6,7 +6,7 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
 
     //Calcular o inicio visualização
-    $qnt_result_pg = 40; //Quantidade de registro por página
+    $qnt_result_pg = 30; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
     $query_usuarios = "SELECT c.cd_cliente, c.nm_cliente, c.cd_email_cliente, c.cd_senha_cliente, t.cd_numero1

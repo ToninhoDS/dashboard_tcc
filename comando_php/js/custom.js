@@ -161,7 +161,7 @@ function removerMsgALerta(){
         document.getElementById("msgAlerta").innerHTML = "";
         // colocar o milisegundos que precisa 2000
    
-    }, 2000);
+    }, 1000);
    
 } 
 // fim da mensaggem em 2s apos apresentação da mensagem

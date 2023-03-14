@@ -38,9 +38,14 @@ include('crud_php/body.php');
                         </div>
                     </div>
                 </div>
-                
-                <!-- FIM DO GUIA DO MENU -->
-                
+<?php   // iniciar a sessao depois de feito o cadastro ou erro
+if(isset($_SESSION['msg'])){
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']); 
+        // é para destruir a mensagem  global para nao reproduzir de novo
+    }  
+
+?>
                 <!-- ============================================================== -->
                 <!-- 1 FORMULARIO DE CADASTRO CLIENTE SIMPLE-->
                     <div class="row">
@@ -50,13 +55,7 @@ include('crud_php/body.php');
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate action="cadastrar_cliente.php" method="POST"  id="contact_form">
 
-<?php   // iniciar a sessao depois de feito o cadastro ou erro
-    if(isset($_SESSION['msg'])){
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']); // é para destruir a mensagem  global para nao reproduzir de novo
-    }  
 
-?>
     
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
@@ -224,31 +223,31 @@ include('crud_php/body.php');
                         <!-- ============================================================== -->
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h2 class="card-header">Cadastro Login </h2>
+                                <h2 class="card-header">Cadastro de Bicleta e Outros</h2>
                                 <div class="card-body">
-                                    <form id="form" data-parsley-validate="" novalidate="">
+                                    <form id="form" novalidate action="cadastrar_bike_outros.php" method="POST"  id="cadastro_bike_outros">
                                     <div class="form-group row">
-                                            <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Email</label>
+                                            <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Transporte</label>
                                             <div class="col-9 col-lg-10">
-                                                <input id="inputEmail2" type="email" required="" data-parsley-type="email" placeholder="Email" class="form-control">
+                                                <input id="cd_transporte" name="cd_transporte" type="text" required="" data-parsley-type="email" placeholder="Qual meio de Transporte?" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Password</label>
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Informação</label>
                                             <div class="col-9 col-lg-10">
-                                                <input id="inputPassword2" type="password" required="" placeholder="Password" class="form-control">
+                                                <input id="cd_detalhes" name="cd_detalhes" type="text" required="" placeholder="Detalhes" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Password Repita</label>
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Nome do Cliente</label>
                                             <div class="col-9 col-lg-10">
-                                                <input id="inputPassword2" type="password" required="" placeholder="Password" class="form-control">
+                                                <input id="cd_nome" type="text"  name="cd_nome" required="" placeholder="Nome" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputWebSite" class="col-3 col-lg-2 col-form-label text-right">Placa  do Carro</label>
+                                            <label for="inputWebSite" class="col-3 col-lg-2 col-form-label text-right">Observações</label>
                                             <div class="col-9 col-lg-10">
-                                                <input id="inputWebSite" type="url" required="" data-parsley-type="url" placeholder="Numero da Placa" class="form-control">
+                                                <input id="cd_observacao"  name="cd_observacao" type="text" required="" data-parsley-type="url" placeholder="..." class="form-control">
                                             </div>
                                         </div>
                                         <div class="row pt-2 pt-sm-5 mt-1">
@@ -276,148 +275,7 @@ include('crud_php/body.php');
                         <!-- ============================================================== -->
                         <!-- valifation types -->
                         <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h2 class="card-header">Cadastro Completo - Mensalista</h2>
-                                <div class="card-body">
-                                    <form id="validationform" data-parsley-validate="" novalidate="">
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Required</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" placeholder="Type something" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Min Length</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-minlength="6" placeholder="Min 6 chars." class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Max Length</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-maxlength="6" placeholder="Max 6 chars." class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Range Length</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-length="[5,10]" placeholder="Text between 5 - 10 chars length" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Min Value</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-min="6" placeholder="Min value is 6" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Max Value</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-max="6" placeholder="Max value is 6" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Range Value</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input required="" type="number" min="6" max="100" placeholder="Number between 6 - 100" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Regular Exp</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" data-parsley-pattern="#[A-Fa-f0-9]{6}" placeholder="Hex. Color" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Equal To</label>
-                                            <div class="col-sm-4 col-lg-3 mb-3 mb-sm-0">
-                                                <input id="pass2" type="password" required="" placeholder="Password" class="form-control">
-                                            </div>
-                                            <div class="col-sm-4 col-lg-3">
-                                                <input type="password" required="" data-parsley-equalto="#pass2" placeholder="Re-Type Password" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label text-sm-right">Min check</label>
-                                            <div class="col-sm-6">
-                                                <div class="custom-controls-stacked">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input id="ck1" name="ck1" type="checkbox" data-parsley-multiple="groups" value="bar" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-label">Option 1</span>
-                                                    </label>
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input id="ck2" name="ck2" type="checkbox" data-parsley-multiple="groups" value="bar2" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-label">Option 2</span>
-                                                    </label>
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input id="ck3" name="ck3" type="checkbox" data-parsley-multiple="groups" value="bar3" data-parsley-mincheck="2" required="" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-label">Option 3</span>
-                                                    </label>
-                                                    <div id="error-container1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label text-sm-right">Max check</label>
-                                            <div class="col-sm-6">
-                                                <div class="custom-controls-stacked">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" value="bar" id="e1" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-label">Option 1</span>
-                                                    </label>
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" value="bar" id="e2" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-label">Option 2</span>
-                                                    </label>
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" value="bar" id="e3" data-parsley-multiple="group1" data-parsley-maxcheck="1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-label">Option 3</span>
-                                                    </label>
-                                                    <div id="error-container2"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">E-Mail</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="email" required="" data-parsley-type="email" placeholder="Enter a valid e-mail" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">URL</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input data-parsley-type="url" type="url" required="" placeholder="URL" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Digits</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Number</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input data-parsley-type="number" type="text" required="" placeholder="Enter only numbers" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Alphanumeric</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input data-parsley-type="alphanum" type="text" required="" placeholder="Enter alphanumeric value" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Textarea</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <textarea required="" class="form-control"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row text-right">
-                                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
-                                                <button type="submit" class="btn btn-space btn-primary">Confirmar</button>
-                                                <button class="btn btn-space btn-secondary">Cancelar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <!-- ============================================================== -->
                         <!-- end valifation types -->
                         <!-- ============================================================== -->

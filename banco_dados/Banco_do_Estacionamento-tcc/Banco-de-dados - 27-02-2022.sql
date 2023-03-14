@@ -3,10 +3,11 @@
 show databases;
 SELECT @@autocommit;
 
-drop database   db_tcc_estacionamento;
-create database db_tcc_estacionamento;
+drop database   db_tcc_estacionamento1;
+create database db_tcc_estacionamento1;
 
-use db_tcc_estacionamento;
+use db_tcc_estacionamento1;
+
 
 create table if not exists tb_uf(
 cd_uf int not null auto_increment,
@@ -62,9 +63,9 @@ foreign key(cd_login)
 references tb_login(cd_login)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
-
 engine=InnoDB;
-
+drop table tb_cliente;
+drop table tb_login;
 
 create table if not exists tb_telefone(
 cd_telefone int not null auto_increment,
@@ -146,10 +147,14 @@ constraint pk_veiculo
 primary key(cd_veiculo),
 constraint fk_cliente
 foreign key(cd_cliente)
-references tb_cliente(cd_cliente),
+references tb_cliente(cd_cliente)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE,
 constraint fk_modelo
 foreign key(cd_modelo)
-references tb_modelo(cd_modelo),
+references tb_modelo(cd_modelo)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE,
 constraint fk_cor
 foreign key(cd_cor)
 references tb_cor(cd_cor)
@@ -184,7 +189,9 @@ cd_horario int,
 constraint pk_estacionamento
 primary key(cd_estacionamento),
 foreign key (cd_horario)
-references tb_horario(cd_horario),
+references tb_horario(cd_horario)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE,
 foreign key(cd_veiculo)
 references tb_veiculo(cd_veiculo)
  ON DELETE CASCADE 
@@ -203,13 +210,34 @@ constraint pk_vaga
 primary key(cd_vaga),
 constraint fk_patio
 foreign key(cd_patio)
-references tb_patio(cd_patio),
+references tb_patio(cd_patio)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE,
 constraint fk_estacionamento
 foreign key(cd_estacionamento)
 references tb_estacionamento(cd_estacionamento)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
+
+drop table tb_bike_outros;
+select *from tb_bike_outros;
+create table if not exists tb_bike_outros(
+cd_bike_outros int not null auto_increment,
+cd_transporte varchar (50),
+cd_detalhes varchar (150),
+cd_nome varchar (100),
+cd_observacao varchar (150),
+constraint pk_bike_outros
+primary key(cd_bike_outros))
+engine=InnoDB;
+
+insert into tb_bike_outros values
+('1','bike', 'cor rosa', 'ALAN',NULL),
+('2','patins', 'esta sem roda','CARLOS',NULL),
+('3','chinelo', 'com prego','LORENA',NULL),
+('4','pop', 'pneu careca','MAIKEN','Roubada');
+select * from tb_bike_outros;
 
 insert into tb_login values
 ('1','julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs'),
@@ -920,3 +948,56 @@ call pc_deleta_cor(11 ,@retorno);
 
 select * from tb_cor;
 -- FIM --
+
+
+
+select c.cd_cliente, v.cd_veiculo, c.nm_cliente as 'Cliente', mo.nm_modelo as 'Modelo', ma.nm_marca 'Marca', co.nm_cor as 'Cor do veiculo', v.cd_placa as'Placa do veiculo' 
+from tb_cliente as c
+join tb_veiculo as v
+on v.cd_cliente = c.cd_cliente
+join tb_modelo as mo
+on mo.cd_modelo = v.cd_modelo
+join tb_marca as ma
+on ma.cd_marca = mo.cd_marca
+join tb_cor as co
+on v.cd_cor = co.cd_cor;
+
+DELETE FROM tb_cliente WHERE cd_cliente = 2;
+
+select * from tb_veiculo;
+
+select *from tb_cliente;
+
+select * from tb_login;
+
+UPDATE tb_cliente
+JOIN tb_login ON tb_login.cd_login = tb_cliente.cd_login
+SET tb_login.cd_login = 7, tb_cliente.cd_cliente = 7
+WHERE cd_cliente = 8;
+
+SELECT
+  CONSTRAINT_NAME,
+  COLUMN_NAME,
+  REFERENCED_TABLE_NAME,
+  REFERENCED_COLUMN_NAME
+FROM
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+WHERE
+  TABLE_SCHEMA = 'db_tcc_estacionamento1'
+  AND TABLE_NAME = 'tb_estacionamento'
+  AND REFERENCED_TABLE_NAME IS NOT NULL;
+  
+
+START TRANSACTION;
+insert into tb_login values
+('', 'julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs');
+ insert into tb_cliente values
+(LAST_INSERT_ID(), 'julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs',LAST_INSERT_ID(), 'Julio Thiago Pereira');
+COMMIT;
+
+
+select LAST_INSERT_ID();
+select * from tb_cliente;
+select * from tb_login;
+
+select * from  tb_modelo;
