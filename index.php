@@ -1,5 +1,6 @@
 <?php
 include("comando_php/crud_php/body.php");
+include("comando_php/crud_php/conexao_cadastro.php");
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -82,7 +83,17 @@ include("comando_php/crud_php/body.php");
                         <div class="row">
                             <!-- ============================================================== -->
                                 <!-- tabela financeira -->
-                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <?php
+if(!$conn){
+    die("Conexão falhou: " .mysqli_connect_erro());
+}
+// Conexao ->
+$tatus_vagas = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY cd_status_vagas DESC";
+
+$result_status_vagas = $conn->prepare($tatus_vagas);
+$result_status_vagas->execute();
+?> 
+                          <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <h3 class="card-header"><strong>Status de Vagas</strong></h3>
                                     <div class="card-body p-0">
@@ -96,54 +107,69 @@ include("comando_php/crud_php/body.php");
                                                         <th class="border-0">Placa</th>
                                                         <th class="border-0">Entrada</th>
                                                         <th class="border-0">Status</th>
+                                                        <th class="border-0 alter_vagas" ><p>Alterar Vaga</p></th>
                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="img/img_sistema/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #1 </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="img/img_sistema/product-pic-2.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #2 </td>
-                                                        <td>id000002 </td>
-                                                        <td>12</td>
-                                                        
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="img/img_sistema/product-pic-3.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #3 </td>
-                                                        <td>id000003 </td>
-                                                        <td>23</td>
-                                                        
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="img/img_sistema/product-pic-4.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #4 </td>
-                                                        <td>id000004 </td>
-                                                        <td>34</td>
-                                                        
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
-                                                    </tr>
+                                               
+<!-- INICIO DA REPEDIÇÃO CONN -->
+<?php
+if($result_status_vagas->rowCount() != 0){
+    while($row = $result_status_vagas->fetch(PDO::FETCH_ASSOC)){
+        extract($row);  
+?>
+        <tr>
+            <td><?php echo $row['cd_numero_vaga']; ?></td>
+            <td>
+            <?php
+            if($row['img_icon'] == 'carro'){
+                $img_vagas ="img/carro_vagas.png";
+            }elseif($row['img_icon'] == 'moto'){
+                $img_vagas ="img/OIP_vagas.jpg";
+            }elseif($row['img_icon'] == 'bicicleta'){
+                $img_vagas ="img/bike_vagas.jpg";
+            }elseif($row['img_icon'] == 'patins'){
+                $img_vagas ="img/patins_vagas.png";
+            }elseif($row['img_icon'] == null){
+                $img_vagas ="img/tem_vaga.jpg";
+            }else
+            $img_vagas ="img/outros_vagas.jpg";
+                
+            ?>
+                <div class="m-r-10"><img src=<?php echo $img_vagas; ?> alt="user" class="rounded" width="45"></div>
+            </td>
+            <td><?php echo $row['nm_nome']; ?></td>
+            <td><?php echo $row['sg_placa']; ?></td>
+            <td><?php echo $row['dt_entrada']; ?></td>
+            <?php
+            if($row['nm_status'] == 'livre'){
+                $status = 'badge-success';
+            }elseif($row['nm_status'] == 'ocupada'){
+                $status = 'badge-brand';
+            }else
+            $status = 'badge-danger';
+                
+
+            ?>
+            <td><h3><span class="badge-dot <?php echo $status ?> mr-1" id="status"></span ><?php echo $row['nm_status']; ?></h3></td>
+            <td> 
+                <button type='button' id='botao_editar$cd_cliente' class='btn btn-warning btn-sm me-1' onclick='editar_registro_vaga($cd_cliente)'>Editar</button>
+                
+                <button type='button' id='botao_salvar$cd_cliente' class='btn btn-warning btn-sm me-1'onclick='salvar_registro_vaga($cd_cliente)' style='display:none;font-size:12px;'>Salvar  </button>
+                <button type='button' id='botao_visualizar$cd_cliente' value='$cd_cliente'name='id_visualizar$cd_cliente'class='btn btn-info btn-sm me-1'onclick='visualizar_status($cd_cliente)'>Reservar essa Vaga</button>
+
+            </td>
+        </tr>
+                                                    
+<?php
+      }
+    } else{
+        echo '<div class="alert alert-warning" style="text-align: center;font-size:40px" role="alert">
+        "0 resultados no Banco de dados - Vagas!!!';
+    }
+    //$conn->close();
+?>
                                                     <tr>
                                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                                     </tr>

@@ -32,8 +32,7 @@ if(empty($dados['cd_transporte'])){
     $cadastrar_bike_outros->bindParam(':cd_detalhes', $dados['cd_detalhes'],PDO::PARAM_STR);
     $cadastrar_bike_outros->bindParam(':cd_nome', $dados['cd_nome'], PDO::PARAM_STR);
     $cadastrar_bike_outros->bindParam(':cd_observacao', $dados['cd_observacao'], PDO::PARAM_STR);
-    $cadastrar_bike_outros->execute(); // para execultar 
-    var_dump($conn->lastInsertId()); //puxar o id
+    // var_dump($conn->lastInsertId()); //puxar o id
     $id_bike_outros = $conn->lastInsertId();
 
 if($cadastrar_bike_outros->execute()){

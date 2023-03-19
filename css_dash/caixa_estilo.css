@@ -3989,13 +3989,13 @@ Pills vertical
 .badge {
     display: inline-block;
     padding: 3px 7px;
-    font-size: 14px;
+    font-size: 54px;
     font-weight: 400;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
+    border-radius: .55rem;
 }
 
 .badge-primary {
@@ -4103,10 +4103,21 @@ Pills vertical
 .dashboard-badges {}
 
 .badge-dot {
+    
     border-radius: 100%;
-    padding: 4px;
+    padding: 8px;
     display: inline-block;
     margin-right: 3px;
+}
+#status{
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 200px;
+}
+.alter_vagas{
+    font-size: 20px;
+   
+    
 }
 
 .label {
