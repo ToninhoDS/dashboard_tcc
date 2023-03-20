@@ -57,9 +57,7 @@ include("crud_php/body.php");
                     <div class="row">
                         <div class="col-lg-12">
                             <!-- SELETOR "listar-usuarios" responsavel em receber os registros do banco de dados -->
-                            <span class="listar-clientes"></span>
-                            
-                    
+                            <span class="listar-usuarios"></span>
                         </div>
                     </div>
                 </div>
@@ -138,7 +136,7 @@ include("crud_php/body.php");
 <script src="../chart_js/buttons.bootstrap4.min.js"></script>
  <script src="../chart_js/data-table.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- <script src="js/custom.js"></script> 
+<script src="js/custom.js"></script>
 
   
 

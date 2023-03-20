@@ -18,7 +18,7 @@ const listarUsuarios = async (pagina) => {
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
     } else {
         // Recuperar o SELETOR do HTML que deve receber os registros
-        const conteudo = document.querySelector(".listar-clientes");
+        const conteudo = document.querySelector(".listar-usuarios");
 
         // Somente acessa o IF quando existir o SELETOR ".listar-usuarios"
         if (conteudo) {
