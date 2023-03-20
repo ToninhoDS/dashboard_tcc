@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "acgsB07";
 $dbname = "db_tcc_estacionamento1";
 $port = 3306;
 
