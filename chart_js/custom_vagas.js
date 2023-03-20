@@ -7,7 +7,7 @@ const tbody = document.querySelector(".listar-usuarios");
 const listarUsuarios = async (pagina) => {
 
     // Fazer a requisicao para o arquivo PHP responsavel em recuperar os registros do banco de dados
-    const dados = await fetch("./list.php?pagina=" + pagina);
+    const dados = await fetch("./list_vagas.php?pagina=" + pagina);
 
     // Ler o objeto retornado pelo arquivo PHP
     const resposta = await dados.json();
@@ -18,7 +18,7 @@ const listarUsuarios = async (pagina) => {
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
     } else {
         // Recuperar o SELETOR do HTML que deve receber os registros
-        const conteudo = document.querySelector(".listar-clientes");
+        const conteudo = document.querySelector(".listar-usuarios");
 
         // Somente acessa o IF quando existir o SELETOR ".listar-usuarios"
         if (conteudo) {
