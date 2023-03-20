@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `tb_marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_marca` (
-  `cd_marca` int NOT NULL,
+  `cd_marca` int NOT NULL AUTO_INCREMENT,
   `nm_marca` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cd_marca`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `tb_marca` (
 
 LOCK TABLES `tb_marca` WRITE;
 /*!40000 ALTER TABLE `tb_marca` DISABLE KEYS */;
-INSERT INTO `tb_marca` VALUES (1,'Fiat'),(2,'Volkswagen'),(3,'Bentley'),(4,'Hyundai'),(5,'Chevrolet');
+INSERT INTO `tb_marca` VALUES (1,'Fiat'),(2,'Volkswagen'),(3,'Bentley'),(4,'Hyundai'),(5,'Fiat'),(6,'Volkswagen'),(7,'Bentley'),(8,'Hyundai'),(9,'Fiat'),(10,'Volkswagen'),(11,'Bentley'),(12,'Hyundai'),(13,'Fiat'),(14,'Volkswagen'),(15,'Bentley'),(16,'Hyundai'),(17,'Fiat'),(18,'Volkswagen'),(19,'Bentley'),(20,'Chevrolet');
 /*!40000 ALTER TABLE `tb_marca` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:31
+-- Dump completed on 2023-03-20 19:08:09

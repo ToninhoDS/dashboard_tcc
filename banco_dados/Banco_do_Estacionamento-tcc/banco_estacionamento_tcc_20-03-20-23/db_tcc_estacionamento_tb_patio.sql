@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_cor`
+-- Table structure for table `tb_patio`
 --
 
-DROP TABLE IF EXISTS `tb_cor`;
+DROP TABLE IF EXISTS `tb_patio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_cor` (
-  `cd_cor` int NOT NULL,
-  `nm_cor` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`cd_cor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_patio` (
+  `cd_patio` int NOT NULL AUTO_INCREMENT,
+  `ds_patio` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`cd_patio`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_cor`
+-- Dumping data for table `tb_patio`
 --
 
-LOCK TABLES `tb_cor` WRITE;
-/*!40000 ALTER TABLE `tb_cor` DISABLE KEYS */;
-INSERT INTO `tb_cor` VALUES (1,'Branco'),(2,'Cinza'),(3,'Preto'),(4,'Prata'),(5,'Azul'),(6,'Vermelho'),(7,'Marrom/Bege'),(8,'Verde'),(9,'Amarelo'),(10,'Outros');
-/*!40000 ALTER TABLE `tb_cor` ENABLE KEYS */;
+LOCK TABLES `tb_patio` WRITE;
+/*!40000 ALTER TABLE `tb_patio` DISABLE KEYS */;
+INSERT INTO `tb_patio` VALUES (1,'1'),(2,'2');
+/*!40000 ALTER TABLE `tb_patio` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:30
+-- Dump completed on 2023-03-20 19:08:08

@@ -16,34 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_vaga`
+-- Table structure for table `tb_cidade`
 --
 
-DROP TABLE IF EXISTS `tb_vaga`;
+DROP TABLE IF EXISTS `tb_cidade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_vaga` (
-  `cd_vaga` int NOT NULL,
-  `cd_numero` int DEFAULT NULL,
-  `cd_patio` int DEFAULT NULL,
-  `ds_status` varchar(20) DEFAULT NULL,
-  `cd_estacionamento` int DEFAULT NULL,
-  PRIMARY KEY (`cd_vaga`),
-  KEY `fk_patio` (`cd_patio`),
-  KEY `fk_estacionamento` (`cd_estacionamento`),
-  CONSTRAINT `fk_estacionamento` FOREIGN KEY (`cd_estacionamento`) REFERENCES `tb_estacionamento` (`cd_estacionamento`),
-  CONSTRAINT `fk_patio` FOREIGN KEY (`cd_patio`) REFERENCES `tb_patio` (`cd_patio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_cidade` (
+  `cd_cidade` int NOT NULL AUTO_INCREMENT,
+  `nm_cidade` varchar(45) DEFAULT NULL,
+  `cd_uf` int DEFAULT NULL,
+  PRIMARY KEY (`cd_cidade`),
+  KEY `cd_uf` (`cd_uf`),
+  CONSTRAINT `tb_cidade_ibfk_1` FOREIGN KEY (`cd_uf`) REFERENCES `tb_uf` (`cd_uf`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_vaga`
+-- Dumping data for table `tb_cidade`
 --
 
-LOCK TABLES `tb_vaga` WRITE;
-/*!40000 ALTER TABLE `tb_vaga` DISABLE KEYS */;
-INSERT INTO `tb_vaga` VALUES (1,11,1,'Em uso',1),(2,11,2,NULL,2),(3,11,2,'Em uso',3),(4,11,2,'Em uso',4),(5,11,1,NULL,5),(6,11,1,'Em uso',6),(7,11,1,'Em uso',7),(8,11,2,'Em uso',8),(9,11,2,'Em uso',9),(10,11,1,NULL,10),(11,11,1,'Em uso',11),(12,11,1,'Em uso',12),(13,11,2,NULL,13),(14,11,2,'Em uso',14),(15,11,2,'Em uso',15),(16,11,1,'Em uso',16),(17,11,1,NULL,17),(18,11,1,'Em uso',18),(19,11,2,'Em uso',19),(20,11,2,'Em uso',20);
-/*!40000 ALTER TABLE `tb_vaga` ENABLE KEYS */;
+LOCK TABLES `tb_cidade` WRITE;
+/*!40000 ALTER TABLE `tb_cidade` DISABLE KEYS */;
+INSERT INTO `tb_cidade` VALUES (1,'Rondonópolis',1),(2,'Brasília',2),(3,'Aracaju',3),(4,'Manaus',4),(5,'Sertãozinho',5),(6,'Rio Branco',6),(7,'Parnaíba',7),(8,'Campo Grande',8),(9,'Belém',9),(10,'Brasília',10),(11,'Jaboatão dos Guararapes',11),(12,'Ponta Grossa',12),(13,'João Pessoa',13),(14,'Cacoal',14),(15,'Boa Vista',15),(16,'Belém',16),(17,'Barbacena',17),(18,'Curitiba',18),(19,'Araraquara',19),(20,'Guarulhos',20);
+/*!40000 ALTER TABLE `tb_cidade` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:31
+-- Dump completed on 2023-03-20 19:08:09

@@ -16,31 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_pessoa_fisica`
+-- Table structure for table `tb_veiculo`
 --
 
-DROP TABLE IF EXISTS `tb_pessoa_fisica`;
+DROP TABLE IF EXISTS `tb_veiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_pessoa_fisica` (
-  `cd_pessoa_fisica` int NOT NULL,
-  `cd_cpf` varchar(20) DEFAULT NULL,
+CREATE TABLE `tb_veiculo` (
+  `cd_veiculo` int NOT NULL AUTO_INCREMENT,
+  `cd_placa` varchar(20) DEFAULT NULL,
   `cd_cliente` int DEFAULT NULL,
-  `cd_bairro` int DEFAULT NULL,
-  PRIMARY KEY (`cd_pessoa_fisica`),
-  KEY `cd_bairro` (`cd_bairro`),
-  CONSTRAINT `tb_pessoa_fisica_ibfk_1` FOREIGN KEY (`cd_bairro`) REFERENCES `tb_bairro` (`cd_bairro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `cd_cor` int DEFAULT NULL,
+  `cd_modelo` int DEFAULT NULL,
+  PRIMARY KEY (`cd_veiculo`),
+  KEY `fk_cliente` (`cd_cliente`),
+  KEY `fk_modelo` (`cd_modelo`),
+  KEY `fk_cor` (`cd_cor`),
+  CONSTRAINT `fk_cliente` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_cor` FOREIGN KEY (`cd_cor`) REFERENCES `tb_cor` (`cd_cor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_modelo` FOREIGN KEY (`cd_modelo`) REFERENCES `tb_modelo` (`cd_modelo`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_pessoa_fisica`
+-- Dumping data for table `tb_veiculo`
 --
 
-LOCK TABLES `tb_pessoa_fisica` WRITE;
-/*!40000 ALTER TABLE `tb_pessoa_fisica` DISABLE KEYS */;
-INSERT INTO `tb_pessoa_fisica` VALUES (1,'136.230.852-86',2888,1),(2,'558.882.025-84',2930,2),(3,'067.846.794-31',1383,3),(4,NULL,3344,4),(5,'743.721.422-93',1858,5),(6,NULL,3172,6),(7,'399.443.846-23',3532,7),(8,NULL,1531,8),(9,NULL,3893,9),(10,NULL,2727,10),(11,'991.851.233-40',3214,11),(12,NULL,1855,12),(13,'567.596.008-27',2615,13),(14,'031.574.345-00',3684,14),(15,'248.969.750-14',1056,15),(16,NULL,1229,16),(17,NULL,3407,17),(18,NULL,3203,18),(19,'049.161.186-26',1640,19),(20,'652.159.799-01',2220,20);
-/*!40000 ALTER TABLE `tb_pessoa_fisica` ENABLE KEYS */;
+LOCK TABLES `tb_veiculo` WRITE;
+/*!40000 ALTER TABLE `tb_veiculo` DISABLE KEYS */;
+INSERT INTO `tb_veiculo` VALUES (1,'11',1,1,1),(2,'22',2,2,2),(3,'33',3,3,3),(4,'44',4,4,4),(5,'55',5,5,5),(6,'66',6,6,6),(7,'77',7,7,7),(8,'88',8,8,8),(9,'99',9,9,9),(10,'101',10,10,10),(11,'111',11,2,11),(12,'122',12,5,12),(13,'133',13,9,13),(14,'144',14,7,14),(15,'155',15,8,15),(16,'166',16,6,16),(17,'177',17,7,17),(18,'188',18,8,18),(19,'199',19,9,19),(20,'202',20,2,20);
+/*!40000 ALTER TABLE `tb_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:31
+-- Dump completed on 2023-03-20 19:08:08

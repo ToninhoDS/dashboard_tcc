@@ -16,30 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_modelo`
+-- Table structure for table `tb_vaga`
 --
 
-DROP TABLE IF EXISTS `tb_modelo`;
+DROP TABLE IF EXISTS `tb_vaga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_modelo` (
-  `cd_modelo` int NOT NULL,
-  `nm_modelo` varchar(45) DEFAULT NULL,
-  `cd_marca` int DEFAULT NULL,
-  PRIMARY KEY (`cd_modelo`),
-  KEY `cd_marca` (`cd_marca`),
-  CONSTRAINT `tb_modelo_ibfk_1` FOREIGN KEY (`cd_marca`) REFERENCES `tb_marca` (`cd_marca`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_vaga` (
+  `cd_vaga` int NOT NULL AUTO_INCREMENT,
+  `cd_numero` int DEFAULT NULL,
+  `cd_patio` int DEFAULT NULL,
+  `ds_status` varchar(20) DEFAULT NULL,
+  `cd_estacionamento` int DEFAULT NULL,
+  PRIMARY KEY (`cd_vaga`),
+  KEY `fk_patio` (`cd_patio`),
+  KEY `fk_estacionamento` (`cd_estacionamento`),
+  CONSTRAINT `fk_estacionamento` FOREIGN KEY (`cd_estacionamento`) REFERENCES `tb_estacionamento` (`cd_estacionamento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_patio` FOREIGN KEY (`cd_patio`) REFERENCES `tb_patio` (`cd_patio`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_modelo`
+-- Dumping data for table `tb_vaga`
 --
 
-LOCK TABLES `tb_modelo` WRITE;
-/*!40000 ALTER TABLE `tb_modelo` DISABLE KEYS */;
-INSERT INTO `tb_modelo` VALUES (1,'Volkswagen Gol',2),(2,'Fiat Strada',1),(3,'Chevrolet Onix',5),(4,'Hyundai HB20',4),(5,'Chevrolet Onix Plus',5);
-/*!40000 ALTER TABLE `tb_modelo` ENABLE KEYS */;
+LOCK TABLES `tb_vaga` WRITE;
+/*!40000 ALTER TABLE `tb_vaga` DISABLE KEYS */;
+INSERT INTO `tb_vaga` VALUES (1,11,1,'Em uso',1),(2,11,2,NULL,2),(3,11,2,'Em uso',3),(4,11,2,'Em uso',4),(5,11,1,NULL,5),(6,11,1,'Em uso',6),(7,11,1,'Em uso',7),(8,11,2,'Em uso',8),(9,11,2,'Em uso',9),(10,11,1,NULL,10),(11,11,1,'Em uso',11),(12,11,1,'Em uso',12),(13,11,2,NULL,13),(14,11,2,'Em uso',14),(15,11,2,'Em uso',15),(16,11,1,'Em uso',16),(17,11,1,NULL,17),(18,11,1,'Em uso',18),(19,11,2,'Em uso',19),(20,11,2,'Em uso',20);
+/*!40000 ALTER TABLE `tb_vaga` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:30
+-- Dump completed on 2023-03-20 19:08:09

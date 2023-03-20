@@ -16,36 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_veiculo`
+-- Table structure for table `tb_bairro`
 --
 
-DROP TABLE IF EXISTS `tb_veiculo`;
+DROP TABLE IF EXISTS `tb_bairro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_veiculo` (
-  `cd_veiculo` int NOT NULL,
-  `cd_placa` varchar(20) DEFAULT NULL,
-  `cd_cliente` int DEFAULT NULL,
-  `cd_cor` int DEFAULT NULL,
-  `cd_modelo` int DEFAULT NULL,
-  PRIMARY KEY (`cd_veiculo`),
-  KEY `fk_cliente` (`cd_cliente`),
-  KEY `fk_modelo` (`cd_modelo`),
-  KEY `fk_cor` (`cd_cor`),
-  CONSTRAINT `fk_cliente` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`),
-  CONSTRAINT `fk_cor` FOREIGN KEY (`cd_cor`) REFERENCES `tb_cor` (`cd_cor`),
-  CONSTRAINT `fk_modelo` FOREIGN KEY (`cd_modelo`) REFERENCES `tb_modelo` (`cd_modelo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_bairro` (
+  `cd_bairro` int NOT NULL AUTO_INCREMENT,
+  `nm_bairro` varchar(45) DEFAULT NULL,
+  `cd_cidade` int DEFAULT NULL,
+  PRIMARY KEY (`cd_bairro`),
+  KEY `cd_cidade` (`cd_cidade`),
+  CONSTRAINT `tb_bairro_ibfk_1` FOREIGN KEY (`cd_cidade`) REFERENCES `tb_cidade` (`cd_cidade`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_veiculo`
+-- Dumping data for table `tb_bairro`
 --
 
-LOCK TABLES `tb_veiculo` WRITE;
-/*!40000 ALTER TABLE `tb_veiculo` DISABLE KEYS */;
-INSERT INTO `tb_veiculo` VALUES (1,'11',2888,1,1),(2,'22',2930,2,2),(3,'33',1383,3,3),(4,'44',3344,4,4),(5,'55',1858,5,5),(6,'66',3172,6,5),(7,'77',3532,7,4),(8,'88',1531,8,3),(9,'99',3893,9,2),(10,'101',2727,10,1),(11,'111',3214,2,1),(12,'122',1855,5,2),(13,'133',2615,9,3),(14,'144',3684,7,4),(15,'155',1056,8,5),(16,'166',1229,6,1),(17,'177',3407,7,1),(18,'188',3203,8,2),(19,'199',1640,9,5),(20,'202',2220,2,4);
-/*!40000 ALTER TABLE `tb_veiculo` ENABLE KEYS */;
+LOCK TABLES `tb_bairro` WRITE;
+/*!40000 ALTER TABLE `tb_bairro` DISABLE KEYS */;
+INSERT INTO `tb_bairro` VALUES (1,'Jardim Brasília',1),(2,'Riacho Fundo II',2),(3,'Aeroporto',3),(4,'Novo Aleixo',4),(5,'Conjunto Habitacional Antônio Pedro Ortolan',5),(6,'Loteamento Joafra',6),(7,'João XXIII',7),(8,'Jardim São Conrado',8),(9,'Tapanã (Icoaraci)',9),(10,'Setor Sul (Gama)',10),(11,'Santo Aleixo',11),(12,'Colônia Dona Luíza',12),(13,'Mandacaru',13),(14,'Village do Sol',14),(15,'Jardim Floresta',15),(16,'Jurunas',16),(17,'Nossa Senhora Aparecida',17),(18,'Alto da Rua XV',18),(19,'Vila Xavier (Vila Xavier)',19),(20,'Cidade Seródio',20);
+/*!40000 ALTER TABLE `tb_bairro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:30
+-- Dump completed on 2023-03-20 19:08:09

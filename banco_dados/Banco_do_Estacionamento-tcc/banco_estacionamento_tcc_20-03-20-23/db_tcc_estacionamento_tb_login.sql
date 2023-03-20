@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `tb_login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_login` (
-  `cd_login` int NOT NULL,
+  `cd_login` int NOT NULL AUTO_INCREMENT,
   `cd_email_login` varchar(45) DEFAULT NULL,
   `cd_senha_login` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`cd_login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:31
+-- Dump completed on 2023-03-20 19:08:08

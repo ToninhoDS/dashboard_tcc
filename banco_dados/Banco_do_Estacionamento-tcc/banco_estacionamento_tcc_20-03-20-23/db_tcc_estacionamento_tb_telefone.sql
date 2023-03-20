@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_pessoa_juridica`
+-- Table structure for table `tb_telefone`
 --
 
-DROP TABLE IF EXISTS `tb_pessoa_juridica`;
+DROP TABLE IF EXISTS `tb_telefone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_pessoa_juridica` (
-  `cd_pessoa_juridica` int NOT NULL,
-  `cd_cnpj` varchar(20) DEFAULT NULL,
-  `cd_bairro` int DEFAULT NULL,
+CREATE TABLE `tb_telefone` (
+  `cd_telefone` int NOT NULL AUTO_INCREMENT,
+  `cd_numero1` varchar(20) DEFAULT NULL,
+  `cd_numero2` varchar(20) DEFAULT NULL,
   `cd_cliente` int DEFAULT NULL,
-  PRIMARY KEY (`cd_pessoa_juridica`),
+  PRIMARY KEY (`cd_telefone`),
   KEY `cd_cliente` (`cd_cliente`),
-  CONSTRAINT `tb_pessoa_juridica_ibfk_1` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `tb_telefone_ibfk_1` FOREIGN KEY (`cd_cliente`) REFERENCES `tb_cliente` (`cd_cliente`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_pessoa_juridica`
+-- Dumping data for table `tb_telefone`
 --
 
-LOCK TABLES `tb_pessoa_juridica` WRITE;
-/*!40000 ALTER TABLE `tb_pessoa_juridica` DISABLE KEYS */;
-INSERT INTO `tb_pessoa_juridica` VALUES (1,NULL,1,2888),(2,NULL,2,2930),(3,NULL,3,1383),(4,'42.511.777/0001-60',4,3344),(5,NULL,5,1858),(6,'59.067.078/0001-76',6,3172),(7,NULL,7,3532),(8,'43.861.452/0001-70',8,1531),(9,'37.962.613/0001-10',9,3893),(10,'65.254.503/0001-39',10,2727),(11,NULL,11,3214),(12,'31.492.526/0001-60',12,1855),(13,NULL,13,2615),(14,NULL,14,3684),(15,NULL,15,1056),(16,'72.181.135/0001-01',16,1229),(17,'36.062.069/0001-97',17,3407),(18,'01.695.631/0001-35',18,3203),(19,NULL,19,1640),(20,NULL,20,2220);
-/*!40000 ALTER TABLE `tb_pessoa_juridica` ENABLE KEYS */;
+LOCK TABLES `tb_telefone` WRITE;
+/*!40000 ALTER TABLE `tb_telefone` DISABLE KEYS */;
+INSERT INTO `tb_telefone` VALUES (1,'(66) 99163-1531',NULL,1),(2,'(61) 98153-5596','(61) 3763-1803',2),(3,'(79) 98421-1175','(79) 2914-8488',3),(4,'(92) 98271-7282',NULL,4),(5,'(16) 99124-3887',NULL,5),(6,'(68) 99917-1591','(68) 2557-3140',6),(7,'(86) 98133-6502',NULL,7),(8,'(67) 99200-4118',NULL,8),(9,'(91) 99787-5532',NULL,9),(10,'(61) 98421-5775','(61) 2905-4970',10),(11,'(81) 98767-3939','(81) 2737-2601',11),(12,'(42) 99649-3133',NULL,12),(13,'(83) 99772-7749',NULL,13),(14,'(69) 98671-7424','(69) 2809-1847',14),(15,'(95) 98322-1696','(95) 2674-0425',15),(16,'(91) 98458-0538','(91) 3919-0690',16),(17,'(32) 98561-5622','(32) 3923-5321',17),(18,'(41) 99549-8073',NULL,18),(19,'(16) 99195-9999',NULL,19),(20,'(11) 99214-9687',NULL,20);
+/*!40000 ALTER TABLE `tb_telefone` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 23:04:31
+-- Dump completed on 2023-03-20 19:08:08
