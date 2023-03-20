@@ -66,7 +66,7 @@ if (!empty($pagina)) {
             <td id='valor_senha$cd_status_vagas'>$dt_entrada</td>
             <td id='valor_telefone$cd_status_vagas'>$nm_status</td>
             <td><h3><span class='badge-dot <?php echo $status ?> mr-1' id='status'></span ><?php echo $row['nm_status']; ?></h3></td>
-            <td> 
+             
                     <td class='d-flex botaov'>
                         
                         <button type='button' id='botao_editar$cd_status_vagas' class='btn btn-warning btn-sm me-1' onclick='editar_registro($cd_status_vagas)'>Editar</button>

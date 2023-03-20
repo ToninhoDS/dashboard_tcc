@@ -3,7 +3,6 @@
 show databases;
 SELECT @@autocommit;
 
-drop database   db_tcc_estacionamento1;
 create database db_tcc_estacionamento1;
 
 use db_tcc_estacionamento1;
@@ -64,8 +63,7 @@ references tb_login(cd_login)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
-drop table tb_cliente;
-drop table tb_login;
+
 
 create table if not exists tb_telefone(
 cd_telefone int not null auto_increment,
@@ -135,7 +133,6 @@ references tb_marca(cd_marca)
  ON UPDATE CASCADE)
 engine=InnoDB;
 
-drop table tb_veiculo;
 select *from tb_veiculo;
 create table if not exists tb_veiculo(
 cd_veiculo int not null auto_increment,
@@ -178,7 +175,7 @@ constraint pk_patio
 primary key(cd_patio))
 engine=InnoDB;
 
-drop table tb_estacionamento;
+
 create table if not exists tb_estacionamento(
 cd_estacionamento int not null auto_increment,
 nm_estacionamento varchar(100),
@@ -199,7 +196,6 @@ references tb_veiculo(cd_veiculo)
 engine=InnoDB; 
 
 
-drop table tb_vaga;
 create table if not exists tb_vaga(
 cd_vaga int not null auto_increment,
 cd_numero int ,
@@ -220,7 +216,6 @@ references tb_estacionamento(cd_estacionamento)
  ON UPDATE CASCADE)
 engine=InnoDB;
 
-drop table tb_bike_outros;
 select *from tb_bike_outros;
 create table if not exists tb_bike_outros(
 cd_bike_outros int not null auto_increment,
@@ -240,7 +235,7 @@ insert into tb_bike_outros values
 select * from tb_bike_outros;
 
 -- criado 18-03-2023
-drop table tb_status_vagas;
+
 create table if not exists tb_status_vagas(
 cd_status_vagas int not null auto_increment,
 cd_numero_vaga double,
