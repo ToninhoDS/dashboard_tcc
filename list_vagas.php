@@ -34,40 +34,56 @@ if (!empty($pagina)) {
                             </tr>
                         </thead>
                         <tbody>";
-        while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
-            extract($row_usuario);
-            if($row_usuario ['img_icon'] == 'carro'){
-                $img_icon ="img/carro_vagas.png";
-            }elseif($row_usuario ['img_icon'] == 'moto'){
-                $img_icon ="img/OIP_vagas.jpg";
-            }elseif($row_usuario ['img_icon'] == 'bicicleta'){
-                $img_icon ="img/bike_vagas.jpg";
-            }elseif($row_usuario ['img_icon'] == 'patins'){
-                $img_icon ="img/patins_vagas.png";
-            }elseif($row_usuario ['img_icon'] == null){
-                $img_icon ="img/tem_vaga.jpg";
-            }else
-            $img_icon ="img/outros_vagas.jpg";
-            
-            if($row_usuario ['nm_status'] == 'livre'){
-                $status = 'badge-success';
-            }elseif($row_usuario ['nm_status'] == 'ocupada'){
-                $status = 'badge-brand';
-            }else
-            $status = 'badge-danger';
-            $dados .= "
-            <tr>
-            <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
-            <td><div class='m-r-10'><img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
-            </td>
-           
-            <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
-            <td id='valor_email$cd_status_vagas'>$sg_placa</td>
-            <td id='valor_senha$cd_status_vagas'>$dt_entrada</td>
-            <td id='valor_telefone$cd_status_vagas'>$nm_status</td>
-            <td><h3><span class='badge-dot <?php echo $status ?> mr-1' id='status'></span ><?php echo $row['nm_status']; ?></h3></td>
-             
-                    <td class='d-flex botaov'>
+                        while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
+                            extract($row_usuario);
+                            if($row_usuario ['img_icon'] == 'carro'){
+                                $img_icon ="img/carro_vagas.png";
+                            }else{if($row_usuario ['img_icon'] == 'moto'){
+                                $img_icon ="img/OIP_vagas.jpg";
+                            }else{if($row_usuario ['img_icon'] == 'bicicleta'){
+                                $img_icon ="img/bike_vagas.jpg";
+                            }else{if($row_usuario ['img_icon'] == 'patins'){
+                                $img_icon ="img/patins_vagas.png";
+                            }else{if($row_usuario ['img_icon'] == null){
+                                $img_icon ="img/tem_vaga.jpg";
+                            }else{
+                                $img_icon ="img/outros_vagas.jpg";
+                            }
+                        }}}}
+                            
+                            if($row_usuario ['nm_status'] == 'livre'){
+                                $status = 'badge-success';
+                            }else{if($row_usuario ['nm_status'] == 'ocupado'){
+                                $status = 'badge-brand';
+                            }else{
+                                $status = 'badge-danger';
+                            }}
+                            
+                            $dados .= "
+                            <tr>
+                            <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
+                            <td><div class='m-r-10'><img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
+                            </td>
+                           
+                            <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
+                            <td id='valor_email$cd_status_vagas'>$sg_placa</td>
+                            <td id='valor_senha$cd_status_vagas'>$dt_entrada</td>
+                            
+                            <td>
+                            <div class='d-flex'>
+  <div class='dropdown mr-1'>
+    <button style='display:nones;' type='button' class='btn  $status dropdown-toggle' id='dropdownMenuOffset' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-offset='10,20'>
+    Alterar 
+    </button>
+    <div class='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
+      <a class='dropdown-item' href='#'>Livre</a>
+      <a class='dropdown-item' href='#'>Ocupado</a>
+      <a class='dropdown-item' href='#'>Reserva</a>
+    </div>
+    
+  </div><h3><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
+                             
+                                    <td class='d-flex botaov'>
                         
                         <button type='button' id='botao_editar$cd_status_vagas' class='btn btn-warning btn-sm me-1' onclick='editar_registro($cd_status_vagas)'>Editar</button>
                         

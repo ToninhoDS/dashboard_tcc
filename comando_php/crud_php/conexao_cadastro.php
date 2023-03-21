@@ -2,8 +2,8 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "acgsB07";
-$dbname = "db_tcc_estacionamento1";
+$pass = "root";
+$dbname = "db_tcc_estacionamento";
 $port = 3306;
 
 try{

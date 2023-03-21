@@ -87,7 +87,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
              <span id="msgAlerta"></span>
 
                     
-<div class="col-lg-12">
+<div class="col-lg-9">
     <!-- SELETOR "listar-usuarios" responsavel em receber os registros do banco de dados -->
     <span class="listar-usuarios"></span>
 </div>
