@@ -83,80 +83,14 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             
                         </div>
                         <div class="row">
-                            <!-- ============================================================== -->
-                                <!-- tabela financeira -->
-             <!-- SELETOR "msgAlerta" responsavel em receber a mensagem de sucesso ou erro -->
-             <span id="msgAlerta"></span>
-
-                    
-<div class="col-lg-9">
-    <!-- SELETOR "listar-usuarios" responsavel em receber os registros do banco de dados -->
-    <span class="listar-usuarios"></span>
-</div>
-                            
-                            <!-- fim da tabela financeira -->
-                            <div class="col-xl-3 col-lg-12 col-md-6 col-sm-12 col-12">
-                                <!-- ============================================================== -->
-                                <!-- Tabela Afilias  -->
-                        
-                                <div class="card">
-                                    <h5 class="card-header">Status Biciclita e Outros</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table no-wrap p-table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">Nº Vagas</th>
-                                                        <th class="border-0">Nome</th>
-                                                        <th class="border-0">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1 </td>
-                                                        <td>Antonio </td>
-                                                        <td>$4563</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Antonio</td>
-                                                        <td>$325</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Antonio</td>
-                                                        <td>$225</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Antonio</td>
-                                                        <td>$856</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1 </td>
-                                                        <td>Antonio</td>
-                                                        <td>$1000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Antonio</td>
-                                                        <td>$1000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <a href="#" class="btn btn-outline-light float-right">Detalhes</a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>                                          
-                                        </div> 
-                                    </div>                                  
-                                </div>                               
+                            <span id="msgAlerta"></span>            
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <span class="listar-usuarios"></span>
                               </div> 
-                           </div>
+                         </div>
                           <!-- ============================================================== -->
 	                        <!-- Total cliente, grafico  -->
-	        <div class="dashboard-influence">
+	             <div class="dashboard-influence">
 	                    <div class="row">
 	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">

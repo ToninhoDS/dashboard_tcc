@@ -5,7 +5,7 @@ SELECT @@autocommit;
 
 create database db_tcc_estacionamento1;
 
-use db_tcc_estacionamento1;
+use db_tcc_estacionamento;
 
 
 create table if not exists tb_uf(

@@ -72,13 +72,13 @@ if (!empty($pagina)) {
                             <td>
                             <div class='d-flex'>
   <div class='dropdown mr-1'>
-    <button style='display:nones;' type='button' class='btn  $status dropdown-toggle' id='dropdownMenuOffset' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-offset='10,20'>
+    <button style='display:nones;' type='button' class='btn $status dropdown-toggle' id='dropdownMenuOffset' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-offset='10,20'>
     Alterar 
     </button>
     <div class='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
-      <a class='dropdown-item' href='#'>Livre</a>
-      <a class='dropdown-item' href='#'>Ocupado</a>
-      <a class='dropdown-item' href='#'>Reserva</a>
+      <a class='dropdown-item' name='livre' value='livre'selected>Livre</a>
+      <a class='dropdown-item' name='ocupado' value='ocupado'>Ocupado</a>
+      <a class='dropdown-item' name='reserva' value='reserva'>Reserva</a>
     </div>
     
   </div><h3><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
