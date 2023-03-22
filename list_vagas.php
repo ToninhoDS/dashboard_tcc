@@ -135,8 +135,10 @@ if (!empty($pagina)) {
             }
         }
 
-        $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Última</a></li>";
-        $dados .=   '</ul></nav>';
+        $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Última</a></li><li colspan='3'>
+        <a href=''id='vagas-detalhes' class='page-link'>Detalhes</a>
+    </li>";
+        $dados .=   "</ul></nav>";
 
         $retorna = ['status' => true, 'dados' => $dados];
     } else {
