@@ -38,46 +38,34 @@ listarUsuarios(1);
 
 function editar_registro(id){
 //   ocultar o Botao editar
+document.getElementById("botao_salvar" +id ).style.display = "block";
+document.getElementById("Select_Option" +id ).style.display = "block";
    document.getElementById("botao_editar" +id ).style.display = "none";
 
 // apresentar o Botao salvar
-document.getElementById("botao_salvar" +id ).style.display = "block";
+
 
 
 //   ocultar o Botao excluir
-document.getElementById("botao_excluir" +id ).style.display = "none";
+
 document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
+
 //   recuperar o registro
 
    var nome = document.getElementById("valor_nome" + id);
    var email= document.getElementById("valor_email" + id);
    var senha = document.getElementById("valor_senha" + id);
-   var telefone= document.getElementById("valor_telefone" + id);
+   var Option_vagas = document.getElementById("Select_Option" + id);
 
-// controle do input 
-   
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
 email.innerHTML = "<input type='text' id='email_text"  + id + "' value='"+ email.innerHTML +"' size='20' maxlength='50'>";
 senha.innerHTML = "<input type='text' id='senha_text" + id + "' value='"+ senha.innerHTML +"' size='10' maxlength='50'>";
-telefone.innerHTML = "<input type='text' id='telefone_text"  + id + "' value='"+ telefone.innerHTML +"' size='20' maxlength='50'>";
-
-
-}
-
-// cancelar a pagar
-function cancelar_excluir(id){
-    //   ocultar o Botao confirmar e de cancelar e cancelar excluir
-       document.getElementById("botao_confirma" +id ).style.display = "none";
-       document.getElementById("botao_excluir_cancelar" +id ).style.display = "none";
-    
-    // apresentar o Botao excluir e de editar
-    document.getElementById("botao_excluir" +id ).style.display = "block";
-    document.getElementById("botao_editar" +id ).style.display = "block";
-    
+Option_vagas.innerHTML = "<option name='livre' value='livre'>Livre</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
 
 }
+
 
 // substituir o texto e salvar
 
@@ -86,21 +74,46 @@ async function salvar_registro(id){
     var nome_valor = document.getElementById("nome_text" +id).value;
     var email_valor = document.getElementById("email_text" +id).value;
     var senha_valor = document.getElementById("senha_text" +id).value;
-    var telefone_valor = document.getElementById("telefone_text" +id).value;
+    var Option_vagas_valor = document.getElementById("Select_Option" +id).value;
+   
+    // validação se a vaga for livra apagar tudo
+    if(Option_vagas_valor == 'livre'){
+
+        let text;
+        if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
+            var nome_valor = '';
+            var email_valor = '';
+            var senha_valor = 0 ;
+        } else {
+        text = "You canceled!";
+        }
+    }else{
+        
+    }
+    // if(nome_valor == ''){
+    //     window("Preenchar os campos");
+    //     } else {
+        
+    //     }
+    
+        
+    
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
     document.getElementById("valor_email" + id).innerHTML = email_valor;
     document.getElementById("valor_senha" + id).innerHTML = senha_valor;
-    document.getElementById("valor_telefone" + id).innerHTML = telefone_valor;
+    document.getElementById("Select_Option" + id).innerHTML = Option_vagas_valor;
+    
+    
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
     var dadosForm = "id=" + id + "&nome=" + nome_valor + "&email=" + email_valor 
-    + "&senha=" + senha_valor + "&telefone=" + telefone_valor ;
+    + "&senha=" + senha_valor + "&status_vagas=" + Option_vagas_valor;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
-   
-    const dados = await fetch("editar.php",{
+   console.log(dadosForm);
+    const dados = await fetch("comando_php/editar_tabela_vagas.php",{
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: dadosForm
@@ -129,24 +142,31 @@ async function salvar_registro(id){
         //   apresentar o Botao editar
    document.getElementById("botao_editar" +id ).style.display = "block";
    // ocultar o Botao salvar
-   document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+   
    document.getElementById("botao_salvar" +id ).style.display = "none";
+   document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+   document.getElementById("Select_Option" +id ).style.display = "none";
    
     //   apresentar o Botao excluir
-    document.getElementById("botao_excluir" +id ).style.display = "block";
-        
+    
+
+     window.location.reload(10); // carrega a pagina
     }
     
 }
 
+
+
 // cancelar a edição
 function cancelar_registro(id){
     //   ocultar o Botao confirmar e de cancelar e cancelar excluir
-       document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+       
        document.getElementById("botao_salvar" +id ).style.display = "none";
+       document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+       document.getElementById("Select_Option" +id ).style.display = "none";
     
     // apresentar o Botao excluir e de editar
-    document.getElementById("botao_excluir" +id ).style.display = "block";
+   
     document.getElementById("botao_editar" +id ).style.display = "block";
     
 
@@ -161,59 +181,9 @@ function removerMsgALerta(){
         document.getElementById("msgAlerta").innerHTML = "";
         // colocar o milisegundos que precisa 2000
    
-    }, 1000);
+    }, 3000);
    
 } 
-// fim da mensaggem em 2s apos apresentação da mensagem
-
-// excluir registro
-
-async function excluir_registro(id){
-    
-    //   ocultar o Botao excluir
-   document.getElementById("botao_excluir" +id ).style.display = "none";
-   // apresentar o Botao confirmar
-   document.getElementById("botao_confirma" +id ).style.display = "block";
-
-   document.getElementById("botao_excluir_cancelar" +id ).style.display = "block";
-
-    //   ocultar o Botao Editar
-    document.getElementById("botao_editar" +id ).style.display = "none";
-
-   //   chamar uma função para remover a mensagem apos alguns segundos
-   
-}
-
-// confirmar exclusao
-
-async function confirma_registro(id){
-
-var  $id_valor = document.getElementById("valor_id" + id).innerHTML;
-console.log("js id> " +id); // olhar se chamou a função
-
-
-// fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
-const dados = await fetch('excluir_restricao.php?id=' + id); // atribuir a uma constante
-
-const retorna = await dados.json();
-if(retorna['erro']){
-    msgAlerta.innerHTML = retorna['msg'];
-  
-
-    }else{
-        msgAlerta.innerHTML =retorna['msg'];
-        //  atualizar a pagina 
-        removerMsgALerta();
-
-        listarUsuarios(1);
-
-    }
-}
-
-// criar uma função que  reseta os botoes de editar e excluir
-
-
-// criando função que visualizar as informaçoes
 
 async  function visualizar(id){
     //console.log(id);

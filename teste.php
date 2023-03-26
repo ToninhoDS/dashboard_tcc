@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<select id="language">
-	<option value="pt">Português</option>
-	<option value="en">English</option>
-	<option value="es">Español</option>
-</select>
 
+
+<select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status'  class='btn $status dropdown-toggle'>
+<option name='$nm_status' value='$nm_status'>$nm_status</option>
+  <option name='livre' value='livre'>Livre</option>
+  <option name='reserva' value='reserva'>Reserva</option>
+  <option name='ocupado' value='ocupado'>Ocupado</option>
+</select>
 
     <script>
      	var select = document.getElementById('language');

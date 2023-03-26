@@ -88,6 +88,8 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <span class="listar-usuarios"></span>
                               </div> 
                          </div>
+					
+
                           <!-- ============================================================== -->
 	                        <!-- Total cliente, grafico  -->
 	             <div class="dashboard-influence">

@@ -3,7 +3,7 @@
 show databases;
 SELECT @@autocommit;
 
-create database db_tcc_estacionamento1;
+create database db_tcc_estacionamento;
 
 use db_tcc_estacionamento;
 

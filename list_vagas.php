@@ -54,9 +54,9 @@ if (!empty($pagina)) {
                             if($row_usuario ['nm_status'] == 'livre'){
                                 $status = 'badge-success';
                             }else{if($row_usuario ['nm_status'] == 'ocupado'){
-                                $status = 'badge-brand';
-                            }else{
                                 $status = 'badge-danger';
+                            }else{
+                                $status = 'badge-brand';
                             }}
                             
                             $dados .= "
@@ -70,16 +70,12 @@ if (!empty($pagina)) {
                             <td id='valor_senha$cd_status_vagas'>$dt_entrada</td>
                             
                             <td>
-                            <div class='d-flex'>
-  <div class='dropdown mr-1'>
-    <button style='display:nones;' type='button' class='btn $status dropdown-toggle' id='dropdownMenuOffset' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-offset='10,20'>
-    Alterar 
-    </button>
-    <div class='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
-      <a class='dropdown-item' name='livre' value='livre'selected>Livre</a>
-      <a class='dropdown-item' name='ocupado' value='ocupado'>Ocupado</a>
-      <a class='dropdown-item' name='reserva' value='reserva'>Reserva</a>
-    </div>
+<select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn $status dropdown-toggle'>
+<option name='$nm_status' value='$nm_status'>$nm_status</option>
+  <option name='livre' value='livre'selected>Livre</option>
+  <option name='reserva' value='reserva'>Reserva</option>
+  <option name='ocupado' value='ocupado'>Ocupado</option>
+</select>
     
   </div><h3><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
                              
@@ -89,13 +85,11 @@ if (!empty($pagina)) {
                         
                         <button type='button' id='botao_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='salvar_registro($cd_status_vagas)' style='display:none;font-size:12px;'>Salvar  </button>
 
-                        <button type='button' id='cancelarRG_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($cd_status_vagas)' style='display:none;font-size:12px'>Cancelar  </button>
+                        <button type='button' id='cancelarRG_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($cd_status_vagas)' style='display:none;font-size:12px;margin: 0 5px;'>Cancelar  </button>
                         
-                        <button type='button' id='botao_excluir$cd_status_vagas' class='btn btn-danger btn-sm me-1'onclick='excluir_registro($cd_status_vagas)'>Excluir</button>
-                        <button type='button' id='botao_confirma$cd_status_vagas' value='$cd_status_vagas'name='id_confirma$cd_status_vagas'class='btn btn-danger btn-sm me-1'onclick='confirma_registro($cd_status_vagas)' style='display:none;font-size:9px'>Confirma</button>
-                        <button type='button' id='botao_excluir_cancelar$cd_status_vagas' value='$cd_status_vagas'name='id_cancela$cd_status_vagas'class='btn btn-danger btn-sm me-1'onclick='cancelar_excluir($cd_status_vagas)' style='display:none;font-size:10px'>Cancelar</button>
+                       
 
-                        <button type='button' id='botao_visualizar$cd_status_vagas' value='$cd_status_vagas'name='id_visualizar$cd_status_vagas'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_status_vagas)'>Informações</button>
+                        <button style='margin: 0 5px; type='button' id='botao_visualizar$cd_status_vagas' value='$cd_status_vagas'name='id_visualizar$cd_status_vagas'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_status_vagas)'>Informações</button>
                         
                         
                     </td>
