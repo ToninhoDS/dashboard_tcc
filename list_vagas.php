@@ -63,7 +63,8 @@ if (!empty($pagina)) {
                             }else{
                                 $status = 'badge-brand';
                             }}
-                            
+    
+
                             $dados .= "
                             <tr>
                             <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
