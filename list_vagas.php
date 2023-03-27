@@ -70,9 +70,9 @@ if (!empty($pagina)) {
                             <td>
 
                             <select id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-warning dropdown-toggle'>
-                                <option name='livre' value='livre'selected>Livre</option>
-                                <option name='$Option_img' value='$Option_img'>$Option_img</option>
-                                <option name='carro' value='carro'selected>Carro</option>
+                               
+                                <option name='$Option_img' value='$Option_img'selected>$Option_img</option>
+                                <option name='carro' value='carro'>Carro</option>
                                 <option name='moto' value='moto'>Moto</option>
                                 <option name='bicicleta' value='bicicleta'>Bicicleta</option>
                                 <option name='patins' value='patins'>Patins</option>
@@ -90,8 +90,8 @@ if (!empty($pagina)) {
                             
                             <td>
                             <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn btn-warning dropdown-toggle'>
-                                <option name='$nm_status' value='$nm_status'>$nm_status</option>
-                                <option name='livre' value='livre'selected>Livre</option>
+                                <option name='$nm_status' value='$nm_status'selected>$nm_status</option>
+                                <option name='livre' value='livre'>Livre</option>
                                 <option name='reserva' value='reserva'>Reserva</option>
                                 <option name='ocupado' value='ocupado'>Ocupado</option>
                             </select>

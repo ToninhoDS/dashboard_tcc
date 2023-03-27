@@ -62,7 +62,7 @@ function editar_registro(id){
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
 placa.innerHTML = "<input type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
 entrada.innerHTML = "<input type='text' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
-Option_vagas.innerHTML = "<option name='livre' value='livre'>Livre</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
+Option_vagas.innerHTML = "<option name='livre' value='livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
 img_Option.innerHTML = "<option name='livre' value='livre'selected>Livre</option><option name='carro' value='carro'>Carro</option><option name='moto' value='moto'>Moto</option><option name='bicicleta' value='bicicleta'>Bicicleta</option><option name='patins' value='patins'>Patins</option><option name='outros' value='outros'>Outros</option>";
 
 
@@ -80,14 +80,23 @@ async function salvar_registro(id){
     var Option_vagas_valor = document.getElementById("Select_Option" +id).value;
     var img_Option_valor = document.getElementById("img_Option" +id).value;
    
-    // validação se a vaga for livra apagar tudo
+    //validação se a vaga for livra apagar tudo
     if(Option_vagas_valor == 'livre'){
 
-       (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) 
+       let text;
+        if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
             nome_valor = '';
             placa_valor = '';
             entrada_valor = 0;  
-        }else{}
+        } else {
+            window.location.reload(10); // carrega a pagina
+        text = "You canceled!";
+
+        }
+    }else{
+        
+    }
+        
   
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
