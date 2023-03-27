@@ -50,6 +50,13 @@ include("comando_php/crud_php/conexao_cadastro.php");
                     <div class="ecommerce-widget">
 
                         <div class="row">
+						
+                            <span id="msgAlerta"></span>            
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <span class="listar-usuarios"></span>
+							
+                              </div> 
+						
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -80,14 +87,8 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                     <canvas id="apiAleatoriaLinha"  width="380" height="100"></canvas>
                                 </div>
                             </div>
-                            
                         </div>
-                        <div class="row">
-                            <span id="msgAlerta"></span>            
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <span class="listar-usuarios"></span>
-                              </div> 
-                         </div>
+                     </div>
 					
 
                           <!-- ============================================================== -->

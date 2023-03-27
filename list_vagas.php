@@ -16,7 +16,7 @@ if (!empty($pagina)) {
 
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
 
-        $dados = "<div class='col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12'>
+        $dados = "<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         <div class='card'>
             <h3 class='card-header'><strong>Status de Vagas</strong></h3>
             <div class='card-body p-0'>
@@ -29,6 +29,7 @@ if (!empty($pagina)) {
                                 <th class='border-0'>Name</th>
                                 <th class='border-0'>Placa</th>
                                 <th class='border-0'>Entrada</th>
+                                <th class='border-0'>Hrs Vagas</th>
                                 <th class='border-0'>Status</th>
                                 <th class='border-0 alter_vagas' ><p>Alterar Vaga</p></th>   
                             </tr>
@@ -36,23 +37,27 @@ if (!empty($pagina)) {
                         <tbody>";
                         while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
                             extract($row_usuario);
+                            $Option_img = $row_usuario ['img_icon'];
                             if($row_usuario ['img_icon'] == 'carro'){
                                 $img_icon ="img/carro_vagas.png";
                             }else{if($row_usuario ['img_icon'] == 'moto'){
-                                $img_icon ="img/OIP_vagas.jpg";
+                                $img_icon ="img/moto_vagas.png";
                             }else{if($row_usuario ['img_icon'] == 'bicicleta'){
                                 $img_icon ="img/bike_vagas.jpg";
                             }else{if($row_usuario ['img_icon'] == 'patins'){
                                 $img_icon ="img/patins_vagas.png";
-                            }else{if($row_usuario ['img_icon'] == null){
-                                $img_icon ="img/tem_vaga.jpg";
-                            }else{
-                                $img_icon ="img/outros_vagas.jpg";
-                            }
-                        }}}}
+                            }else{if($row_usuario ['img_icon'] == 'outros'){
+                                $img_icon ="img/outros_vagas.png";
+                            }else{if($row_usuario ['img_icon'] == 'livre'){
+                                $img_icon ="img/disponivel_vagas.png";
+                            }else{if($row_usuario ['img_icon'] == ''){
+                                $img_icon ="img/disponivel_vagas.png";
+                            }else{}
+                        }}}}}}
                             
                             if($row_usuario ['nm_status'] == 'livre'){
                                 $status = 'badge-success';
+                                $img_icon = "img/disponivel_vagas.png";
                             }else{if($row_usuario ['nm_status'] == 'ocupado'){
                                 $status = 'badge-danger';
                             }else{
@@ -62,22 +67,36 @@ if (!empty($pagina)) {
                             $dados .= "
                             <tr>
                             <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
-                            <td><div class='m-r-10'><img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
+                            <td>
+
+                            <select id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-warning dropdown-toggle'>
+                                <option name='livre' value='livre'selected>Livre</option>
+                                <option name='$Option_img' value='$Option_img'>$Option_img</option>
+                                <option name='carro' value='carro'selected>Carro</option>
+                                <option name='moto' value='moto'>Moto</option>
+                                <option name='bicicleta' value='bicicleta'>Bicicleta</option>
+                                <option name='patins' value='patins'>Patins</option>
+                                <option name='outros' value='outros'>Outros</option>
+                                </select>
+                            
+
+                            <div id='img_status_vagas$cd_status_vagas' style='display:block' class='m-r-10'><img  id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
                             </td>
                            
                             <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
-                            <td id='valor_email$cd_status_vagas'>$sg_placa</td>
-                            <td id='valor_senha$cd_status_vagas'>$dt_entrada</td>
+                            <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
+                            <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>
+                            <td id='valor_horas$cd_status_vagas'>0</td>
                             
                             <td>
-<select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn $status dropdown-toggle'>
-<option name='$nm_status' value='$nm_status'>$nm_status</option>
-  <option name='livre' value='livre'selected>Livre</option>
-  <option name='reserva' value='reserva'>Reserva</option>
-  <option name='ocupado' value='ocupado'>Ocupado</option>
-</select>
-    
-  </div><h3><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
+                            <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn btn-warning dropdown-toggle'>
+                                <option name='$nm_status' value='$nm_status'>$nm_status</option>
+                                <option name='livre' value='livre'selected>Livre</option>
+                                <option name='reserva' value='reserva'>Reserva</option>
+                                <option name='ocupado' value='ocupado'>Ocupado</option>
+                            </select>
+                            <h3>
+                            <div id='status_cores$cd_status_vagas' style='display:block'><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
                              
                                     <td class='d-flex botaov'>
                         

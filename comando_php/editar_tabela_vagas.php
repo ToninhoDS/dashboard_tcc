@@ -9,33 +9,34 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //  $dados['status_vagas'] = 'ocupado';
 
 // testes para retorna os dados se foi
-// $retorna = ['status' => false, 'id' => $dados['id']];
-// var_dump('ddd',$dados);
+//$retorna = ['status' => false, 'id' => $dados['id']];
+ //var_dump('ddd',$dados);
 //avalidar
 if($dados['status_vagas'] == 'ocupado' || $dados['status_vagas'] == 'reserva'){
     if(empty($dados['id'])){
         $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ID!</div>"];
         
-    }elseif (empty($dados['nome'])){
+    }elseif (empty($dados['nome_vagas'])){
         $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o Nome!</div>"];
-    }elseif (empty($dados['email'])){
+    }elseif (empty($dados['placa_vagas'])){
         $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Numero da Placa!</div>"];
     
-    }elseif (empty($dados['senha'])){
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a Senha!</div>"];
+    }elseif (empty($dados['entrada_vagas'])){
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a entrada!</div>"];
     
+    }elseif (empty($dados['img_vagas'])){
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o imagem!</div>"];
     }elseif (empty($dados['status_vagas'])){
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o Telefone!</div>"];
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o Status!</div>"];
     }else{
         
-    
-        
-        $query_vagas_livres = "UPDATE tb_status_vagas SET nm_nome=:nome_vaga, dt_entrada=:entrada_vaga, sg_placa=:placa_vaga, nm_status=:status_vaga
+        $query_vagas_livres = "UPDATE tb_status_vagas SET nm_nome=:nome_vaga, img_icon=:img_vaga, dt_entrada=:entrada_vaga, sg_placa=:placa_vaga, nm_status=:status_vaga
         WHERE cd_status_vagas=:id";
         $edit_vagas_livres = $conn->prepare($query_vagas_livres);
-        $edit_vagas_livres->bindParam(':nome_vaga', $dados['nome']);
-        $edit_vagas_livres->bindParam(':placa_vaga', $dados['email']);
-        $edit_vagas_livres->bindParam(':entrada_vaga', $dados['senha']);
+        $edit_vagas_livres->bindParam(':nome_vaga', $dados['nome_vagas']);
+        $edit_vagas_livres->bindParam(':img_vaga', $dados['img_vagas']);
+        $edit_vagas_livres->bindParam(':placa_vaga', $dados['placa_vagas']);
+        $edit_vagas_livres->bindParam(':entrada_vaga', $dados['entrada_vagas']);
         $edit_vagas_livres->bindParam(':status_vaga', $dados['status_vagas']);
         $edit_vagas_livres->bindParam(':id', $dados['id']);
     

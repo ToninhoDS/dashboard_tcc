@@ -38,32 +38,35 @@ listarUsuarios(1);
 
 function editar_registro(id){
 //   ocultar o Botao editar
-document.getElementById("botao_salvar" +id ).style.display = "block";
-document.getElementById("Select_Option" +id ).style.display = "block";
-   document.getElementById("botao_editar" +id ).style.display = "none";
-
-// apresentar o Botao salvar
-
+    document.getElementById("botao_salvar" +id ).style.display = "block";
+    document.getElementById("Select_Option" +id ).style.display = "block";
+    document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
+    document.getElementById("img_Option" +id ).style.display = "block";
 
 
-//   ocultar o Botao excluir
+    document.getElementById("botao_editar" +id ).style.display = "none";
+    document.getElementById("status_cores" +id ).style.display = "none";
+    document.getElementById("img_status_vagas" +id ).style.display = "none";
 
-document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
 
 //   recuperar o registro
 
    var nome = document.getElementById("valor_nome" + id);
-   var email= document.getElementById("valor_email" + id);
-   var senha = document.getElementById("valor_senha" + id);
+   var placa= document.getElementById("valor_placa" + id);
+   var entrada = document.getElementById("valor_entrada" + id);
    var Option_vagas = document.getElementById("Select_Option" + id);
+   var img_Option = document.getElementById("img_Option" + id);
 
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
-email.innerHTML = "<input type='text' id='email_text"  + id + "' value='"+ email.innerHTML +"' size='20' maxlength='50'>";
-senha.innerHTML = "<input type='text' id='senha_text" + id + "' value='"+ senha.innerHTML +"' size='10' maxlength='50'>";
+placa.innerHTML = "<input type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
+entrada.innerHTML = "<input type='text' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
 Option_vagas.innerHTML = "<option name='livre' value='livre'>Livre</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
+img_Option.innerHTML = "<option name='livre' value='livre'selected>Livre</option><option name='carro' value='carro'>Carro</option><option name='moto' value='moto'>Moto</option><option name='bicicleta' value='bicicleta'>Bicicleta</option><option name='patins' value='patins'>Patins</option><option name='outros' value='outros'>Outros</option>";
 
+
+                               
 }
 
 
@@ -72,44 +75,34 @@ Option_vagas.innerHTML = "<option name='livre' value='livre'>Livre</option><opti
 async function salvar_registro(id){
     // recuperar o valor do camppo
     var nome_valor = document.getElementById("nome_text" +id).value;
-    var email_valor = document.getElementById("email_text" +id).value;
-    var senha_valor = document.getElementById("senha_text" +id).value;
+    var placa_valor = document.getElementById("placa_text" +id).value;
+    var entrada_valor = document.getElementById("entrada_text" +id).value;
     var Option_vagas_valor = document.getElementById("Select_Option" +id).value;
+    var img_Option_valor = document.getElementById("img_Option" +id).value;
    
     // validação se a vaga for livra apagar tudo
     if(Option_vagas_valor == 'livre'){
 
-        let text;
-        if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
-            var nome_valor = '';
-            var email_valor = '';
-            var senha_valor = 0 ;
-        } else {
-        text = "You canceled!";
-        }
-    }else{
-        
-    }
-    // if(nome_valor == ''){
-    //     window("Preenchar os campos");
-    //     } else {
-        
-    //     }
-    
-        
-    
+       (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) 
+            nome_valor = '';
+            placa_valor = '';
+            entrada_valor = 0;  
+        }else{}
+  
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
-    document.getElementById("valor_email" + id).innerHTML = email_valor;
-    document.getElementById("valor_senha" + id).innerHTML = senha_valor;
+    document.getElementById("valor_placa" + id).innerHTML = placa_valor;
+    document.getElementById("valor_entrada" + id).innerHTML = entrada_valor;
     document.getElementById("Select_Option" + id).innerHTML = Option_vagas_valor;
+    document.getElementById("img_Option" + id).innerHTML = img_Option_valor;
+   
     
     
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
-    var dadosForm = "id=" + id + "&nome=" + nome_valor + "&email=" + email_valor 
-    + "&senha=" + senha_valor + "&status_vagas=" + Option_vagas_valor;
+    var dadosForm = "id=" + id + "&nome_vagas=" + nome_valor + "&placa_vagas=" + placa_valor 
+    + "&entrada_vagas=" + entrada_valor + "&status_vagas=" + Option_vagas_valor + "&img_vagas=" + img_Option_valor ;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    console.log(dadosForm);
@@ -141,6 +134,8 @@ async function salvar_registro(id){
 
         //   apresentar o Botao editar
    document.getElementById("botao_editar" +id ).style.display = "block";
+   document.getElementById("status_cores" +id ).style.display = "block";
+   document.getElementById("img_status_vagas" +id ).style.display = "block";
    // ocultar o Botao salvar
    
    document.getElementById("botao_salvar" +id ).style.display = "none";
@@ -164,10 +159,13 @@ function cancelar_registro(id){
        document.getElementById("botao_salvar" +id ).style.display = "none";
        document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
        document.getElementById("Select_Option" +id ).style.display = "none";
+       document.getElementById("img_Option" +id ).style.display = "none";
     
     // apresentar o Botao excluir e de editar
    
     document.getElementById("botao_editar" +id ).style.display = "block";
+   document.getElementById("status_cores" +id ).style.display = "block";
+   document.getElementById("img_status_vagas" +id ).style.display = "block";
     
 
 }
