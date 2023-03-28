@@ -75,7 +75,7 @@ img_Option.innerHTML = "<option name='livre' value='livre'selected>Livre</option
 async function salvar_registro(id){
     // recuperar o valor do camppo
     var nome_valor = document.getElementById("nome_text" +id).value;
-    var placa_valor = document.getElementById("placa_text" +id).value;
+    var placa_valor = document.getElementById("placa_text" +id).value.toUpperCase();
     var entrada_valor = document.getElementById("entrada_text" +id).value;
     var Option_vagas_valor = document.getElementById("Select_Option" +id).value;
     var img_Option_valor = document.getElementById("img_Option" +id).value;
@@ -176,7 +176,7 @@ function cancelar_registro(id){
    document.getElementById("status_cores" +id ).style.display = "block";
    document.getElementById("img_status_vagas" +id ).style.display = "block";
     
-
+   window.location.reload(); // carrega a pagina
 }
 // fim do editar o banco de dados
 

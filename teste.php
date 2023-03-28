@@ -10,19 +10,21 @@
 <body>
 
 
-<select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status'  class='btn $status dropdown-toggle'>
-<option name='$nm_status' value='$nm_status'>$nm_status</option>
-  <option name='livre' value='livre'>Livre</option>
-  <option name='reserva' value='reserva'>Reserva</option>
-  <option name='ocupado' value='ocupado'>Ocupado</option>
-</select>
 
-    <script>
-     	var select = document.getElementById('language');
-	var text = select.options[select.selectedIndex].text;
-	console.log(text); // Português
     
-    </script>
+     <?php
+     $minutes = 85; // exemplo de minutos que precisam ser convertidos para horas
+
+     if ($minutes >= 60) {
+         $hours = floor($minutes / 60);
+         $minutes = $minutes % 60;
+     } else {
+         $hours = 0;
+     }
+     
+     echo $hours . " hora(s) e " . $minutes . " minuto(s)";
+     ?>
+    
 
 
 </body>

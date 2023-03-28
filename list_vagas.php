@@ -1,4 +1,8 @@
+
 <?php
+//Colocando nosso fuso horario
+date_default_timezone_set('America/Sao_Paulo');
+//fim
 include_once "comando_php/crud_php/conexao_cadastro.php";
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
@@ -9,7 +13,7 @@ if (!empty($pagina)) {
     //Calcular o inicio visualização
     $qnt_result_pg = 10; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
-
+    
     $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY cd_status_vagas DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
@@ -28,6 +32,7 @@ if (!empty($pagina)) {
                                 <th class='border-0'>Imagem</th>
                                 <th class='border-0'>Name</th>
                                 <th class='border-0'>Placa</th>
+                                <th class='border-0'>Data Entrada</th>
                                 <th class='border-0'>Entrada</th>
                                 <th class='border-0'>Hrs Vagas</th>
                                 <th class='border-0'>Status</th>
@@ -37,7 +42,26 @@ if (!empty($pagina)) {
                         <tbody>";
                         while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
                             extract($row_usuario);
-                            $Option_img = $row_usuario ['img_icon'];
+                            $Option_img = $row_usuario ['img_icon']; //pegando img
+                            $hora_min_vaga = $row_usuario ['dt_entrada']; //hora entrada
+                           
+                            //pegando o dia
+                            $data_vagas = date("d-m-Y");
+                            //pegando a hora
+                            $horas_min_atual_vagas = date("H:i:s");
+                            //calcular a hora do banco e hora atual
+                            $diff = strtotime($horas_min_atual_vagas) - strtotime($hora_min_vaga);
+                            $diff_seconds = abs($diff );
+                            $diff_minutes = round($diff_seconds / 60 );
+                            $diff_hours = round( $diff_minutes / 60 );
+                            $diff_hours -= 1; // tirar uma hora
+                            //converter min em uma hora
+                            if ($diff_minutes >= 60) {
+                                $saber_horas_vagas = floor($diff_minutes / 60);
+                                $diff_minutes = $diff_minutes % 60;
+                            } else {}
+                             
+                            
                             if($row_usuario ['img_icon'] == 'carro'){
                                 $img_icon ="img/carro_vagas.png";
                             }else{if($row_usuario ['img_icon'] == 'moto'){
@@ -54,10 +78,13 @@ if (!empty($pagina)) {
                                 $img_icon ="img/disponivel_vagas.png";
                             }else{}
                         }}}}}}
-                            
+                            // limpar a tabela quando select for livre
                             if($row_usuario ['nm_status'] == 'livre'){
                                 $status = 'badge-success';
                                 $img_icon = "img/disponivel_vagas.png";
+                                $diff_hours = 0;
+                                $diff_minutes = 0;
+                                $data_vagas = '';
                             }else{if($row_usuario ['nm_status'] == 'ocupado'){
                                 $status = 'badge-danger';
                             }else{
@@ -86,8 +113,9 @@ if (!empty($pagina)) {
                            
                             <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
                             <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
+                            <td id='valor_horas$cd_status_vagas'>$data_vagas </td>
                             <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>
-                            <td id='valor_horas$cd_status_vagas'>0</td>
+                            <td id='valor_horas$cd_status_vagas'>$diff_hours:$diff_minutes Hrs</td>
                             
                             <td>
                             <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn btn-warning dropdown-toggle'>
