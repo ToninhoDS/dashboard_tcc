@@ -7,22 +7,31 @@ include_once "comando_php/crud_php/conexao_cadastro.php";
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
-
+// esquisar link
+// https://www.guj.com.br/t/como-fazer-uma-pesquisa-na-propria-pagina-atraves-de-um-mecanismo-de-pesquisa/347949/3
 if (!empty($pagina)) {
 
     //Calcular o inicio visualização
     $qnt_result_pg = 10; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
+    $pesquisa_vagas = '1';
     
-    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY cd_status_vagas DESC LIMIT $inicio, $qnt_result_pg";
+    $pesquisa = $pesquisa_vagas;
+    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY $pesquisa_vagas  DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
-
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
-
+        $pesquisa = $pesquisa_vagas;
         $dados = "<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         <div class='card'>
             <h3 class='card-header'><strong>Status de Vagas</strong></h3>
+            <form class='needs-validation' novalidate=''action='list_vagas.php' method='POST'>             
+                    <div style='padding: 5px 5px ;' class='col-md-3 >                   
+                    <label class='card-header' for='firstName'></label>
+                        <input name='id_pesquisa' id='id_pesquisa' type='text' class='form-control'  placeholder='Pesquisar Vaga' value='' required=''>
+                     </div>
+                     
+            </form>
             <div class='card-body p-0'>
                 <div class='table-responsive'>
                     <table class='table'>
@@ -46,7 +55,7 @@ if (!empty($pagina)) {
                             $hora_min_vaga = $row_usuario ['dt_entrada']; //hora entrada
                            
                             //pegando o dia
-                            $data_vagas = date("d-m-Y");
+                            $data_vagas = date("d/m/Y");
                             //pegando a hora
                             $horas_min_atual_vagas = date("H:i:s");
                             //calcular a hora do banco e hora atual

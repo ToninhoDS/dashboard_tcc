@@ -25,7 +25,16 @@
      echo $hours . " hora(s) e " . $minutes . " minuto(s)";
      ?>
     
-
+    <form class="needs-validation" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="firstName">First name</label>
+                                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                                                        
+                                                    </div>                                               
+                                                </div>
+    </form>
+    <form class='needs-validation' novalidate=''><div class='row'><div class='col-md-6 mb-3'><label for='firstName'>First name</label><input type='text' class='form-control' id='firstName' placeholder='' value='' required=''></div></div></form>
 
 </body>
 </html>
