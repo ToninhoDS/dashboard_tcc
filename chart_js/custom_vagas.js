@@ -34,6 +34,7 @@ listarUsuarios(1);
 
 /* Fim listar os registros do banco de dados */
 
+
 // vamos substiuir o tewxto do campo
 
 function editar_registro(id){
@@ -60,10 +61,10 @@ function editar_registro(id){
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
-placa.innerHTML = "<input type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
+placa.innerHTML = "<input  type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
 entrada.innerHTML = "<input type='time' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
-Option_vagas.innerHTML = "<option name='livre' value='livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
-img_Option.innerHTML = "<option name='livre' value='livre'selected>Livre</option><option name='carro' value='carro'>Carro</option><option name='moto' value='moto'>Moto</option><option name='bicicleta' value='bicicleta'>Bicicleta</option><option name='patins' value='patins'>Patins</option><option name='outros' value='outros'>Outros</option>";
+Option_vagas.innerHTML = "<option name='Livre' value='Livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
+img_Option.innerHTML = "<option name='Livre' value='Livre'selected>Livre</option><option name='carro' value='carro'>Carro</option><option name='moto' value='moto'>Moto</option><option name='bicicleta' value='bicicleta'>Bicicleta</option><option name='patins' value='patins'>Patins</option><option name='outros' value='outros'>Outros</option>";
 
 
                                
@@ -81,7 +82,7 @@ async function salvar_registro(id){
     var img_Option_valor = document.getElementById("img_Option" +id).value;
    
     //validação se a vaga for livra apagar tudo
-    if(Option_vagas_valor == 'livre'){
+    if(Option_vagas_valor == 'Livre'){
 
        let text;
         if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
@@ -218,6 +219,14 @@ async  function visualizar(id){
     
 }
 
-// mandar dropdawn aberto 
 
+// limpar quando selecionar na option bicicleta
+function mostraAlerta(elemento)
+    {
+       
+        if(elemento.value == 'Bicicleta'){
+            console.log(elemento.value);
+            
+        }else{}
+    } 
 

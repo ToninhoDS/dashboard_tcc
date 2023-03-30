@@ -71,30 +71,30 @@ if (!empty($pagina)) {
                             } else {}
                              
                             
-                            if($row_usuario ['img_icon'] == 'carro'){
+                            if($row_usuario ['img_icon'] == 'Carro'){
                                 $img_icon ="img/carro_vagas.png";
-                            }else{if($row_usuario ['img_icon'] == 'moto'){
+                            }else{if($row_usuario ['img_icon'] == 'Moto'){
                                 $img_icon ="img/moto_vagas.png";
-                            }else{if($row_usuario ['img_icon'] == 'bicicleta'){
+                            }else{if($row_usuario ['img_icon'] == 'Bicicleta'){
                                 $img_icon ="img/bike_vagas.jpg";
-                            }else{if($row_usuario ['img_icon'] == 'patins'){
+                            }else{if($row_usuario ['img_icon'] == 'Patins'){
                                 $img_icon ="img/patins_vagas.png";
-                            }else{if($row_usuario ['img_icon'] == 'outros'){
+                            }else{if($row_usuario ['img_icon'] == 'Outros'){
                                 $img_icon ="img/outros_vagas.png";
-                            }else{if($row_usuario ['img_icon'] == 'livre'){
+                            }else{if($row_usuario ['img_icon'] == 'Livre'){
                                 $img_icon ="img/disponivel_vagas.png";
                             }else{if($row_usuario ['img_icon'] == ''){
                                 $img_icon ="img/disponivel_vagas.png";
                             }else{}
                         }}}}}}
-                            // limpar a tabela quando select for livre
-                            if($row_usuario ['nm_status'] == 'livre'){
+                            // limpar a tabela quando select for Livre
+                            if($row_usuario ['nm_status'] == 'Livre'){
                                 $status = 'badge-success';
                                 $img_icon = "img/disponivel_vagas.png";
                                 $diff_hours = 0;
                                 $diff_minutes = 0;
                                 $data_vagas = '';
-                            }else{if($row_usuario ['nm_status'] == 'ocupado'){
+                            }else{if($row_usuario ['nm_status'] == 'Ocupado'){
                                 $status = 'badge-danger';
                             }else{
                                 $status = 'badge-brand';
@@ -106,14 +106,14 @@ if (!empty($pagina)) {
                             <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
                             <td>
 
-                            <select id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-warning dropdown-toggle'>
+                            <select onchange='javascript:mostraAlerta(this);' id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-warning dropdown-toggle'>
                                
                                 <option name='$Option_img' value='$Option_img'selected>$Option_img</option>
-                                <option name='carro' value='carro'>Carro</option>
-                                <option name='moto' value='moto'>Moto</option>
-                                <option name='bicicleta' value='bicicleta'>Bicicleta</option>
-                                <option name='patins' value='patins'>Patins</option>
-                                <option name='outros' value='outros'>Outros</option>
+                                <option name='Carro' value='Carro'>Carro</option>
+                                <option name='Moto' value='Moto'>Moto</option>
+                                <option name='Bicicleta' value='Bicicleta'>Bicicleta</option>
+                                <option name='Patins' value='Patins'>Patins</option>
+                                <option name='Outros' value='Outros'>Outros</option>
                                 </select>
                             
 
@@ -129,7 +129,7 @@ if (!empty($pagina)) {
                             <td>
                             <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn btn-warning dropdown-toggle'>
                                 <option name='$nm_status' value='$nm_status'selected>$nm_status</option>
-                                <option name='livre' value='livre'>Livre</option>
+                                <option name='Livre' value='Livre'>Livre</option>
                                 <option name='reserva' value='reserva'>Reserva</option>
                                 <option name='ocupado' value='ocupado'>Ocupado</option>
                             </select>

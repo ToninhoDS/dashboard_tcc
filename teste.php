@@ -35,6 +35,17 @@
                                                 </div>
     </form>
     <form class='needs-validation' novalidate=''><div class='row'><div class='col-md-6 mb-3'><label for='firstName'>First name</label><input type='text' class='form-control' id='firstName' placeholder='' value='' required=''></div></div></form>
-
+   
+    <select name="teste" onchange="javascript:mostraAlerta(this);">
+    <option value="1">Opção 1</option>
+    <option value="2">Opção 2</option>
+    <script type="text/javascript">
+    function mostraAlerta(elemento)
+    {
+        window.alert(elemento.value);
+        console.log('ola mundo');
+    }
+</script>
+</select>
 </body>
 </html>
