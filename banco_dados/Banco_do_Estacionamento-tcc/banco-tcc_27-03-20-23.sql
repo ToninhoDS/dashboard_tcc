@@ -240,22 +240,22 @@ create table if not exists tb_status_vagas(
 cd_status_vagas int not null auto_increment,
 cd_numero_vaga double,
 nm_nome varchar (50) default 'Cliente',
-img_icon varchar (50) check (img_icon in ('carro','moto','bicicleta','patins','outros','livre')),
+img_icon varchar (50) check (img_icon in ('Carro','Moto','Bicicleta','Patins','Outros','Livre')),
 dt_entrada time,
 sg_placa varchar (15),
-nm_status varchar(20) check (nm_status in('ocupado','livre','reserva')),
+nm_status varchar(20) check (nm_status in('ocupado','Livre','Reserva')),
 constraint pk_status_vagas
 primary key (cd_status_vagas)
 ) engine=InnoDB auto_increment=0;
 
 insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status) values
-('1','1','Antonio','carro','19:03','A45DCV','ocupado'),
-('2','7','Enzxo Farinhado','moto','19:03','SDE85','ocupado'),
-('3','5','kaike','patins','18:03','DFF56','livre'),
-('4','10','Carlos','outros','14:03','DF1G6','reserva'),
-('5','3','Tonico','bicicleta','1:03','QW785D','reserva'),
-('6','8','Rayra hasuhsuh','outros','1:03','QW785D','ocupado'),
-('7','5','','livre','','','livre');
+('1','1','Antonio','Carro','19:03','A45DCV','ocupado'),
+('2','7','Enzxo Farinhado','Moto','19:03','SDE85','ocupado'),
+('3','5','kaike','Patins','18:03','DFF56','Livre'),
+('4','10','Carlos','Outros','14:03','DF1G6','Reserva'),
+('5','3','Tonico','Bicicleta','1:03','QW785D','Reserva'),
+('6','8','Rayra hasuhsuh','Outros','1:03','QW785D','ocupado'),
+('7','5','','Livre','','','Livre');
 select * from tb_status_vagas;
 -- fim 
 
