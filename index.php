@@ -25,9 +25,9 @@ include("comando_php/crud_php/conexao_cadastro.php");
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
+        
                     <!-- pageheader  -->
-                    <!-- ============================================================== -->
+        
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
@@ -44,19 +44,23 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- end pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="ecommerce-widget">
 
-                        <div class="row">
-						
-                            <span id="msgAlerta"></span>            
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <span class="listar-usuarios"></span>
-							
-                              </div> 
-						
+ <!-- chama Status Vagas -->
+        
+<div class="ecommerce-widget">
+	<div class="row">					
+        <span id="msgAlerta"></span>            
+        <div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
+        	<div class="card">
+            	<h3 class="card-header"><strong>Status de Vagas</strong></h3>           
+                <div style="padding: 5px 5px ;" class="col-md-3">                   
+                    <label class="card-header" for="firstName"></label>
+                    <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
+                 </div>
+                    <span class="listar-usuarios"></span>
+			</div>
+    </div> 
+<!-- FIM chama Status Vagas -->			
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -91,8 +95,8 @@ include("comando_php/crud_php/conexao_cadastro.php");
                      </div>
 					
 
-                          <!-- ============================================================== -->
-	                        <!-- Total cliente, grafico  -->
+                
+<!-- Total cliente, grafico  -->
 	             <div class="dashboard-influence">
 	                    <div class="row">
 	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -147,10 +151,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div><!-- fim coixa de mensagem -->
+	                    </div>
+<!-- fim coixa de mensagem -->
 	                    <div class="row">
-	                        <!-- ============================================================== -->
-	                        <!-- Frafico do estacionamento   -->
+	            
+<!-- Frafico do estacionamento   -->
 	                      
 	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
@@ -246,9 +251,37 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	               </div>
                  </div>
              </div>
+<!-- Modal -->
+<div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="visualiza_status_vaga_Title">Detalhes Cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9"><span id="idUsuario"></span></dd>
+            <dt class="col-sm-3">Nome</dt>
+            <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
+            <dt class="col-sm-3">email</dt>
+            <dd class="col-sm-9"><span id="emailUsuario"></span></dd>
+            <dt class="col-sm-3">Logradouro</dt></dt>
+            <dd class="col-sm-9"><span id="logradouroUsuario"></span></dd>
+            <dt class="col-sm-3">Numero</dt></dt>
+            <dd class="col-sm-9"><span id="numeroUsuario"></span></dd>
+        </dl>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- fim Modal -->
+<!-- footer -->
 
-            <!-- footer -->
-            <!-- ============================================================== -->
             <div class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -265,8 +298,8 @@ include("comando_php/crud_php/conexao_cadastro.php");
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- fim footer --> 
+
+<!-- fim footer --> 
         </div>  
     </div>
   
@@ -291,6 +324,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	<script src="chart_js/api_chart.js"></script>
       <script src="chart_js/dashboard-influencer.js"></script>
       <script src="chart_js/custom_vagas.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- fim -->
 </body>
  

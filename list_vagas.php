@@ -12,29 +12,16 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
 
     //Calcular o inicio visualização
-    $qnt_result_pg = 10; //Quantidade de registro por página
+    $qnt_result_pg = 6; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
-    $pesquisa_vagas = '1';
-    
-    $pesquisa = $pesquisa_vagas;
-    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY $pesquisa_vagas  DESC LIMIT $inicio, $qnt_result_pg";
+    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY cd_numero_vaga   DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
-        $pesquisa = $pesquisa_vagas;
-        $dados = "<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
-        <div class='card'>
-            <h3 class='card-header'><strong>Status de Vagas</strong></h3>
-            <form class='needs-validation' novalidate=''action='list_vagas.php' method='POST'>             
-                    <div style='padding: 5px 5px ;' class='col-md-3 >                   
-                    <label class='card-header' for='firstName'></label>
-                        <input name='id_pesquisa' id='id_pesquisa' type='text' class='form-control'  placeholder='Pesquisar Vaga' value='' required=''>
-                     </div>
-                     
-            </form>
+        $dados = "
             <div class='card-body p-0'>
                 <div class='table-responsive'>
-                    <table class='table'>
+                    <table class='table' id='my-table'>
                         <thead class='bg-light'>
                             <tr class='border-0'>
                                 <th class='border-0' >Nº Vagas</th>
@@ -94,11 +81,11 @@ if (!empty($pagina)) {
                                 $diff_hours = 0;
                                 $diff_minutes = 0;
                                 $data_vagas = '';
-                            }else{if($row_usuario ['nm_status'] == 'Ocupado'){
+                            }elseif($row_usuario ['nm_status'] == 'Reserva'){
                                 $status = 'badge-danger';
                             }else{
                                 $status = 'badge-brand';
-                            }}
+                            }
     
 
                             $dados .= "
@@ -106,7 +93,7 @@ if (!empty($pagina)) {
                             <td id='valor_id$cd_status_vagas'>$cd_numero_vaga</td>
                             <td>
 
-                            <select onchange='javascript:mostraAlerta(this);' id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-warning dropdown-toggle'>
+                            <select onchange='javascript:mostraAlerta(this);' id='img_Option$cd_status_vagas' name='$Option_img' value='$Option_img' style='display:none' class='btn btn-primary dropdown-toggle'>
                                
                                 <option name='$Option_img' value='$Option_img'selected>$Option_img</option>
                                 <option name='Carro' value='Carro'>Carro</option>
@@ -127,26 +114,27 @@ if (!empty($pagina)) {
                             <td id='valor_horas$cd_status_vagas'>$diff_hours:$diff_minutes Hrs</td>
                             
                             <td>
-                            <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none' class='btn btn-warning dropdown-toggle'>
+                                <div id='status_cores$cd_status_vagas' style='display:block;font-size:20px;color: black;'><span class='badge-dot $status mr-1' id='status'></span >$nm_status</div>
+                            </td>
+                            
+                            <td class='d-flex botaov'>
+
+                                <select id='Select_Option$cd_status_vagas' name='$nm_status' value='$nm_status' style='display:none;font-size:14px;margin: 0px 5px;' class='btn btn-primary  dropdown-toggle'>
                                 <option name='$nm_status' value='$nm_status'selected>$nm_status</option>
                                 <option name='Livre' value='Livre'>Livre</option>
-                                <option name='reserva' value='reserva'>Reserva</option>
-                                <option name='ocupado' value='ocupado'>Ocupado</option>
-                            </select>
-                            <h3>
-                            <div id='status_cores$cd_status_vagas' style='display:block'><span class='badge-dot $status mr-1' id='status'></span >$nm_status</h3></div></td>
-                             
-                                    <td class='d-flex botaov'>
-                        
-                        <button type='button' id='botao_editar$cd_status_vagas' class='btn btn-warning btn-sm me-1' onclick='editar_registro($cd_status_vagas)'>Editar</button>
-                        
-                        <button type='button' id='botao_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='salvar_registro($cd_status_vagas)' style='display:none;font-size:12px;'>Salvar  </button>
+                                <option name='Reserva' value='Reserva'>Reserva</option>
+                                <option name='Ocupado' value='Ocupado'>Ocupado</option>
+                                </select>
 
-                        <button type='button' id='cancelarRG_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($cd_status_vagas)' style='display:none;font-size:12px;margin: 0 5px;'>Cancelar  </button>
-                        
-                       
+                                <button type='button' id='botao_editar$cd_status_vagas' class='btn btn-warning btn-sm me-1' onclick='editar_registro($cd_status_vagas)'>Editar</button>
+                                
+                                <button type='button' id='botao_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='salvar_registro($cd_status_vagas)' style='display:none;font-size:12px;'>Salvar  </button>
 
-                        <button style='margin: 0 5px; type='button' id='botao_visualizar$cd_status_vagas' value='$cd_status_vagas'name='id_visualizar$cd_status_vagas'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_status_vagas)'>Informações</button>
+                                <button type='button' id='cancelarRG_salvar$cd_status_vagas' class='btn btn-warning btn-sm me-1'onclick='cancelar_registro($cd_status_vagas)' style='display:none;font-size:12px;margin: 0 5px;'>Cancelar  </button>
+                                
+                            
+
+                                <button style='margin: 0 5px; type='button' id='botao_visualizar$cd_status_vagas' value='$cd_status_vagas'name='id_visualizar$cd_status_vagas'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_status_vagas)'>Informações</button>
                         
                         
                     </td>
@@ -187,7 +175,7 @@ if (!empty($pagina)) {
         }
 
         $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Última</a></li><li colspan='3'>
-        <a href=''id='vagas-detalhes' class='page-link'>Detalhes</a>
+        <a href='vagas_detalhes.php' id='vagas-detalhes' class='page-link'>Detalhes</a>
     </li>";
         $dados .=   "</ul></nav>";
 

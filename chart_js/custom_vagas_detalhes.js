@@ -7,7 +7,7 @@ const tbody = document.querySelector(".listar-usuarios");
 const listarUsuarios = async (pagina) => {
 
     // Fazer a requisicao para o arquivo PHP responsavel em recuperar os registros do banco de dados
-    const dados = await fetch("./list_vagas.php?pagina=" + pagina);
+    const dados = await fetch("./list_vagas_detalhes.php?pagina=" + pagina);
 
     // Ler o objeto retornado pelo arquivo PHP
     const resposta = await dados.json();
@@ -18,9 +18,9 @@ const listarUsuarios = async (pagina) => {
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
     } else {
         // Recuperar o SELETOR do HTML que deve receber os registros
-        const conteudo = document.querySelector(".listar-usuarios");
+        const conteudo = document.querySelector(".listar-vagas_detalhes");
 
-        // Somente acessa o IF quando existir o SELETOR ".listar-usuarios"
+        // Somente acessa o IF quando existir o SELETOR ".listar-vagas_detalhes"
         if (conteudo) {
 
             // Enviar os dados para o arquivo HTML
@@ -215,6 +215,7 @@ async  function visualizar(id){
     }
     
 }
+
 
 // limpar quando selecionar na option bicicleta
 function mostraAlerta(elemento)

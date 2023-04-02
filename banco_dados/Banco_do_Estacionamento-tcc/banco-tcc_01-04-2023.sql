@@ -234,7 +234,7 @@ insert into tb_bike_outros values
 ('4','pop', 'pneu careca','MAIKEN','Roubada');
 select * from tb_bike_outros;
 
--- criado 18-03-2023
+-- criado 18-03-2023 -- tabelas testes ------------------
 
 create table if not exists tb_status_vagas(
 cd_status_vagas int not null auto_increment,
@@ -243,21 +243,90 @@ nm_nome varchar (50) default 'Cliente',
 img_icon varchar (50) check (img_icon in ('Carro','Moto','Bicicleta','Patins','Outros','Livre')),
 dt_entrada time,
 sg_placa varchar (15),
-nm_status varchar(20) check (nm_status in('ocupado','Livre','Reserva')),
+nm_status varchar(20) check (nm_status in('Ocupado','Livre','Reserva')),
 constraint pk_status_vagas
 primary key (cd_status_vagas)
 ) engine=InnoDB auto_increment=0;
 
 insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status) values
-('1','1','Antonio','Carro','19:03','A45DCV','ocupado'),
-('2','7','Enzxo Farinhado','Moto','19:03','SDE85','ocupado'),
+('1','1','Antonio','Carro','19:03','A45DCV','Ocupado'),
+('2','7','Enzxo Farinhado','Moto','19:03','SDE85','Ocupado'),
 ('3','5','kaike','Patins','18:03','DFF56','Livre'),
 ('4','10','Carlos','Outros','14:03','DF1G6','Reserva'),
 ('5','3','Tonico','Bicicleta','1:03','QW785D','Reserva'),
-('6','8','Rayra hasuhsuh','Outros','1:03','QW785D','ocupado'),
-('7','5','','Livre','','','Livre');
+('6','8','Rayra hasuhsuh','Outros','1:03','QW785D','Ocupado'),
+('7','5','','Livre','','','Livre'),
+('8','1','Antonio','Carro','19:03','A45DCV','Ocupado'),
+('9','7','Enzxo Farinhado','Moto','19:03','SDE85','ocupado'),
+('10','11','kaike','Patins','18:03','DFF56','Livre'),
+('11','9','Carlos','Outros','14:03','DF1G6','Reserva'),
+('12','4','Tonico','Bicicleta','1:03','QW785D','Reserva'),
+('13','2','Rayra hasuhsuh','Outros','1:03','QW785D','ocupado'),
+('14','14','','Livre','','','Livre');
 select * from tb_status_vagas;
--- fim 
+
+-- seegunda tabela teste, criado 02/04/2023
+select *from usuarios;
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `usuarios` VALUES (2,'Cesar 2','cesar2@celke.com.br'),
+(3,'Cesar3','cesar3@celke.com.br'),
+(5,'Cesar 5','cesar5@celke.com.br'),
+(6,'Cesar 6','cesar6@celke.com.br'),
+(7,'Cesar 7','cesar7@celke.com.br'),
+(8,'Cesar 8','cesar8@celke.com.br'),
+(9,'Cesar 9','cesar9@celke.com.br'),
+(10,'Cesar 10','cesar10@celke.com.br'),
+(12,'Cesar 12','cesar12@celke.com.br'),
+(3011,'ANTONIO CARLOS','yuongartte@gmail.com');
+
+-- terceira tabela teste
+DROP TABLE IF EXISTS `enderecos`;
+CREATE TABLE `enderecos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `logradouro` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numero` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `usuario_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+INSERT INTO `enderecos` VALUES (1,'Avenida Winston Churchill','936',1),(2,'Avenida Winston Churchill','936',2),(3,'Avenida Winston Churchill','936',3),(4,'Avenida Winston Churchill','936',4),(5,'Avenida Winston Churchill','936',5),(6,'Avenida Winston Churchill','936',6),(7,'Avenida Winston Churchill','936',7),(8,'Avenida Winston Churchill','936',8),(9,'Avenida Winston Churchill','936',9),(10,'Avenida Winston Churchill','936',10),(11,'Avenida Winston Churchill','936',11),(12,'Avenida Winston Churchill','936',12),(13,'Avenida Winston Churchill','936',13),(14,'Avenida Winston Churchill','936',14),(15,'Avenida Winston Churchill','936',15),(16,'rua Coronel Alipio Ferras','598',3010),(17,'rua Coronel Alipio Ferras','598',3011),(18,'rua Carmem Miranda','482',3012),(19,'rua Carmem Miranda','482',3013);
+
+DROP TABLE IF EXISTS `enderecos`;
+CREATE TABLE `enderecos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `logradouro` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numero` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `usuario_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `enderecos` VALUES (1,'Avenida Winston Churchill','936',1),
+(2,'Avenida Winston Churchill','936',2),
+(3,'Avenida Winston Churchill','936',3),
+(4,'Avenida Winston Churchill','936',4),
+(5,'Avenida Winston Churchill','936',5),
+(6,'Avenida Winston Churchill','936',6),
+(7,'Avenida Winston Churchill','936',7),
+(8,'Avenida Winston Churchill','936',8),
+(9,'Avenida Winston Churchill','936',9),
+(10,'Avenida Winston Churchill','936',10),
+(11,'Avenida Winston Churchill','936',11),
+(12,'Avenida Winston Churchill','936',12),
+(13,'Avenida Winston Churchill','936',13),
+(15,'Avenida Winston Churchill','936',15),
+(16,'rua Coronel Alipio Ferras','598',3010),
+(17,'rua Coronel Alipio Ferras','598',3011),
+(18,'rua Carmem Miranda','482',3012),
+(19,'rua Carmem Miranda','482',3013);
+-- fim ---------------------------------
 
 insert into tb_login values
 ('1','julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs'),

@@ -2,7 +2,7 @@
 <?php
 
 // Incluir a conexao com o banco de dados
-include_once "crud_php/conexao.php";
+include_once "crud_php/conexao_cadastro.php";
 
 // pegando o id
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
