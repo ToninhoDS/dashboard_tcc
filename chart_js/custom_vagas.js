@@ -237,7 +237,7 @@ function mostraAlerta(elemento)
           var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
           var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
           var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
-          var status_vagas_pesquisa = $(this).find('td:nth-child(8)').text().toLowerCase();
+          var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
           if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
             $(this).show();
           } else {

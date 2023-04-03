@@ -197,8 +197,23 @@ function removerMsgALerta(){
 
 // aplicação modal
 async  function visualizar(id){
+    // codificando eesse codigo 03/04/2023
+    var cpf_modal = document.getElementById("valor_cpf" + id);
+    var placa_modal = document.getElementById("valor_placa" + id);
+    
+    document.getElementById("valor_cpf" + id).innerHTML = cpf_modal;
+    document.getElementById("valor_placa" + id).innerHTML = placa_modal;
+   
+    
+    
+
+    // salvar dados para enviar em uma string e mandar para banco de dados
+
+    var dadosForm = "&cpf_modal=" + cpf_modal + "&placa_modal=" + placa_modal;
     console.log(id);
     //var cpf_modal = document.getElementById("valor_cpf" +id);
+
+    //fim
     var cpf_modal = '991.851.233-40';
     console.log(cpf_modal);
    
@@ -246,7 +261,7 @@ function mostraAlerta(elemento)
           var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
           var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
           var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
-          var status_vagas_pesquisa = $(this).find('td:nth-child(8)').text().toLowerCase();
+          var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
           if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
             $(this).show();
           } else {

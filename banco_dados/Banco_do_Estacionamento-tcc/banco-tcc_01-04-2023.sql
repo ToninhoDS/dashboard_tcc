@@ -263,7 +263,7 @@ insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon
 ('11','9','Carlos','Outros','14:03','DF1G6','031.574.345-00','Reserva'),
 ('12','4','Tonico','Bicicleta','1:03','QW785D','248.969.750-14','Reserva'),
 ('13','2','Rayra hasuhsuh','Outros','1:03','QW785D','049.161.186-26','ocupado'),
-('14','14','','Livre','','','Livre');
+('14','14','','Livre','','','049.161.186-36','Livre');
 select * from tb_status_vagas;
 
 -- seegunda tabela teste, criado 02/04/2023
