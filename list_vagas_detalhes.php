@@ -7,7 +7,7 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
     $qnt_result_pg = 100; 
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
-    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, nm_status FROM tb_status_vagas ORDER BY cd_numero_vaga  DESC LIMIT $inicio, $qnt_result_pg";
+    $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status FROM tb_status_vagas ORDER BY cd_numero_vaga  DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
@@ -19,6 +19,7 @@ if (!empty($pagina)) {
                                 <th class='border-0' >Nº Vagas</th>
                                 <th class='border-0'>Imagem</th>
                                 <th class='border-0'>Name</th>
+                                <th class='border-0'>CPF</th>
                                 <th class='border-0'>Placa</th>
                                 <th class='border-0'>Data Entrada</th>
                                 <th class='border-0'>Entrada</th>
@@ -95,6 +96,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     </td>
     
     <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
+    <td id='valor_cpf$cd_status_vagas'value='$cd_cpf'>$cd_cpf</td>
     <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
     <td id='valor_horas$cd_status_vagas'>$data_vagas </td>
     <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>

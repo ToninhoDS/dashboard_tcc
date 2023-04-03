@@ -14,10 +14,11 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //avalidar
 
         
-        $query_vagas_livres = "UPDATE tb_status_vagas SET nm_nome=:nome_vaga, img_icon=:img_vaga, dt_entrada=:entrada_vaga, sg_placa=:placa_vaga, nm_status=:status_vaga
+        $query_vagas_livres = "UPDATE tb_status_vagas SET nm_nome=:nome_vaga, img_icon=:img_vaga, dt_entrada=:entrada_vaga, sg_placa=:placa_vaga, cd_cpf=:cpf_vaga, nm_status=:status_vaga
         WHERE cd_status_vagas=:id";
         $edit_vagas_livres = $conn->prepare($query_vagas_livres);
         $edit_vagas_livres->bindParam(':nome_vaga', $dados['nome_vagas']);
+        $edit_vagas_livres->bindParam(':cpf_vaga', $dados['cpf_vagas']);
         $edit_vagas_livres->bindParam(':img_vaga', $dados['img_vagas']);
         $edit_vagas_livres->bindParam(':placa_vaga', $dados['placa_vagas']);
         $edit_vagas_livres->bindParam(':entrada_vaga', $dados['entrada_vagas']);

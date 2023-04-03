@@ -52,7 +52,8 @@ function editar_registro(id){
 //   recuperar o registro
 
    var nome = document.getElementById("valor_nome" + id);
-   var placa= document.getElementById("valor_placa" + id);
+   var cpf = document.getElementById("valor_cpf" + id);
+   var placa = document.getElementById("valor_placa" + id);
    var entrada = document.getElementById("valor_entrada" + id);
    var Option_vagas = document.getElementById("Select_Option" + id);
    var img_Option = document.getElementById("img_Option" + id);
@@ -60,6 +61,7 @@ function editar_registro(id){
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
+cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='11'>";
 placa.innerHTML = "<input  type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
 entrada.innerHTML = "<input type='time' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
 Option_vagas.innerHTML = "<option name='Livre' value='Livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
@@ -75,6 +77,7 @@ img_Option.innerHTML = "<option name='Livre' value='Livre'selected>Livre</option
 async function salvar_registro(id){
     // recuperar o valor do camppo
     var nome_valor = document.getElementById("nome_text" +id).value;
+    var cpf_valor = document.getElementById("cpf_text" +id).value;
     var placa_valor = document.getElementById("placa_text" +id).value.toUpperCase();
     var entrada_valor = document.getElementById("entrada_text" +id).value;
     var Option_vagas_valor = document.getElementById("Select_Option" +id).value;
@@ -87,6 +90,7 @@ async function salvar_registro(id){
         if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
             nome_valor = '';
             placa_valor = '';
+            cpf_valor = '';
             entrada_valor = 0;  
         } else {
             window.location.reload(10); // carrega a pagina
@@ -100,6 +104,7 @@ async function salvar_registro(id){
   
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
+    document.getElementById("valor_cpf" + id).innerHTML = cpf_valor;
     document.getElementById("valor_placa" + id).innerHTML = placa_valor;
     document.getElementById("valor_entrada" + id).innerHTML = entrada_valor;
     document.getElementById("Select_Option" + id).innerHTML = Option_vagas_valor;
@@ -110,8 +115,8 @@ async function salvar_registro(id){
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
-    var dadosForm = "id=" + id + "&nome_vagas=" + nome_valor + "&_pesquisas=" + placa_valor 
-    + "&entrada_vagas=" + entrada_valor + "&status_vagas=" + Option_vagas_valor + "&img_vagas=" + img_Option_valor ;
+    var dadosForm = "id=" + id + "&nome_vagas=" + nome_valor + "&placa_vagas=" + placa_valor 
+    + "&entrada_vagas=" + entrada_valor + "&status_vagas=" + Option_vagas_valor + "&img_vagas=" + img_Option_valor + "&cpf_vagas=" + cpf_valor;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    console.log(dadosForm);
@@ -190,16 +195,17 @@ function removerMsgALerta(){
    
 } 
 
+// aplicação modal
 async  function visualizar(id){
     console.log(id);
-    const dados = await fetch('comando_php/visualizar.php?id=' + id);
+    //var cpf_modal = document.getElementById("valor_cpf" +id);
+    var cpf_modal = '991.851.233-40';
+    console.log(cpf_modal);
+   
+    const dados = await fetch('comando_php/visualizar.php?id=' + cpf_modal);
     const resposta = await dados.json();
     console.log(resposta);
-    //await espera terminar processamento de cima para continuar
-   
-
-    //validação
-
+  
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
     }else{
@@ -207,11 +213,18 @@ async  function visualizar(id){
         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
 
-        document.getElementById("idUsuario").innerHTML = resposta['dados'].id;
-        document.getElementById("nomeUsuario").innerHTML = resposta['dados'].nome;
-        document.getElementById("emailUsuario").innerHTML = resposta['dados'].email;
-        document.getElementById("logradouroUsuario").innerHTML = resposta['dados'].logradouro;
-        document.getElementById("numeroUsuario").innerHTML = resposta['dados'].numero;
+        document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
+        document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+        document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
+        document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
+        document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;
+        document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_cidade;
+        document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].sg_uf;
+        document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_numero1;
+        document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_placa;
+        document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].nm_modelo;
+        document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].nm_marca;
+        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].nm_cor;
     }
     
 }
