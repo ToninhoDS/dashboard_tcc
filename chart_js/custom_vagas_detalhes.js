@@ -61,7 +61,7 @@ function editar_registro(id){
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
-cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='11'>";
+cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='20'>";
 placa.innerHTML = "<input  type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
 entrada.innerHTML = "<input type='time' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
 Option_vagas.innerHTML = "<option name='Livre' value='Livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
@@ -197,27 +197,17 @@ function removerMsgALerta(){
 
 // aplicação modal
 async  function visualizar(id){
-    // codificando eesse codigo 03/04/2023
-    var cpf_modal = document.getElementById("valor_cpf" + id);
-    var placa_modal = document.getElementById("valor_placa" + id);
-    
-    document.getElementById("valor_cpf" + id).innerHTML = cpf_modal;
-    document.getElementById("valor_placa" + id).innerHTML = placa_modal;
+    // pegando dados do banco que é apresentado na tabela
+    valor_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML; 
+    valor_placa_motal = document.getElementById("valor_placa" + id).innerHTML; 
    
-    
-    
-
-    // salvar dados para enviar em uma string e mandar para banco de dados
-
-    var dadosForm = "&cpf_modal=" + cpf_modal + "&placa_modal=" + placa_modal;
-    console.log(id);
-    //var cpf_modal = document.getElementById("valor_cpf" +id);
-
-    //fim
-    var cpf_modal = '991.851.233-40';
-    console.log(cpf_modal);
    
-    const dados = await fetch('comando_php/visualizar.php?id=' + cpf_modal);
+   console.log(valor_cpf_modal);
+
+    //var cpf_modal = '991.851.233-40';
+    //console.log(cpf_modal);
+   
+    const dados = await fetch('comando_php/visualizar.php?id=' + valor_cpf_modal + '&valor_placa_modal=' + $valor_placa_motal);
     const resposta = await dados.json();
     console.log(resposta);
   

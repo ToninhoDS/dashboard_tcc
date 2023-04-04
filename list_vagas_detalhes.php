@@ -96,8 +96,8 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     </td>
     
     <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
-    <td id='valor_cpf$cd_status_vagas'value='$cd_cpf'>$cd_cpf</td>
-    <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
+    <td id='valor_cpf$cd_status_vagas'name='$cd_cpf'value='$cd_cpf'>$cd_cpf</td>
+    <td id='valor_placa$cd_status_vagas''name='$sg_placa'value='$sg_placa'>$sg_placa</td>
     <td id='valor_horas$cd_status_vagas'>$data_vagas </td>
     <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>
     <td id='valor_horas$cd_status_vagas'>$diff_hours:$diff_minutes Hrs</td>

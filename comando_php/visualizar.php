@@ -9,7 +9,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 //$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 //$id = '652.159.799-01';
 // Acessa o IF quando a variavel ID possui valor
-if (!empty($id)) {
+
     $query_usuario = "SELECT c.cd_cliente,  c.nm_cliente, pf.cd_cpf, c.cd_email_cliente, b.nm_bairro, ci.nm_cidade, uf.sg_uf, tf.cd_numero1, ve.cd_placa, mo.nm_modelo, ma.nm_marca, co.nm_cor
     from tb_cliente as c
     join tb_pessoa_fisica as pf
@@ -50,10 +50,8 @@ if (!empty($id)) {
          // ler o resultados ,PDO ultilar conexao PDO, FETCH_ASSSOC para imprimir atravez da coluna
         $retorna = ['status' => true, 'dados' => $row_usuario];
     }else{
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado!</div>"];
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado $id!</div>"];
     }
-} else {
-    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado!</div>"];
-}
+
 
 echo json_encode($retorna);
