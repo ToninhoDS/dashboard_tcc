@@ -235,14 +235,14 @@ insert into tb_bike_outros values
 select * from tb_bike_outros;
 
 -- criado 18-03-2023 -- tabelas testes ------------------
-
+drop table tb_status_vagas;
 create table if not exists tb_status_vagas(
 cd_status_vagas int not null auto_increment,
 cd_numero_vaga double,
 nm_nome varchar (50) default 'Cliente',
 img_icon varchar (50) check (img_icon in ('Carro','Moto','Bicicleta','Patins','Outros','Livre')),
 dt_entrada time,
-sg_placa varchar (15),
+sg_placa varchar (20),
 cd_cpf varchar (20),
 nm_status varchar(20) check (nm_status in('Ocupado','Livre','Reserva')),
 constraint pk_status_vagas
@@ -250,20 +250,26 @@ primary key (cd_status_vagas)
 ) engine=InnoDB auto_increment=0;
 
 insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status) values
-('1','1','Antonio','Carro','19:03','A45DCV','136.230.852-86','Ocupado'),
-('2','7','Enzxo Farinhado','Moto','19:03','SDE85','558.882.025-84','Ocupado'),
-('3','5','kaike','Patins','18:03','DFF56','067.846.794-31','Livre'),
-('4','10','Carlos','Outros','14:03','DF1G6','652.159.799-07','Reserva'),
-('5','3','Tonico','Bicicleta','1:03','QW785D','743.721.422-93','Reserva'),
-('6','8','Rayra hasuhsuh','Outros','1:03','QW785D','652.159.799-05','Ocupado'),
-('7','5','','Livre','','','399.443.846-23','Livre'),
-('8','1','Antonio','Carro','19:03','A45DCV','652.159.799-01','Ocupado'),
-('9','7','Enzxo Farinhado','Moto','19:03','SDE85','991.851.233-40','ocupado'),
-('10','11','kaike','Patins','18:03','DFF56','567.596.008-27','Livre'),
-('11','9','Carlos','Outros','14:03','DF1G6','031.574.345-00','Reserva'),
-('12','4','Tonico','Bicicleta','1:03','QW785D','248.969.750-14','Reserva'),
-('13','2','Rayra hasuhsuh','Outros','1:03','QW785D','049.161.186-26','ocupado'),
-('14','14','','Livre','','','049.161.186-36','Livre');
+('1','1','Antonio','Carro','19:03','ANS-3908','136.230.852-86','Ocupado'),
+('2','2','Enzxo Farinhado','Moto','19:03','NEJ-8313','558.882.025-84','Ocupado'),
+('3','3','kaike','Patins','18:03','AOM-2970','067.846.794-31','Livre'),
+('4','4','Carlos','Outros','14:03','KPF-4778','42.511.777/0001-60','Reserva'),
+('5','5','Tonico','Bicicleta','1:03','NEW-3182','743.721.422-93','Reserva'),
+('6','6','Rayra hasuhsuh','Outros','1:03','HZO-2490','59.067.078/0001-76','Ocupado'),
+('7','7','','Livre','','MUV-1609','399.443.846-23','Livre'),
+('8','8','Antonio','Carro','19:03','MOU-6604','43.861.452/0001-70','Ocupado'),
+('9','9','Enzxo Farinhado','Moto','19:03','MQY-3954','37.962.613/0001-10','ocupado'),
+('10','10','kaike','Patins','18:03','KET-8904','65.254.503/0001-39','Livre'),
+('11','11','Carlos','Outros','14:03','DNO-2637','991.851.233-40','Reserva'),
+('12','12','Tonico','Bicicleta','1:03','HPI-7589','31.492.526/0001-60','Reserva'),
+('13','13','Rayra hasuhsuh','Outros','1:03','MZX-0024','567.596.008-27','ocupado'),
+('14','14','Antonio','Carro','19:03','HZM-8017','031.574.345-00','Ocupado'),
+('15','15','Enzxo Farinhado','Moto','19:03','JTC-3907','248.969.750-14','ocupado'),
+('16','16','kaike','Patins','18:03','NAE-7471','72.181.135/0001-01','Livre'),
+('17','17','Carlos','Outros','14:03','CON-1661','36.062.069/0001-97','Reserva'),
+('18','18','Tonico','Bicicleta','1:03','IEW-8686','01.695.631/0001-35','Reserva'),
+('19','19','Rayra hasuhsuh','Outros','1:03','ENB-0247','049.161.186-26','ocupado'),
+('20','20','','Livre','','HZZ-4802','652.159.799-01','Livre');
 select * from tb_status_vagas;
 
 -- seegunda tabela teste, criado 02/04/2023
@@ -551,26 +557,26 @@ select * from tb_patio;
 -- 11
 
 insert into tb_veiculo values
-('1','11','1','1','1'),
-('2','22','2','2','2'),
-('3','33','3','3','3'),
-('4','44','4','4','4'),
-('5','55','5','5','5'),
-('6','66','6','6','6'),
-('7','77','7','7','7'),
-('8','88','8','8','8'),
-('9','99','9','9','9'),
-('10','101','10','10','10'),
-('11','111','11','2','11'),
-('12','122','12','5','12'),
-('13','133','13','9','13'),
-('14','144','14','7','14'),
-('15','155','15','8','15'),
-('16','166','16','6','16'),
-('17','177','17','7','17'),
-('18','188','18','8','18'),
-('19','199','19','9','19'),
-('20','202','20','2','20');
+('1','ANS-3908','1','1','1'),
+('2','NEJ-8313','2','2','2'),
+('3','AOM-2970','3','3','3'),
+('4','KPF-4778','4','4','4'),
+('5','NEW-3182','5','5','5'),
+('6','HZO-2490','6','6','6'),
+('7','MUV-1609','7','7','7'),
+('8','MOU-6604','8','8','8'),
+('9','MQY-3954','9','9','9'),
+('10','KET-8904','10','10','10'),
+('11','DNO-2637','11','2','11'),
+('12','HPI-7589','12','5','12'),
+('13','MZX-0024','13','9','13'),
+('14','HZM-8017','14','7','14'),
+('15','JTC-3907','15','8','15'),
+('16','NAE-7471','16','6','16'),
+('17','CON-1661','17','7','17'),
+('18','IEW-8686','18','8','18'),
+('19','ENB-0247','19','9','19'),
+('20','HZZ-4802','20','2','20');
 select * from tb_veiculo;
 
 -- 12
