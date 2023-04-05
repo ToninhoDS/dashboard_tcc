@@ -199,8 +199,11 @@ function removerMsgALerta(){
 async  function visualizar(id){
 
    //var lol = '991.851.233-40'
-    var lol = document.getElementById("valor_cpf" + id).innerHTML;
-    const dados = await fetch('comando_php/visualizar.php?id=' +lol);
+    var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
+    //criar uma array
+    var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
+    console.log(array_placa_modal);
+    const dados = await fetch('comando_php/visualizar.php?id=' +array_cpf_modal);
     const resposta = await dados.json();
     console.log(resposta);
   

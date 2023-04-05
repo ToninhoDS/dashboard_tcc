@@ -67,7 +67,7 @@ if(isset($_SESSION['msg'])){
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">CPF</label>
-                                                <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" class="form-control"  type="text">
+                                                <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" required="" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     CPF incorreto!.
                                                 </div>
@@ -81,7 +81,7 @@ if(isset($_SESSION['msg'])){
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom05">Celular</label>
-                                                <input name="cd_numero1" id="cd_numero1" placeholder="Digite o numero" required="" class="form-control"  type="text">
+                                                <input name="cd_numero1" id="cd_numero1" placeholder="Digite o numero"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Numero incorreto!.
                                                 </div>
@@ -126,14 +126,14 @@ if(isset($_SESSION['msg'])){
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Modelo</label>
-                                                <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo" required="" class="form-control"  type="text">
+                                                <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Modelo do Carro invalido!.
                                                 </div>
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Cor</label>
-                                                <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" required="" class="form-control"  type="text">
+                                                <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Cor do Carro invalido!.
                                                 </div>
