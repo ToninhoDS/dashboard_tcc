@@ -253,87 +253,26 @@ insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon
 ('1','1','Antonio','Carro','19:03','ANS-3908','136.230.852-86','Ocupado'),
 ('2','2','Enzxo Farinhado','Moto','19:03','NEJ-8313','558.882.025-84','Ocupado'),
 ('3','3','kaike','Patins','18:03','AOM-2970','067.846.794-31','Livre'),
-('4','4','Carlos','Outros','14:03','KPF-4778','42.511.777/0001-60','Reserva'),
+('4','4','Carlos','Outros','14:03','KPF-4778','333.564.700-94','Reserva'), 
 ('5','5','Tonico','Bicicleta','1:03','NEW-3182','743.721.422-93','Reserva'),
-('6','6','Rayra hasuhsuh','Outros','1:03','HZO-2490','59.067.078/0001-76','Ocupado'),
+('6','6','Rayra hasuhsuh','Outros','1:03','HZO-2490','006.248.620-97','Ocupado'), 
 ('7','7','','Livre','','MUV-1609','399.443.846-23','Livre'),
-('8','8','Antonio','Carro','19:03','MOU-6604','43.861.452/0001-70','Ocupado'),
-('9','9','Enzxo Farinhado','Moto','19:03','MQY-3954','37.962.613/0001-10','ocupado'),
-('10','10','kaike','Patins','18:03','KET-8904','65.254.503/0001-39','Livre'),
+('8','8','Antonio','Carro','19:03','MOU-6604','559.186.550-00','Ocupado'), 
+('9','9','Enzxo Farinhado','Moto','19:03','MQY-3954','187.233.440-75','ocupado'), 
+('10','10','kaike','Patins','18:03','KET-8904','448.196.880-06','Livre'), 
 ('11','11','Carlos','Outros','14:03','DNO-2637','991.851.233-40','Reserva'),
-('12','12','Tonico','Bicicleta','1:03','HPI-7589','31.492.526/0001-60','Reserva'),
+('12','12','Tonico','Bicicleta','1:03','HPI-7589','300.831.410-49','Reserva'), 
 ('13','13','Rayra hasuhsuh','Outros','1:03','MZX-0024','567.596.008-27','ocupado'),
 ('14','14','Antonio','Carro','19:03','HZM-8017','031.574.345-00','Ocupado'),
 ('15','15','Enzxo Farinhado','Moto','19:03','JTC-3907','248.969.750-14','ocupado'),
-('16','16','kaike','Patins','18:03','NAE-7471','72.181.135/0001-01','Livre'),
-('17','17','Carlos','Outros','14:03','CON-1661','36.062.069/0001-97','Reserva'),
-('18','18','Tonico','Bicicleta','1:03','IEW-8686','01.695.631/0001-35','Reserva'),
+('16','16','kaike','Patins','18:03','NAE-7471','859.364.540-29','Livre'), 
+('17','17','Carlos','Outros','14:03','CON-1661','357.235.070-01','Reserva'), 
+('18','18','Tonico','Bicicleta','1:03','IEW-8686','226.615.300-53','Reserva'), 
 ('19','19','Rayra hasuhsuh','Outros','1:03','ENB-0247','049.161.186-26','ocupado'),
 ('20','20','','Livre','','HZZ-4802','652.159.799-01','Livre');
 select * from tb_status_vagas;
 
--- seegunda tabela teste, criado 02/04/2023
-select *from usuarios;
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `usuarios` VALUES (2,'Cesar 2','cesar2@celke.com.br'),
-(3,'Cesar3','cesar3@celke.com.br'),
-(5,'Cesar 5','cesar5@celke.com.br'),
-(6,'Cesar 6','cesar6@celke.com.br'),
-(7,'Cesar 7','cesar7@celke.com.br'),
-(8,'Cesar 8','cesar8@celke.com.br'),
-(9,'Cesar 9','cesar9@celke.com.br'),
-(10,'Cesar 10','cesar10@celke.com.br'),
-(12,'Cesar 12','cesar12@celke.com.br'),
-(3011,'ANTONIO CARLOS','yuongartte@gmail.com');
-
--- terceira tabela teste
-DROP TABLE IF EXISTS `enderecos`;
-CREATE TABLE `enderecos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `logradouro` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `numero` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `usuario_id` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-INSERT INTO `enderecos` VALUES (1,'Avenida Winston Churchill','936',1),(2,'Avenida Winston Churchill','936',2),(3,'Avenida Winston Churchill','936',3),(4,'Avenida Winston Churchill','936',4),(5,'Avenida Winston Churchill','936',5),(6,'Avenida Winston Churchill','936',6),(7,'Avenida Winston Churchill','936',7),(8,'Avenida Winston Churchill','936',8),(9,'Avenida Winston Churchill','936',9),(10,'Avenida Winston Churchill','936',10),(11,'Avenida Winston Churchill','936',11),(12,'Avenida Winston Churchill','936',12),(13,'Avenida Winston Churchill','936',13),(14,'Avenida Winston Churchill','936',14),(15,'Avenida Winston Churchill','936',15),(16,'rua Coronel Alipio Ferras','598',3010),(17,'rua Coronel Alipio Ferras','598',3011),(18,'rua Carmem Miranda','482',3012),(19,'rua Carmem Miranda','482',3013);
-
-DROP TABLE IF EXISTS `enderecos`;
-CREATE TABLE `enderecos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `logradouro` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `numero` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `usuario_id` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `enderecos` VALUES (1,'Avenida Winston Churchill','936',1),
-(2,'Avenida Winston Churchill','936',2),
-(3,'Avenida Winston Churchill','936',3),
-(4,'Avenida Winston Churchill','936',4),
-(5,'Avenida Winston Churchill','936',5),
-(6,'Avenida Winston Churchill','936',6),
-(7,'Avenida Winston Churchill','936',7),
-(8,'Avenida Winston Churchill','936',8),
-(9,'Avenida Winston Churchill','936',9),
-(10,'Avenida Winston Churchill','936',10),
-(11,'Avenida Winston Churchill','936',11),
-(12,'Avenida Winston Churchill','936',12),
-(13,'Avenida Winston Churchill','936',13),
-(15,'Avenida Winston Churchill','936',15),
-(16,'rua Coronel Alipio Ferras','598',3010),
-(17,'rua Coronel Alipio Ferras','598',3011),
-(18,'rua Carmem Miranda','482',3012),
-(19,'rua Carmem Miranda','482',3013);
--- fim ---------------------------------
 
 insert into tb_login values
 ('1','julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs'),
@@ -634,21 +573,21 @@ insert into tb_pessoa_fisica values
 ('1', '136.230.852-86', '1', '1'),
 ('2', '558.882.025-84', '2', '2'),
 ('3', '067.846.794-31', '3', '3'),
-('4', null, '4', '4'),
+('4', '333.564.700-94', '4', '4'),
 ('5','743.721.422-93', '5', '5'),
-('6', null, '6', '6'),
+('6', '006.248.620-97', '6', '6'),
 ('7','399.443.846-23', '7', '7'),
-('8', null, '8', '8'),
-('9', null, '9', '9'),
-('10', null, '10', '10'),
+('8', '559.186.550-00', '8', '8'),
+('9', '187.233.440-75', '9', '9'),
+('10', '448.196.880-06', '10', '10'),
 ('11','991.851.233-40', '11', '11'),
-('12', null, '12', '12'),
+('12', '300.831.410-49', '12', '12'),
 ('13','567.596.008-27', '13', '13'),
 ('14','031.574.345-00', '14', '14'),
 ('15','248.969.750-14', '15', '15'),
-('16', null, '16', '16'),
-('17', null, '17', '17'),
-('18', null, '18', '18'),
+('16', '859.364.540-29', '16', '16'),
+('17', '357.235.070-01', '17', '17'),
+('18', '226.615.300-53', '18', '18'),
 ('19','049.161.186-26', '19', '19'),
 ('20','652.159.799-01', '20', '20');
 select * from tb_pessoa_fisica;
@@ -1096,52 +1035,3 @@ select LAST_INSERT_ID();
 select * from tb_cliente;
 select * from tb_login;
 
--- tabela teste
-select *from usuarios;
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `usuarios` VALUES (2,'Cesar 2','cesar2@celke.com.br'),
-(3,'Cesar3','cesar3@celke.com.br'),
-(5,'Cesar 5','cesar5@celke.com.br'),
-(6,'Cesar 6','cesar6@celke.com.br'),
-(7,'Cesar 7','cesar7@celke.com.br'),
-(8,'Cesar 8','cesar8@celke.com.br'),
-(9,'Cesar 9','cesar9@celke.com.br'),
-(10,'Cesar 10','cesar10@celke.com.br'),
-(12,'Cesar 12','cesar12@celke.com.br'),
-(3011,'ANTONIO CARLOS','yuongartte@gmail.com');
-
-DROP TABLE IF EXISTS `enderecos`;
-CREATE TABLE `enderecos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `logradouro` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `numero` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `usuario_id` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `enderecos` VALUES (1,'Avenida Winston Churchill','936',1),
-(2,'Avenida Winston Churchill','936',2),
-(3,'Avenida Winston Churchill','936',3),
-(4,'Avenida Winston Churchill','936',4),
-(5,'Avenida Winston Churchill','936',5),
-(6,'Avenida Winston Churchill','936',6),
-(7,'Avenida Winston Churchill','936',7),
-(8,'Avenida Winston Churchill','936',8),
-(9,'Avenida Winston Churchill','936',9),
-(10,'Avenida Winston Churchill','936',10),
-(11,'Avenida Winston Churchill','936',11),
-(12,'Avenida Winston Churchill','936',12),
-(13,'Avenida Winston Churchill','936',13),
-(15,'Avenida Winston Churchill','936',15),
-(16,'rua Coronel Alipio Ferras','598',3010),
-(17,'rua Coronel Alipio Ferras','598',3011),
-(18,'rua Carmem Miranda','482',3012),
-(19,'rua Carmem Miranda','482',3013);
--- fim da tabela teste
