@@ -195,33 +195,41 @@ function removerMsgALerta(){
    
 } 
 
+// aplicação modal
 async  function visualizar(id){
-    console.log(id);
-    const dados = await fetch('comando_php/visualizar.php?id=' + id);
-    const resposta = await dados.json();
-    console.log(resposta);
-    //await espera terminar processamento de cima para continuar
+
+    //var lol = '991.851.233-40'
+     var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
+     //criar uma array
+     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
+     console.log(array_cpf_modal);
+     const dados = await fetch('comando_php/visualizar.php?id=' +array_cpf_modal);
+     const resposta = await dados.json();
+     console.log(resposta);
    
-
-    //validação
-
-    if(!resposta['status']){
-        document.getElementById('msgAlerta').innerHTML = resposta['msg'];
-    }else{
-        document.getElementById('msgAlerta').innerHTML = "";
-        const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
-        visModal.show();
-
-        document.getElementById("idUsuario").innerHTML = resposta['dados'].id;
-        document.getElementById("nomeUsuario").innerHTML = resposta['dados'].nome;
-        document.getElementById("emailUsuario").innerHTML = resposta['dados'].email;
-        document.getElementById("logradouroUsuario").innerHTML = resposta['dados'].logradouro;
-        document.getElementById("numeroUsuario").innerHTML = resposta['dados'].numero;
-    }
-    
-}
-
-// limpar quando selecionar na option bicicleta
+     if(!resposta['status']){
+         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
+     }else{
+         document.getElementById('msgAlerta').innerHTML = "";
+         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga_index'));
+         visModal.show();
+ 
+         document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
+         document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+         document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
+         document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
+         document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;
+         document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_cidade;
+         document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].sg_uf;
+         document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_numero1;
+         document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_placa;
+         document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].nm_modelo;
+         document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].nm_marca;
+         document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].nm_cor;
+     }
+     
+ }
+ // fim
 function mostraAlerta(elemento)
     {
        

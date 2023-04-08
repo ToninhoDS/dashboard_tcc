@@ -310,11 +310,11 @@ if(isset($_SESSION['msg'])){
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-      <script src="../chart_js/jquery-3.3.1.min.js"></script>
-    <script src="../chart_js/bootstrap.bundle.js"></script>
-    <script src="../chart_js/jquery.slimscroll.js"></script>
-    <script src="../assets/vendor/parsley/parsley.js"></script>
-    <script src="../chart_js/main-js.js"></script>
+      <script src="chart_js/jquery-3.3.1.min.js"></script>
+    <script src="chart_js/bootstrap.bundle.js"></script>
+    <script src="chart_js/jquery.slimscroll.js"></script>
+    <script src="assets/vendor/parsley/parsley.js"></script>
+    <script src="chart_js/main-js.js"></script>
     <script>
     $('#form').parsley();
     </script>

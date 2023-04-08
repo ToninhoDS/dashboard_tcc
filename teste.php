@@ -1,122 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Sidebar</title>
-    <script
-      src="https://kit.fontawesome.com/7f335cf7b9.js"
-      crossorigin="anonymous"
-    ></script>
-<style>
-  body {
-  background-color: #e9edf9;
-}
+<?php
+include_once "comando_php/crud_php/conexao_cadastro.php";
 
-.navbar {
-  position: absolute;
-  height: 100vh;
-  background-color: #2a2135;
-  padding: 24px;
-  color: #848294;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-}
+$query_Ocupado  = "SELECT COUNT(nm_status) as count_ocupado FROM tb_status_vagas WHERE nm_status = 'Ocupado' ";
+    $result_Ocupado = $conn->prepare($query_Ocupado);
+    $result_Ocupado->execute();
+    $row_Ocupado = $result_Ocupado->fetch(PDO::FETCH_ASSOC);
+    extract($row_Ocupado);
 
-.navbar:hover {
-  padding-right: 200px;
-}
+$query_Livre  = "SELECT COUNT(nm_status) as count_livre FROM tb_status_vagas WHERE nm_status = 'Livre' ";
+    $result_Livre = $conn->prepare($query_Livre);
+    $result_Livre->execute();
+    $row_Livre = $result_Livre->fetch(PDO::FETCH_ASSOC);
+    extract($row_Livre);
 
-.navbar a {
-  height: 36px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 10px;
-}
+$query_reservado = "SELECT COUNT(nm_status) as count_reservado FROM tb_status_vagas WHERE nm_status = 'Reserva' ";
+    $result_reservado = $conn->prepare($query_reservado);
+    $result_reservado->execute();
+    $row_reservado = $result_reservado->fetch(PDO::FETCH_ASSOC);
+    extract($row_reservado);
 
-.navbar a span {
-  position: absolute;
-  width: 100px;
-  left: -100px;
-  opacity: 0;
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-  text-align: left;
-}
+?>
 
-.navbar:hover a span {
-  opacity: 1;
-  left: 0px;
-  margin-left: 50px;
-}
 
-.navbar a i {
-  width: 20px;
-}
+<div>
+  <canvas id="myChart"></canvas>
+</div>
 
-.navbar a:hover {
-  cursor: pointer;
-  color: white;
-}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-.active {
-  color: white;
-}
+<script>
+  const ctx = document.getElementById('myChart');
 
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-</style>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <nav class="navbar">
-      <a class="navbar-item">
-        <i class="fa fa-home"></i>
-        <span>Home</span>
-      </a>
-      <a class="navbar-item active">
-        <i class="fa-solid fa-square-poll-vertical"></i>
-        <span>Dashboard</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-solid fa-box-open"></i>
-        <span>Produtos</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-solid fa-chart-line"></i>
-        <span>Desempenho</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <span>Pedidos</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-sharp fa-solid fa-calendar-days"></i>
-        <span>Agenda</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-solid fa-file-lines"></i>
-        <span>Documentos</span>
-      </a>
-      <a class="navbar-item">
-        <i class="fa-solid fa-headset"></i>
-        <span>Atendimento</span>
-      </a>
-    </nav>
-  </body>
-</html>
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Ocupado', 'Livre', 'Reserva'],
+      datasets: [{
+        label: '# of Votes',
+        data: [<?php echo $count_ocupado ?>,<?php echo $count_livre ?>,<?php echo $count_reservado ?>],
+        backgroundColor: [
+      'rgba(201, 203, 207, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(255, 99, 132, 0.2)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

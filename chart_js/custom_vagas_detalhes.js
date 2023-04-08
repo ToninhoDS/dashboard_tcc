@@ -198,7 +198,7 @@ function removerMsgALerta(){
 // aplicação modal
 async  function visualizar(id){
 
-   //var lol = '991.851.233-40'
+   
     var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
     //criar uma array
     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
@@ -229,7 +229,7 @@ async  function visualizar(id){
     }
     
 }
-
+// fim
 
 // limpar quando selecionar na option bicicleta
 function mostraAlerta(elemento)
