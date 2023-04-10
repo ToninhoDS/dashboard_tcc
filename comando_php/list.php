@@ -9,22 +9,30 @@ if (!empty($pagina)) {
     $qnt_result_pg = 10; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
-    $query_usuarios = "SELECT c.cd_cliente, c.nm_cliente, c.cd_email_cliente, c.cd_senha_cliente, t.cd_numero1
-    FROM tb_cliente as c , tb_telefone as t 
-    where c.cd_cliente = t.cd_telefone
+    $query_usuarios = "SELECT c.cd_cliente, c.nm_cliente, pf.cd_cpf, p.cd_placa, c.cd_email_cliente, t.cd_numero1
+    FROM tb_cliente as c 
+    join tb_telefone as t 
+    on t.cd_cliente = c.cd_cliente
+    join tb_pessoa_fisica as pf
+    on pf.cd_pessoa_fisica = c.cd_cliente
+    join  tb_veiculo as p
+    on p.cd_veiculo = c.cd_cliente
+    where c.cd_cliente = pf.cd_cliente
     ORDER BY cd_cliente DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
 
     if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
 
-        $dados = "<div class='table-responsive'>
-            <table class='table table-striped table-bordered'>
-                <thead>
+        $dados = "<div class='card-body p-0'>
+        <div class='table-responsive'>
+            <table class='table' id='my-table'>
+                <thead class='bg-light'>
                     <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>CPF</th>
+                    <th>Placa</th>
                     <th>E-mail</th>
                     <th>Telefone</th>
                     <th>Ações</th>>
@@ -36,8 +44,9 @@ if (!empty($pagina)) {
             $dados .= "<tr>
                     <td id='valor_id$cd_cliente'>$cd_cliente</td>
                     <td id='valor_nome$cd_cliente'>$nm_cliente</td>
-                    <td id='valor_cpf$cd_cliente'></td>
-                    <td id='valor_senha$cd_cliente'>$cd_senha_cliente</td>
+                    <td id='valor_cpf$cd_cliente'>$cd_cpf</td>
+                    <td id='valor_cpf$cd_cliente'>$cd_placa</td>
+                    <td id='valor_senha$cd_cliente'>$cd_email_cliente</td>
                     <td id='valor_telefone$cd_cliente'>$cd_numero1</td>
                     <td class='d-flex botaov'>
                         

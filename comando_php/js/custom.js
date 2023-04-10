@@ -243,4 +243,27 @@ async  function visualizar(id){
 
 // mandar dropdawn aberto 
 
-
+// limpar quando selecionar na option bicicleta
+function mostraAlerta(elemento)
+    {
+       
+        if(elemento.value == 'Bicicleta'){
+            console.log(elemento.value);
+            
+        }else{}
+    }
+    // INPUT de pesquisa vagas
+    $('#search-input').on('keyup', function() {
+        var searchTerm = $(this).val().toLowerCase();
+        $('#my-table tbody tr').each(function() {
+          var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
+          var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
+          var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
+          var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
+          if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
