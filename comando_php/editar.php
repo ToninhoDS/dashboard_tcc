@@ -4,7 +4,10 @@ include_once "crud_php/conexao_cadastro.php";
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 // avalidar
-
+//editar esse conteudo hj 
+// var dadosForm = "id=" + id + "&nome=" + nome_valor + "&cpf=" + cpf_valor 
+// + "&placa=" + placa_valor + "&email=" + email_valor + "&telefone=" + telefone_valor;
+//fim
 if(empty($dados['id'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ID!</div>"];
 }elseif (empty($dados['nome'])){

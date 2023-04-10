@@ -37,6 +37,7 @@ listarUsuarios(1);
 // vamos substiuir o tewxto do campo
 
 function editar_registro(id){
+    console.log(id);
 //   ocultar o Botao editar
    document.getElementById("botao_editar" +id ).style.display = "none";
 
@@ -50,18 +51,20 @@ document.getElementById("cancelarRG_salvar" +id ).style.display = "block";
 //   recuperar o registro
 
    var nome = document.getElementById("valor_nome" + id);
-   var email= document.getElementById("valor_email" + id);
-   var senha = document.getElementById("valor_senha" + id);
+   var cpf = document.getElementById("valor_cpf" + id);
+   var placa= document.getElementById("valor_placa" + id);
+   var email = document.getElementById("valor_email" + id);
    var telefone= document.getElementById("valor_telefone" + id);
-
+    console.log(email);
 // controle do input 
    
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
+cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='50'>";
+placa.innerHTML = "<input type='text' id='placa_text" + id + "' value='"+ placa.innerHTML +"' size='10' maxlength='50'>";
 email.innerHTML = "<input type='text' id='email_text"  + id + "' value='"+ email.innerHTML +"' size='20' maxlength='50'>";
-senha.innerHTML = "<input type='text' id='senha_text" + id + "' value='"+ senha.innerHTML +"' size='10' maxlength='50'>";
-telefone.innerHTML = "<input type='text' id='telefone_text"  + id + "' value='"+ telefone.innerHTML +"' size='20' maxlength='50'>";
+telefone.innerHTML = "<input type='text' id='telefone_text" + id + "' value='"+ telefone.innerHTML +"' size='10' maxlength='50'>";
 
 
 }
@@ -84,19 +87,21 @@ function cancelar_excluir(id){
 async function salvar_registro(id){
     // recuperar o valor do camppo
     var nome_valor = document.getElementById("nome_text" +id).value;
+    var cpf_valor = document.getElementById("cpf_text" +id).value;
+    var placa_valor = document.getElementById("placa_text" +id).value;
     var email_valor = document.getElementById("email_text" +id).value;
-    var senha_valor = document.getElementById("senha_text" +id).value;
     var telefone_valor = document.getElementById("telefone_text" +id).value;
    
     document.getElementById("valor_nome" + id).innerHTML = nome_valor;
+    document.getElementById("valor_cpf" + id).innerHTML = cpf_valor;
+    document.getElementById("valor_placa" + id).innerHTML = placa_valor;
     document.getElementById("valor_email" + id).innerHTML = email_valor;
-    document.getElementById("valor_senha" + id).innerHTML = senha_valor;
     document.getElementById("valor_telefone" + id).innerHTML = telefone_valor;
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
-    var dadosForm = "id=" + id + "&nome=" + nome_valor + "&email=" + email_valor 
-    + "&senha=" + senha_valor + "&telefone=" + telefone_valor ;
+    var dadosForm = "id=" + id + "&nome=" + nome_valor + "&cpf=" + cpf_valor 
+    + "&placa=" + placa_valor + "&email=" + email_valor + "&telefone=" + telefone_valor;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    
