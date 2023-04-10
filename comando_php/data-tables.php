@@ -1,8 +1,4 @@
- 
-<?php
 
-include("crud_php/body.php");
-?>
 <!doctype html>
 <html lang="en">
  
@@ -22,7 +18,7 @@ include("crud_php/body.php");
 </head>
 
 <body> 
-     <!-- ============================================================== -->
+    <!-- ============================================================== -->
    <!-- navbar e lateral do menu -->
    
    <div class="dashboard-main-wrapper">
@@ -120,7 +116,7 @@ include("crud_php/body.php");
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">Antonio Carlos</h5>
@@ -183,10 +179,10 @@ include("crud_php/body.php");
                                         
                                         
                                          <li class="nav-item">
-                                   	 <a class="nav-link" href="dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                   	 <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Detalhamento</a>
                                     </li>
                                      <li class="nav-item">
-                                            <a class="nav-link" href="dashboard_tcc/pages/nota_gastos.html">Planilha</a>
+                                            <a class="nav-link" href="/dashboard_tcc/nota_gastos.html">Planilha</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" >vazio </a>

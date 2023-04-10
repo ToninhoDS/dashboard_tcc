@@ -1,6 +1,7 @@
 <?php
 
 include("comando_php/crud_php/conexao_cadastro.php");
+
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -17,6 +18,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
     
     <link rel="stylesheet" href="css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>VAGASPARK</title>
 </head>
 
@@ -263,29 +265,149 @@ include("comando_php/crud_php/conexao_cadastro.php");
                     <span class="listar-usuarios"></span>
 			</div>
     </div> 
-<!-- FIM chama Status Vagas -->			
+<!-- FIM chama Status Vagas -->	
+
+		<!-- Graficos principais  -->
+        <?php
+
+$query_Ocupado  = "SELECT COUNT(nm_status) as count_ocupado FROM tb_status_vagas WHERE nm_status = 'Ocupado' ";
+    $result_Ocupado = $conn->prepare($query_Ocupado);
+    $result_Ocupado->execute();
+    $row_Ocupado = $result_Ocupado->fetch(PDO::FETCH_ASSOC);
+    extract($row_Ocupado);
+
+$query_Livre  = "SELECT COUNT(nm_status) as count_livre FROM tb_status_vagas WHERE nm_status = 'Livre' ";
+    $result_Livre = $conn->prepare($query_Livre);
+    $result_Livre->execute();
+    $row_Livre = $result_Livre->fetch(PDO::FETCH_ASSOC);
+    extract($row_Livre);
+
+$query_reservado = "SELECT COUNT(nm_status) as count_reservado FROM tb_status_vagas WHERE nm_status = 'Reserva' ";
+    $result_reservado = $conn->prepare($query_reservado);
+    $result_reservado->execute();
+    $row_reservado = $result_reservado->fetch(PDO::FETCH_ASSOC);
+    extract($row_reservado);
+   
+?>
+<!-- pegando contador de vagas -->
+    <h5 id='valor_grafo_Ocupado' style='display:none' value='<?php echo $count_ocupado ?>'><?php echo $count_ocupado ?></h5>
+    <h5 id='valor_grafo_Livre'  style='display:none' value='<?php echo $count_livre ?>'><?php echo $count_livre ?></h5> 
+    <h5 id='valor_grafo_Reserva'  style='display:none' value='<?php echo $count_reservado ?>'><?php echo $count_reservado ?></h5>
+	<!-- fim Graficos principais  -->
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Vagas Em uso</h5>
+                                        <h4 class="text-muted">Vagas Em uso</h4>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1"><h1 id="vagasLivesOcupadas"></h1></h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                            <h2><span class="ml-1"><i class="fa fa-fw fa-arrow-down text-danger"></i></span><span class="text-danger" id="reservasCanceladas">0%</span></h2>
-                                        </div>
+                                            <h2><span class="ml-1 "><h3 class="text-muted">Locação<i class="fa fa-fw fa-arrow-down text-danger"></i></span><span class="text-danger" id="reservasCanceladas">0%</span></h3>
+                                        </div></h5>
                                     </div>
                                     
-                                    <canvas id="apiAleatoria"  width="415" height="100"></canvas>
+                                    <canvas id="myChartVagas"  width="415" height="100"></canvas>
                                 </div>
                             </div>
+                          <!-- Grafico de vagas Ocupada por intervalo de duas horas na vaga -->
+                          <?php
+
+
+
+$tempo6h = '';
+$tempoInt = 0;
+$tempo_hora_0h =0; 
+$tempo_hora_2h =0; 
+$tempo_hora_4h =0; 
+$tempo_hora_6h =0; 
+$tempo_hora_8h =0; 
+$tempo_hora_10h =0; 
+$tempo_hora_12h =0; 
+$tempo_hora_14h =0; 
+$tempo_hora_16h =0; 
+$tempo_hora_18h =0; 
+$tempo_hora_20h =0; 
+$tempo_hora_22h =0; 
+$query_usuarios = "SELECT  dt_entrada FROM tb_status_vagas";
+    $result_usuarios = $conn->prepare($query_usuarios);
+    $result_usuarios->execute();
+    if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
+     
+                        while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
+                            extract($row_usuario);
+                            
+                           
+                           
+                            $tempo6h = $row_usuario ['dt_entrada']; //hora entrada
+                            $tempoInt += 1;  
+                           
                           
+                            if($tempo6h >='00:00:02' && $tempo6h <= '02:59:59'){
+                                $tempo_hora_0h += +1;
+                            
+                            }if($tempo6h >='02:00:00' && $tempo6h <= '03:59:59'){
+                                $tempo_hora_2h += +1;
+                            
+                            }if($tempo6h >='04:00:00' && $tempo6h <= '05:59:59'){
+                                $tempo_hora_4h += +1;
+                             
+                            }if($tempo6h >='06:00:00' && $tempo6h <= '07:59:59'){
+                                $tempo_hora_6h += +1;
+                             
+                             }if($tempo6h >='08:00:00' && $tempo6h <= '08:59:59'){
+                                $tempo_hora_8h += +1;
+                             
+                            }if($tempo6h >='10:00:00' && $tempo6h <= '11:59:59'){
+                                $tempo_hora_10h += +1;
+                             
+                             }if($tempo6h >='12:00:00' && $tempo6h <= '13:59:59'){
+                                $tempo_hora_12h += +1;
+                             
+                            }if($tempo6h >='14:00:00' && $tempo6h <= '15:59:59'){
+                                $tempo_hora_14h += +1;
+                             
+                            }if($tempo6h >='16:00:00' && $tempo6h <= '17:59:59'){
+                                $tempo_hora_16h += +1;
+                             
+                            }if($tempo6h >='18:00:02' && $tempo6h <= '19:59:59'){
+                                $tempo_hora_18h += +1;   
+                            
+                            }if($tempo6h >='20:00:00' && $tempo6h <= '21:59:59'){
+                                $tempo_hora_20h += +1;
+                            
+                            }if($tempo6h >='22:00:00' && $tempo6h <= '23:59:59'){
+                                $tempo_hora_22h += +1;
+                            
+                            }elseif($tempo6h >='00:00:00' && $tempo6h <= '00:00:01'){
+                               
+                                
+                            }              
+         }
+       
+     }
+
+    ?>
+    <!-- pegando contador de vagas -->
+    <h5 id='tempo_hora_0h' style='display:none' value='<?php echo $tempo_hora_0h ?>'><?php echo $tempo_hora_0h ?></h5>
+    <h5 id='tempo_hora_2h' style='display:none' value='<?php echo $tempo_hora_2h ?>'><?php echo $tempo_hora_2h ?></h5>
+    <h5 id='tempo_hora_4h' style='display:none' value='<?php echo $tempo_hora_4h ?>'><?php echo $tempo_hora_4h ?></h5>
+    <h5 id='tempo_hora_6h' style='display:none' value='<?php echo $tempo_hora_6h ?>'><?php echo $tempo_hora_6h ?></h5>
+    <h5 id='tempo_hora_8h' style='display:none' value='<?php echo $tempo_hora_8h ?>'><?php echo $tempo_hora_8h ?></h5>
+    <h5 id='tempo_hora_10h' style='display:none' value='<?php echo $tempo_hora_10h ?>'><?php echo $tempo_hora_10h ?></h5>
+    <h5 id='tempo_hora_12h' style='display:none' value='<?php echo $tempo_hora_12h ?>'><?php echo $tempo_hora_12h ?></h5>
+    <h5 id='tempo_hora_14h' style='display:none' value='<?php echo $tempo_hora_14h ?>'><?php echo $tempo_hora_14h ?></h5>
+    <h5 id='tempo_hora_16h' style='display:none' value='<?php echo $tempo_hora_16h ?>'><?php echo $tempo_hora_16h ?></h5>
+    <h5 id='tempo_hora_18h' style='display:none' value='<?php echo $tempo_hora_18h ?>'><?php echo $tempo_hora_18h ?></h5>
+    <h5 id='tempo_hora_20h' style='display:none' value='<?php echo $tempo_hora_20h ?>'><?php echo $tempo_hora_20h ?></h5>
+    <h5 id='tempo_hora_22h' style='display:none' value='<?php echo $tempo_hora_22h ?>'><?php echo $tempo_hora_22h ?></h5>
+    <!-- FIM -->
+                          <!-- fim Grafico de vagas Ocupada por intervalo de duas horas na vaga -->
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-muted">Total de Carros no Estacionamento 24h</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1" id="vagasOcupadas">0.00</h1>
+                                            <h1 class="mb-1" id="" ></h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
                                             <span>N/A</span>
@@ -328,11 +450,60 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	                                </div>
 	                            </div>
 	                        </div>
+
+                            	<!-- Card de Ganho por hora e o dia  -->
+                                <?php
+
+date_default_timezone_set('America/Sao_Paulo');
+//fim
+include_once "comando_php/crud_php/conexao_cadastro.php";
+$total1 = 0; 
+$query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status FROM tb_status_vagas";
+    $result_usuarios = $conn->prepare($query_usuarios);
+    $result_usuarios->execute();
+    if (($result_usuarios) and ($result_usuarios->rowCount() != 0)) {
+     
+                        while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
+                            extract($row_usuario);
+                        
+                            $hora_min_vaga = $row_usuario ['dt_entrada']; //hora entrada
+                           
+                            //pegando o dia
+                            $data_vagas = date("d/m/Y");
+                            //pegando a hora
+                            $horas_min_atual_vagas = date("H:i:s");
+                            //calcular a hora do banco e hora atual
+                            $diff = strtotime($horas_min_atual_vagas) - strtotime($hora_min_vaga);
+                            $diff_seconds = abs($diff );
+                            $diff_minutes = round($diff_seconds / 60 );
+                            $diff_hours = round( $diff_minutes / 60 );
+                                                 
+                            $total1 = $total1 + $diff_hours;
+                            $diff_hours -= 1; // tirar uma hora
+                            
+                            
+                            //converter min em uma hora
+                            if ($diff_minutes >= 60) {
+                                $saber_horas_vagas = floor($diff_minutes / 60);
+                                $diff_minutes = $diff_minutes % 60;
+                            } else {}
+                             
+                       
+    
+                           
+                            
+        }
+    }
+
+    ?>
+    <!-- pegando contador de de horas -->
+    <h5 id='somaHora_valor' style='display:none' value='<?php echo $total1 ?>'><?php echo $total1 ?></h5>
+    <!-- fim Card de Ganho por hora e o dia  -->
 	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Quantos usaram o Serviço</h5>
+	                                        <h5 class="text-muted">Lucro por Hora</h5>
 	                                        <h2 class="mb-0" id="lucroMensal">$0.00</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
@@ -345,7 +516,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Lucro anual</h5>
+	                                        <h5 class="text-muted">Lucro Mensal</h5>
 	                                        <h2 class="mb-0" id="lucroAnual"> $0.00</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
@@ -360,7 +531,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	            
 <!-- Frafico do estacionamento   -->
 	                      
-	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                        <div style='display:none'class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
 	                                <h2 class="card-header"><img src="img/feedback-do-cliente.png"  width="35px" height="35px"> Feedback</h2>
 	                                <div class="card-body">
@@ -378,7 +549,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	                                </div>
 	                            </div>
 	                        </div>
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+						<div style='display:none' class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
 							<div class="card">
 								<h5 class="card-header"><img src="img/registro-de-tempo.png"  width="35px" height="35px"> Tempo por Vaga</h5>
 								<div class="card-body">
@@ -441,11 +612,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
 								</div>
 							</div>
 						</div>
-	                        <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
+	                        <div style='display:none' class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
 	                                <h5 class="card-header"><img src="img/dinheiro.png"  width="35px" height="35px"> Receita Mensal </h5>
 	                                <div class="card-body">
-	                                    <canvas id="chartjs_bar_horizontal"></canvas>
+	                                    <canvas style='display:none' id="chartjs_bar_horizontal"></canvas>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -504,6 +675,9 @@ include("comando_php/crud_php/conexao_cadastro.php");
     </div>
   </div>
 </div>
+<br>
+<br>
+
 <!-- fim Modal -->
 <!-- footer -->
 
@@ -530,6 +704,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
   
     
     <!-- Optional JavaScript -->
+    <!-- sempre excluir o  link do js, mesmo  '// marcado com texto ele ainda vai buscar e da erro' -->
     <script src="chart_js/jquery-3.3.1.min.js"></script>
     <script src="chart_js/bootstrap.bundle.js"></script>
     <script src="chart_js/jquery.slimscroll.js"></script>     
@@ -545,11 +720,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="chart_js/chart.js"></script>
 	<script src="chart_js/Chart.bundle.js"></script>
-	<script src="chart_js/chartjs.js"></script>
-	<script src="chart_js/api_chart.js"></script>
-      <script src="chart_js/dashboard-influencer.js"></script>
-      <script src="chart_js/custom_vagas.js"></script>
-	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="chart_js/custom_vagas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- graficos -->
+      <script src="chart_js/card_quantp_hora.js"></script>
+      <script src="chart_js/graficos_vagas.js"></script>
     <!-- fim -->
 </body>
  

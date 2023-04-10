@@ -320,9 +320,22 @@ include("comando_php/crud_php/conexao_cadastro.php");
     </div>
   </div>
 </div>
+</div>  
+ </div>
+  
 <!-- fim Modal -->
 <!-- footer -->
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
             <div class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -341,8 +354,8 @@ include("comando_php/crud_php/conexao_cadastro.php");
             </div>
 
 <!-- fim footer --> 
-        </div>  
-    </div>
+    </div>  
+</div>
   
     
     <!-- Optional JavaScript -->
