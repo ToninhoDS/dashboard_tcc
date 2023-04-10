@@ -261,10 +261,10 @@ function mostraAlerta(elemento)
     $('#search-input').on('keyup', function() {
         var searchTerm = $(this).val().toLowerCase();
         $('#my-table tbody tr').each(function() {
-          var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
+          var N_vaga_pesquisa = $(this).find('td:nth-child(2)').text().toLowerCase();
           var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
           var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
-          var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
+          var status_vagas_pesquisa = $(this).find('td:nth-child(6)').text().toLowerCase();
           if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
             $(this).show();
           } else {

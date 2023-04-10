@@ -202,12 +202,15 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	                            </div>
 	                        </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                                <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-file"></i>Avisos</a>
                                
                             </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                             </li>
                             <li class="nav-divider">
                                 Suporte

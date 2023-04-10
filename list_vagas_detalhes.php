@@ -69,6 +69,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
         $diff_hours = 0;
         $diff_minutes = 0;
         $data_vagas = '';
+        $cd_cpf = '';
     }elseif($row_usuario ['nm_status'] == 'Reserva'){
         $status = 'badge-danger';
 }else{

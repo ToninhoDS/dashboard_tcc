@@ -91,6 +91,7 @@ async function salvar_registro(id){
         if (confirm("Deseja Apagar o Status da Vaga? \n Pressione o button!") == true) {
             nome_valor = '';
             placa_valor = '';
+            cpf_valor = ''; //esqueci
             entrada_valor = 0;  
         } else {
             window.location.reload(10); // carrega a pagina
@@ -115,7 +116,7 @@ async function salvar_registro(id){
 
     // salvar dados para enviar em uma string e mandar para banco de dados
 
-    var dadosForm = "id=" + id + "&nome_vagas=" + nome_valor + "&_pesquisas=" + placa_valor 
+    var dadosForm = "id=" + id + "&nome_vagas=" + nome_valor + "&placa_vagas=" + placa_valor 
     + "&entrada_vagas=" + entrada_valor + "&status_vagas=" + Option_vagas_valor + "&img_vagas=" + img_Option_valor + "&cpf_vagas=" + cpf_valor;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
