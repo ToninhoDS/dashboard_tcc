@@ -272,7 +272,27 @@ insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon
 ('20','20','','Livre','','HZZ-4802','652.159.799-01','Livre');
 select * from tb_status_vagas;
 
+create table if not exists tb_gerente(
+cd_gerente int not null auto_increment,
+nm_gerente varchar(45),
+nm_descricao varchar (500),
+cd_star int,
+nm_reviews varchar (500),
+nm_idade int (3),
+nm_email varchar (75),
+nm_senha varchar (75),
+cd_img varchar (150),
+constraint pk_gerente
+primary key(cd_gerente))
+engine=InnoDB;
+drop table tb_gerente;
 
+insert into tb_gerente value
+('1','Antonio Carlos','Ele é uma grande profissional do ramo','4','Gosto muito do meu gerente','35','calors@gmail.com','123456','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png');
+
+select * from tb_gerente;
+
+-- fim @@@@@@@@@@@@@@@@@@@@
 
 insert into tb_login values
 ('1','julio-pereira88@simoesmendonca.adv.br', 'HA0bRoSHGs'),
