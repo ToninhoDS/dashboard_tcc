@@ -61,7 +61,7 @@ function editar_registro(id){
 //    subistituir o texto em input
 
 nome.innerHTML = "<input type='text' id='nome_text" + id + "' value='"+ nome.innerHTML +"' size='10' maxlength='50'>";
-cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='20'>";
+cpf.innerHTML = "<input type='text' id='cpf_text" + id + "' value='"+ cpf.innerHTML +"' size='10' maxlength='50'>";
 placa.innerHTML = "<input  type='text' id='placa_text"  + id + "' value='"+ placa.innerHTML +"' size='20' maxlength='50'>";
 entrada.innerHTML = "<input type='time' id='entrada_text" + id + "' value='"+ entrada.innerHTML +"' size='10' maxlength='50'>";
 Option_vagas.innerHTML = "<option name='Livre' value='Livre'selected>" + Option_vagas.Option_vagas.innerHTML + "</option><option name='reserva' value='reserva'>Reserva</option><option name='ocupado' value='ocupado'>Ocupado</option></select></div><h3><span class='badge-dot  mr-1' id='status'></span >$nm_status</h3></div></td>";
