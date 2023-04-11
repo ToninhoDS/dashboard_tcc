@@ -69,24 +69,24 @@
                                 <li class="connection-list">
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/github.png" alt="" > <span>Github</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/github.png" alt="" > <span>Github</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/dribbble.png" alt="" > <span>Cadastro</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/dribbble.png" alt="" > <span>Cadastro</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/dropbox.png" alt="" > <span>Tabela</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/dropbox.png" alt="" > <span>Tabela</span></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/bitbucket.png" alt=""> <span>Contatos</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/bitbucket.png" alt=""> <span>Contatos</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/mail_chimp.png" alt="" ><span>Email</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/mail_chimp.png" alt="" ><span>Email</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a  class="connection-item"><img src="img/img_sistema/slack.png" alt="" > <span>Produtos</span></a>
+                                            <a  class="connection-item"><img src="../img/img_sistema/slack.png" alt="" > <span>Produtos</span></a>
                                         </div>
                                     </div>
                                 </li>
