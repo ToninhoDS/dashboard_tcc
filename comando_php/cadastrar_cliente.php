@@ -5,8 +5,8 @@ ob_start();
 include_once "crud_php/conexao_cadastro.php";
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-//avaliar se recebir os dados
-var_dump($dados);
+
+ echo var_dump($dados);
 
 // deixar o nome tudo maiuscula
 $cliente = $dados['nm_cliente'];
@@ -46,21 +46,23 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $query_cidade = "INSERT INTO tb_cidade (nm_cidade, cd_uf)
     VALUES (:nm_cidade, :cd_uf)";
     $cadastrar_cidade= $conn->prepare($query_cidade);
-    $cadastrar_cidade->bindParam(':nm_cidade',  $null, PDO::PARAM_STR);
+    $cadastrar_cidade->bindParam(':nm_cidade',  $dados['nm_cidade'], PDO::PARAM_STR);
     $cadastrar_cidade->bindParam(':cd_uf', $id_sg_uf, PDO::PARAM_INT);
     $cadastrar_cidade->execute();
     $id_cidade = $conn->lastInsertId();
 
     $query_bairro = "INSERT INTO tb_bairro (nm_bairro, cd_cidade)
-    VALUES (null, :cd_cidade)";
+    VALUES (:nm_bairro, :cd_cidade)";
     $cadastrar_bairro= $conn->prepare($query_bairro);
+    $cadastrar_bairro->bindParam(':nm_bairro', $dados['nm_bairro'], PDO::PARAM_STR);
     $cadastrar_bairro->bindParam(':cd_cidade', $cd_cidade, PDO::PARAM_INT);
     $cadastrar_bairro->execute();
     $id_bairro = $conn->lastInsertId();
 
     $query_sg_uf = "INSERT INTO tb_uf (sg_uf)
-    VALUES (null)";
+    VALUES (:sg_uf)";
     $cadastrar_sg_uf= $conn->prepare($query_sg_uf);
+    $cadastrar_sg_uf->bindParam(':sg_uf', $dados['sg_uf'], PDO::PARAM_STR);
     $cadastrar_sg_uf->execute();
     $id_sg_uf = $conn->lastInsertId();
 

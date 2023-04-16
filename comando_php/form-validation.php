@@ -120,53 +120,60 @@ if(isset($_SESSION['msg'])){
 <hr>
 
                                         <div class="row">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                                 <label for="validationCustom01">Nome da Rua</label>
-                                                <input  name="nm_cliente" id="nm_cliente" required="" placeholder="Digite a Rua" class="form-control"  type="text" >
+                                                <input  name="nm_bairro" id="nm_bairro"  placeholder="Digite a Rua" class="form-control"  type="text" >
                                                 <div class="valid-feedback">
                                                     Correto!
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Bairro</label>
-                                                <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o Bairro" required="" class="form-control"  type="text">
+                                                <input  name="nm_bairro" id="nm_bairro" placeholder="Digite o Bairro"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
-                                                    CPF incorreto!.
+                                                Bairro incorreto!.
                                                 </div>
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom04">Cidade</label>
-                                                <input  name="cd_cnpj" id="cd_cnpj" placeholder="Digite a Cidade" class="form-control"  type="text">
+                                                <input  name="nm_cidade" id="nm_cidade" placeholder="Digite a Cidade" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid state.
+                                                Cidade incorreto!.
                                                 </div>
                                             </div>
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom05">UF-Estado</label>
-                                                <input name="cd_numero1" id="cd_numero1" placeholder="Digite o Estado"  class="form-control"  type="text">
+                                                <input name="sg_uf" id="sg_uf" placeholder="Digite o Estado"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
-                                                    Numero incorreto!.
+                                                UF-Estado incorreto!.
                                                 </div>
                                             </div>
                                         </div>
 <br>
 <hr>                                        
                                         <div class="form-row">
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Placa do Carro</label>
                                                 <input type="text" name="cd_placa" id="cd_placa" placeholder="NUMERO DA PLACA" required="" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Placa do Carro invalida!.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom03">Marca</label>
+                                                <input type="nm_marca" name="nm_marca" id="nm_modelo" placeholder="Modelo"  class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Marca do Carro invalido!.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Modelo</label>
                                                 <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Modelo do Carro invalido!.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Cor</label>
                                                 <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
