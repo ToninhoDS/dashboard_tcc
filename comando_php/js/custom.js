@@ -255,21 +255,40 @@ async  function visualizar(id){
         //var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
         //console.log(cpfFormatado); // Saída: "123.456.789-01"
        
-        document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
-        document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+        document.getElementById("id_cliente_modal").value = resposta['dados'].cd_cliente;
+        document.getElementById("cpf_cliente_modal").value = resposta['dados'].cd_cpf;
         //document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado; ocultar o cpf
-        document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
-        document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
-        document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;
-        document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_cidade;
-        document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].sg_uf;
-        document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_numero1;
-        document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_placa;
-        document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].nm_modelo;
-        document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].nm_marca;
-        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].nm_cor;
+        document.getElementById("nm_cliente_modal").value = resposta['dados'].nm_cliente;
+        document.getElementById("email_cliente_modal").value = resposta['dados'].cd_email_cliente;
+        document.getElementById("bairro_cliente_modal").value = resposta['dados'].nm_bairro;
+        document.getElementById("cidade_cliente_modal").value = resposta['dados'].nm_cidade;
+        document.getElementById("sg_uf_cliente_modal").value = resposta['dados'].sg_uf;
+        document.getElementById("telefone_cliente_modal").value = resposta['dados'].cd_numero1;
+        document.getElementById("placa_cliente_modal").value = resposta['dados'].cd_placa;
+        document.getElementById("modelo_cliente_modal").value = resposta['dados'].nm_modelo;
+        document.getElementById("marca_cliente_modal").value = resposta['dados'].nm_marca;
+        document.getElementById("cor_cliente_modal").value = resposta['dados'].nm_cor;
     }
     
+}
+
+//Editar os dadso do modal
+const editForm = document.getElementById("edit_formulario_cliente");
+//console.log(editForm);
+if(editForm){
+    editForm.addEventListener("submit", async (e)=>{
+        e.preventDefault();
+
+        const dadosForm = new FormData(editForm);
+
+       const dados = await fetch("editar_modal.php",{
+            method:"POST",
+            body: dadosForm
+        });
+
+        const resposta = await dados.json();
+        console.log(resposta);
+    });
 }
 
 // mandar dropdawn aberto 

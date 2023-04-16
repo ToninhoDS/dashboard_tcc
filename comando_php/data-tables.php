@@ -73,48 +73,71 @@ include('crud_php/body.php');
         </button>
       </div>
       <div class="modal-body">
-        <dl class="row">
-            <dt class="col-sm-3">ID</dt>
-            <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Nome:</dt>
-            <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
-            <dt class="col-sm-3">CPF:</dt>
-            <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
-            <dt class="col-sm-3">Email:</dt></dt>
-            <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Bairro:</dt></dt>
-            <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Cidade:</dt></dt>
-            <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
-            <dt class="col-sm-3">UF-Estado:</dt></dt>
-            <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Telefone:</dt></dt>
-            <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
-        </dl>
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veiculo</h5>
-      </div>
-      <div class="modal-body">
-        <dl class="row">
-            <dt class="col-sm-3">Placa:</dt>
-            <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
-            <dt class="col-sm-3">Modelo:</dt>
-            <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
-            <dt class="col-sm-3">Marca:</dt>
-            <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
-            <dt class="col-sm-3">Cor:</dt></dt>
-            <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
-        
-        </dl>
-      </div>
-      
-    </div>
-  </div>
-</div>
-</div>  
- </div>
-  
+        <span id="msgAlertaErroEdit"></span>
+                <form class="row g-3" id="edit_formulario_cliente"> 
+                <div class="row">
+                  <div class="col">
+                    <input type="hidden" class="form-control" name="cd_cliente" placeholder="First name" aria-label="First name" id="id_cliente_modal">
+                  </div>
+                  <div class="col-md-12">
+                  <label for="email" class="form-label">Nome</label>
+                    <input type="text" class="form-control" name="nm_cliente" placeholder="Last name" aria-label="Last name" id="nm_cliente_modal">
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">CPF</label>
+                      <input type="text" class="form-control" name="cd_cpf" id="cpf_cliente_modal" placeholder="1234 Main St">
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" name="cd_numero1" id="telefone_cliente_modal">
+                  </div>
+                    <div class="col-12">
+                      <label for="inputAddress2" class="form-label">Email</label>
+                      <input type="text" class="form-control" name="cd_email_cliente" id="email_cliente_modal" placeholder="Apartment, studio, or floor">
+                    </div>
+                  <div class="col-md-5">
+                    <label for="inputCity" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" name="nm_bairro" id="bairro_cliente_modal">
+                  </div>
+                    <div class="col-md-5">
+                      <label for="inputCity" class="form-label">Cidade</label>
+                      <input type="text" class="form-control" name="nm_cidade" id="cidade_cliente_modal">
+                    </div>
+                  <div class="col-md-2">
+                    <label for="inputState" class="form-label">Estado</label>
+                    <input type="text" class="form-control" name="sg_uf" id="sg_uf_cliente_modal">
+                    <!-- <select id="inputState" class="form-select">
+                      <option selected>Choose...</option>
+                      <option>...</option>
+                    </select> -->
+                  </div>
+                  <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veículo</h4>
+                    <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">Placa</label>
+                      <input type="text" class="form-control" name="cd_placa" id="placa_cliente_modal" placeholder="1234 Main St">
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" name="nm_modelo" id="modelo_cliente_modal">
+                  </div>
+                    <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">Marca</label>
+                      <input type="text" class="form-control" name="nm_marca" id="marca_cliente_modal" placeholder="1234 Main St">
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Cor</label>
+                    <input type="text" class="form-control" name="nm_cor" id="cor_cliente_modal">
+                  </div>
+                  <div class="col-12">
+                      <input type="submit" class="btn btn-outline-warning btn-sm" id="edit-usuario-btn" value="Editar">
+                    </div>
+                </form>
+             </div>
+          </div>
+      </div>  
+   </div>
+
 <!-- fim Modal -->
 
        
