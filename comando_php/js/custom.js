@@ -16,6 +16,7 @@ const listarUsuarios = async (pagina) => {
     if (!resposta['status']) {
         // Envia a mensagem de erro para o arquivo HTML que deve ser apresentada para o usuario
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+        removerMsgALerta();
     } else {
         // Recuperar o SELETOR do HTML que deve receber os registros
         const conteudo = document.querySelector(".listar-clientes");
@@ -164,13 +165,14 @@ function cancelar_registro(id){
 
 
 // iniciar função de remoção de mensagem
+
 function removerMsgALerta(){
     setTimeout(function(){
         // substituir a mensagem 
         document.getElementById("msgAlerta").innerHTML = "";
         // colocar o milisegundos que precisa 2000
    
-    }, 1000);
+    }, 2000);
    
 } 
 
@@ -249,12 +251,13 @@ async  function visualizar(id){
         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
  
-        var cpf = resposta['dados'].cd_cpf; // CPF original
-        var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
-        console.log(cpfFormatado); // Saída: "123.456.789-01"
+        //var cpf = resposta['dados'].cd_cpf; // CPF original
+        //var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
+        //console.log(cpfFormatado); // Saída: "123.456.789-01"
        
         document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
-        document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado;
+        document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+        //document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado; ocultar o cpf
         document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
         document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
         document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;

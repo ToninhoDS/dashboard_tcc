@@ -9,15 +9,34 @@ if (!empty($pagina)) {
     $qnt_result_pg = 10; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
-    $query_usuarios = "SELECT c.cd_cliente, c.nm_cliente, pf.cd_cpf, p.cd_placa, c.cd_email_cliente, t.cd_numero1
-    FROM tb_cliente as c 
-    join tb_telefone as t 
-    on t.cd_cliente = c.cd_cliente
+    $query_usuarios = "SELECT c.cd_cliente,  c.nm_cliente, pf.cd_cpf, c.cd_email_cliente, b.nm_bairro, ci.nm_cidade, uf.sg_uf, tf.cd_numero1, ve.cd_placa, mo.nm_modelo, ma.nm_marca, co.nm_cor
+    from tb_cliente as c
     join tb_pessoa_fisica as pf
-    on pf.cd_pessoa_fisica = c.cd_cliente
-    join  tb_veiculo as p
-    on p.cd_veiculo = c.cd_cliente
-    where c.cd_cliente = pf.cd_cliente
+    on pf.cd_cliente = c.cd_cliente
+    
+    join tb_bairro as b
+    on pf.cd_bairro = b.cd_bairro
+    
+    join tb_cidade as ci
+     on ci.cd_cidade = b.cd_cidade
+     
+    join tb_uf as uf 
+    on uf.cd_uf = ci.cd_uf
+    
+    join tb_telefone as tf
+    on tf.cd_cliente = c.cd_cliente
+    
+    join tb_veiculo as ve 
+    on ve.cd_cliente = c.cd_cliente
+    
+    join tb_modelo as mo 
+    on mo.cd_modelo = ve.cd_modelo
+    
+    join tb_marca as ma
+    on ma.cd_marca = mo.cd_marca
+    
+    join tb_cor as co
+    on co.cd_cor = ve.cd_cor
     ORDER BY cd_cliente DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
     $result_usuarios->execute();
@@ -41,10 +60,11 @@ if (!empty($pagina)) {
                 <tbody>";
         while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
             extract($row_usuario);
+            $ocultar_cpf = substr_replace($cd_cpf, '***.***', 4, -3); // ocutando o CPF
             $dados .= "<tr>
                     <td id='valor_id$cd_cliente'>$cd_cliente</td>
                     <td id='valor_nome$cd_cliente'>$nm_cliente</td>
-                    <td  id='valor_cpf$cd_cliente'>$cd_cpf</td>
+                    <td  id='valor_cpf$cd_cliente'>$ocultar_cpf</td>
                     <td id='valor_placa$cd_cliente'>$cd_placa</td>
                     <td id='valor_email$cd_cliente'>$cd_email_cliente</td>
                     <td id='valor_telefone$cd_cliente'>$cd_numero1</td>

@@ -11,15 +11,31 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 // deixar o nome tudo maiuscula
 $cliente = $dados['nm_cliente'];
 $cliente =strtoupper($cliente );
+$sg_uf = $dados['sg_uf'];
+$sg_uf =strtoupper($sg_uf );
+$placa = $dados['cd_placa'];
+$placa =strtoupper($placa );
 
+// $dados['cd_email_cliente'] = 'teste';
+// $dados['cd_senha_cliente_confirmar'] = 'teste';
+// $dados['cd_senha_cliente'] = 'teste';
+// $dados['nm_cliente'] = 'teste';
+// $dados['cd_numero1'] = 'teste';
+// $dados['nm_cidade'] = 'teste';
+// $dados['nm_bairro'] = 'teste';
+// $dados['sg_uf'] = 'teste';
+// $dados['cd_cpf'] = 'teste';
+// $dados['nm_marca'] = 'teste';
+// $dados['nm_cor'] = 'teste';
+// $dados['nm_modelo'] = 'teste';
+// $dados['cd_placa'] = 'teste';
 
-
-// avalidar cd_senha_cliente_confirmar
 
 if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'><p style='font-size: 20px;' >ERRRO!!! Senha não são iguais</p></div>";
      header("Location: form-validation.php");
 }else{
+    
     
     // depois da avalidação sera add no banco de dados 
     $query_cliente =    "INSERT INTO tb_cliente (cd_email_cliente, cd_senha_cliente, nm_cliente) 
@@ -28,7 +44,7 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $cadastrar_cliente = $conn->prepare($query_cliente);
     $cadastrar_cliente->bindParam(':cd_email_cliente', $dados['cd_email_cliente'], PDO::PARAM_STR);
     $cadastrar_cliente->bindParam(':cd_senha_cliente', $dados['cd_senha_cliente']);
-    $cadastrar_cliente->bindParam(':nm_cliente', $dados['nm_cliente'], PDO::PARAM_STR);
+    $cadastrar_cliente->bindParam(':nm_cliente', $cliente, PDO::PARAM_STR);
     $cadastrar_cliente->execute(); // para execultar 
     var_dump($conn->lastInsertId()); //puxar o id
     $id_cliente = $conn->lastInsertId();
@@ -41,8 +57,13 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $cadastrar_telefone->execute();
     $id_telefone = $conn->lastInsertId();
 
-    // vou precisar puxar outros insert para fazer da pessoa fisica
-    
+    $query_sg_uf = "INSERT INTO tb_uf (sg_uf)
+    VALUES (:sg_uf)";
+    $cadastrar_sg_uf= $conn->prepare($query_sg_uf);
+    $cadastrar_sg_uf->bindParam(':sg_uf',$sg_uf , PDO::PARAM_STR);
+    $cadastrar_sg_uf->execute();
+    $id_sg_uf = $conn->lastInsertId();
+
     $query_cidade = "INSERT INTO tb_cidade (nm_cidade, cd_uf)
     VALUES (:nm_cidade, :cd_uf)";
     $cadastrar_cidade= $conn->prepare($query_cidade);
@@ -55,27 +76,10 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     VALUES (:nm_bairro, :cd_cidade)";
     $cadastrar_bairro= $conn->prepare($query_bairro);
     $cadastrar_bairro->bindParam(':nm_bairro', $dados['nm_bairro'], PDO::PARAM_STR);
-    $cadastrar_bairro->bindParam(':cd_cidade', $cd_cidade, PDO::PARAM_INT);
+    $cadastrar_bairro->bindParam(':cd_cidade', $id_cidade, PDO::PARAM_INT);
     $cadastrar_bairro->execute();
     $id_bairro = $conn->lastInsertId();
-
-    $query_sg_uf = "INSERT INTO tb_uf (sg_uf)
-    VALUES (:sg_uf)";
-    $cadastrar_sg_uf= $conn->prepare($query_sg_uf);
-    $cadastrar_sg_uf->bindParam(':sg_uf', $dados['sg_uf'], PDO::PARAM_STR);
-    $cadastrar_sg_uf->execute();
-    $id_sg_uf = $conn->lastInsertId();
-
-    $query_pessoa_fisica = "INSERT INTO tb_pessoa_fisica (cd_cpf, cd_cliente, cd_bairro)
-    VALUES (:cd_cpf, :cd_cliente, :cd_bairro )";
-    $cadastrar_pessoa_fisica= $conn->prepare($query_pessoa_fisica);
-    $cadastrar_pessoa_fisica->bindParam(':cd_cpf', $dados['cd_cpf'], PDO::PARAM_STR);
-    $cadastrar_pessoa_fisica->bindParam(':cd_cliente', $id_cliente, PDO::PARAM_INT);
-    $cadastrar_pessoa_fisica->bindParam(':cd_bairro', $id_bairro, PDO::PARAM_INT);
-    $cadastrar_pessoa_fisica->execute();
-    $id_pessoa_fisica = $conn->lastInsertId();
-
-    // DADOS DO CARRO
+   // DADOS DO CARRO
     $query_marca = "INSERT INTO tb_marca (nm_marca)
     VALUES (:nm_marca)";
     $cadastrar_marca = $conn->prepare($query_marca);
@@ -101,25 +105,34 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $query_veiculo = "INSERT INTO tb_veiculo (cd_placa, cd_cliente, cd_cor, cd_modelo)
     VALUES (:cd_placa, :cd_cliente, :cd_cor, :cd_modelo)";
     $cadastrar_veiculo = $conn->prepare($query_veiculo);
-    $cadastrar_veiculo->bindParam(':cd_placa',  $dados['cd_placa'], PDO::PARAM_STR);
+    $cadastrar_veiculo->bindParam(':cd_placa',  $placa, PDO::PARAM_STR);
     $cadastrar_veiculo->bindParam(':cd_cliente', $id_cliente, PDO::PARAM_INT);
     $cadastrar_veiculo->bindParam(':cd_cor', $id_cor, PDO::PARAM_INT);
     $cadastrar_veiculo->bindParam(':cd_modelo', $id_modelo, PDO::PARAM_INT);
     $cadastrar_veiculo->execute();
     $id_veiculo = $conn->lastInsertId();
 
+    $query_pessoa_fisica = "INSERT INTO tb_pessoa_fisica (cd_cpf, cd_cliente, cd_bairro)
+    VALUES (:cd_cpf, :cd_cliente, :cd_bairro )";
+    $cadastrar_pessoa_fisica= $conn->prepare($query_pessoa_fisica);
+    $cadastrar_pessoa_fisica->bindParam(':cd_cpf', $dados['cd_cpf'], PDO::PARAM_STR);
+    $cadastrar_pessoa_fisica->bindParam(':cd_cliente', $id_cliente, PDO::PARAM_INT);
+    $cadastrar_pessoa_fisica->bindParam(':cd_bairro', $id_bairro, PDO::PARAM_INT);
+    
+    $id_pessoa_fisica = $conn->lastInsertId();
 
 
-if($cadastrar_pessoa_fisica->execute()){
-    $_SESSION['msg'] = "<div class='alert alert-success' role='alert'><p style='font-size: 20px;' >Cadastro do Usuário <string>$cliente</string> concluido com Sucesso!</p></div>";
-     header("Location: form-validation.php");
 
-}else{
-    $_SESSION['msg'] = "<div class='alert alert-danger' role='alert' ><p style='font-size: 15px;'>ERRO!  Usuário não Cadastrado!</p></div>";
-     header("Location: form-validation.php");
-}
-
-}
-
-
-echo json_encode($retorna);
+    if($cadastrar_pessoa_fisica->execute()){
+        $_SESSION['msg'] = "<div class='alert alert-success' role='alert'><p style='font-size: 20px;' >Cadastro do Usuário <string>$cliente</string> concluido com Sucesso!</p></div>";
+         header("Location: form-validation.php");
+    
+    }else{
+        $_SESSION['msg'] = "<div class='alert alert-danger' role='alert' ><p style='font-size: 15px;'>ERRO!  Usuário não Cadastrado!</p></div>";
+         header("Location: form-validation.php");
+    }
+    
+    }
+    
+    
+    echo json_encode($retorna);

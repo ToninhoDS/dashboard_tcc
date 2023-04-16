@@ -2,7 +2,7 @@
 include_once "crud_php/conexao_cadastro.php";
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
+$id =$dados['id'];
 
 if(empty($dados['id'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ID!</div>"];
@@ -25,7 +25,7 @@ if(empty($dados['id'])){
     $edit_telefone = $conn->prepare($query_telefone);
     $edit_telefone->bindParam(':telefone', $dados['telefone']);
     $edit_telefone->bindParam(':id', $dados['id']);
-
+    $edit_telefone->execute();
    
     $query_usuario = "UPDATE tb_cliente SET nm_cliente=:nome, cd_email_cliente=:email 
     WHERE cd_cliente=:id";
@@ -33,21 +33,23 @@ if(empty($dados['id'])){
     $edit_usuario->bindParam(':nome', $dados['nome']);
     $edit_usuario->bindParam(':email', $dados['email']);
     $edit_usuario->bindParam(':id', $dados['id']);
-        
+    $edit_usuario->execute();
    
         $query_pessoa_fisica = "UPDATE tb_pessoa_fisica SET cd_cpf=:cpf
         WHERE cd_pessoa_fisica=:id";
         $edit_pessoa_fisica = $conn->prepare($query_pessoa_fisica);
         $edit_pessoa_fisica->bindParam(':cpf', $dados['cpf']);
         $edit_pessoa_fisica->bindParam(':id', $dados['id']);
+        $edit_pessoa_fisica->execute();
 
             $query_veiculo = "UPDATE tb_veiculo SET cd_placa=:placa
-            WHERE tb_veiculo=:id";
+            WHERE cd_veiculo=:id";
             $edit_veiculo = $conn->prepare($query_veiculo);
-            $edit_veiculo->bindParam(':cpf', $dados['placa']);
+            $edit_veiculo->bindParam(':placa', $dados['placa']);
             $edit_veiculo->bindParam(':id', $dados['id']);
-            
-            $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' style='margin: 0;padding: 0px;' role='alert'>Atualizado com Sucesso!</div>"];
+            $edit_veiculo->execute();
+
+            $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' style='margin: 0;padding: 0px;' role='alert'>Atualizado do ID: $id com Sucesso !</div>"];
  
 }
 
