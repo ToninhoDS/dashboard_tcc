@@ -44,7 +44,7 @@ if (!empty($pagina)) {
             $dados .= "<tr>
                     <td id='valor_id$cd_cliente'>$cd_cliente</td>
                     <td id='valor_nome$cd_cliente'>$nm_cliente</td>
-                    <td id='valor_cpf$cd_cliente'>$cd_cpf</td>
+                    <td  id='valor_cpf$cd_cliente'>$cd_cpf</td>
                     <td id='valor_placa$cd_cliente'>$cd_placa</td>
                     <td id='valor_email$cd_cliente'>$cd_email_cliente</td>
                     <td id='valor_telefone$cd_cliente'>$cd_numero1</td>

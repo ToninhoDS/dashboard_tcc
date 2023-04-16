@@ -110,9 +110,7 @@ async function salvar_registro(id){
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: dadosForm
     });
-
     // ler o objeto a respota do arquivo php
-
     const resposta = await dados.json();
     console.log(resposta);
 
@@ -127,19 +125,25 @@ async function salvar_registro(id){
           document.getElementById("msgAlerta").innerHTML = resposta['msg'];
 
         //   chamar uma função para remover a mensagem apos alguns segundos
+        
+        // agora ocultar e inverter o botão
         removerMsgALerta();
 
-        // agora ocultar e inverter o botão
+        //   apresentar o Botao editar
 
         //   apresentar o Botao editar
-   document.getElementById("botao_editar" +id ).style.display = "block";
+   document.getElementById("botao_editar" +id ).style.display = "block";;
+   document.getElementById("botao_excluir" +id ).style.display = "block";
    // ocultar o Botao salvar
-   document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+   
    document.getElementById("botao_salvar" +id ).style.display = "none";
+   document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
+   document.getElementById("Select_Option" +id ).style.display = "none";
    
     //   apresentar o Botao excluir
-    document.getElementById("botao_excluir" +id ).style.display = "block";
-        
+    
+
+     window.location.reload(10); // carrega a pagina
     }
     
 }
@@ -153,7 +157,7 @@ function cancelar_registro(id){
     // apresentar o Botao excluir e de editar
     document.getElementById("botao_excluir" +id ).style.display = "block";
     document.getElementById("botao_editar" +id ).style.display = "block";
-    
+    resetaPagina();
 
 }
 // fim do editar o banco de dados
@@ -169,6 +173,17 @@ function removerMsgALerta(){
     }, 1000);
    
 } 
+
+// função reseta a pagina depois de alguns segundos
+function resetaPagina(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        window.location.reload(10); 
+        
+    }, 2000);
+   
+} 
+
 // fim da mensaggem em 2s apos apresentação da mensagem
 
 // excluir registro
@@ -221,27 +236,35 @@ if(retorna['erro']){
 // criando função que visualizar as informaçoes
 
 async  function visualizar(id){
-    //console.log(id);
-    const dados = await fetch('visualizar.php?id=' + id);
+    var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
+    //console.log('placa: ' +array_placa_modal);
+    const dados = await fetch('visualizar.php?id=' +array_placa_modal);
     const resposta = await dados.json();
     //console.log(resposta);
-    //await espera terminar processamento de cima para continuar
-   
-
-    //validação
-
+  
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
     }else{
         document.getElementById('msgAlerta').innerHTML = "";
-        const visModal = new bootstrap.Modal(document.getElementById('visUsuarioModal'));
+        const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
-
-        document.getElementById("idUsuario").innerHTML = resposta['dados'].id;
-        document.getElementById("nomeUsuario").innerHTML = resposta['dados'].nome;
-        document.getElementById("emailUsuario").innerHTML = resposta['dados'].email;
-        document.getElementById("logradouroUsuario").innerHTML = resposta['dados'].logradouro;
-        document.getElementById("numeroUsuario").innerHTML = resposta['dados'].numero;
+ 
+        var cpf = resposta['dados'].cd_cpf; // CPF original
+        var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
+        console.log(cpfFormatado); // Saída: "123.456.789-01"
+       
+        document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
+        document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado;
+        document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
+        document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
+        document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;
+        document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_cidade;
+        document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].sg_uf;
+        document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_numero1;
+        document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_placa;
+        document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].nm_modelo;
+        document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].nm_marca;
+        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].nm_cor;
     }
     
 }

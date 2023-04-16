@@ -256,13 +256,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
  <!-- chama Status Vagas -->
         
 <div class="ecommerce-widget">
-	<div class="row">					
-        <span id="msgAlerta"></span>            
+	<div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"><strong>Status de Vagas</strong></h3>           
-                	<div style="padding: 5px 5px ;" class="col-md-3">                   
-                    <label class="card-header" for="firstName"></label>
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Status de Vagas</strong></h3>         
+                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
                     	<span class="listar-vagas_detalhes"></span>

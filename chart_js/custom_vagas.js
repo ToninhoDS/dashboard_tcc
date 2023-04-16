@@ -155,11 +155,12 @@ async function salvar_registro(id){
    document.getElementById("botao_salvar" +id ).style.display = "none";
    document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
    document.getElementById("Select_Option" +id ).style.display = "none";
+   document.getElementById("img_Option" +id ).style.display = "none";
    
     //   apresentar o Botao excluir
     
 
-     window.location.reload(10); // carrega a pagina
+    resetaPagina();
     }
     
 }
@@ -196,27 +197,39 @@ function removerMsgALerta(){
    
 } 
 
+
+// função reseta a pagina depois de alguns segundos
+function resetaPagina(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        window.location.reload(10); 
+   
+    }, 2000);
+   
+} 
+
 // aplicação modal
 async  function visualizar(id){
-
-    //var lol = '991.851.233-40'
-     var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
-     //criar uma array
-     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
-     console.log(array_cpf_modal);
-     const dados = await fetch('comando_php/visualizar.php?id=' +array_cpf_modal);
-     const resposta = await dados.json();
-     console.log(resposta);
    
+  
+    var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
+    //console.log('placa: ' +array_placa_modal);
+    //console.log('cpf'+array_cpf_modal);
+    const dados = await fetch('comando_php/visualizar.php?id=' +array_placa_modal);
+    const resposta = await dados.json();
      if(!resposta['status']){
          document.getElementById('msgAlerta').innerHTML = resposta['msg'];
      }else{
          document.getElementById('msgAlerta').innerHTML = "";
          const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga_index'));
          visModal.show();
- 
+          
+         var cpf = resposta['dados'].cd_cpf; // CPF original
+         var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
+         console.log(cpfFormatado); // Saída: "123.456.789-01"
+        
          document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
-         document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+         document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado;
          document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
          document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
          document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;

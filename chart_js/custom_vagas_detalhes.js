@@ -119,7 +119,7 @@ async function salvar_registro(id){
     + "&entrada_vagas=" + entrada_valor + "&status_vagas=" + Option_vagas_valor + "&img_vagas=" + img_Option_valor + "&cpf_vagas=" + cpf_valor;
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
-   console.log(dadosForm);
+   //console.log(dadosForm);
     const dados = await fetch("comando_php/editar_tabela_vagas.php",{
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -129,7 +129,7 @@ async function salvar_registro(id){
     // ler o objeto a respota do arquivo php
 
     const resposta = await dados.json();
-    console.log(resposta);
+    //console.log(resposta);
 
         // acessa o if quando nao conseguir editar no banco
         if(!resposta['status']){
@@ -154,11 +154,12 @@ async function salvar_registro(id){
    document.getElementById("botao_salvar" +id ).style.display = "none";
    document.getElementById("cancelarRG_salvar" +id ).style.display = "none";
    document.getElementById("Select_Option" +id ).style.display = "none";
+   document.getElementById("img_Option" +id ).style.display = "none";
    
     //   apresentar o Botao excluir
     
 
-     window.location.reload(10); // carrega a pagina
+    resetaPagina();
     }
     
 }
@@ -195,17 +196,27 @@ function removerMsgALerta(){
    
 } 
 
+// função reseta a pagina depois de alguns segundos
+function resetaPagina(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        window.location.reload(10); 
+        
+    }, 2000);
+   
+} 
+
 // aplicação modal
 async  function visualizar(id){
 
    
-    var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
+    //var array_cpf_modal = document.getElementById("valor_cpf" + id).innerHTML;
     //criar uma array
     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
-    console.log(array_placa_modal);
-    const dados = await fetch('comando_php/visualizar.php?id=' +array_cpf_modal);
+    console.log('placa: ' +array_placa_modal);
+    const dados = await fetch('comando_php/visualizar.php?id=' +array_placa_modal);
     const resposta = await dados.json();
-    console.log(resposta);
+    //console.log(resposta);
   
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
@@ -213,9 +224,13 @@ async  function visualizar(id){
         document.getElementById('msgAlerta').innerHTML = "";
         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
-
+ 
+        var cpf = resposta['dados'].cd_cpf; // CPF original
+        var cpfFormatado = cpf.slice(0, 3) + '.***.***.' + cpf.slice(0,2); // Formata o CPF com pontos e barras
+        console.log(cpfFormatado); // Saída: "123.456.789-01"
+       
         document.getElementById("id_cliente_modal").innerHTML = resposta['dados'].cd_cliente;
-        document.getElementById("cpf_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
+        document.getElementById("cpf_cliente_modal").innerHTML = cpfFormatado;
         document.getElementById("nm_cliente_modal").innerHTML = resposta['dados'].nm_cliente;
         document.getElementById("email_cliente_modal").innerHTML = resposta['dados'].cd_email_cliente;
         document.getElementById("bairro_cliente_modal").innerHTML = resposta['dados'].nm_bairro;

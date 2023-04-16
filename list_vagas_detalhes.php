@@ -33,6 +33,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     extract($row_usuario);
     $Option_img = $row_usuario ['img_icon']; 
     $hora_min_vaga = $row_usuario ['dt_entrada']; 
+    $ocultar_cpf = substr_replace($cd_cpf, '***.***', 4, -3); // ocutando o CPF
     $data_vagas = date("d/m/Y");
     $horas_min_atual_vagas = date("H:i:s");
     $diff = strtotime($horas_min_atual_vagas) - strtotime($hora_min_vaga);
@@ -97,8 +98,8 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     </td>
     
     <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
-    <td id='valor_cpf$cd_status_vagas'value='$cd_cpf'>$cd_cpf</td>
-    <td id='valor_placa$cd_status_vagas''value='$sg_placa'>$sg_placa</td>
+    <td id='valor_cpf$cd_status_vagas'>$ocultar_cpf</td>
+    <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
     <td id='valor_horas$cd_status_vagas'>$data_vagas </td>
     <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>
     <td id='valor_horas$cd_status_vagas'>$diff_hours:$diff_minutes Hrs</td>

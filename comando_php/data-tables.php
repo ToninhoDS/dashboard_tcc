@@ -46,21 +46,76 @@ include('crud_php/body.php');
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
+                
                 <!-- end pageheader -->
                 <!-- ============================================================== -->
-                <div class="row">					
-        <span id="msgAlerta"></span>            
-        <div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
-        	<div class="card">
-            	<h3 class="card-header"><strong>Status de Vagas</strong></h3>           
-                <div style="padding: 5px 5px ;" class="col-md-3">                   
-                    <label class="card-header" for="firstName"></label>
+                <!-- tabela do cadastro do cliente -->
+                <div class="row">					       
+        	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
+        		<div class="card">
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Status de Vagas</strong></h3>         
+                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
-                 </div>
+                 	</div>
                     <span class="listar-clientes"></span>
 			</div>
     </div>
+<!-- fim -->
+<!-- inicio do Modal -->
+<!-- Modal -->
+<div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Cliente</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Nome:</dt>
+            <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
+            <dt class="col-sm-3">CPF:</dt>
+            <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
+            <dt class="col-sm-3">Email:</dt></dt>
+            <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Bairro:</dt></dt>
+            <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Cidade:</dt></dt>
+            <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
+            <dt class="col-sm-3">UF-Estado:</dt></dt>
+            <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Telefone:</dt></dt>
+            <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
+        </dl>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veiculo</h5>
+      </div>
+      <div class="modal-body">
+        <dl class="row">
+            <dt class="col-sm-3">Placa:</dt>
+            <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
+            <dt class="col-sm-3">Modelo:</dt>
+            <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
+            <dt class="col-sm-3">Marca:</dt>
+            <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
+            <dt class="col-sm-3">Cor:</dt></dt>
+            <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
+        
+        </dl>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>  
+ </div>
+  
+<!-- fim Modal -->
 
        
     <script src="../chart_js/jquery-3.3.1.min.js"></script>

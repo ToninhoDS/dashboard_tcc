@@ -51,7 +51,7 @@ if(isset($_SESSION['msg'])){
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h2 class="card-header">Cadastro Cliente</h2>
+                                <h2 class="card-header">Cadastro Completo</h2>
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate action="cadastrar_cliente.php" method="POST"  id="contact_form">
 
@@ -65,21 +65,21 @@ if(isset($_SESSION['msg'])){
                                                     Correto!
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                                 <label for="validationCustom03">CPF</label>
                                                 <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" required="" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     CPF incorreto!.
                                                 </div>
-                                            </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            </div><br><br>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                                 <label for="validationCustom04">CNPJ</label>
                                                 <input  name="cd_cnpj" id="cd_cnpj" placeholder="Digite o CNPJ" class="form-control"  type="text">
                                                 <div class="invalid-feedback">
                                                     Please provide a valid state.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                                 <label for="validationCustom05">Celular</label>
                                                 <input name="cd_numero1" id="cd_numero1" placeholder="Digite o numero"  class="form-control"  type="text">
                                                 <div class="invalid-feedback">
@@ -116,6 +116,41 @@ if(isset($_SESSION['msg'])){
                                                 </div>
                                             </div>
                                         </div>
+<br>
+<hr>
+
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                                <label for="validationCustom01">Nome da Rua</label>
+                                                <input  name="nm_cliente" id="nm_cliente" required="" placeholder="Digite a Rua" class="form-control"  type="text" >
+                                                <div class="valid-feedback">
+                                                    Correto!
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom03">Bairro</label>
+                                                <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o Bairro" required="" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    CPF incorreto!.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom04">Cidade</label>
+                                                <input  name="cd_cnpj" id="cd_cnpj" placeholder="Digite a Cidade" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid state.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                <label for="validationCustom05">UF-Estado</label>
+                                                <input name="cd_numero1" id="cd_numero1" placeholder="Digite o Estado"  class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Numero incorreto!.
+                                                </div>
+                                            </div>
+                                        </div>
+<br>
+<hr>                                        
                                         <div class="form-row">
                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                 <label for="validationCustom03">Placa do Carro</label>

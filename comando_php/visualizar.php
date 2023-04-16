@@ -39,7 +39,7 @@ if (!empty($id)) {
     join tb_cor as co
     on co.cd_cor = ve.cd_cor
     
-    where pf.cd_cpf=:id LIMIT 1";
+    where ve.cd_placa=:id LIMIT 1";
              //fazer a conexao
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->bindParam(':id', $id);
@@ -50,10 +50,10 @@ if (!empty($id)) {
          // ler o resultados ,PDO ultilar conexao PDO, FETCH_ASSSOC para imprimir atravez da coluna
         $retorna = ['status' => true, 'dados' => $row_usuario];
     }else{
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado!</div>"];
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado!!!</div>"];
     }
 } else {
-    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado $id!</div>"];
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum usuário encontrado!!! $id!</div>"];
 }
 
 echo json_encode($retorna);

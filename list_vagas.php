@@ -40,7 +40,7 @@ if (!empty($pagina)) {
                             extract($row_usuario);
                             $Option_img = $row_usuario ['img_icon']; //pegando img
                             $hora_min_vaga = $row_usuario ['dt_entrada']; //hora entrada
-                           
+                            $ocultar_cpf = substr_replace($cd_cpf, '***.***', 4, -3); // ocutando o CPF
                             //pegando o dia
                             $data_vagas = date("d/m/Y");
                             //pegando a hora
@@ -108,7 +108,7 @@ if (!empty($pagina)) {
                             </td>
                            
                             <td id='valor_nome$cd_status_vagas'>$nm_nome</td>
-                            <td id='valor_cpf$cd_status_vagas'>$cd_cpf</td>
+                            <td id='valor_cpf$cd_status_vagas'>$ocultar_cpf</td>
                             <td id='valor_placa$cd_status_vagas'>$sg_placa</td>
                             <td id='valor_horas$cd_status_vagas'>$data_vagas </td>
                             <td id='valor_entrada$cd_status_vagas'>$dt_entrada</td>
