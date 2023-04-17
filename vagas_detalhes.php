@@ -276,9 +276,9 @@ include("comando_php/crud_php/conexao_cadastro.php");
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Cliente</h4>
+        <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true"STYLE="font-size:30px">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -302,7 +302,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
         </dl>
       </div>
       <div class="modal-header">
-        <h5 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veiculo</h5>
+        <h5 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veiculo</h5>
       </div>
       <div class="modal-body">
         <dl class="row">

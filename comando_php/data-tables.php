@@ -67,10 +67,7 @@ include('crud_php/body.php');
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Cliente</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>    
       </div>
       <div class="modal-body">
         <span id="msgAlertaErroEdit"></span>
@@ -112,7 +109,7 @@ include('crud_php/body.php');
                       <option>...</option>
                     </select> -->
                   </div>
-                  <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veículo</h4>
+                  <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veículo</h4>
                     <div class="col-md-6">
                       <label for="inputAddress" class="form-label">Placa</label>
                       <input type="text" class="form-control" name="cd_placa" id="placa_cliente_modal" >
@@ -132,7 +129,7 @@ include('crud_php/body.php');
                   <div class="col-md-6">
                       <input type="submit" class="btn btn-warning btn-lg btn-block" id="edit-usuario-btn" value="Editar">
                     </div>
-                  <div class="col-md-4"> 
+                    <div class="col-md-4"> 
                       <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
