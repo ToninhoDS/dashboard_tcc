@@ -55,7 +55,7 @@ include('crud_php/body.php');
         		<div class="card">
             	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Status de Vagas</strong></h3>         
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
-                    <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
+                    <input id="search-input" type="text" class="form-control"   value="" required="">
                  	</div>
                     <span class="listar-clientes"></span>
 			</div>
@@ -77,16 +77,16 @@ include('crud_php/body.php');
                 <form class="row g-3" id="edit_formulario_cliente"> 
                 <div class="row">
                   <div class="col">
-                    <input type="hidden" class="form-control" name="cd_cliente" placeholder="First name" aria-label="First name" id="id_cliente_modal">
+                    <input type="hidden" class="form-control" name="cd_cliente"  aria-label="First name" id="id_cliente_modal">
                   </div>
                   <div class="col-md-12">
                   <label for="email" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nm_cliente" placeholder="Last name" aria-label="Last name" id="nm_cliente_modal">
+                    <input type="text" class="form-control" name="nm_cliente"aria-label="Last name" id="nm_cliente_modal">
                   </div>
                 </div>
                   <div class="col-md-6">
                       <label for="inputAddress" class="form-label">CPF</label>
-                      <input type="text" class="form-control" name="cd_cpf" id="cpf_cliente_modal" placeholder="1234 Main St">
+                      <input type="text" class="form-control" name="cd_cpf" id="cpf_cliente_modal" >
                     </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">Telefone</label>
@@ -94,7 +94,7 @@ include('crud_php/body.php');
                   </div>
                     <div class="col-12">
                       <label for="inputAddress2" class="form-label">Email</label>
-                      <input type="text" class="form-control" name="cd_email_cliente" id="email_cliente_modal" placeholder="Apartment, studio, or floor">
+                      <input type="text" class="form-control" name="cd_email_cliente" id="email_cliente_modal" >
                     </div>
                   <div class="col-md-5">
                     <label for="inputCity" class="form-label">Bairro</label>
@@ -115,7 +115,7 @@ include('crud_php/body.php');
                   <h4 class="modal-title" id="visualiza_status_vaga_Title">Detalhes do Veículo</h4>
                     <div class="col-md-6">
                       <label for="inputAddress" class="form-label">Placa</label>
-                      <input type="text" class="form-control" name="cd_placa" id="placa_cliente_modal" placeholder="1234 Main St">
+                      <input type="text" class="form-control" name="cd_placa" id="placa_cliente_modal" >
                     </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">Modelo</label>
@@ -123,14 +123,17 @@ include('crud_php/body.php');
                   </div>
                     <div class="col-md-6">
                       <label for="inputAddress" class="form-label">Marca</label>
-                      <input type="text" class="form-control" name="nm_marca" id="marca_cliente_modal" placeholder="1234 Main St">
+                      <input type="text" class="form-control" name="nm_marca" id="marca_cliente_modal" >
                     </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">Cor</label>
                     <input type="text" class="form-control" name="nm_cor" id="cor_cliente_modal">
                   </div>
-                  <div class="col-12">
-                      <input type="submit" class="btn btn-outline-warning btn-sm" id="edit-usuario-btn" value="Editar">
+                  <div class="col-md-6">
+                      <input type="submit" class="btn btn-warning btn-lg btn-block" id="edit-usuario-btn" value="Editar">
+                    </div>
+                  <div class="col-md-4"> 
+                      <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
              </div>

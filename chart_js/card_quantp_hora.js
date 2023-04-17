@@ -34,15 +34,18 @@ $(function graficoPizza() {
 });
 
 const upDadosGraficoBarra=()=>{
-var Quanto_hora_estacionamento = 1.1;    
+var Quanto_hora_estacionamento = 1.1; //hora
+var valorSemanal = 0;    
 var somaBarra = document.getElementById("somaHora_valor").innerHTML;
-  somaBarra *= Quanto_hora_estacionamento;
-  var somaMensal = somaBarra * 24;
+  somaBarra *= Quanto_hora_estacionamento; //mensal
+  var somaMensal = somaBarra * 30;
+  valorSemanal = somaBarra * 7;
    console.log(somaBarra);
 
    
         
            document.getElementById("lucroAnual").innerHTML = "$"+somaMensal.toFixed(2);
+           document.getElementById('cardOcupado').innerHTML = "$"+valorSemanal.toFixed(2);
            document.getElementById("lucroMensal").innerHTML = "$"+somaBarra.toFixed(2);
            
 

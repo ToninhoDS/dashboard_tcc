@@ -32,10 +32,7 @@ const listarUsuarios = async (pagina) => {
 
 // Chamar a funcao para listar os registro do banco de dados
 listarUsuarios(1);
-
-/* Fim listar os registros do banco de dados */
-
-// vamos substiuir o tewxto do campo
+const Modal_cliente_Form = document.getElementById("edit_formulario_cliente");
 
 function editar_registro(id){
     console.log(id);
@@ -172,7 +169,7 @@ function removerMsgALerta(){
         document.getElementById("msgAlerta").innerHTML = "";
         // colocar o milisegundos que precisa 2000
    
-    }, 2000);
+    }, 1000);
    
 } 
 
@@ -182,7 +179,7 @@ function resetaPagina(){
         // substituir a mensagem 
         window.location.reload(10); 
         
-    }, 2000);
+    }, 1000);
    
 } 
 
@@ -238,6 +235,9 @@ if(retorna['erro']){
 // criando função que visualizar as informaçoes
 
 async  function visualizar(id){
+    document.getElementById("msgAlertaErroEdit").innerHTML = "";
+    document.getElementById('edit-usuario-btn').value ="Editar";
+
     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
     //console.log('placa: ' +array_placa_modal);
     const dados = await fetch('visualizar.php?id=' +array_placa_modal);
@@ -281,14 +281,26 @@ if(editForm){
 
         const dadosForm = new FormData(editForm);
 
+        document.getElementById('edit-usuario-btn').value ="Salvando....";
+
        const dados = await fetch("editar_modal.php",{
             method:"POST",
             body: dadosForm
         });
-
+    
         const resposta = await dados.json();
         console.log(resposta);
-    });
+
+        if(!resposta['status']){
+          
+            document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+        
+        }else{
+         document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];  
+            listarUsuarios(1);
+
+         }
+         });
 }
 
 // mandar dropdawn aberto 

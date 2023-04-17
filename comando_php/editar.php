@@ -49,7 +49,7 @@ if(empty($dados['id'])){
             $edit_veiculo->bindParam(':id', $dados['id']);
             $edit_veiculo->execute();
 
-            $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' style='margin: 0;padding: 0px;' role='alert'>Atualizado do ID: $id com Sucesso !</div>"];
+            $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' s role='alert'>Atualizado com Sucesso !</div>"];
  
 }
 

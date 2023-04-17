@@ -14,7 +14,6 @@ console.log(livreInt);
 console.log(total_resto);
 document.getElementById('vagasLivesOcupadas').innerHTML = total_vas; // ocupada mais reservadas
 document.getElementById('cardVagas').innerHTML = livreInt; // mostras as vagas
-document.getElementById('cardOcupado').innerHTML = reservaInt; 
 document.getElementById('reservasCanceladas').innerHTML = total_resto.toFixed(0)+ptg;
 
 
@@ -59,7 +58,7 @@ var tempo_hora_22h = document.getElementById("tempo_hora_22h").innerHTML;
 
 
 const ctx7 = document.getElementById('apiAleatoriaLinha');
-let labels24h = ['60h-8h','8h-10h','10h-12h','12h-14h','14h-16h','16h-18h','18h-20h','20h-22h','24h-0h','0h-2h','2h-4h']
+let labels24h = ['6h-8h','8h-10h','10h-12h','12h-14h','14h-16h','16h-18h','18h-20h','20h-22h','22h-0h','0h-2h','2h-4h']
 let val =[tempo_hora_0h,tempo_hora_2h,tempo_hora_4h,tempo_hora_6h,tempo_hora_8h,tempo_hora_10h,tempo_hora_12h,tempo_hora_14h,tempo_hora_16h,tempo_hora_18h,tempo_hora_20h,tempo_hora_22h]
 
  var grafico24h = new Chart(ctx7, {

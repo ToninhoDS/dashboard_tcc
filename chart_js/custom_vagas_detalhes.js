@@ -192,7 +192,7 @@ function removerMsgALerta(){
         document.getElementById("msgAlerta").innerHTML = "";
         // colocar o milisegundos que precisa 2000
    
-    }, 3000);
+    }, 1000);
    
 } 
 
@@ -202,7 +202,7 @@ function resetaPagina(){
         // substituir a mensagem 
         window.location.reload(10); 
         
-    }, 2000);
+    }, 1000);
    
 } 
 

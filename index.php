@@ -442,11 +442,11 @@ $query_usuarios = "SELECT  dt_entrada FROM tb_status_vagas";
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Vagas Ocupadas</h5>
-	                                        <h2 class="mb-0" id="cardOcupado">0</h2>
+	                                        <h5 class="text-muted">Lucro Por Hora</h5>
+	                                        <h2 class="mb-0" id="lucroMensal">0</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
-	                                        <i class="fa fa-user fa-fw fa-sm text-primary"></i>
+	                                        <i class="fa fa-rocket fa-fw fa-sm text-primary"></i>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -504,8 +504,8 @@ $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, d
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Lucro por Hora</h5>
-	                                        <h2 class="mb-0" id="lucroMensal">$0.00</h2>
+	                                        <h5 class="text-muted">Lucro Semanal</h5>
+	                                        <h2 class="mb-0" id="cardOcupado">$0.00</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
 	                                        <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>

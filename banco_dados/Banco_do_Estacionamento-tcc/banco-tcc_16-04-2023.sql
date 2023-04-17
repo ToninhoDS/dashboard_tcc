@@ -428,7 +428,17 @@ insert into tb_cor values
 ('7','Marrom/Bege'),
 ('8','Verde'),
 ('9','Amarelo'),
-('10','Outros');
+('10','Minions'),
+('11','Branco'),
+('12','Cinza'),
+('13','Preto'),
+('14','Prata'),
+('15','Azul'),
+('16','Vermelho'),
+('17','Marrom/Bege'),
+('18','Verde'),
+('19','Amarelo'),
+('20','Outros');
  select * from tb_cor;
  
 -- 7
