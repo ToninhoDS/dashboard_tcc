@@ -690,9 +690,9 @@ $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, d
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
+                                <a href="javascript: void(0);">Voltar</a>
+                                <a href="javascript: void(0);">Suporte</a>
+                                <a href="javascript: void(0);">ContatoUs</a>
                             </div>
                         </div>
                     </div>
