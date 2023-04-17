@@ -12,7 +12,7 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
 
     //Calcular o inicio visualização
-    $qnt_result_pg = 6; //Quantidade de registro por página
+    $qnt_result_pg = 10; //Quantidade de registro por página
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
     $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status FROM tb_status_vagas ORDER BY cd_numero_vaga  DESC LIMIT $inicio, $qnt_result_pg";
     $result_usuarios = $conn->prepare($query_usuarios);
