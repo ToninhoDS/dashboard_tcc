@@ -165,55 +165,55 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.html">Planilha de Serviços</a>
-                                                                </li>
-                                                              
-                                                            </ul>
-                                                                                                
-                                                                                                  
-                                                    <!-- fim do cadastro cliente -->                                                   
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <!-- detalhamento financeiro -->                                       
-                            <li class="nav-item">
-                                <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
-                                <div id="submenu-16" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        
-                                        
-                                         <li class="nav-item">
-                                   	 <a class="nav-link" href="dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.html">Planilha de Serviços</a>
+                                                            </li>
+                                                          
+                                                        </ul>
+                                                                                            
+                                                                                              
+                                                <!-- fim do cadastro cliente -->                                                   
+                                            </ul>
+                                        </div>
                                     </li>
+                                    <!-- detalhamento financeiro -->                                       
+                        <li class="nav-item">
+                            <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
+                            <div id="submenu-16" class="collapse submenu">
+                                <ul class="nav flex-column">
+                                    
+                                    
                                      <li class="nav-item">
-                                            <a class="nav-link" href="dashboard_tcc/pages/nota_gastos.html">Planilha</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" >vazio </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- fim do comercio -->  
-                                     
-                                     
-	                                </ul>
-	                            </div>
-	                        </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
-                               
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
-                            </li>
-                            <li class="nav-divider">
-                                Suporte
-                            </li>
+                                    <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                </li>
+                                 <li class="nav-item">
+                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.html">Planilha</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" >vazio </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- fim do comercio -->  
+                                 
+                                 
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                           
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
+                        </li>
+                        <li class="nav-divider">
+                            Suporte
+                        </li>
                             <li class="nav-item">
                                 <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                                 
@@ -259,7 +259,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	<div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Status de Vagas</strong></h3>         
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Status das Vagas do <strong>Estacionamento</strong></h3>       
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>

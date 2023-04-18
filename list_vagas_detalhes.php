@@ -15,7 +15,7 @@ if (!empty($pagina)) {
                 <div class='table-responsive'>
                     <table class='table' id='my-table'>
                         <thead class='bg-light'>
-                            <tr class='border-0'>
+                            <tr class='border-0' style='font-size: 16px;font-family: Impact, fantasy;'>
                                 <th class='border-0' >Nº Vagas</th>
                                 <th class='border-0'>Imagem</th>
                                 <th class='border-0'>Name</th>

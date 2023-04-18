@@ -53,7 +53,7 @@ include('crud_php/body.php');
                 <div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Status de Vagas</strong></h3>         
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Tabela de Cliente <strong>Cadastrados</strong></h3>         
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"   value="" required="">
                  	</div>
