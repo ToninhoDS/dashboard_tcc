@@ -94,7 +94,8 @@ async function salvar_registro(id){
             cpf_valor = ''; //esqueci
             entrada_valor = 0;  
         } else {
-            window.location.reload(10); // carrega a pagina
+            listarUsuarios(1);
+            //window.location.reload(10); // carrega a pagina
         text = "You canceled!";
 
         }
@@ -160,7 +161,7 @@ async function salvar_registro(id){
     //   apresentar o Botao excluir
     
 
-    resetaPagina();
+    listarUsuarios(1);
     }
     
 }
@@ -199,14 +200,14 @@ function removerMsgALerta(){
 
 
 // função reseta a pagina depois de alguns segundos
-function resetaPagina(){
-    setTimeout(function(){
-        // substituir a mensagem 
-        window.location.reload(10); 
+// function resetaPagina(){
+//     setTimeout(function(){
+//         // substituir a mensagem 
+//         window.location.reload(10); 
    
-    }, 1000);
+//     }, 1000);
    
-} 
+// } 
 
 // aplicação modal
 async  function visualizar(id){

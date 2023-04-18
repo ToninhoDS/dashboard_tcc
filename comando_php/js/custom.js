@@ -140,8 +140,8 @@ async function salvar_registro(id){
    
     //   apresentar o Botao excluir
     
-
-     window.location.reload(10); // carrega a pagina
+    listarUsuarios(1);
+     //window.location.reload(10); // carrega a pagina
     }
     
 }
@@ -172,20 +172,17 @@ function removerMsgALerta(){
     }, 1000);
    
 } 
-
-// função reseta a pagina depois de alguns segundos
-function resetaPagina(){
+function removerSalvando(){
     setTimeout(function(){
         // substituir a mensagem 
-        window.location.reload(10); 
-        
+        document.getElementById('edit-usuario-btn').value ="Concluido...";
+        // colocar o milisegundos que precisa 2000
+   
     }, 1000);
    
 } 
 
-// fim da mensaggem em 2s apos apresentação da mensagem
 
-// excluir registro
 
 async function excluir_registro(id){
     
@@ -282,25 +279,28 @@ if(editForm){
         const dadosForm = new FormData(editForm);
 
         document.getElementById('edit-usuario-btn').value ="Salvando....";
-
+        
        const dados = await fetch("editar_modal.php",{
             method:"POST",
             body: dadosForm
         });
-    
+       
         const resposta = await dados.json();
         console.log(resposta);
-
+       
         if(!resposta['status']){
-          
+
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+            
         
         }else{
-         document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];  
+            removerSalvando();
+                document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
             listarUsuarios(1);
-
+            
          }
          });
+         
 }
 
 // mandar dropdawn aberto 
