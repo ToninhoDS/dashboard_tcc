@@ -2,7 +2,6 @@
 include_once "crud_php/conexao_cadastro.php";
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-
 $acao_Relatorio_Atividade = 'DELETE';
 
 if($acao_Relatorio_Atividade  == 'DELETE'){
@@ -21,8 +20,8 @@ $nm_origem ='LISTA DE CLIENTES';
 // avalidar
 if (!empty($id)){
 
-    //Relatorio de atividade
-    $query_relatorio_atividade = "INSERT INTO tb_relatorio_atividade (nm_nome_acao, nm_origem, nm_funcionario, cd_funcionario, dt_hora, dt_data, img_icon )
+    // //Relatorio de atividade
+    $query_relatorio_atividade = "INSERT INTO tb_relatorio_atividade_lixeira (nm_nome_acao, nm_origem, nm_funcionario, cd_funcionario, dt_hora, dt_data, img_icon )
     VALUES (:nm_nome_acao, :nm_origem, :nm_funcionario, :cd_funcionario, :dt_hora, :dt_data, :img_icon)";
     $cadastrar_relatorio_atividade = $conn->prepare($query_relatorio_atividade);
     $cadastrar_relatorio_atividade->bindParam(':nm_nome_acao',  $acao_Relatorio_Atividade);
@@ -34,14 +33,14 @@ if (!empty($id)){
     $cadastrar_relatorio_atividade->bindParam(':img_icon', $img_icon);
     $cadastrar_relatorio_atividade->execute();
     $id_relatorio_atividade = $conn->lastInsertId();
-    //fiM 
+    // //fiM 
     
-    $query_usuario ="DELETE FROM tb_cliente WHERE cd_cliente=:id";
-    $result_usuario = $conn->prepare($query_usuario);
-    $result_usuario->bindParam(':id',$id);
+    $query_relatorio_atividade ="DELETE FROM tb_relatorio_atividade WHERE cd_relatorio_atividade=:id";
+    $result_relatorio_atividade = $conn->prepare($query_relatorio_atividade);
+    $result_relatorio_atividade->bindParam(':id',$id);
     
      // avalidar se foi registrado no banco de dados com sucesso
-    if($result_usuario->execute()){
+    if($result_relatorio_atividade->execute()){
         $retorna = ['erro' => false, 'msg' => "<div class='alert alert-success' role='alert'>Excluido com Sucesso!</div>"];
 
     }else{

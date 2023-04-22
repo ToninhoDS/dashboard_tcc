@@ -13,8 +13,6 @@ include("comando_php/crud_php/conexao_cadastro.php");
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 
     <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="css_dash/morris.css">
-    
     <link rel="stylesheet" href="css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
@@ -262,20 +260,26 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	<div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Status das Vagas do <strong>Estacionamento</strong></h3>       
-                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Relatório de <strong>Atividade</strong></h3> 
+                <div class='row'>    
+                	<div style="margin: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
-                    	<span class="listar-vagas_detalhes"></span>
+                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
+                    <a href="relatorio_lixeira.php"><button  class="custom-btn btn-11">Lixeira<div class="dot"></div></button></a>
+                 	</div>
+                     </div> 
+                    	<span class="listar-relatorio_atividade"></span>
 				</div>
 			</div>                
 		</div>
 	</div>
 </div>
+
 <!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
+<!-- <div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -323,9 +327,9 @@ include("comando_php/crud_php/conexao_cadastro.php");
       
     </div>
   </div>
-</div>
+</div> -->
 </div>  
- </div>
+ </div> 
   
 <!-- fim Modal -->
 <!-- footer -->
@@ -381,7 +385,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 	<script src="chart_js/chartjs.js"></script>
 	<script src="chart_js/api_chart.js"></script>
       <script src="chart_js/dashboard-influencer.js"></script>
-      <script src="chart_js/custom_vagas_detalhes.js"></script>
+      <script src="chart_js/custom_relatorio_atividade.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- fim -->
 </body>

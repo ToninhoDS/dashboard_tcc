@@ -212,7 +212,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <li class="nav-item">
                                 <a class="nav-link active" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                             </li>
-                          
+                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                            </li>
+                                                    
                             <li class="nav-divider">
                                 Suporte
                             </li>

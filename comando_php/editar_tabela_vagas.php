@@ -1,19 +1,52 @@
 <?php
+
+
 include_once "crud_php/conexao_cadastro.php";
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-// $dados['id'] = '2';
-// $dados['nome'] = 'teste';
-// $dados['email'] = '123456';
-// $dados['senha'] = '18:08';
-//  $dados['status_vagas'] = 'ocupado';
 
-// testes para retorna os dados se foi
-//$retorna = ['status' => false, 'id' => $dados['id']];
- //var_dump('ddd',$dados);
-//avalidar
+
+
+// teste da tabela "Relatorio atividade criando uma variavel"
+$acao_Relatorio_Atividade = $dados['status_vagas'];
+
+  $nm_nome_acao_tabela = '';
+    if($acao_Relatorio_Atividade == 'CADASTRO'){
+        $nm_nome_acao_tabela ="table-success";
+    }else{if($acao_Relatorio_Atividade == 'Livre'){
+        $nm_nome_acao_tabela ="table-success";
+        $img_icon ="img/disponivel_vagas.png";
+    }else{if($acao_Relatorio_Atividade == 'Ocupado'){
+        $nm_nome_acao_tabela ="table-warning";
+        $img_icon ="img/relatorio_ocupado.png";
+    }else{if($acao_Relatorio_Atividade == 'Reserva'){
+        $nm_nome_acao_tabela ="table-danger";
+        $img_icon ="img/relatorio_reservado.png";
+    }else{if($acao_Relatorio_Atividade == ''){
+        $nm_nome_acao_tabela ="";
+    }else{
+            
+    }}}}}
+
+$img_Relatorio = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/123.png';
+$nm_origem ='TABELA S. VAGAS';
+// teste
 
         
+            //Relatorio de atividade
+    $query_relatorio_atividade = "INSERT INTO tb_relatorio_atividade (nm_nome_acao, nm_origem, nm_funcionario, cd_funcionario, dt_hora, dt_data, img_icon )
+    VALUES (:nm_nome_acao, :nm_origem, :nm_funcionario, :cd_funcionario, :dt_hora, :dt_data, :img_icon)";
+    $cadastrar_relatorio_atividade = $conn->prepare($query_relatorio_atividade);
+    $cadastrar_relatorio_atividade->bindParam(':nm_nome_acao',  $acao_Relatorio_Atividade);
+    $cadastrar_relatorio_atividade->bindParam(':nm_origem', $nm_origem);
+    $cadastrar_relatorio_atividade->bindParam(':nm_funcionario', $func_Relat_Ativ);
+    $cadastrar_relatorio_atividade->bindParam(':cd_funcionario', $cd_funcionario);
+    $cadastrar_relatorio_atividade->bindParam(':dt_hora', $horasRelatorio);
+    $cadastrar_relatorio_atividade->bindParam(':dt_data', $dataRelatorio);
+    $cadastrar_relatorio_atividade->bindParam(':img_icon', $img_icon);
+    $cadastrar_relatorio_atividade->execute();
+    //fiM 
+
         $query_vagas_livres = "UPDATE tb_status_vagas SET nm_nome=:nome_vaga, img_icon=:img_vaga, dt_entrada=:entrada_vaga, sg_placa=:placa_vaga, cd_cpf=:cpf_vaga, nm_status=:status_vaga
         WHERE cd_status_vagas=:id";
         $edit_vagas_livres = $conn->prepare($query_vagas_livres);

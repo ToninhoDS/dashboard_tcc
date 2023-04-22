@@ -1,6 +1,6 @@
 
 <?php
-date_default_timezone_set('America/Sao_Paulo');
+
 include_once "comando_php/crud_php/conexao_cadastro.php";
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 

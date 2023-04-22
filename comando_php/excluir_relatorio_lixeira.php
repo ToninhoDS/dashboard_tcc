@@ -1,18 +1,19 @@
 <?php
 include_once "crud_php/conexao_cadastro.php";
 
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+$id ='delete';
+
+$teste = 'delete';
 
 // avalidar
-
 if (!empty($id)){
-
-    $query_usuario ="DELETE FROM teste01 WHERE cd_teste=:id";
-    $result_usuario = $conn->prepare($query_usuario);
-    $result_usuario->bindParam(':id',$id);
+   
+   
+    $query_relatorio_lixeira ="DELETE FROM tb_relatorio_atividade_lixeira WHERE nm_nome_acao LIKE 'DELETE%' ";
+    $result_relatorio_lixeira = $conn->prepare($query_relatorio_lixeira);
     
      // avalidar se foi registrado no banco de dados com sucesso
-    if($result_usuario->execute()){
+    if($result_relatorio_lixeira->execute()){
         $retorna = ['erro' => false, 'msg' => "<div class='alert alert-success' role='alert'>Excluido com Sucesso!</div>"];
 
     }else{
@@ -29,4 +30,3 @@ if (!empty($id)){
 
 
 echo json_encode($retorna);
-
