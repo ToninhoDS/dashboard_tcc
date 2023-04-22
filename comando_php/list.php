@@ -89,7 +89,7 @@ if (!empty($pagina)) {
 
         $dados .= "</tbody>
         </table>
-    </div>";
+    </div><br>";
 
         //Paginação - Somar a quantidade de usuários
         $query_pg = "SELECT COUNT(cd_cliente) AS num_result FROM tb_cliente";

@@ -19,3 +19,15 @@ try{
 }
 
 
+
+// Datos de login do usuario e suas sessao
+
+$func_Relat_Ativ = 'Antonio';
+$func_Relat_Ativ = strtoupper($func_Relat_Ativ);
+$cd_funcionario = '1';
+//pegando a hora
+//$dataRelatorio= date("d/m/Y");
+// pehar a hora no relatorio atividades
+date_default_timezone_set('America/Sao_Paulo');
+$dataRelatorio= date("Y/m/d");
+$horasRelatorio = date("H:i:s");

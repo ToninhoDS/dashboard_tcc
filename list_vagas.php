@@ -1,7 +1,7 @@
 
 <?php
 //Colocando nosso fuso horario
-date_default_timezone_set('America/Sao_Paulo');
+
 //fim
 include_once "comando_php/crud_php/conexao_cadastro.php";
 
@@ -144,7 +144,7 @@ if (!empty($pagina)) {
 
         $dados .= "</tbody>
         </table>
-    </div>";
+    </div><br>";
 
         //Paginação - Somar a quantidade de usuários
         $query_pg = "SELECT COUNT(cd_status_vagas) AS num_result FROM tb_status_vagas";

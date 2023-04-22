@@ -2,13 +2,14 @@
 
 session_start();
 ob_start();
+
 include_once "crud_php/conexao_cadastro.php";
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
- echo var_dump($dados);
+ //echo var_dump($dados);
 
-// deixar o nome tudo maiuscula
+//deixar o nome tudo maiuscula
 $cliente = $dados['nm_cliente'];
 $cliente =strtoupper($cliente );
 $sg_uf = $dados['sg_uf'];
@@ -16,20 +17,24 @@ $sg_uf =strtoupper($sg_uf );
 $placa = $dados['cd_placa'];
 $placa =strtoupper($placa );
 
-// $dados['cd_email_cliente'] = 'teste';
-// $dados['cd_senha_cliente_confirmar'] = 'teste';
-// $dados['cd_senha_cliente'] = 'teste';
-// $dados['nm_cliente'] = 'teste';
-// $dados['cd_numero1'] = 'teste';
-// $dados['nm_cidade'] = 'teste';
-// $dados['nm_bairro'] = 'teste';
-// $dados['sg_uf'] = 'teste';
-// $dados['cd_cpf'] = 'teste';
-// $dados['nm_marca'] = 'teste';
-// $dados['nm_cor'] = 'teste';
-// $dados['nm_modelo'] = 'teste';
-// $dados['cd_placa'] = 'teste';
+// teste da tabela "Relatorio atividade criando uma variavel"
+$acao_Relatorio_Atividade = 'INSERT';
 
+if($acao_Relatorio_Atividade  == 'DELETE'){
+    $img_icon ="img/relatorio_delete.png";
+}else{if($acao_Relatorio_Atividade  == 'UPDATE'){
+    $img_icon ="img/relatorio_update.png";
+}else{if($acao_Relatorio_Atividade  == 'CADASTRO'){
+    $img_icon ="img/relatorio_cadastro.png";
+}else{if($acao_Relatorio_Atividade  == 'INSERT'){
+    $img_icon ="img/relatorio_insert.png";
+}else{}
+}}}
+
+$img_Relatorio = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/123.png';
+$nm_origem ='TABELA CADASTRO';
+
+// teste
 
 if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'><p style='font-size: 20px;' >ERRRO!!! Senha não são iguais</p></div>";
@@ -112,6 +117,21 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
     $cadastrar_veiculo->execute();
     $id_veiculo = $conn->lastInsertId();
 
+    //Relatorio de atividade
+    $query_relatorio_atividade = "INSERT INTO tb_relatorio_atividade (nm_nome_acao, nm_origem, nm_funcionario, cd_funcionario, dt_hora, dt_data, img_icon )
+    VALUES (:nm_nome_acao, :nm_origem, :nm_funcionario, :cd_funcionario, :dt_hora, :dt_data, :img_icon)";
+    $cadastrar_relatorio_atividade = $conn->prepare($query_relatorio_atividade);
+    $cadastrar_relatorio_atividade->bindParam(':nm_nome_acao',  $acao_Relatorio_Atividade);
+    $cadastrar_relatorio_atividade->bindParam(':nm_origem', $nm_origem);
+    $cadastrar_relatorio_atividade->bindParam(':nm_funcionario', $func_Relat_Ativ);
+    $cadastrar_relatorio_atividade->bindParam(':cd_funcionario', $cd_funcionario);
+    $cadastrar_relatorio_atividade->bindParam(':dt_hora', $horasRelatorio);
+    $cadastrar_relatorio_atividade->bindParam(':dt_data', $dataRelatorio);
+    $cadastrar_relatorio_atividade->bindParam(':img_icon', $img_icon);
+    $cadastrar_relatorio_atividade->execute();
+    $id_relatorio_atividade = $conn->lastInsertId();
+    //fim
+
     $query_pessoa_fisica = "INSERT INTO tb_pessoa_fisica (cd_cpf, cd_cliente, cd_bairro)
     VALUES (:cd_cpf, :cd_cliente, :cd_bairro )";
     $cadastrar_pessoa_fisica= $conn->prepare($query_pessoa_fisica);
@@ -125,7 +145,7 @@ if(empty($dados['cd_senha_cliente'] == $dados['cd_senha_cliente_confirmar'] )){
 
     if($cadastrar_pessoa_fisica->execute()){
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'><p style='font-size: 20px;' >Cadastro do Usuário <string>$cliente</string> concluido com Sucesso!</p></div>";
-         header("Location: form-validation.php");
+        header("Location: form-validation.php");
     
     }else{
         $_SESSION['msg'] = "<div class='alert alert-danger' role='alert' ><p style='font-size: 15px;'>ERRO!  Usuário não Cadastrado!</p></div>";

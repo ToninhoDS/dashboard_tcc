@@ -1,8 +1,29 @@
 <?php
-include_once "crud_php/conexao_cadastro.php";
 session_start();
+ // colocar, pq que hora do RELATORIO ATIVIDADE FUNCIONA
+
+include_once "crud_php/conexao_cadastro.php";
+
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //$id = $dados['id'];
+
+// teste da tabela "Relatorio atividade criando uma variavel"
+$acao_Relatorio_Atividade = 'UPDATE';
+
+if($acao_Relatorio_Atividade  == 'DELETE'){
+    $img_icon ="img/relatorio_delete.png";
+}else{if($acao_Relatorio_Atividade  == 'UPDATE'){
+    $img_icon ="img/relatorio_update.png";
+}else{if($acao_Relatorio_Atividade  == 'CADASTRO'){
+    $img_icon ="img/relatorio_cadastro.png";
+}else{if($acao_Relatorio_Atividade  == 'INSERT'){
+    $img_icon ="img/relatorio_insert.png";
+}else{}
+}}}
+$nm_origem ='EDITADO MODAL';
+
+// teste
+
 if(empty($dados['cd_cliente'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ID!</div>"];
 }elseif (empty($dados['nm_cliente'])){
@@ -94,6 +115,21 @@ if(empty($dados['cd_cliente'])){
     $cadastrar_pessoa_fisica->bindParam(':cpf', $dados['cd_cpf']);
     $cadastrar_pessoa_fisica->bindParam(':id', $dados['cd_cliente']);
     $cadastrar_pessoa_fisica->execute();
+
+     //Relatorio de atividade
+     $query_relatorio_atividade = "INSERT INTO tb_relatorio_atividade (nm_nome_acao, nm_origem, nm_funcionario, cd_funcionario, dt_hora, dt_data, img_icon )
+     VALUES (:nm_nome_acao, :nm_origem, :nm_funcionario, :cd_funcionario, :dt_hora, :dt_data, :img_icon)";
+     $cadastrar_relatorio_atividade = $conn->prepare($query_relatorio_atividade);
+     $cadastrar_relatorio_atividade->bindParam(':nm_nome_acao',  $acao_Relatorio_Atividade);
+     $cadastrar_relatorio_atividade->bindParam(':nm_origem', $nm_origem);
+     $cadastrar_relatorio_atividade->bindParam(':nm_funcionario', $func_Relat_Ativ);
+     $cadastrar_relatorio_atividade->bindParam(':cd_funcionario', $cd_funcionario);
+     $cadastrar_relatorio_atividade->bindParam(':dt_hora', $horasRelatorio);
+     $cadastrar_relatorio_atividade->bindParam(':dt_data', $dataRelatorio);
+     $cadastrar_relatorio_atividade->bindParam(':img_icon', $img_icon);
+     $cadastrar_relatorio_atividade->execute();
+    
+     //fim
 
     $query_cor = "UPDATE tb_cor SET nm_cor=:cor WHERE cd_cor=:id";
     $cadastrar_cor = $conn->prepare($query_cor);
