@@ -16,7 +16,7 @@ if (!empty($pagina)) {
                     <table class='table' id='my-table'>
                         <thead class='bg-light'>
                             <tr class='border-0' style='font-size: 17px;font-family: Impact, fantasy;'>
-                                <th class='border-0' >ID</th>
+                                <th  style='display:none;' class='border-0' >ID</th>
                                 <th class='border-0'>IMAGEM</th>
                                 <th class='border-0'>AÇÃO</th>
                                 <th class='border-0'>ORIGEM</th>
@@ -24,24 +24,24 @@ if (!empty($pagina)) {
                                 <th class='border-0'>FUNCIONARIO</th>
                                 <th class='border-0'>HORA</th>
                                 <th class='border-0'>DATA</th>
-                                <th class='border-0'>DELTAR</th>
+                                <th class='border-0'>DELETAR</th>
                                    
                             </tr>
                         </thead>
                         <tbody>
                         
                         <tr  class='$' >
-                            <td id='valor_id'>0</td> 
+                            <td id='valor_id'>-</td> 
                             <td><div id='img_status_vagas$' style='display:block' class='m-r-10'>
-                                 0</div>
+                                 -</div>
                              </td>
-                            <td id='valor_nome$'>0</td>
-                            <td  id='valor_cpf'>0</td>
-                            <td id='valor_horas'>0</td>
-                            <td id='valor_placa'>0</td>
-                            <td id='valor_entrada'>0</td>
-                            <td id='valor_horas'>0</td>
-                            <td class='d-flex botaov'></td>
+                            <td id='valor_nome$'>-</td>
+                            <td  id='valor_cpf'>-</td>
+                            <td id='valor_horas'>-</td>
+                            <td id='valor_placa'>-</td>
+                            <td id='valor_entrada'>-</td>
+                            <td id='valor_horas'>-</td>
+                            
                     </tr>";
 while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     extract($row_usuario);
@@ -68,7 +68,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $dt_data = date("d/m/Y");
     $dados .= "
     <tr  class='$nm_nome_acao_tabela' >
-        <td id='valor_id$cd_relatorio_atividade'>$cd_relatorio_atividade</td> 
+        <td style='display:none;'  id='valor_id$cd_relatorio_atividade'>$cd_relatorio_atividade</td> 
         <td><div id='img_status_vagas$cd_relatorio_atividade' style='display:block' class='m-r-10'>
              <img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
          </td>

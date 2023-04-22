@@ -6,8 +6,8 @@
 
 
 
-
-.custom-btn {
+/* botao com efeito de brilho */
+/* .custom-btn {
   width: 120px;
   height: 35px;
   color: #fff;
@@ -30,7 +30,7 @@
 
 
 /* 11 */
-.btn-11 {
+/* .btn-11 {
   border: none;
   background: rgb(155, 15, 5);
     background: linear-gradient(0deg, rgb(49, 1, 20) 0%, rgb(255, 44, 37) 100%);
@@ -115,5 +115,6 @@
 
 
 .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
-  outline: 1px solid #ddd; /* focus style */
-}
+  outline: 1px solid #ddd;  
+} 
+*/

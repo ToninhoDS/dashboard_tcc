@@ -9,7 +9,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 <head>
     
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css_dash/rayra.css">
+    <link rel="stylesheet" href="css_dash/tabela_estilo.css">
     <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 

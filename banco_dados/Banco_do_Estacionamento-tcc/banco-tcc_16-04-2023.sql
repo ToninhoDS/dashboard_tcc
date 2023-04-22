@@ -216,6 +216,35 @@ references tb_estacionamento(cd_estacionamento)
  ON UPDATE CASCADE)
 engine=InnoDB;
 
+-- tabelas novas 22/04/2023
+create table if not exists tb_relatorio_atividade(
+cd_relatorio_atividade int not null auto_increment,
+nm_nome_acao varchar(20),
+nm_origem varchar (50),
+nm_funcionario varchar (100),
+cd_funcionario int,
+dt_hora time,
+dt_data date,
+img_icon varchar (150),
+constraint pk_relatorio_atividade
+primary key (cd_relatorio_atividade)
+) engine=InnoDB auto_increment=0;
+
+create table if not exists tb_relatorio_atividade_lixeira(
+cd_relatorio_atividade_lixeira int not null auto_increment,
+nm_nome_acao varchar(20),
+nm_origem varchar (50),
+nm_funcionario varchar (100),
+cd_funcionario int,
+dt_hora time,
+dt_data date,
+img_icon varchar (150),
+constraint pk_relatorio_atividade_lixeira
+primary key (cd_relatorio_atividade_lixeira)
+) engine=InnoDB auto_increment=0;
+select * from tb_relatorio_atividade_lixeira;
+--fim
+
 select *from tb_bike_outros;
 create table if not exists tb_bike_outros(
 cd_bike_outros int not null auto_increment,
