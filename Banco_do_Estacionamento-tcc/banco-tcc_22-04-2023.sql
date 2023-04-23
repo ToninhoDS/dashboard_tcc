@@ -216,7 +216,8 @@ references tb_estacionamento(cd_estacionamento)
  ON UPDATE CASCADE)
 engine=InnoDB;
 
--- tabelas novas 22/04/2023
+-- tabelas novas 22/04/2023 -------
+
 create table if not exists tb_relatorio_atividade(
 cd_relatorio_atividade int not null auto_increment,
 nm_nome_acao varchar(20),
@@ -243,7 +244,79 @@ constraint pk_relatorio_atividade_lixeira
 primary key (cd_relatorio_atividade_lixeira)
 ) engine=InnoDB auto_increment=0;
 select * from tb_relatorio_atividade_lixeira;
---fim
+
+create table if not exists tb_gerente(
+cd_gerente int not null auto_increment,
+nm_gerente varchar(45),
+nm_cargo varchar (60),
+nm_descricao varchar (500),
+nm_reviews varchar (500),
+nm_idade varchar (10),
+nm_email varchar (75),
+nm_senha varchar (75),
+cd_telefone varchar (20),
+cd_img varchar (150),
+cd_bairro int,
+constraint pk_gerente
+primary key(cd_gerente),
+foreign key(cd_bairro)
+references tb_bairro(cd_bairro)
+ ON DELETE CASCADE 
+ ON UPDATE CASCADE)
+engine=InnoDB;
+drop table tb_gerente;
+
+insert into tb_gerente value
+('1','Denisse','Gerente','Atuante no mercado','Compromisso'
+,'30','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1'),
+('2','Luciano','Gerente','Atuante no mercado','Compromisso'
+,'32','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png','2'),
+('3','Anderson','Gerente','Atuante no mercado','Compromisso'
+,'33','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/054.png','3');
+
+drop table tb_funcionario;
+create table if not exists tb_funcionario(
+cd_funcionario int not null auto_increment,
+nm_nome varchar (150),
+nm_cargo varchar (150),
+dt_emissao_contratual date,
+nm_sexo varchar (20),
+cd_data_nascimento varchar (20),
+cd_cpf varchar (20),
+cd_credencial varchar (30), -- usuario podera usar credencial para logar junto com a senha a baixo
+cd_email_funcionario varchar(45),
+cd_senha_funcionario varchar (20),
+cd_telefone varchar (20),
+img_imagem varchar (150),
+cd_bairro int,
+cd_gerente int,
+constraint pk_funcionario
+primary key(cd_funcionario),
+foreign key(cd_bairro)
+references tb_bairro(cd_bairro),
+foreign key(cd_gerente)
+references tb_gerente(cd_gerente))
+engine=InnoDB;
+insert into tb_funcionario value
+('1','Antonio carlos','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
+,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
+
+('2','Carlos Fafa','Tec. Manutencao Informatica Junior','2023-04-22','Masculino','1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456',
+'13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+,'1','1'),
+('3','Renato','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
+,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+,'1','2'),
+('4','Douglas','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
+,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+,'1','2'),
+('5','Julia','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
+,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+,'1','2'),
+('6','RAfael','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
+,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+,'1','3');
+--fim ----------
 
 select *from tb_bike_outros;
 create table if not exists tb_bike_outros(

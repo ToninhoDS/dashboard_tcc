@@ -460,7 +460,7 @@ $query_usuarios = "SELECT  dt_entrada FROM tb_status_vagas";
 
 
 //fim
-include_once "comando_php/crud_php/conexao_cadastro.php";
+
 $total1 = 0; 
 $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status FROM tb_status_vagas";
     $result_usuarios = $conn->prepare($query_usuarios);

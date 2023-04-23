@@ -10,12 +10,15 @@ include("comando_php/crud_php/conexao_cadastro.php");
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css_dash/caixa_estilo.css">
+    <link rel="stylesheet" href="css_dash/morris.css">
     <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
@@ -265,7 +268,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
             
                     <?php
 
-$query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star, nm_reviews, nm_idade, nm_email, nm_senha, cd_telefone ,cd_img FROM tb_gerente";
+$query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_reviews, nm_idade, nm_email, nm_senha, cd_telefone ,cd_img FROM tb_gerente WHERE cd_gerente= 1"; //QUAL GERENTE ESTA LOGANDO
     $result_gerente = $conn->prepare($query_gerente);
     $result_gerente->execute();
     $row_gerente = $result_gerente->fetch(PDO::FETCH_ASSOC);
@@ -338,16 +341,16 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
                         <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
                             <div class="influence-profile-content pills-regular">
                                 <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
+                                    <li class="nav-item" style="margin:0px 4px;">
                                         <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campanhia</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item" style="margin:0 20px;">
                                         <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item" style="margin:0 10px;">
                                         <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Prestador de Serviço</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item" style="margin:0 10px;">
                                         <a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Cadastro de Funcionário</a>
                                     </li>
                                 </ul>
@@ -447,15 +450,13 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
                                                             </div>
                                                             <div class="media-body ">
                                                                 <div class="influencer-profile-data">
-                                                                    <h3 class="m-b-10">Your Campaign Title Here</h3>
+                                                                    <h3 class="m-b-10">Vagas Park - Santos, SP</h3>
                                                                     <p>
-                                                                        <span class="m-r-20 d-inline-block">Draft Due Date
-                                                                            <span class="m-l-10 text-primary">24 Jan 2018</span>
+                                                                        <span class="m-r-20 d-inline-block">Park do Irmão
+                                                                            <span class="m-l-10 text-primary">24 Jan 2023</span>
                                                                         </span>
-                                                                        <span class="m-r-20 d-inline-block"> Publish Date
-                                                                            <span class="m-l-10 text-secondary">30 Feb 2018</span>
-                                                                        </span>
-                                                                            <span class="m-r-20 d-inline-block">Ends <span class="m-l-10  text-info">30 May, 2018</span>
+                                                                        
+                                                                            <span class="m-r-20 d-inline-block">Aberto dia <span class="m-l-10  text-info">30 May, 2018</span>
                                                                         </span>
                                                                     </p>
                                                                 </div>
@@ -496,8 +497,11 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
                                                                 <img src="img/img_sistema/dribbble.png" alt="User Avatar" class="rounded-circle user-avatar-lg">
                                                             </div>
                                                             <div class="media-body">
-                                                                 <h3 class="m-b-10">Your Campaign Title Here</h3>
-                                                                <p><span class="m-r-20 d-inline-block">Draft Due Date<span class="m-l-10 d-inline-block text-primary">28 Jan 2018</span></span><span class="m-r-20 d-inline-block"> Publish Date<span class="m-l-10 text-secondary">20 March 2018</span></span><span class="m-r-20">Ends<span class="m-l-10 text-info">10 July, 2018</span></span>
+                                                                 <h3 class="m-b-10">Vagas Park - Praia Grande, SP</h3>
+                                                                     <p><span class="m-r-20 d-inline-block">Park do Mano<span class="m-l-10 d-inline-block text-primary">28 Jan 2018</span></span>
+                                                                         <span class="m-r-20 d-inline-block"> Fereiado
+                                                                            <span class="m-l-10 text-secondary">20 March 2018</span>
+                                                                     </span><span class="m-r-20">Aberto dia <span class="m-l-10 text-info">10 July, 2018</span></span>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -612,66 +616,23 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
                                         <div class="card">
                                         <div class="row">
                         <!-- ============================================================== -->
-                        <!-- tabela de Bicicleta -->
+                        <!-- tabela DE FUNCIONARIO DO GERENTE -->
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">tabela de Bicicleta</h5>
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
-                            </div>
+                                <h2 class="card-header">Gerenciamento de Funcionario</h2>                               
+                                    <span class="listar_funcionario"></span>                               
                         </div>
-                        <!-- ============================================================== -->
-                        <!-- end bordered table -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Tabela de Patins -->
-                        <!-- ============================================================== -->
-               
-                        <!-- end hoverable table -->
-                        <!-- ============================================================== -->
                     </div>
-                                        </div>
-                                        <!-- <nav aria-label="Page navigation example">
-                                            <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item active"><a class="page-link " href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                            </ul>
-                                        </nav> -->
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
+                    
+                </div>
+            </div>
+            <!-- FIM DA TABELA DO FUNCIONARIO GERENTE -->
+            
+            <!-- CADASTRO DE FUNCIONARIO-->
+            <!-- ============================================================== -->
+            <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
                                         <div class="card">
                                             <h5 class="card-header">Send Messages</h5>
                                             <div class="card-body">
@@ -707,6 +668,86 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
                     </div>
                 </div>
             </div>
+<!-- inicio do Modal -->
+<!-- Modal -->
+<div class="modal fade" id="visualiza_funcionario_adm" tabindex="-1" role="dialog" aria-labelledby="visualiza_funcionario_adm" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="visualiza_funcionario_adm_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>    
+      </div>
+      <div class="modal-body">
+        <span id="msgAlertaErroEdit"></span>
+                <form class="row g-3" id="edit_formulario_funcionario"> 
+                <div class="row">
+                  <div class="col">
+                    <input type="hidden" class="form-control" name="cd_funcionario"  aria-label="First name" id="id_cliente_modal">
+                  </div>
+                  <div class="col-md-12">
+                  <label for="email" class="form-label">Nome</label>
+                    <input type="text" class="form-control" name="nm_nome"aria-label="Last name" id="nm_nome_modal">
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">Cargo</label>
+                      <input type="text" class="form-control" name="nm_cargo" id="nm_cargo" >
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Credencial</label>
+                    <input type="text" class="form-control" name="cd_credencial" id="credencial_modal">
+                  </div>
+                    <div class="col-12">
+                      <label for="inputAddress2" class="form-label">Imagens</label>
+                      <input type="image" class="form-control" name="img_imagem" id="img_imagem" >
+                    </div>
+                  <div class="col-md-5">
+                    <label for="inputCity" class="form-label">Inicio Contratual</label>
+                    <input type="date" class="form-control" name="dt_emissao_contratual" id="dt_emissao_contratual">
+                  </div>
+                    <div class="col-md-3">
+                      <label for="inputCity" class="form-label">Sexo</label>
+                      <input type="text" class="form-control" name="nm_sexo" id="nm_sexo">
+                    </div>
+                  <div class="col-md-3">
+                    <label for="inputState" class="form-label">dd/mm/aa</label>
+                    <input type="date" class="form-control" name="cd_data_nascimento" id="cd_data_nascimento">
+                  </div>
+                  
+                    <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">CPF</label>
+                      <input type="text" class="form-control" name="cd_cpf" id="cd_cpf" >
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="cd_email_funcionario" id="cd_email_funcionario">
+                  </div>
+                    <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">Senha</label>
+                      <input type="password" class="form-control" name="cd_senha_funcionario" id="cd_senha_funcionario" >
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" name="cd_telefone" id="cd_telefone">
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <input type="hidden" class="form-control" name="cd_bairro" id="cd_bairro">
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <input type="hidden" class="form-control" name="cd_gerente" id="cd_gerente">
+                  </div>
+                  <div class="col-md-6">
+                      <input type="submit" class="btn btn-warning btn-lg btn-block" id="edit-usuario-btn" value="Editar">
+                    </div>
+                    <div class="col-md-4"> 
+                      <button type="button" class="btn btn-primary btn-lg btn-block" id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+             </div>
+          </div>
+      </div>  
+   </div>
             <!-- ============================================================== -->
             <div class="footer">
                 <div class="container-fluid">
@@ -736,6 +777,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, cd_star
     <script src="chart_js/jquery.slimscroll.js"></script>
     <!-- main js -->
     <script src="chart_js/main-js.js"></script>
+   
+    <script src="chart_js/custom_funcionario.js"></script>
    
 </body>
  
