@@ -121,7 +121,7 @@ async function salvar_registro(id){
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    //console.log(dadosForm);
-    const dados = await fetch("comando_php/editar_tabela_vagas.php",{
+    const dados = await fetch("editar_tabela_vagas.php",{
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: dadosForm
@@ -213,31 +213,31 @@ async  function visualizar(id){
     document.getElementById('edit-usuario-btn').value ="Editar";
 
    var array_credencial = document.getElementById("valor_credencial" + id).innerHTML;
-    const dados = await fetch('comando_php/visualizar_funcionario.php?id=' +array_credencial);
+    const dados = await fetch('visualizar_funcionario.php?id=' +array_credencial);
     const resposta = await dados.json();
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];      
     }else{
         
-        
+        console.log('dsdos modal',resposta);
         const visModals = new bootstrap.Modal(document.getElementById('visualiza_funcionario_adm'));
         visModals.show();     
-        document.getElementById("cd_funcionario").innerHTML = resposta['dados'].cd_funcionario;
-        document.getElementById("nm_nome_modal").innerHTML = resposta['dados'].nm_nome;
-        document.getElementById("nm_cargo").innerHTML = resposta['dados'].nm_cargo;
-        document.getElementById("cd_credencial").innerHTML = resposta['dados'].cd_credencial;
-        document.getElementById("img_imagem").innerHTML = resposta['dados'].img_imagem;
-        document.getElementById("credencial_modal").innerHTML = resposta['dados'].dt_emissao_contratual;
-        document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_sexo;
-        document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].cd_data_nascimento;
-        document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
-        document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_email_funcionario;
-        document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].cd_senha_funcionario;
-        document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].cd_telefone;
-        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].cd_bairro;
-        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].cd_gerente;
+        document.getElementById("id_cliente_modal").value = resposta['dados'].cd_funcionario;
+        document.getElementById("nm_nome_modal").value = resposta['dados'].nm_nome;
+        document.getElementById("nm_cargo_modal").value = resposta['dados'].nm_cargo;
+        document.getElementById("credencial_modal").value = resposta['dados'].cd_credencial;
+        document.getElementById("img_imagem_modal").value = resposta['dados'].img_imagem;
+        document.getElementById("dt_emissao_contratual_modal").value = resposta['dados'].dt_emissao_contratual;
+        document.getElementById("nm_sexo_modal").value = resposta['dados'].nm_sexo;
+        document.getElementById("cd_data_nascimento_modal").value = resposta['dados'].cd_data_nascimento;
+        document.getElementById("cd_cpf_modal").value = resposta['dados'].cd_cpf;
+        document.getElementById("cd_email_funcionario_modal").value = resposta['dados'].cd_email_funcionario;
+        document.getElementById("cd_senha_funcionario_modal").value = resposta['dados'].cd_senha_funcionario;
+        document.getElementById("cd_telefone_modal").value = resposta['dados'].cd_telefone;
+        document.getElementById("cd_bairro_modal").value = resposta['dados'].cd_bairro;
+        document.getElementById("cd_gerente_modal").value = resposta['dados'].cd_gerente;
 
-       // document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
+       document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
     }
     
 }

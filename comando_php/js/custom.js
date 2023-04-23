@@ -244,6 +244,7 @@ async  function visualizar(id){
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
     }else{
+        console.log('dsdos modal',resposta);
         document.getElementById('msgAlerta').innerHTML = "";
         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
