@@ -113,6 +113,25 @@ if(retorna['erro']){
     }
 }
 
+async function confirma_limpeza(){
+
+    const dados = await fetch('comando_php/limpar_tudo_relatorio.php?id='); 
+    const retorna = await dados.json();
+    if(retorna['erro']){
+        msgAlerta.innerHTML = retorna['msg'];
+        resetaPagina()
+        removerMsgALerta();
+    
+        }else{
+            msgAlerta.innerHTML =retorna['msg'];
+            //  atualizar a pagina 
+            removerMsgALerta();
+            resetaPagina()
+            listarUsuarios(1);
+    
+        }
+    }
+
 // limpar quando selecionar na option bicicleta
 function mostraAlerta(elemento)
     {

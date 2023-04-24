@@ -24,7 +24,12 @@ if (!empty($pagina)) {
                                 <th class='border-0'>FUNCIONARIO</th>
                                 <th class='border-0'>HORA</th>
                                 <th class='border-0'>DATA</th>
-                                <th class='border-0'>DELETAR</th>
+                                <th class='border-0'>
+                                <div class='form-check'>
+ 
+                                <button type='button' id='botao_confirma' value=''name='id_confirma'class='btn-danger btn-lg'onclick='confirma_limpeza()'' style='width: 180px; height: 35px;padding: 0px 25px;'>Pagar tudo</button>
+                                
+                                </th>
                                    
                             </tr>
                         </thead>

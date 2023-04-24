@@ -196,6 +196,17 @@ function removerMsgALerta(){
     }, 1000);
    
 } 
+function removerSalvando(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('edit-usuario-btn').value ="Concluido...";
+        document.getElementById("msgAlertaErroEdit").innerHTML ="";
+        visModals.hide();
+        // colocar o milisegundos que precisa 2000
+   
+    }, 900);
+   
+} 
 
 // função reseta a pagina depois de alguns segundos
 // function resetaPagina(){
@@ -219,14 +230,13 @@ async  function visualizar(id){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];      
     }else{
         
-        console.log('dsdos modal',resposta);
         const visModals = new bootstrap.Modal(document.getElementById('visualiza_funcionario_adm'));
         visModals.show();     
         document.getElementById("id_cliente_modal").value = resposta['dados'].cd_funcionario;
         document.getElementById("nm_nome_modal").value = resposta['dados'].nm_nome;
         document.getElementById("nm_cargo_modal").value = resposta['dados'].nm_cargo;
         document.getElementById("credencial_modal").value = resposta['dados'].cd_credencial;
-        document.getElementById("img_imagem_modal").value = resposta['dados'].img_imagem;
+        document.getElementById("img_imagem_modal").src = resposta['dados'].img_imagem; //para aparecer a imagem tem que indicar qual atributo "src"
         document.getElementById("dt_emissao_contratual_modal").value = resposta['dados'].dt_emissao_contratual;
         document.getElementById("nm_sexo_modal").value = resposta['dados'].nm_sexo;
         document.getElementById("cd_data_nascimento_modal").value = resposta['dados'].cd_data_nascimento;
@@ -236,8 +246,11 @@ async  function visualizar(id){
         document.getElementById("cd_telefone_modal").value = resposta['dados'].cd_telefone;
         document.getElementById("cd_bairro_modal").value = resposta['dados'].cd_bairro;
         document.getElementById("cd_gerente_modal").value = resposta['dados'].cd_gerente;
+        // document.getElementById("cd_senha_bairro_modal").value = resposta['dados'].nm_bairro;
+        // document.getElementById("cd_cidade_modal").value = resposta['dados'].nm_cidade;
+        // document.getElementById("cd_estado_modal").value = resposta['dados'].sg_uf;
 
-       document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
+       //document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
     }
     
 }
@@ -264,13 +277,14 @@ if(editForm){
         if(!resposta['status']){
 
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            
+            console.log('erro');
         
         }else{
-            removerSalvando();
-                document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            listarUsuarios(1);
+            document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
             
+            removerSalvando();
+            listarUsuarios(1);
+           
          }
          });
          

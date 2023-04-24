@@ -176,9 +176,10 @@ function removerSalvando(){
     setTimeout(function(){
         // substituir a mensagem 
         document.getElementById('edit-usuario-btn').value ="Concluido...";
+        document.getElementById("msgAlertaErroEdit").innerHTML ="";
         // colocar o milisegundos que precisa 2000
    
-    }, 1000);
+    }, 900);
    
 } 
 
@@ -295,8 +296,9 @@ if(editForm){
             
         
         }else{
+           
+            document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
             removerSalvando();
-                document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
             listarUsuarios(1);
             
          }

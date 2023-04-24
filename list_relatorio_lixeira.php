@@ -25,12 +25,12 @@ if (!empty($pagina)) {
                         <th class='border-0'>FUNCIONARIO</th>
                         <th class='border-0'>HORA</th>
                         <th class='border-0'>DATA</th>
-                                <th class='border-0'>
-                                <div class='form-check'>
- 
-                                <button type='button' id='botao_confirma' value=''name='id_confirma'class='btn btn-danger btn-sm me-1'onclick='confirma_registro()''>Limpar a Lixeira</button>
-                                
-                                </th>
+                        <th class='border-0'>
+                        <div class='form-check'>
+
+                        <button type='button' id='botao_confirma' value=''name='id_confirma'class='btn-danger btn-lg'onclick='confirma_registro()'' style='width: 180px; height: 35px;padding: 0px 25px;'>Limpar Lixeira</button>
+                        
+                        </th>
                                    
                             </tr>
                         </thead>

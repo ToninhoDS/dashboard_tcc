@@ -266,7 +266,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
-                    <a href="relatorio_lixeira.php"><button  class="btn-danger btn-lg"  style='width: 120px; height: 35px;padding: 0px 25px;'>Lixeira<div class="dot"></div></button></a>
+                    <a href="relatorio_lixeira.php"><button  class="btn-success btn-lg"  style='width: 180px; height: 35px;padding: 0px 25px;'>Lixeira<div class="dot"></div></button></a>
                  	</div>
                      </div> 
                     	<span class="listar-relatorio_atividade"></span>

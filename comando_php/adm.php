@@ -341,21 +341,21 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                         <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
                             <div class="influence-profile-content pills-regular">
                                 <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-                                    <li class="nav-item" style="margin:0px 4px;">
-                                        <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campanhia</a>
-                                    </li>
-                                    <li class="nav-item" style="margin:0 20px;">
-                                        <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
-                                    </li>
                                     <li class="nav-item" style="margin:0 10px;">
-                                        <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Prestador de Serviço</a>
+                                        <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Empresa</a>
+                                    </li>
+                                    <li class="nav-item" style="margin:0px 4px;">
+                                        <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Prestador de Serviço</a>
                                     </li>
                                     <li class="nav-item" style="margin:0 10px;">
                                         <a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Cadastro de Funcionário</a>
                                     </li>
+                                    <li class="nav-item" style="margin:0 20px;">
+                                        <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
+                                <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="section-block">
@@ -612,7 +612,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                                    <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
+                                    
                                         <div class="card">
                                         <div class="row">
                         <!-- ============================================================== -->
@@ -621,7 +622,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 </div>
-                                <h2 class="card-header">Gerenciamento de Funcionario</h2>                               
+                                <h2  class="card-header">Gerenciamento de Funcionario<span id="msgAlerta"></span></h2>                               
                                     <span class="listar_funcionario"></span>                               
                         </div>
                     </div>
@@ -634,7 +635,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="visualiza_funcionario_adm_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>    
+        <h4 class="modal-title" id="visualiza_funcionario_adm_Title" STYLE="font-size:30px">Detalhes do Funcionário</h4>    
       </div>
       <div class="modal-body">
         <span id="msgAlertaErroEdit"></span>
@@ -643,10 +644,16 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                   <div class="col">
                     <input type="hidden" class="form-control" name="cd_funcionario"  aria-label="First name" id="id_cliente_modal">
                   </div>
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                   <label for="email" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nm_nome"aria-label="Last name" id="nm_nome_modal">
-                  </div>
+                    <input type="text" style="width: 130%;
+            height: 27%;margin:0 -60px" class="form-control" name="nm_nome"aria-label="Last name" id="nm_nome_modal">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputAddress2" style=" " class="form-label">Imagens</label>
+                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" >
+                  <!-- <input type="text" value='https://assets.pokemon.com/assets/cms2/img/pokedex/full/330.png' style="width: 100%;padding:2px;margin:2px 0px" placeholder="Código Imagem" name="img_imagem" id="img_imagem_modal" > -->
+                </div>
                 </div>
                   <div class="col-md-8">
                       <label for="inputAddress" class="form-label">Cargo</label>
@@ -656,10 +663,6 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                     <label for="inputCity" class="form-label">Credencial</label>
                     <input type="text" class="form-control" name="cd_credencial" id="credencial_modal">
                   </div>
-                    <div class="col-12">
-                      <label for="inputAddress2" class="form-label">Imagens</label>
-                      <input type="download" class="form-control" name="img_imagem" id="img_imagem_modal" >
-                    </div>
                   <div class="col-md-5">
                     <label for="inputCity" class="form-label">Inicio Contratual</label>
                     <input type="date" class="form-control" name="dt_emissao_contratual" id="dt_emissao_contratual_modal">
@@ -668,8 +671,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                       <label for="inputCity" class="form-label">Sexo</label>
                       <input type="text" class="form-control" name="nm_sexo" id="nm_sexo_modal">
                     </div>
-                  <div class="col-md-3">
-                    <label for="inputState" class="form-label">dd/mm/aa</label>
+                  <div class="col-md-4">
+                    <label for="inputState" class="form-label">data de Nasc.</label>
                     <input type="date" class="form-control" name="cd_data_nascimento" id="cd_data_nascimento_modal">
                   </div>
                   
@@ -687,7 +690,19 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                     </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control" name="cd_telefone" id="cd_telefone_modal">
+                    <input type="number" class="form-control" name="cd_telefone" id="cd_telefone_modal">
+                  </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label">Endereco</label>
+                      <input type="text" class="form-control" name="nm_bairro" id="cd_senha_bairro_modal" >
+                    </div>
+                  <div class="col-md-8">
+                    <label for="inputCity" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" name="nm_cidade" id="cd_cidade_modal">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Estado</label>
+                    <input type="text" class="form-control" name="sg_uf" id="cd_estado_modal">
                   </div>
                   <div class="col-md-6">
                     
