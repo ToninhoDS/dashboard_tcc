@@ -1,6 +1,6 @@
 <?php
 
-include("comando_php/crud_php/conexao_cadastro.php");
+include("crud_php/conexao_cadastro.php");
 
 ?>
 <!doctype html>
@@ -13,11 +13,11 @@ include("comando_php/crud_php/conexao_cadastro.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
-    <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css_dash/caixa_estilo.css">
-    <link rel="stylesheet" href="css_dash/morris.css">
-    <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/bootstrap.min.css"> 
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_dash/caixa_estilo.css">
+    <link rel="stylesheet" href="../css_dash/morris.css">
+    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
     
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
@@ -211,7 +211,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                          </li>
                          <li class="nav-item">
                         <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
@@ -341,21 +341,21 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                         <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
                             <div class="influence-profile-content pills-regular">
                                 <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-                                    <li class="nav-item" style="margin:0px 4px;">
-                                        <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campanhia</a>
-                                    </li>
-                                    <li class="nav-item" style="margin:0 20px;">
-                                        <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
-                                    </li>
                                     <li class="nav-item" style="margin:0 10px;">
-                                        <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Prestador de Serviço</a>
+                                        <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Empresa</a>
+                                    </li>
+                                    <li class="nav-item" style="margin:0px 4px;">
+                                        <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Prestador de Serviço</a>
                                     </li>
                                     <li class="nav-item" style="margin:0 10px;">
                                         <a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Cadastro de Funcionário</a>
                                     </li>
+                                    <li class="nav-item" style="margin:0 20px;">
+                                        <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
+                                <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="section-block">
@@ -612,7 +612,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                                    <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
+                                    
                                         <div class="card">
                                         <div class="row">
                         <!-- ============================================================== -->
@@ -621,7 +622,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 </div>
-                                <h2 class="card-header">Gerenciamento de Funcionario</h2>                               
+                                <h2  class="card-header">Gerenciamento de Funcionario<span id="msgAlerta"></span></h2>                               
                                     <span class="listar_funcionario"></span>                               
                         </div>
                     </div>
@@ -629,7 +630,122 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                 </div>
             </div>
             <!-- FIM DA TABELA DO FUNCIONARIO GERENTE -->
-            
+            <!-- Modal -->
+<div class="modal fade" id="visualiza_funcionario_adm" tabindex="-1" role="dialog" aria-labelledby="visualiza_funcionario_adm" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="visualiza_funcionario_adm_Title" STYLE="font-size:30px">Detalhes do Funcionário</h4>    
+      </div>
+      <div class="modal-body">
+        <span id="msgAlertaErroEdit"></span>
+                <form class="row g-3" id="edit_formulario_funcionario"> 
+                <div class="row">
+                  <div class="col">
+                    <input type="hidden" class="form-control" name="cd_funcionario"  aria-label="First name" id="id_cliente_modal">
+                  </div>
+                  <div class="col-md-6">
+                  <label for="email" class="form-label">Nome</label>
+                    <input type="text" style="width: 130%;
+            height: 27%;margin:0 -60px" class="form-control" name="nm_nome"aria-label="Last name" id="nm_nome_modal">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputAddress2" style=" " class="form-label">Imagens</label>
+                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" >
+                  <!-- <input type="text" value='https://assets.pokemon.com/assets/cms2/img/pokedex/full/330.png' style="width: 100%;padding:2px;margin:2px 0px" placeholder="Código Imagem" name="img_imagem" id="img_imagem_modal" > -->
+                </div>
+                </div>
+                  <div class="col-md-8">
+                      <label for="inputAddress" class="form-label">Cargo</label>
+                      <input type="text" class="form-control" name="nm_cargo" id="nm_cargo_modal" >
+                    </div>
+                  <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Credencial</label>
+                    <input type="text" class="form-control" name="cd_credencial" id="credencial_modal">
+                  </div>
+                  <div class="col-md-5">
+                    <label for="inputCity" class="form-label">Inicio Contratual</label>
+                    <input type="date" class="form-control" name="dt_emissao_contratual" id="dt_emissao_contratual_modal">
+                  </div>
+                    <div class="col-md-3">
+                      <label for="inputCity" class="form-label">Sexo</label>
+                      <input type="text" class="form-control" name="nm_sexo" id="nm_sexo_modal">
+                    </div>
+                  <div class="col-md-4">
+                    <label for="inputState" class="form-label">data de Nasc.</label>
+                    <input type="date" class="form-control" name="cd_data_nascimento" id="cd_data_nascimento_modal">
+                  </div>
+                  
+                    <div class="col-md-4">
+                      <label for="inputAddress" class="form-label">CPF</label>
+                      <input type="text" class="form-control" name="cd_cpf" id="cd_cpf_modal" >
+                    </div>
+                  <div class="col-md-8">
+                    <label for="inputCity" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="cd_email_funcionario" id="cd_email_funcionario_modal">
+                  </div>
+                    <div class="col-md-6">
+                      <label for="inputAddress" class="form-label">Senha</label>
+                      <input type="password" class="form-control" name="cd_senha_funcionario" id="cd_senha_funcionario_modal" >
+                    </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Telefone</label>
+                    <input type="number" class="form-control" name="cd_telefone" id="cd_telefone_modal">
+                  </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label">Endereco</label>
+                      <input type="text" class="form-control" name="nm_bairro" id="cd_senha_bairro_modal" >
+                    </div>
+                  <div class="col-md-8">
+                    <label for="inputCity" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" name="nm_cidade" id="cd_cidade_modal">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Estado</label>
+                    <input type="text" class="form-control" name="sg_uf" id="cd_estado_modal">
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <input type="hidden" class="form-control" name="cd_bairro" id="cd_bairro_modal">
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <input type="hidden" class="form-control" name="cd_gerente" id="cd_gerente_modal">
+                  </div>
+                  <div class="col-md-6">
+                      <input type="submit" class="btn btn-warning btn-lg btn-block" id="edit-usuario-btn" value="Editar">
+                    </div>
+                    <div class="col-md-4"> 
+                      <button type="button" class="btn btn-primary btn-lg btn-block" id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+             </div>
+          </div>
+      </div>  
+   </div>
+            <!-- ============================================================== -->
+           <!-- JANELA MODAL DE CONFIRMAÇÃO -->
+<!-- Modal -->
+<div class="modal fade" id="msgCardSucesso" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header alert alert-success">
+        <h4 class="modal-title" id="TituloModalCentralizado">Atualização de Cadastro</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 id="msgCardconfirmacao" style="font-size:28px">Dados do Funcionario, <strong>Atualizados!!!</strong></h4>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-outline-success " id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- CADASTRO DE FUNCIONARIO-->
             <!-- ============================================================== -->
             <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
@@ -668,88 +784,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                     </div>
                 </div>
             </div>
-<!-- inicio do Modal -->
-<!-- Modal -->
-<div class="modal fade" id="visualiza_funcionario_adm" tabindex="-1" role="dialog" aria-labelledby="visualiza_funcionario_adm" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="visualiza_funcionario_adm_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>    
-      </div>
-      <div class="modal-body">
-        <span id="msgAlertaErroEdit"></span>
-                <form class="row g-3" id="edit_formulario_funcionario"> 
-                <div class="row">
-                  <div class="col">
-                    <input type="hidden" class="form-control" name="cd_funcionario"  aria-label="First name" id="id_cliente_modal">
-                  </div>
-                  <div class="col-md-12">
-                  <label for="email" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nm_nome"aria-label="Last name" id="nm_nome_modal">
-                  </div>
-                </div>
-                  <div class="col-md-6">
-                      <label for="inputAddress" class="form-label">Cargo</label>
-                      <input type="text" class="form-control" name="nm_cargo" id="nm_cargo" >
-                    </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Credencial</label>
-                    <input type="text" class="form-control" name="cd_credencial" id="credencial_modal">
-                  </div>
-                    <div class="col-12">
-                      <label for="inputAddress2" class="form-label">Imagens</label>
-                      <input type="image" class="form-control" name="img_imagem" id="img_imagem" >
-                    </div>
-                  <div class="col-md-5">
-                    <label for="inputCity" class="form-label">Inicio Contratual</label>
-                    <input type="date" class="form-control" name="dt_emissao_contratual" id="dt_emissao_contratual">
-                  </div>
-                    <div class="col-md-3">
-                      <label for="inputCity" class="form-label">Sexo</label>
-                      <input type="text" class="form-control" name="nm_sexo" id="nm_sexo">
-                    </div>
-                  <div class="col-md-3">
-                    <label for="inputState" class="form-label">dd/mm/aa</label>
-                    <input type="date" class="form-control" name="cd_data_nascimento" id="cd_data_nascimento">
-                  </div>
-                  
-                    <div class="col-md-6">
-                      <label for="inputAddress" class="form-label">CPF</label>
-                      <input type="text" class="form-control" name="cd_cpf" id="cd_cpf" >
-                    </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="cd_email_funcionario" id="cd_email_funcionario">
-                  </div>
-                    <div class="col-md-6">
-                      <label for="inputAddress" class="form-label">Senha</label>
-                      <input type="password" class="form-control" name="cd_senha_funcionario" id="cd_senha_funcionario" >
-                    </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control" name="cd_telefone" id="cd_telefone">
-                  </div>
-                  <div class="col-md-6">
-                    
-                    <input type="hidden" class="form-control" name="cd_bairro" id="cd_bairro">
-                  </div>
-                  <div class="col-md-6">
-                    
-                    <input type="hidden" class="form-control" name="cd_gerente" id="cd_gerente">
-                  </div>
-                  <div class="col-md-6">
-                      <input type="submit" class="btn btn-warning btn-lg btn-block" id="edit-usuario-btn" value="Editar">
-                    </div>
-                    <div class="col-md-4"> 
-                      <button type="button" class="btn btn-primary btn-lg btn-block" id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </form>
-             </div>
-          </div>
-      </div>  
-   </div>
             <!-- ============================================================== -->
-            <div class="footer">
+           <div class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -770,15 +806,16 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1  -->
-    <script src="chart_js/jquery-3.3.1.min.js"></script>
+    <script src="../chart_js/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->
-    <script src="chart_js/bootstrap.bundle.js"></script>
+    <script src="../chart_js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->
-    <script src="chart_js/jquery.slimscroll.js"></script>
+    <script src="../chart_js/jquery.slimscroll.js"></script>
     <!-- main js -->
-    <script src="chart_js/main-js.js"></script>
-   
-    <script src="chart_js/custom_funcionario.js"></script>
+    <script src="../chart_js/main-js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/custom_funcionario.js"></script>
+    
    
 </body>
  

@@ -4,7 +4,15 @@
 
 }
 
-
+/* esconde o titulo atual */
+button.botao:hover span.titulo {
+    display: none
+  }
+  
+  /* "substitui" o titulo */
+  button.botao:hover:before {
+    content: "Excluir 30 Rg."
+  }
 
 /* botao com efeito de brilho */
 /* .custom-btn {

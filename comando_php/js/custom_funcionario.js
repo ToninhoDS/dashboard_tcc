@@ -121,7 +121,7 @@ async function salvar_registro(id){
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    //console.log(dadosForm);
-    const dados = await fetch("comando_php/editar_tabela_vagas.php",{
+    const dados = await fetch("editar_tabela_vagas.php",{
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: dadosForm
@@ -196,6 +196,36 @@ function removerMsgALerta(){
     }, 1000);
    
 } 
+function removerSalvando(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        //document.getElementById('edit-usuario-btn').value ="Concluido...";
+        document.getElementById("msgAlertaErroEdit").innerHTML ="";
+        $('#visualiza_funcionario_adm').modal('hide');
+        // colocar o milisegundos que precisa 2000
+        
+    }, 250);
+   
+} 
+function mostrarConfirmação(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="Salvando no Banco de Dados....";
+        $('#msgCardSucesso').modal('show');
+        // colocar o milisegundos que precisa 2000
+   
+    }, 350);
+   
+} 
+function edicaoConcluida(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="<h3 style='font-size:25px'>Dados do Funcionario, <strong>Atualizados!!!</strong></h3>";   
+        // colocar o milisegundos que precisa 2000
+   
+    }, 2000);
+   
+} 
 
 // função reseta a pagina depois de alguns segundos
 // function resetaPagina(){
@@ -213,31 +243,33 @@ async  function visualizar(id){
     document.getElementById('edit-usuario-btn').value ="Editar";
 
    var array_credencial = document.getElementById("valor_credencial" + id).innerHTML;
-    const dados = await fetch('comando_php/visualizar_funcionario.php?id=' +array_credencial);
+    const dados = await fetch('visualizar_funcionario.php?id=' +array_credencial);
     const resposta = await dados.json();
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];      
     }else{
         
-        
         const visModals = new bootstrap.Modal(document.getElementById('visualiza_funcionario_adm'));
         visModals.show();     
-        document.getElementById("cd_funcionario").innerHTML = resposta['dados'].cd_funcionario;
-        document.getElementById("nm_nome_modal").innerHTML = resposta['dados'].nm_nome;
-        document.getElementById("nm_cargo").innerHTML = resposta['dados'].nm_cargo;
-        document.getElementById("cd_credencial").innerHTML = resposta['dados'].cd_credencial;
-        document.getElementById("img_imagem").innerHTML = resposta['dados'].img_imagem;
-        document.getElementById("credencial_modal").innerHTML = resposta['dados'].dt_emissao_contratual;
-        document.getElementById("cidade_cliente_modal").innerHTML = resposta['dados'].nm_sexo;
-        document.getElementById("sg_uf_cliente_modal").innerHTML = resposta['dados'].cd_data_nascimento;
-        document.getElementById("telefone_cliente_modal").innerHTML = resposta['dados'].cd_cpf;
-        document.getElementById("placa_cliente_modal").innerHTML = resposta['dados'].cd_email_funcionario;
-        document.getElementById("modelo_cliente_modal").innerHTML = resposta['dados'].cd_senha_funcionario;
-        document.getElementById("marca_cliente_modal").innerHTML = resposta['dados'].cd_telefone;
-        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].cd_bairro;
-        document.getElementById("cor_cliente_modal").innerHTML = resposta['dados'].cd_gerente;
+        document.getElementById("id_cliente_modal").value = resposta['dados'].cd_funcionario;
+        document.getElementById("nm_nome_modal").value = resposta['dados'].nm_nome;
+        document.getElementById("nm_cargo_modal").value = resposta['dados'].nm_cargo;
+        document.getElementById("credencial_modal").value = resposta['dados'].cd_credencial;
+        document.getElementById("img_imagem_modal").src = resposta['dados'].img_imagem; //para aparecer a imagem tem que indicar qual atributo "src"
+        document.getElementById("dt_emissao_contratual_modal").value = resposta['dados'].dt_emissao_contratual;
+        document.getElementById("nm_sexo_modal").value = resposta['dados'].nm_sexo;
+        document.getElementById("cd_data_nascimento_modal").value = resposta['dados'].cd_data_nascimento;
+        document.getElementById("cd_cpf_modal").value = resposta['dados'].cd_cpf;
+        document.getElementById("cd_email_funcionario_modal").value = resposta['dados'].cd_email_funcionario;
+        document.getElementById("cd_senha_funcionario_modal").value = resposta['dados'].cd_senha_funcionario;
+        document.getElementById("cd_telefone_modal").value = resposta['dados'].cd_telefone;
+        document.getElementById("cd_bairro_modal").value = resposta['dados'].cd_bairro;
+        document.getElementById("cd_gerente_modal").value = resposta['dados'].cd_gerente;
+        // document.getElementById("cd_senha_bairro_modal").value = resposta['dados'].nm_bairro;
+        // document.getElementById("cd_cidade_modal").value = resposta['dados'].nm_cidade;
+        // document.getElementById("cd_estado_modal").value = resposta['dados'].sg_uf;
 
-       // document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
+       //document.getElementById('msgAlerta').innerHTML = ""; // ESTA DANDO ERRO ISSO
     }
     
 }
@@ -253,6 +285,7 @@ if(editForm){
 
         document.getElementById('edit-usuario-btn').value ="Salvando....";
         
+        
        const dados = await fetch("editar_modal_funcionario.php",{
             method:"POST",
             body: dadosForm
@@ -264,39 +297,17 @@ if(editForm){
         if(!resposta['status']){
 
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            
+            document.getElementById('msgCardconfirmacao').value ="Salvando....";
+           
         
         }else{
-            removerSalvando();
-                document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+            //document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+             removerSalvando();
+             mostrarConfirmação();
+             edicaoConcluida();
             listarUsuarios(1);
-            
+           
          }
          });
          
 }
-// fim
-// limpar quando selecionar na option bicicleta
-// function mostraAlerta(elemento)
-//     {
-       
-//         if(elemento.value == 'Bicicleta'){
-//             console.log(elemento.value);
-            
-//         }else{}
-//     }
-//     // INPUT de pesquisa vagas
-//     $('#search-input').on('keyup', function() {
-//         var searchTerm = $(this).val().toLowerCase();
-//         $('#my-table tbody tr').each(function() {
-//           var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
-//           var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
-//           var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
-//           var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
-//           if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
-//             $(this).show();
-//           } else {
-//             $(this).hide();
-//           }
-//         });
-//       });

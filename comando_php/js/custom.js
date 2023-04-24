@@ -162,7 +162,6 @@ function cancelar_registro(id){
 
 
 // iniciar função de remoção de mensagem
-
 function removerMsgALerta(){
     setTimeout(function(){
         // substituir a mensagem 
@@ -175,10 +174,31 @@ function removerMsgALerta(){
 function removerSalvando(){
     setTimeout(function(){
         // substituir a mensagem 
-        document.getElementById('edit-usuario-btn').value ="Concluido...";
+        //document.getElementById('edit-usuario-btn').value ="Concluido...";
+        document.getElementById("msgAlertaErroEdit").innerHTML ="";
+        $('#visualiza_status_vaga').modal('hide');
+        // colocar o milisegundos que precisa 2000
+        
+    }, 250);
+   
+} 
+function mostrarConfirmação(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="Salvando no Banco de Dados....";
+        $('#msgCardSucesso').modal('show');
         // colocar o milisegundos que precisa 2000
    
-    }, 1000);
+    }, 350);
+   
+} 
+function edicaoConcluida(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="<h3 style='font-size:25px'>Dados do Cliente, <strong>Atualizados!!!</strong></h3>";
+        // colocar o milisegundos que precisa 2000
+   
+    }, 2000);
    
 } 
 
@@ -244,6 +264,7 @@ async  function visualizar(id){
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];
     }else{
+        console.log('dsdos modal',resposta);
         document.getElementById('msgAlerta').innerHTML = "";
         const visModal = new bootstrap.Modal(document.getElementById('visualiza_status_vaga'));
         visModal.show();
@@ -291,12 +312,15 @@ if(editForm){
         if(!resposta['status']){
 
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+            document.getElementById('msgCardconfirmacao').value ="Salvando....";
             
         
         }else{
+           
             removerSalvando();
-                document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            listarUsuarios(1);
+            mostrarConfirmação();
+            edicaoConcluida();
+           listarUsuarios(1);
             
          }
          });

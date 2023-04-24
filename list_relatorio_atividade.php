@@ -16,7 +16,7 @@ if (!empty($pagina)) {
                     <table class='table' id='my-table'>
                         <thead class='bg-light'>
                             <tr class='border-0' style='font-size: 17px;font-family: Impact, fantasy;'>
-                                <th  style='display:none;' class='border-0' >ID</th>
+                                <th  class='border-0' >ID</th>
                                 <th class='border-0'>IMAGEM</th>
                                 <th class='border-0'>AÇÃO</th>
                                 <th class='border-0'>ORIGEM</th>
@@ -24,7 +24,14 @@ if (!empty($pagina)) {
                                 <th class='border-0'>FUNCIONARIO</th>
                                 <th class='border-0'>HORA</th>
                                 <th class='border-0'>DATA</th>
-                                <th class='border-0'>DELETAR</th>
+                                <th class='border-0'>
+                                <div class='form-check'>
+ 
+                                <button type='button' id='botao_confirma' value=''name='id_confirma'class='botao btn-danger btn-lg'onclick='confirma_limpeza()'' style='width: 180px; height: 35px;padding: 0px 25px;'><span class='titulo'>
+                                Pagar Relatório
+                            </span></button>
+                                
+                                </th>
                                    
                             </tr>
                         </thead>
@@ -68,7 +75,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $dt_data = date("d/m/Y");
     $dados .= "
     <tr  class='$nm_nome_acao_tabela' >
-        <td style='display:none;'  id='valor_id$cd_relatorio_atividade'>$cd_relatorio_atividade</td> 
+        <td id='valor_id$cd_relatorio_atividade'>$cd_relatorio_atividade</td> 
         <td><div id='img_status_vagas$cd_relatorio_atividade' style='display:block' class='m-r-10'>
              <img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
          </td>

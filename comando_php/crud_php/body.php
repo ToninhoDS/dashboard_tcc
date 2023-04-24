@@ -190,7 +190,7 @@
                                 <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
+                                <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                             </li>
                             
                             <li class="nav-item">

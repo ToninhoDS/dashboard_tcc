@@ -20,7 +20,7 @@ if($acao_Relatorio_Atividade  == 'DELETE'){
     $img_icon ="img/relatorio_insert.png";
 }else{}
 }}}
-$nm_origem ='EDITADO MODAL';
+$nm_origem ='EDIT. Form Funcionario';
 
 // teste
 
@@ -28,35 +28,35 @@ if(empty($dados['cd_funcionario'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ID!</div>"];
 }elseif (empty($dados['nm_nome'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o Nome!</div>"];
-// }elseif (empty($dados['cd_cpf'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o CPF!</div>"];
+}elseif (empty($dados['nm_cargo'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o CPF!</div>"];
 
-// }elseif (empty($dados['cd_numero1'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o TELEFONE!</div>"];
+}elseif (empty($dados['cd_credencial'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o TELEFONE!</div>"];
 
-// }elseif (empty($dados['cd_email_cliente'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o EMAIL!</div>"];
+ }elseif (empty($dados['cd_credencial'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o EMAIL!</div>"];
 
-// }elseif (empty($dados['nm_bairro'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o BAIRRO!</div>"];
+}elseif (empty($dados['dt_emissao_contratual'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o BAIRRO!</div>"];
 
-// }elseif (empty($dados['nm_cidade'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a CIDADE!</div>"];
+}elseif (empty($dados['nm_sexo'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a CIDADE!</div>"];
 
-// }elseif (empty($dados['sg_uf'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ESTADO!</div>"];
+}elseif (empty($dados['cd_data_nascimento'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o ESTADO!</div>"];
 
-// }elseif (empty($dados['cd_placa'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a PLACA!</div>"];
+}elseif (empty($dados['cd_cpf'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a PLACA!</div>"];
     
-// }elseif (empty($dados['nm_modelo'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o MODELO</div>"];
+}elseif (empty($dados['cd_email_funcionario'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar o MODELO</div>"];
 
-// }elseif (empty($dados['nm_marca'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a MARCA!</div>"];
+}elseif (empty($dados['cd_senha_funcionario'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a MARCA!</div>"];
 
-// }elseif (empty($dados['nm_cor'])){
-//     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a COR!</div>"];
+}elseif (empty($dados['cd_telefone'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Alera esta com ERRRO Enviar a COR!</div>"];
 }else{
     // depois da avalidação sera add no banco de dados 
  
@@ -74,20 +74,59 @@ if(empty($dados['cd_funcionario'])){
      $cadastrar_relatorio_atividade->execute();
     
      //fim
+     $query_uf_emppresa = " UPDATE tb_uf_empresa SET sg_uf=:sg_uf WHERE cd_uf=:id";
+     $edit_uf_empresa = $conn->prepare($query_uf_emppresa);
+     $edit_uf_empresa->bindParam(':sg_uf', $dados['nm_cliente']);
+     $edit_uf_empresa->bindParam(':id', $dados['cd_cliente']);
+     $edit_uf_empresa->execute();
+     
+     $query_cidade_empresa = "UPDATE tb_cidade_empresa SET nm_cidade=:nm_cidade  WHERE cd_cidade=:id";
+     $cadastrar_cidade_empresa= $conn->prepare($query_cidade_empresa);
+     $cadastrar_cidade_empresa->bindParam(':nm_cidade',$dados['sg_uf']);
+     $cadastrar_cidade_empresa->bindParam(':id', $dados['cd_cliente']);
+     $cadastrar_cidade_empresa->execute();
 
-    $query_funcionario = "UPDATE tb_funcionario SET nm_nome=:nome  WHERE cd_credencial=:id";
+     $query_bairro_empresa = "UPDATE tb_bairro_empresa SET nm_bairro=:nm_bairro  WHERE cd_bairro=:id";   
+     $cadastrar_bairro_empresa= $conn->prepare($query_bairro_empresa);
+     $cadastrar_bairro_empresa->bindParam(':nm_bairro', $dados['cd_numero1']);
+     $cadastrar_bairro_empresa->bindParam(':id', $dados['cd_cliente']);
+     $cadastrar_bairro_empresa->execute();
+
+
+
+    $query_funcionario = "UPDATE tb_funcionario SET 
+    nm_nome=:nome, 
+    nm_cargo=:nm_cargo, 
+    dt_emissao_contratual=:dt_emissao_contratual, 
+    nm_sexo=:nm_sexo, 
+    cd_data_nascimento=:cd_data_nascimento, 
+    cd_cpf=:cd_cpf, 
+    cd_credencial=:cd_credencial,
+    cd_email_funcionario=:cd_email_funcionario, 
+    cd_senha_funcionario=:cd_senha_funcionario, 
+    cd_telefone=:cd_telefone
+    WHERE cd_funcionario=:id";
     $cadastrar_funcionario = $conn->prepare($query_funcionario);
     $cadastrar_funcionario->bindParam(':nome', $dados['nm_nome']);
+    $cadastrar_funcionario->bindParam(':nm_cargo', $dados['nm_cargo']);
+    $cadastrar_funcionario->bindParam(':dt_emissao_contratual', $dados['dt_emissao_contratual']);
+    $cadastrar_funcionario->bindParam(':nm_sexo', $dados['nm_sexo']);
+    $cadastrar_funcionario->bindParam(':cd_data_nascimento', $dados['cd_data_nascimento']);
+    $cadastrar_funcionario->bindParam(':cd_cpf', $dados['cd_cpf']);
+    $cadastrar_funcionario->bindParam(':cd_credencial', $dados['cd_credencial']);
+    // $cadastrar_funcionario->bindParam(':img_imagem', $dados['img_imagem']);
+    $cadastrar_funcionario->bindParam(':cd_email_funcionario', $dados['cd_email_funcionario']);
+    $cadastrar_funcionario->bindParam(':cd_senha_funcionario', $dados['cd_senha_funcionario']);
+    $cadastrar_funcionario->bindParam(':cd_telefone', $dados['cd_telefone']);
     $cadastrar_funcionario->bindParam(':id', $dados['cd_funcionario']);
     
     if($cadastrar_funcionario->execute()){
         $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' role='alert'>Atualizado com Sucesso!</div>"];
         
-            }else{
-                $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro na Atualização</div>"];
-        
-            }
-           
-    }
+    }else{
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro na Atualização</div>"];
 
+    }
+   
+}
 echo json_encode($retorna);

@@ -8,7 +8,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
 <head>
     
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css_dash/rayra.css">
+    <link rel="stylesheet" href="css_dash/tabela_estilo.css">
     <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 
@@ -207,7 +207,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                         </li> 
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
@@ -266,7 +266,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
-                    <a href="relatorio_lixeira.php"><button  class="btn-danger btn-lg"  style='width: 120px; height: 35px;padding: 0px 25px;'>Lixeira<div class="dot"></div></button></a>
+                    <a href="relatorio_lixeira.php"><button  class="btn-success btn-lg"  style='width: 180px; height: 35px;padding: 0px 25px;'>Lixeira<div class="dot"></div></button></a>
                  	</div>
                      </div> 
                     	<span class="listar-relatorio_atividade"></span>

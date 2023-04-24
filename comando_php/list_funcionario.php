@@ -1,7 +1,7 @@
 
 <?php
 
-include_once "comando_php/crud_php/conexao_cadastro.php";
+include_once "crud_php/conexao_cadastro.php";
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
@@ -81,7 +81,7 @@ while ($row_usuario = $result_funcionario->fetch(PDO::FETCH_ASSOC)) {
         }
 
         $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Última</a></li><li colspan='3'>
-        <a href='#voltar' id='vagas-detalhes' class='page-link'>Voltar ao topo<img src='img/top_icon.png' width='20px'></a>
+        <a href='#voltar' id='vagas-detalhes' class='page-link'>Voltar ao topo<img src='../img/top_icon.png' width='20px'></a>
     </li>";
         $dados .=   "</ul></nav>";
 
