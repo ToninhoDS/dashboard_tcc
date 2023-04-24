@@ -37,7 +37,7 @@ if (!empty($id)){
     $id_relatorio_atividade = $conn->lastInsertId();
     // //fiM 
 
-    $query_relatorio_lixeira ="DELETE FROM tb_relatorio_atividade WHERE cd_relatorio_atividade >=1";
+    $query_relatorio_lixeira ="DELETE FROM tb_relatorio_atividade WHERE cd_relatorio_atividade ORDER BY cd_relatorio_atividade DESC LIMIT 30 ";
     $result_relatorio_lixeira = $conn->prepare($query_relatorio_lixeira);
     
      // avalidar se foi registrado no banco de dados com sucesso

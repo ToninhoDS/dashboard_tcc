@@ -162,7 +162,6 @@ function cancelar_registro(id){
 
 
 // iniciar função de remoção de mensagem
-
 function removerMsgALerta(){
     setTimeout(function(){
         // substituir a mensagem 
@@ -175,11 +174,31 @@ function removerMsgALerta(){
 function removerSalvando(){
     setTimeout(function(){
         // substituir a mensagem 
-        document.getElementById('edit-usuario-btn').value ="Concluido...";
+        //document.getElementById('edit-usuario-btn').value ="Concluido...";
         document.getElementById("msgAlertaErroEdit").innerHTML ="";
+        $('#visualiza_status_vaga').modal('hide');
+        // colocar o milisegundos que precisa 2000
+        
+    }, 250);
+   
+} 
+function mostrarConfirmação(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="Salvando no Banco de Dados....";
+        $('#msgCardSucesso').modal('show');
         // colocar o milisegundos que precisa 2000
    
-    }, 900);
+    }, 350);
+   
+} 
+function edicaoConcluida(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="<h3 style='font-size:25px'>Dados do Cliente, <strong>Atualizados!!!</strong></h3>";
+        // colocar o milisegundos que precisa 2000
+   
+    }, 2000);
    
 } 
 
@@ -293,13 +312,15 @@ if(editForm){
         if(!resposta['status']){
 
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+            document.getElementById('msgCardconfirmacao').value ="Salvando....";
             
         
         }else{
            
-            document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
             removerSalvando();
-            listarUsuarios(1);
+            mostrarConfirmação();
+            edicaoConcluida();
+           listarUsuarios(1);
             
          }
          });

@@ -17,7 +17,7 @@ if (!empty($pagina)) {
             <table class='table' id='my-table'>
                 <thead class='bg-light'>
                     <tr class='border-0' style='font-size: 17px;font-family: Impact, fantasy;'>
-                        <th  style='display:none;' class='border-0' >ID</th>
+                        <th  class='border-0' >ID</th>
                         <th class='border-0'>IMAGEM</th>
                         <th class='border-0'>AÇÃO</th>
                         <th class='border-0'>ORIGEM</th>
@@ -74,7 +74,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $dt_data = date("d/m/Y");
     $dados .= "
     <tr  class='$nm_nome_acao_tabela' >
-        <td style='display:none; id='valor_id$cd_relatorio_atividade_lixeira'>$cd_relatorio_atividade_lixeira</td> 
+        <td  id='valor_id$cd_relatorio_atividade_lixeira'>$cd_relatorio_atividade_lixeira</td> 
         <td><div id='img_status_vagas$cd_relatorio_atividade_lixeira' style='display:block' class='m-r-10'>
              <img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
          </td>

@@ -199,12 +199,31 @@ function removerMsgALerta(){
 function removerSalvando(){
     setTimeout(function(){
         // substituir a mensagem 
-        document.getElementById('edit-usuario-btn').value ="Concluido...";
+        //document.getElementById('edit-usuario-btn').value ="Concluido...";
         document.getElementById("msgAlertaErroEdit").innerHTML ="";
-        visModals.hide();
+        $('#visualiza_funcionario_adm').modal('hide');
+        // colocar o milisegundos que precisa 2000
+        
+    }, 250);
+   
+} 
+function mostrarConfirmação(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="Salvando no Banco de Dados....";
+        $('#msgCardSucesso').modal('show');
         // colocar o milisegundos que precisa 2000
    
-    }, 900);
+    }, 350);
+   
+} 
+function edicaoConcluida(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        document.getElementById('msgCardconfirmacao').innerHTML ="<h3 style='font-size:25px'>Dados do Funcionario, <strong>Atualizados!!!</strong></h3>";   
+        // colocar o milisegundos que precisa 2000
+   
+    }, 2000);
    
 } 
 
@@ -266,6 +285,7 @@ if(editForm){
 
         document.getElementById('edit-usuario-btn').value ="Salvando....";
         
+        
        const dados = await fetch("editar_modal_funcionario.php",{
             method:"POST",
             body: dadosForm
@@ -277,40 +297,17 @@ if(editForm){
         if(!resposta['status']){
 
             document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            console.log('erro');
+            document.getElementById('msgCardconfirmacao').value ="Salvando....";
+           
         
         }else{
-            document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
-            
-            removerSalvando();
+            //document.getElementById("msgAlertaErroEdit").innerHTML = resposta['msg'];
+             removerSalvando();
+             mostrarConfirmação();
+             edicaoConcluida();
             listarUsuarios(1);
            
          }
          });
          
 }
-// fim
-// limpar quando selecionar na option bicicleta
-// function mostraAlerta(elemento)
-//     {
-       
-//         if(elemento.value == 'Bicicleta'){
-//             console.log(elemento.value);
-            
-//         }else{}
-//     }
-//     // INPUT de pesquisa vagas
-//     $('#search-input').on('keyup', function() {
-//         var searchTerm = $(this).val().toLowerCase();
-//         $('#my-table tbody tr').each(function() {
-//           var N_vaga_pesquisa = $(this).find('td:nth-child(1)').text().toLowerCase();
-//           var nome_vaga_pesquisa = $(this).find('td:nth-child(3)').text().toLowerCase();
-//           var placa_vaga_pesquisa = $(this).find('td:nth-child(4)').text().toLowerCase();
-//           var status_vagas_pesquisa = $(this).find('td:nth-child(9)').text().toLowerCase();
-//           if (N_vaga_pesquisa.indexOf(searchTerm) !== -1 || nome_vaga_pesquisa.indexOf(searchTerm) !== -1 || placa_vaga_pesquisa.indexOf(searchTerm) !== -1 || status_vagas_pesquisa.indexOf(searchTerm) !== -1) {
-//             $(this).show();
-//           } else {
-//             $(this).hide();
-//           }
-//         });
-//       });
