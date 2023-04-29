@@ -25,6 +25,7 @@ if (!empty($pagina)) {
                 <th scope='col'>Cargo</th>
                 <th scope='col'>Credenciais</th>
                 <th scope='col'>Telefone</th>
+                <th scope='col'>Ações</th>
             </tr>
         </thead>
         <tbody>";
@@ -44,7 +45,9 @@ while ($row_usuario = $result_funcionario->fetch(PDO::FETCH_ASSOC)) {
     
     <td id='valor_entrada$cd_funcionario'>$cd_telefone</td>
     <td >
-         <button style='margin: 0 5px; type='button' id='botao_visualizar$cd_funcionario' value='$cd_funcionario'name='id_visualizar$cd_funcionario'class='btn btn-info btn-sm me-1'onclick='visualizar($cd_funcionario)'>Informações</button>
+         <button class='btn btn-info btn-sm me-1'  style='font-size:12px;margin: 0 5px;' id='botao_visualizar$cd_funcionario' value='$cd_funcionario'name='id_visualizar$cd_funcionario' onclick='visualizar($cd_funcionario)'>Informações</button>
+         <button class='btn btn-danger btn-sm me-1'  style='font-size:12px;margin: 0 5px;' id='botao_delete_funcionario$cd_funcionario' value='$cd_funcionario'name='id_delete_funcionario$cd_funcionario' onclick='delete_funcionario($cd_funcionario)'>Delete</button>
+     </td>
      </td>
 </tr>";
 }

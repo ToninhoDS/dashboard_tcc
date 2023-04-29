@@ -164,7 +164,14 @@ async function salvar_registro(id){
     }
     
 }
-
+function resetaPagina(){
+    setTimeout(function(){
+        // substituir a mensagem 
+        window.location.reload(10); 
+        
+    }, 1000);
+   
+} 
 
 
 // cancelar a edição
@@ -183,7 +190,28 @@ function cancelar_registro(id){
     
    window.location.reload(); // carrega a pagina
 }
-// fim do editar o banco de dados
+// confirmar exclusao
+
+
+async function delete_funcionario(id){
+console.log("js id> " +id); // olhar se chamou a função
+const dados = await fetch('excluir_funcionario.php?id=' + id); // atribuir a uma constante
+
+const retorna = await dados.json();
+if(retorna['erro']){
+    msgAlerta.innerHTML = retorna['msg'];
+    resetaPagina();
+    removerMsgALerta();
+    
+    }else{
+        msgAlerta.innerHTML =retorna['msg'];
+        //  atualizar a pagina 
+        removerMsgALerta();
+        
+        listarUsuarios(1);
+
+    }
+}
 
 
 // iniciar função de remoção de mensagem
@@ -228,14 +256,7 @@ function edicaoConcluida(){
 } 
 
 // função reseta a pagina depois de alguns segundos
-// function resetaPagina(){
-//     setTimeout(function(){
-//         // substituir a mensagem 
-//         window.location.reload(10); 
-        
-//     }, 1000);
-   
-// } 
+
 
 // aplicação modal
 async  function visualizar(id){

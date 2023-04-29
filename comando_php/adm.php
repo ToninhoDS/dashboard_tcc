@@ -233,20 +233,12 @@ include("crud_php/conexao_cadastro.php");
         </div>
     </div>
              <!-- navbar e lateral do menu -->
-     <!-- ============================================================== -->
+
         <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-profile">
                 <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader -->
-                    <!-- ============================================================== -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
@@ -276,15 +268,10 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
   
 ?>
 <!-- pegando contador de vagas -->
-                    <!-- ============================================================== -->
+       
                     <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- profile -->
-                        <!-- ============================================================== -->
+              
                         <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
-                            <!-- ============================================================== -->
-                            <!-- card profile -->
-                            <!-- ============================================================== -->
                             <div class="card">
                                 <div class="card-body">
                                     <div class="user-avatar text-center d-block">
@@ -618,7 +605,6 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                         <div class="row">
                         <!-- ============================================================== -->
                         <!-- tabela DE FUNCIONARIO DO GERENTE -->
-                        <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 </div>
@@ -726,64 +712,185 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
             <!-- ============================================================== -->
            <!-- JANELA MODAL DE CONFIRMAÇÃO -->
 <!-- Modal -->
-<div class="modal fade" id="msgCardSucesso" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header alert alert-success">
-        <h4 class="modal-title" id="TituloModalCentralizado">Atualização de Cadastro</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4 id="msgCardconfirmacao" style="font-size:28px">Dados do Funcionario, <strong>Atualizados!!!</strong></h4>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-outline-success " id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- CADASTRO DE FUNCIONARIO-->
-            <!-- ============================================================== -->
-            <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
-                                        <div class="card">
-                                            <h5 class="card-header">Send Messages</h5>
-                                            <div class="card-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="offset-xl-3 col-xl-6 offset-lg-3 col-lg-3 col-md-12 col-sm-12 col-12 p-4">
-                                                            <div class="form-group">
-                                                                <label for="name">Your Name</label>
-                                                                <input type="text" class="form-control form-control-lg" id="name" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="email">Your Email</label>
-                                                                <input type="email" class="form-control form-control-lg" id="email" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="subject">Subject</label>
-                                                                <input type="text" class="form-control form-control-lg" id="subject" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="messages">Messgaes</label>
-                                                                <textarea class="form-control" id="messages" rows="3"></textarea>
-                                                            </div>
-                                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
+             <div class="modal fade" id="msgCardSucesso" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                 <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                            <div class="modal-header alert alert-success">
+                                <h4 class="modal-title" id="TituloModalCentralizado">Atualização de Cadastro</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true"></span>
+                                </button>
+                                     </div>
+                            <div class="modal-body">
+                                <h4 id="msgCardconfirmacao" style="font-size:28px">Dados do Funcionario, <strong>Atualizados!!!</strong></h4>
+                                 </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-success " id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+ <!-- CADASTRO DE FUNCIONARIO-->
+ <!-- ============================================================== -->
+                        <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
+                            <div class="card">
+                                <h5 class="card-header">Send Messages</h5>
+                                <div class="card-body">
+                                <form class="needs-validation"  action="cadastrar_cliente.php" method="POST"  id="contact_form">
+                                    <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <label for="validationCustom01">Nome completo</label>
+                                            <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite o nome" class="form-control"  type="text" >
+                                            <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">CPF</label>
+                                            <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" required="Campo em Branco" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                CPF incorreto!.
+                                            </div>
+                                        </div><br><br>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom04">Sexo</label>
+                                            <input  name="cd_cnpj" id="cd_cnpj" placeholder="Digite o Sexo" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom05">Celular</label>
+                                            <input name="cd_numero1" id="cd_numero1"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Numero incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustomUsername">Email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">📧 </span>
+                                                </div>
+                                                <input name="cd_email_cliente" id="cd_email_cliente"  required="Campo em Branco" placeholder="Email" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                
+                                            
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">🔒</span>
+                                                </div>
+                                                                                                    
+                                                <input name="cd_senha_cliente" id="cd_senha_cliente"  required="Campo em Branco" placeholder="Senha" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">🔒👍</span>
+                                                </div>
+                                                <input name="cd_senha_cliente_confirmar" id="cd_senha_cliente_confirmar" required="Campo em Branco" placeholder="Confirmar senha" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                        <br>
+                     
+                                    <div class="row">
+                                        <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Nome da Rua</label>
+                                            <input  name="nm_bairro" id="nm_bairro"  placeholder="Digite a Rua" class="form-control"  type="text" >
+                                            <div class="valid-feedback">
+                                                Correto!
+                                            </div>
+                                        </div> -->
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom03">Bairro</label>
+                                            <input  name="nm_bairro" id="nm_bairro"  required="Campo em Branco" placeholder="Digite o Bairro"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            Bairro incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom04">Cidade</label>
+                                            <input  name="nm_cidade" id="nm_cidade"  required="Campo em Branco" placeholder="Digite a Cidade" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            Cidade incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom05">UF-Estado</label>
+                                            <input name="sg_uf" id="sg_uf"  required="Campo em Branco" placeholder="Digite o Estado"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            UF-Estado incorreto!.
+                                            </div>
+                                        </div>
+                                    </div>                                       
+                                    <div class="form-row">
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom03">Data de Nascimento</label>
+                                            <input type="date" name="cd_placa" id="cd_placa" placeholder="Digite o nascimento" required="Campo em Branco" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Placa do Carro invalida!.
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        <br>
+                        <hr>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom03">Inicio Contratual</label>
+                                            <input type="date" name="nm_marca" id="nm_modelo" placeholder="Digite a data"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Marca do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom03">Modelo</label>
+                                            <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Modelo do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
+                                            <label for="validationCustom03">Cor</label>
+                                            <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Cor do Carro invalido!.
+                                            </div>
+                                        </div>
+                            
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                    <label class="form-check-label" for="invalidCheck">
+                                                        As informações estão corretas?
+                                                    </label>
+                                                    <div class="invalid-feedback">
+                                                        Você, precisa confirma, se as informações estão corretas!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>
+                                            
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+    </div>
             <!-- ============================================================== -->
            <div class="footer">
                 <div class="container-fluid">

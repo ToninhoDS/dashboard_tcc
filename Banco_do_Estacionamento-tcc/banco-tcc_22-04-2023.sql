@@ -2,7 +2,7 @@
 /*drop database db_tcc_estacionamento;/*CUIDADO COM ESSE COMANDO, PROCURE TER DUMP OU UMA COPIA*/
 show databases;
 SELECT @@autocommit;
-
+drop database db_tcc_estacionamento;
 create database db_tcc_estacionamento;
 
 use db_tcc_estacionamento;
@@ -231,7 +231,7 @@ cd_uf int,
 constraint pk_cidade
 primary key(cd_cidade),
 foreign key(cd_uf)
-references tb_uf(cd_uf)
+references tb_uf_empresa(cd_uf)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
@@ -274,6 +274,8 @@ primary key (cd_relatorio_atividade_lixeira)
 ) engine=InnoDB auto_increment=0;
 select * from tb_relatorio_atividade_lixeira;
 
+drop table tb_gerente;
+
 create table if not exists tb_gerente(
 cd_gerente int not null auto_increment,
 nm_gerente varchar(45),
@@ -289,7 +291,7 @@ cd_bairro int,
 constraint pk_gerente
 primary key(cd_gerente),
 foreign key(cd_bairro)
-references tb_bairro(cd_bairro)
+references tb_bairro_empresa(cd_bairro)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
@@ -314,7 +316,7 @@ cd_gerente int,
 constraint pk_funcionario
 primary key(cd_funcionario),
 foreign key(cd_bairro)
-references tb_bairro(cd_bairro),
+references tb_bairro_empresa(cd_bairro),
 foreign key(cd_gerente)
 references tb_gerente(cd_gerente))
 engine=InnoDB;
@@ -350,6 +352,14 @@ insert into tb_bike_outros values
 ('4','pop', 'pneu careca','MAIKEN','Roubada');
 select * from tb_bike_outros;
 
+insert into tb_uf_empresa values
+('1','MT'),
+('2','DF'),
+('3','SE'),
+('4','AM'),
+('5','SP'),
+('6','AC');
+
 insert into tb_cidade_empresa values
 ('1', 'Rondonópolis', '1'),
 ('2', 'Brasília', '2'),
@@ -358,13 +368,6 @@ insert into tb_cidade_empresa values
 ('5', 'Sertãozinho', '5'),
 ('6', 'Rio Branco', '6');
 
-insert into tb_uf_empresa values
-('1','MT'),
-('2','DF'),
-('3','SE'),
-('4','AM'),
-('5','SP'),
-('6','AC');
 
 insert into tb_bairro_empresa values
 ('1', 'Jardim Brasília', '1'),

@@ -71,7 +71,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     }else{
             
     }}}}}}}}
-    
+    $dt_data = date("d/m/Y");
     $dados .= "
     <tr  class='$nm_nome_acao_tabela' >
         <td  id='valor_id$cd_relatorio_atividade_lixeira'>$cd_relatorio_atividade_lixeira</td> 
