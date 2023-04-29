@@ -1,11 +1,11 @@
 -
-/*drop database db_tcc_estacionamento;/*CUIDADO COM ESSE COMANDO, PROCURE TER DUMP OU UMA COPIA*/
-show databases;
-SELECT @@autocommit;
-drop database db_tcc_estacionamento;
-create database db_tcc_estacionamento;
 
-use db_tcc_estacionamento;
+-- show databases;
+-- SELECT @@autocommit;
+
+-- drop database db_tcc_estacionamento;
+-- create database db_tcc_estacionamento;
+-- use db_tcc_estacionamento;
 
 
 create table if not exists tb_uf(
@@ -133,7 +133,7 @@ references tb_marca(cd_marca)
  ON UPDATE CASCADE)
 engine=InnoDB;
 
-select *from tb_veiculo;
+
 create table if not exists tb_veiculo(
 cd_veiculo int not null auto_increment,
 cd_placa varchar (20),
@@ -247,6 +247,7 @@ references tb_cidade_empresa(cd_cidade)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
+
 create table if not exists tb_relatorio_atividade(
 cd_relatorio_atividade int not null auto_increment,
 nm_nome_acao varchar(20),
@@ -272,9 +273,9 @@ img_icon varchar (150),
 constraint pk_relatorio_atividade_lixeira
 primary key (cd_relatorio_atividade_lixeira)
 ) engine=InnoDB auto_increment=0;
-select * from tb_relatorio_atividade_lixeira;
 
-drop table tb_gerente;
+
+
 
 create table if not exists tb_gerente(
 cd_gerente int not null auto_increment,
@@ -295,7 +296,7 @@ references tb_bairro_empresa(cd_bairro)
  ON DELETE CASCADE 
  ON UPDATE CASCADE)
 engine=InnoDB;
-drop table tb_gerente;
+
 
 drop table tb_funcionario;
 create table if not exists tb_funcionario(
@@ -334,7 +335,7 @@ constraint pk_status_vagas
 primary key (cd_status_vagas)
 ) engine=InnoDB auto_increment=0;
 
-select *from tb_bike_outros;
+
 create table if not exists tb_bike_outros(
 cd_bike_outros int not null auto_increment,
 cd_transporte varchar (50),
@@ -350,7 +351,7 @@ insert into tb_bike_outros values
 ('2','patins', 'esta sem roda','CARLOS',NULL),
 ('3','chinelo', 'com prego','LORENA',NULL),
 ('4','pop', 'pneu careca','MAIKEN','Roubada');
-select * from tb_bike_outros;
+
 
 insert into tb_uf_empresa values
 ('1','MT'),
@@ -426,7 +427,6 @@ insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon
 ('18','18','Tonico','Bicicleta','1:03','IEW-8686','226.615.300-53','Reserva'), 
 ('19','19','Rayra hasuhsuh','Outros','1:03','ENB-0247','049.161.186-26','ocupado'),
 ('20','20','','Livre','','HZZ-4802','652.159.799-01','Livre');
-select * from tb_status_vagas;
 
 -- fim @@@@@@@@@@@@@@@@@@@@
 
@@ -451,7 +451,6 @@ insert into tb_login values
 ('18','lavinia.andreia.almada@yahoo.com.br', 'r2BiF1Im9D'),
 ('19','leandro_emanuel_peixoto@piemme.com.br', 'ZXmAHxBKF3'),
 ('20','emanuelly_sara_barbosa@tanet.com.br', 'hYYjbWOOcf');
-select * from tb_login;
  
  
  insert into tb_cliente values
@@ -475,7 +474,7 @@ select * from tb_login;
 ('18', 'lavinia.andreia.almada@yahoo.com.br', 'r2BiF1Im9D', '18',  'Lavínia Andreia Almada'),
 ('19', 'leandro_emanuel_peixoto@piemme.com.br', 'ZXmAHxBKF3', '19',  'Leandro Emanuel Cláudio Peixoto'),
 ('20', 'emanuelly_sara_barbosa@tanet.com.br', 'hYYjbWOOcf', '20',  'Emanuelly Sara Tânia Barbosa');
-select * from  tb_cliente;
+
 
 -- 3
 
@@ -500,7 +499,7 @@ insert into tb_uf values
 ('18','PR'),
 ('19','SP'),
 ('20','SP');
-select * from tb_uf;
+
 
 -- 4
 
@@ -525,7 +524,6 @@ insert into tb_cidade values
 ('18', 'Curitiba', '18'),
 ('19', 'Araraquara', '19'),
 ('20', 'Guarulhos', '20');
-select * from tb_cidade;
 
 -- 5
 
@@ -550,7 +548,6 @@ insert into tb_bairro values
 ('18', 'Alto da Rua XV', '18'),
 ('19', 'Vila Xavier (Vila Xavier)', '19'),
 ('20', 'Cidade Seródio', '20');
-select * from tb_bairro;
 
  -- 6
 
@@ -575,7 +572,7 @@ insert into tb_cor values
 ('18','Verde'),
 ('19','Amarelo'),
 ('20','Outros');
- select * from tb_cor;
+
  
 -- 7
 
@@ -600,7 +597,7 @@ insert into tb_marca values
 ('18','Volkswagen'),
 ('19','Bentley'),
 ('20','Chevrolet');
-select * from tb_marca;
+
 
 -- 8
 
@@ -625,7 +622,6 @@ insert into tb_modelo values
 ('18','Fiat Strada','18'),
 ('19','Chevrolet Onix','19'),
 ('20','Chevrolet Onix Plus','20');
-select * from tb_modelo;
 
 -- 9
 
@@ -650,14 +646,14 @@ insert into tb_horario values
 ('18','18:00','23:00'),
 ('19','19:00','23:00'),
 ('20','19:30','22:00');
-select * from tb_horario;
+
 
 -- 10
 
 insert into tb_patio values
 ('1','1'),
 ('2','2');
-select * from tb_patio;
+
 
 -- 11
 
@@ -682,7 +678,7 @@ insert into tb_veiculo values
 ('18','IEW-8686','18','8','18'),
 ('19','ENB-0247','19','9','19'),
 ('20','HZZ-4802','20','2','20');
-select * from tb_veiculo;
+
 
 -- 12
 insert into tb_estacionamento values
@@ -706,7 +702,7 @@ insert into tb_estacionamento values
 ('18','Enzo Park','20220620','20220629','18','18'),
 ('19','Enzo Park','20220723','20220824','19','19'),
 ('20','Enzo Park','20220810','20220815','20','20');
-select * from tb_estacionamento;
+
 
 -- 13
 
@@ -731,7 +727,7 @@ insert into tb_vaga values
 ('18','11','1','Em uso','18'),
 ('19','11','2','Em uso','19'),
 ('20','11','2','Em uso','20');
-select * from tb_vaga;
+
 
 -- 14
 
@@ -756,7 +752,6 @@ insert into tb_pessoa_fisica values
 ('18', '226.615.300-53', '18', '18'),
 ('19','049.161.186-26', '19', '19'),
 ('20','652.159.799-01', '20', '20');
-select * from tb_pessoa_fisica;
 
 -- 15
 
@@ -781,7 +776,6 @@ insert into tb_pessoa_juridica values
 ('18', '01.695.631/0001-35', '18', '18'),
 ('19', null, '19', '19'),
 ('20', null, '20', '20');
-select * from tb_pessoa_juridica; 
 
 -- 16
 
@@ -806,7 +800,7 @@ insert into tb_telefone values
 ('18','(41) 99549-8073', null,'18'),
 ('19','(16) 99195-9999', null,'19'),
 ('20','(11) 99214-9687', null,'20');
-select * from tb_telefone;
+
 
 
 -- VIEWs -- 

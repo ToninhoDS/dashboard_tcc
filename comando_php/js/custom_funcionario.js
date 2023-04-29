@@ -332,3 +332,20 @@ if(editForm){
          });
          
 }
+
+// exibir a previa da imagem 
+
+function previewImagem(){
+    var imagemFuncionario = document.querySelector('input[name=imagemFuncionario]').files[0];
+    var preview = document.getElementById('imgFuncionario');
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+        preview.src = reader.result;
+    }
+    if(imagemFuncionario){
+        reader.readAsDataURL(imagemFuncionario);
+    }else{
+        preview.src ="";
+    }
+}

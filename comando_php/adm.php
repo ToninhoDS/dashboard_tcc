@@ -52,6 +52,7 @@ include("crud_php/conexao_cadastro.php");
                                         <a  class="list-group-item list-group-item-action active">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img src="img/img_sistema/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-img"><img src="img/img_sistema/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span class="notification-list-user-name">Atonio Carlos</span>Acabou de Adicionar um Cliente.
                                                     <div class="notification-date">Agora </div>
                                                 </div>
@@ -638,7 +639,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                 <div class="col-md-4">
                   <label for="inputAddress2" style=" " class="form-label">Imagens</label>
                   <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" >
-                  <!-- <input type="text" value='https://assets.pokemon.com/assets/cms2/img/pokedex/full/330.png' style="width: 100%;padding:2px;margin:2px 0px" placeholder="Código Imagem" name="img_imagem" id="img_imagem_modal" > -->
+                
                 </div>
                 </div>
                   <div class="col-md-8">
@@ -734,38 +735,122 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
  <!-- ============================================================== -->
                         <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
                             <div class="card">
-                                <h5 class="card-header">Send Messages</h5>
+                                <h5 class="card-header">Cadastro de Funcionario</h5>
                                 <div class="card-body">
                                 <form class="needs-validation"  action="cadastrar_cliente.php" method="POST"  id="contact_form">
                                     <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                        <label for="validationCustom01">Nome completo</label>
-                                            <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite o nome" class="form-control"  type="text" >
-                                            <div class="valid-feedback">
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Cargo</label>
+                                             <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite" class="form-control"  type="text" >
+                                             <div class="valid-feedback">
                                                     Correto!
                                             </div>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Numero de Registro</label>
+                                             <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite" class="form-control"  type="number" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Data de Matricula</label>
+                                             <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite" class="form-control"  type="number" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 "><br>
+                                            <label for="validationCustom01">Nome do Empregado</label>
+                                             <input  name="nm_cliente" id="nm_cliente" required="Campo em Branco" placeholder="Digite o nome" class="form-control"  type="text" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2"><br>
                                             <label for="validationCustom03">CPF</label>
                                             <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" required="Campo em Branco" class="form-control"  type="text">
                                             <div class="invalid-feedback">
                                                 CPF incorreto!.
                                             </div>
-                                        </div><br><br>
+                                            
+                                        </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                             <label for="validationCustom04">Sexo</label>
                                             <input  name="cd_cnpj" id="cd_cnpj" placeholder="Digite o Sexo" class="form-control"  type="text">
                                             <div class="invalid-feedback">
                                                 Please provide a valid state.
                                             </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><br>
+                                            <div id="imagemFuncionario" style="">
+                                            <img id="imgFuncionario"style="width:250px; height:200px;">
+                                                <input style="width:250px; height:35px;"type="file" name="imagemFuncionario" class="form-control" required="Campo em Branco"  id='imagem' onchange="previewImagem()"/> 
+                                            <div class="valid-feedback">
+                                                     Correto!
+                                            </div>
+                                            </div>
+                                        </div>
+                                    <br><br>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom04">Formação</label>
+                                            <input  name="cd_cnpj" id="cd_cnpj" placeholder="Profissional" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Invalido
+                                            </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
-                                            <label for="validationCustom05">Celular</label>
-                                            <input name="cd_numero1" id="cd_numero1"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="text">
+                                            <label for="validationCustom05">Nome da Mãe</label>
+                                            <input name="cd_numero1" id="cd_numero1"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="mother">
                                             <div class="invalid-feedback">
                                                 Numero incorreto!.
                                             </div>
                                         </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom05">Celular</label>
+                                            <input name="cd_numero1" id="cd_numero1"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="tel">
+                                            <div class="invalid-feedback">
+                                                Numero incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Data de Nascimento</label>
+                                            <input type="date" name="cd_placa" id="cd_placa" placeholder="Digite o nascimento" required="Campo em Branco" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Placa do Carro invalida!.
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        <br>
+                        
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Estado Civil</label>
+                                            <input type="text" name="nm_marca" id="nm_modelo" placeholder="Digite "  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Marca do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">RG</label>
+                                            <input type="number" name="nm_modelo" id="nm_modelo" placeholder="Digite"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Modelo do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Idade</label>
+                                            <input type="number" name="nm_cor" id="nm_cor" placeholder="Digite" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Cor do Carro invalido!.
+                                            </div>
+                                        </div>
+                            
+                                       
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                             <label for="validationCustomUsername">Email</label>
                                             <div class="input-group">
@@ -796,8 +881,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                     </div>
-                        <br>
-                     
+                                    
+                                        
                                     <div class="row">
                                         <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                             <label for="validationCustom01">Nome da Rua</label>
@@ -806,21 +891,21 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                                 Correto!
                                             </div>
                                         </div> -->
-                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                             <label for="validationCustom03">Bairro</label>
                                             <input  name="nm_bairro" id="nm_bairro"  required="Campo em Branco" placeholder="Digite o Bairro"  class="form-control"  type="text">
                                             <div class="invalid-feedback">
                                             Bairro incorreto!.
                                             </div>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                             <label for="validationCustom04">Cidade</label>
                                             <input  name="nm_cidade" id="nm_cidade"  required="Campo em Branco" placeholder="Digite a Cidade" class="form-control"  type="text">
                                             <div class="invalid-feedback">
                                             Cidade incorreto!.
                                             </div>
                                         </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
                                             <label for="validationCustom05">UF-Estado</label>
                                             <input name="sg_uf" id="sg_uf"  required="Campo em Branco" placeholder="Digite o Estado"  class="form-control"  type="text">
                                             <div class="invalid-feedback">
@@ -828,46 +913,11 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                     </div>                                       
-                                    <div class="form-row">
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom03">Data de Nascimento</label>
-                                            <input type="date" name="cd_placa" id="cd_placa" placeholder="Digite o nascimento" required="Campo em Branco" class="form-control"  type="text">
-                                            <div class="invalid-feedback">
-                                                Placa do Carro invalida!.
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <hr>
-                                        <br>
-                                        <br>
-                        <hr>
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom03">Inicio Contratual</label>
-                                            <input type="date" name="nm_marca" id="nm_modelo" placeholder="Digite a data"  class="form-control"  type="text">
-                                            <div class="invalid-feedback">
-                                                Marca do Carro invalido!.
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom03">Modelo</label>
-                                            <input type="text" name="nm_modelo" id="nm_modelo" placeholder="Modelo"  class="form-control"  type="text">
-                                            <div class="invalid-feedback">
-                                                Modelo do Carro invalido!.
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom03">Cor</label>
-                                            <input type="text" name="nm_cor" id="nm_cor" placeholder="Cor do carro" class="form-control"  type="text">
-                                            <div class="invalid-feedback">
-                                                Cor do Carro invalido!.
-                                            </div>
-                                        </div>
-                            
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><br>
                                             <div class="form-group">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                                    <label class="form-check-label" for="invalidCheck">
+                                                    <input class="form-check-input" style="font-size:22px"type="checkbox" value="" id="invalidCheck" required>
+                                                    <label class="form-check-label" style="font-size:20px" for="invalidCheck">
                                                         As informações estão corretas?
                                                     </label>
                                                     <div class="invalid-feedback">
@@ -877,11 +927,11 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>
-                                            
+                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>                                            
                                         </div>
                                     </div>
                                 </form>
+                              
                             </div>
                         </div>
                     </div>
@@ -912,6 +962,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
     </div>
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- jquery 3.3.1  -->
     <script src="../chart_js/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->

@@ -6,7 +6,9 @@
 
 /* esconde o titulo atual */
 button.botao:hover span.titulo {
-    display: none
+    display: none;
+   
+    
   }
   
   /* "substitui" o titulo */
