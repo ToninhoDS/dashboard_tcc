@@ -122,7 +122,7 @@ include("crud_php/conexao_cadastro.php");
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name">Antonio Carlos</h5>
@@ -203,7 +203,7 @@ include("crud_php/conexao_cadastro.php");
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
@@ -224,7 +224,7 @@ include("crud_php/conexao_cadastro.php");
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/configuracao.html" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link"  href="/dashboard_tcc/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -256,26 +256,14 @@ include("crud_php/conexao_cadastro.php");
                         </div>
                     </div>
                     <!-- ============================================================== -->
-             
-            
-                    <?php
-
-$query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_reviews, nm_idade, nm_email, nm_senha, cd_telefone ,cd_img FROM tb_gerente WHERE cd_gerente= 1"; //QUAL GERENTE ESTA LOGANDO
-    $result_gerente = $conn->prepare($query_gerente);
-    $result_gerente->execute();
-    $row_gerente = $result_gerente->fetch(PDO::FETCH_ASSOC);
-    extract($row_gerente); // array
-  
-?>
-<!-- pegando contador de vagas -->
-       
+                    <!-- =========PEGANDO AS INFORMAÇÕES DO GERENTE NO BANCO=========== -->
                     <div class="row">
               
                         <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="user-avatar text-center d-block">
-                                        <img src="<?php echo $row_gerente['cd_img'] ?>" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                                        <img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="User Avatar" class="rounded-circle user-avatar-xxl">
                                     </div>
                                     <div class="text-center">
                                         <h2 class="font-24 mb-0"><?php echo $row_gerente['nm_gerente'] ?></h2>
@@ -646,7 +634,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                 </div>
                 <div class="col-md-4">
                   <label for="inputAddress2" style=" " class="form-label">Imagens</label>
-                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" >
+                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" src="">
                 
                 </div>
                 </div>
@@ -745,7 +733,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                             <div class="card">
                                 <h5 class="card-header">Cadastro de Funcionario</h5>
                                 <div class="card-body">
-                                <form class="needs-validation"  action="cadastrar_funcionario.php" method="POST"  id="Cadas_funcionario_form">
+                                <form class="needs-validation"  action="cadastrar_funcionario.php" method="POST" id="Cadas_funcionario_form" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                             <label for="validationCustom01">Cargo</label>
@@ -793,9 +781,9 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                         </div>
 
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><br>
-                                            <div id="img_imagem" style="">
+                                        <div id="img_imagem" style="">
                                             <img id="imgFuncionario"style="width:250px; height:200px;">
-                                                <input style="width:250px; height:35px;"type="file" name="img_imagem" class="form-control" required="Campo em Branco"  id='imagem' onchange="previewImagem()"/> 
+                                                <input style="width:250px; height:35px;"type="file" name="img_imagem" class="form-control" required="Campo em Branco"  id='imagem' onchange="previewImagem()"/>
                                             <div class="valid-feedback">
                                                      Correto!
                                             </div>
@@ -923,7 +911,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                            <button type="submit" class="btn btn-lg btn-primary" >Cadastrar o formulario</button>
+                                            <input type="submit" value="Cadastrar" class="btn btn-lg btn-primary" >
                                             <button type="reset" class="btn btn-secondary btn-lg"  onclick="LimparpreviewImagem()">Limpar</button>        
                                         </div>
                                     </div>

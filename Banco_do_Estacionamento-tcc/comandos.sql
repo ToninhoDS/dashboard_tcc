@@ -22,3 +22,9 @@ f.cd_credencial, f.cd_email_funcionario, f.cd_senha_funcionario, f.cd_telefone, 
 --30/04/2023
       ALTER TABLE tb_funcionario
     add nm_formacao varchar(100) null; -- acrescentar , nome_da_coluna int null;
+
+
+    -- ALTERAR CONTEUDO DA TABELA COM ID 
+    update tb_gerente
+SET CD_IMG = 'bernardo.png'
+WHERE CD_GERENTE = 1;

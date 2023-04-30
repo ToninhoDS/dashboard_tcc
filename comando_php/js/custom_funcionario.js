@@ -107,8 +107,8 @@ async  function visualizar(id){
     document.getElementById("msgAlertaErroEdit").innerHTML = "";
     document.getElementById('edit-usuario-btn').value ="Editar";
 
-   var array_credencial = document.getElementById("valor_credencial" + id).innerHTML;
-    const dados = await fetch('visualizar_funcionario.php?id=' +array_credencial);
+   var id_funcionario = document.getElementById("valor_id" + id).innerHTML;
+    const dados = await fetch('visualizar_funcionario.php?id=' +id_funcionario);
     const resposta = await dados.json();
     if(!resposta['status']){
         document.getElementById('msgAlerta').innerHTML = resposta['msg'];      
@@ -120,7 +120,9 @@ async  function visualizar(id){
         document.getElementById("nm_nome_modal").value = resposta['dados'].nm_nome;
         document.getElementById("nm_cargo_modal").value = resposta['dados'].nm_cargo;
         document.getElementById("credencial_modal").value = resposta['dados'].cd_credencial;
-        document.getElementById("img_imagem_modal").src = resposta['dados'].img_imagem; //para aparecer a imagem tem que indicar qual atributo "src"
+
+        document.getElementById("img_imagem_modal").src = '../img_funcionario/'+resposta['dados'].nm_gerente+'_id-'+resposta['dados'].cd_gerente+'/'+resposta['dados'].img_imagem;
+
         document.getElementById("dt_emissao_contratual_modal").value = resposta['dados'].dt_emissao_contratual;
         document.getElementById("nm_sexo_modal").value = resposta['dados'].nm_sexo;
         document.getElementById("cd_data_nascimento_modal").value = resposta['dados'].cd_data_nascimento;

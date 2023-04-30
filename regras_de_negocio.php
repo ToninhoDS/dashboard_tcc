@@ -1,3 +1,6 @@
+<?php
+include("comando_php/crud_php/conexao_cadastro.php");
+?>
 <!doctype html>
 <html lang="en">
  
@@ -5,20 +8,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+   
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css_dash/bootstrap.min.css">
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="css_dash/caixa_estilo.css">
     
     <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link href="css_dash/jquery.minicolors.css" rel="stylesheet">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
 
-
 <body>
-     <!-- ============================================================== -->
+    <!-- ============================================================== -->
    <!-- navbar e lateral do menu -->
    
    <div class="dashboard-main-wrapper">
@@ -116,7 +117,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorioRaiz,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name">Antonio Carlos</h5>
@@ -197,7 +198,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
@@ -214,11 +215,11 @@
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link active"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/dashboard_tcc/configuracao.html" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link"  href="/dashboard_tcc/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -228,169 +229,202 @@
     </div>
              <!-- navbar e lateral do menu -->
      <!-- ============================================================== -->
+
+        <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <!-- ============================================================== -->
-    
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                         <h2 class="pageheader-title">Color Picker </h2>
+                    <!-- pageheader -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                           <h2 class="pageheader-title">Regras de Negocio</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Color Picker</li>
-                                    </ol>
-                                </nav>
+                                        <li class="breadcrumb-item"><a href="/dashboard_tcc/" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a  class="breadcrumb-link">Linha do tempo Sistema</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Sistema</li>
+                                      </ol>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-              
+                    <!-- ============================================================== -->
+                    <!-- end pageheader -->
+                    <!-- ============================================================== -->
+                      <!-- ============================================================== -->
+                    <!-- timeline  -->
+                    <!-- ============================================================== -->
+                
+                    <section class="cd-timeline js-cd-timeline" style='font-size: 20px;'>
+                        <div class="cd-timeline__container">
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+                                    <img src="img/passos.png" alt="Picture">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Primeiro acesso</h2><hr>
+                                    <p>O acesso inicial ao sistema não requear experiência ou ter conhecimento em RH para fazer um  cadastro completo de usuário, em pouco tempo já consegui mexer no sistema, garantindo a segurança e a integridade dos dados.</p>
+                                    <a href="adm.php" class="btn btn-primary btn-lg">Saiba mais</a>
+                                    <span class="cd-timeline__date">10 Janeiro, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
+                                    <img src="img/cadastro_semd.png" alt="Movie">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Gerenciamento de cadastro</h2><hr>
+                                    <p>O sistema permite a adição, edição e exclusão de usuários de forma intuitiva e segura, garantindo a integridade e a privacidade das informações dos usuários.</p>
+                                 <a href="comando_php/data-tables.php" class="btn btn-primary btn-lg">Saiba mais</a>
+                                    <span class="cd-timeline__date">20 Janeiro, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+                                    <img src="img/visaosem.png" alt="Picture">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Visão do dashboard</h2><hr>
+                                    <p>A visão do dashboard é projetada de forma abrangente, oferecendo uma visão panorâmica e detalhada das atividades do estacionamento, com informações relevantes apresentadas em gráficos interativos </p>
+                                  <a href="cards.php" class="btn btn-primary btn-lg">Saiba mais</a>
+                                    <span class="cd-timeline__date">04 Fervereiro, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--location js-cd-img">
+                                    <img src="img/mapa_va.png" alt="Location">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Gráficos e mapa</h2><hr>
+                                    <p>O sistema apresenta gráficos interativos e visualmente atraentes, oferecendo informações detalhadas sobre a ocupação do estacionamento, além de um mapa intuitivo para visualização da localização das vagas.</p>
+                                 <a href="#0" class="btn btn-primary btn-lg">Saiba mais</a>
+                                    <span class="cd-timeline__date">12 Fervereiro, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
+                                    <img src="img/gestenci_esta.png" alt="Location">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Gerenciar estacionamento</h2><hr>
+                                    <p>Através do dashboard, é possível gerenciar as vagas disponíveis, monitorar a ocupação em tempo real, visualizar a localização das vagas em um mapa intuitivo e ter um controle preciso do cadastro de usuários, garantindo um gerenciamento eficiente e centralizado.</p>
+                                 <a href="index.php" class="btn btn-primary btn-lg" >Saiba mais</a>
+                                   
+                                    <span class="cd-timeline__date">05 Março, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--location js-cd-img">
+                                    <img src="img/estaci002.png" alt="Movie">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2Controle de vagas</h2><hr>
+                                    <p>Com recursos gráficos avançados, o sistema proporciona uma análise aprofundada do uso do estacionamento, permitindo tomadas de decisões estratégicas com base em dados concretos.</p>
+                                    <a href="vagas_detalhes.php" class="btn btn-primary btn-lg">Saiba mais</a>
+                                    <span class="cd-timeline__date">04 Abril, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
+                                    <img src="img/ferramenta.png" alt="Movie">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Configurações</h2><hr>
+                                    <p>Configurar um sistema simples e intuitivo, com interface de usuário amigável, fluxos de navegação claros e recursos de fácil compreensão, visando tornar a utilização do software fácil e intuitiva para os usuários, mesmo sem experiência prévia no sistema.</p>
+                                    <a href="configuracao.php" class="btn btn-primary btn-lg" >Saiba mais</a>
+                                    <span class="cd-timeline__date">15 Abril, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                            <!-- cd-timeline__block -->
+                            <div class="cd-timeline__block js-cd-block">
+                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+                                    <img src="img/equipe01.png" alt="Movie">
+                                </div>
+                                <!-- cd-timeline__img -->
+                                <div class="cd-timeline__content js-cd-content">
+                                    <h2>Nossa Equipe</h2><hr>
+                                Sistema conta com um suporte eficiente de humanos, composto por uma equipe de atendimento dedicada, pronta para auxiliar os usuários em caso de dúvidas, problemas técnicos ou necessidade de suporte adicional.<br><br>Esse suporte é realizado de forma rápida e personalizada, visando garantir a satisfação e a confiança dos usuários no sistema, oferecendo um atendimento humanizado e resolutivo.</p>
+                                    <span class="cd-timeline__date">19 Abril, 2023</span>
+                                </div>
+                                <!-- cd-timeline__content -->
+                            </div>
+                            <!-- cd-timeline__block -->
+                        </div>
+                    </section>
+                    <!-- cd-timeline -->
                
-              
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Minicolors</h5>
-                                <div class="card-body">
-                                    <h4 class="card-title">Control Types</h4>
-                                    <div class="form-group">
-                                        <label for="hue-demo">Hue (default)</label>
-                                        <input type="text" id="hue-demo" class="form-control demo" data-control="hue" value="#ff6161">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="saturation-demo">Saturation</label>
-                                        <input type="text" id="saturation-demo" class="form-control demo" data-control="saturation" value="#0088cc">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="brightness-demo">Brightness</label>
-                                        <input type="text" id="brightness-demo" class="form-control demo" data-control="brightness" value="#00ffff">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="wheel-demo">Wheel</label>
-                                        <input type="text" id="wheel-demo" class="form-control demo" data-control="wheel" value="#ff99ee">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                   
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Positions</h5>
-                                <div class="card-body">
-                                    <h6 class="card-subtitle">Valid positions include bottom left, bottom right, top left, and top right.</h6>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="position-bottom-left">bottom left (default)</label>
-                                                <input type="text" id="position-bottom-left" class="form-control demo" data-position="bottom left" value="#0088cc">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="position-top-left">top left</label>
-                                                <input type="text" id="position-top-left" class="form-control demo" data-position="top left" value="#0088cc">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="position-bottom-right">bottom right</label>
-                                                <input type="text" id="position-bottom-right" class="form-control demo" data-position="bottom right" value="#0088cc">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="position-top-right">top right</label>
-                                                <input type="text" id="position-top-right" class="form-control demo" data-position="top right" value="#0088cc">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        </div>
-                    </div>
+                  <!-- ============================================================== -->
+                    <!-- end timeline  -->
+                    <!-- ============================================================== -->
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                          
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">Voltar</a>
-                                <a href="javascript: void(0);">Suporte</a>
-                                <a href="javascript: void(0);">ContatoUs</a>
-                            </div>
+               <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                      
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="text-md-right footer-links d-none d-sm-block">
+                            <a href="javascript: void(0);">Voltar</a>
+                            <a href="javascript: void(0);">Suporte</a>
+                            <a href="javascript: void(0);">Contato</a>
                         </div>
                     </div>
                 </div>
             </div>
-          
-            <!-- ============================================================== -->
         </div>
+        <!-- ============================================================== -->
+        <!-- end footer -->
+        <!-- ============================================================== -->
+        </div>
+      
     </div>
-
+   <!-- ============================================================== -->
+    <!-- end main wrapper -->
     <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
       <script src="chart_js/jquery-3.3.1.min.js"></script>
     <script src="chart_js/bootstrap.bundle.js"></script>
     <script src="chart_js/jquery.slimscroll.js"></script>
     <script src="chart_js/main-js.js"></script>
-   
-    <!-- This Page JS -->
-    <script src="chart_js/jquery-asColor.min.js"></script>
-    <script src="chart_js/jquery-asGradient.js"></script>
-    <script src="chart_js/jquery-asColorPicker.min.js"></script>
-    <script src="chart_js/jquery.minicolors.min.js"></script>
-    <script>
-   $('.demo').each(function() {
-        //
-        // Dear reader, it's actually very easy to initialize MiniColors. For example:
-        //
-        //  $(selector).minicolors();
-        //
-        // The way I've done it below is just for the demo, so don't get confused
-        // by it. Also, data- attributes aren't supported at this time...they're
-        // only used for this demo.
-        //
-        $(this).minicolors({
-            control: $(this).attr('data-control') || 'hue',
-            defaultValue: $(this).attr('data-defaultValue') || '',
-            format: $(this).attr('data-format') || 'hex',
-            keywords: $(this).attr('data-keywords') || '',
-            inline: $(this).attr('data-inline') === 'true',
-            letterCase: $(this).attr('data-letterCase') || 'lowercase',
-            opacity: $(this).attr('data-opacity'),
-            position: $(this).attr('data-position') || 'bottom left',
-            swatches: $(this).attr('data-swatches') ? $(this).attr('data-swatches').split('|') : [],
-            change: function(value, opacity) {
-                if (!value) return;
-                if (opacity) value += ', ' + opacity;
-                if (typeof console === 'object') {
-                    console.log(value);
-                }
-            },
-            theme: 'bootstrap'
-        });
-
-    });
-    </script>
-   
+    <script src="assets/vendor/timeline/js/main.js"></script>
 </body>
+
  
 </html>

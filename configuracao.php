@@ -1,3 +1,6 @@
+<?php
+include("comando_php/crud_php/conexao_cadastro.php");
+?>
 <!doctype html>
 <html lang="en">
  
@@ -11,14 +14,14 @@
     <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="css_dash/caixa_estilo.css">
     
     <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link href="assets/vendor/bootstrap-colorpicker/%40claviska/jquery-minicolors/jquery.minicolors.css" rel="stylesheet">
-    <link rel="icon"  href="img/vagas.ico"  type="image/png">
+    <link href="css_dash/jquery.minicolors.css" rel="stylesheet">
+    <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
 
 
 <body>
-    <!-- ============================================================== -->
+     <!-- ============================================================== -->
    <!-- navbar e lateral do menu -->
    
    <div class="dashboard-main-wrapper">
@@ -116,7 +119,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorioRaiz,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name">Antonio Carlos</h5>
@@ -145,7 +148,7 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Vagas Park<span class="badge badge-success">6</span></a>
+                            <a class="nav-link "  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Vagas Park<span class="badge badge-success">6</span></a>
                             <div id="submenu-1" class="collapse submenu">
                                 <ul class="nav flex-column">
                                      
@@ -197,7 +200,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
@@ -206,10 +209,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
-                         </li>
-                         <li class="nav-item">
-                        <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
-                         </li>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                        </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
@@ -218,7 +221,7 @@
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/configuracao.html" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link active"  href="/dashboard_tcc/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -228,201 +231,169 @@
     </div>
              <!-- navbar e lateral do menu -->
      <!-- ============================================================== -->
-        <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-        
         <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
+    
         <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title">E-commerce Product Invoice </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Invoice</li>
-                                        </ol>
-                                    </nav>
-                                </div>
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                         <h2 class="pageheader-title">Color Picker </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Color Picker</li>
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- end pageheader  -->
-                    <!-- ============================================================== -->
+                </div>
+                <!-- ============================================================== -->
+              
+               
+              
                     <div class="row">
-                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-12">
                             <div class="card">
-                                <div class="card-header p-4">
-                                     <a class="pt-2 d-inline-block" href="index.html">Concept</a>
-                                   
-                                    <div class="float-right"> <h3 class="mb-0">Invoice #1</h3>
-                                    Date: 3 Dec, 2020</div>
-                                </div>
+                                <h5 class="card-header">Minicolors</h5>
                                 <div class="card-body">
-                                    <div class="row mb-4">
-                                        <div class="col-sm-6">
-                                            <h5 class="mb-3">From:</h5>                                            
-                                            <h3 class="text-dark mb-1">Gerald A. Garcia</h3>
-                                         
-                                            <div>2546 Penn Street</div>
-                                            <div>Sikeston, MO 63801</div>
-                                            <div>Email: info@gerald.com.pl</div>
-                                            <div>Phone: +573-282-9117</div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <h5 class="mb-3">To:</h5>
-                                            <h3 class="text-dark mb-1">Anthony K. Friel</h3>                                            
-                                            <div>478 Collins Avenue</div>
-                                            <div>Canal Winchester, OH 43110</div>
-                                            <div>Email: info@anthonyk.com</div>
-                                            <div>Phone: +614-837-8483</div>
-                                        </div>
+                                    <h4 class="card-title">Control Types</h4>
+                                    <div class="form-group">
+                                        <label for="hue-demo">Hue (default)</label>
+                                        <input type="text" id="hue-demo" class="form-control demo" data-control="hue" value="#ff6161">
                                     </div>
-                                    <div class="table-responsive-sm">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th class="center">#</th>
-                                                    <th>Item</th>
-                                                    <th>Description</th>
-                                                    <th class="right">Unit Cost</th>
-                                                    <th class="center">Qty</th>
-                                                    <th class="right">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="center">1</td>
-                                                    <td class="left strong">Origin License</td>
-                                                    <td class="left">Extended License</td>
-                                                    <td class="right">$1500,00</td>
-                                                    <td class="center">1</td>
-                                                    <td class="right">$1500,00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">2</td>
-                                                    <td class="left">Custom Services</td>
-                                                    <td class="left">Instalation and Customization (cost per hour)</td>
-                                                    <td class="right">$110,00</td>
-                                                    <td class="center">20</td>
-                                                    <td class="right">$22.000,00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">3</td>
-                                                    <td class="left">Hosting</td>
-                                                    <td class="left">1 year subcription</td>
-                                                    <td class="right">$309,00</td>
-                                                    <td class="center">1</td>
-                                                    <td class="right">$309,00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">4</td>
-                                                    <td class="left">Platinum Support</td>
-                                                    <td class="left">1 year subcription 24/7</td>
-                                                    <td class="right">$5.000,00</td>
-                                                    <td class="center">1</td>
-                                                    <td class="right">$5.000,00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="form-group">
+                                        <label for="saturation-demo">Saturation</label>
+                                        <input type="text" id="saturation-demo" class="form-control demo" data-control="saturation" value="#0088cc">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="brightness-demo">Brightness</label>
+                                        <input type="text" id="brightness-demo" class="form-control demo" data-control="brightness" value="#00ffff">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wheel-demo">Wheel</label>
+                                        <input type="text" id="wheel-demo" class="form-control demo" data-control="wheel" value="#ff99ee">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Positions</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle">Valid positions include bottom left, bottom right, top left, and top right.</h6>
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-5">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="position-bottom-left">bottom left (default)</label>
+                                                <input type="text" id="position-bottom-left" class="form-control demo" data-position="bottom left" value="#0088cc">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="position-top-left">top left</label>
+                                                <input type="text" id="position-top-left" class="form-control demo" data-position="top left" value="#0088cc">
+                                            </div>
                                         </div>
-                                        <div class="col-lg-4 col-sm-5 ml-auto">
-                                            <table class="table table-clear">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="left">
-                                                            <strong class="text-dark">Subtotal</strong>
-                                                        </td>
-                                                        <td class="right">$28,809,00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="left">
-                                                            <strong class="text-dark">Discount (20%)</strong>
-                                                        </td>
-                                                        <td class="right">$5,761,00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="left">
-                                                            <strong class="text-dark">VAT (10%)</strong>
-                                                        </td>
-                                                        <td class="right">$2,304,00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="left">
-                                                            <strong class="text-dark">Total</strong>
-                                                        </td>
-                                                        <td class="right">
-                                                            <strong class="text-dark">$20,744,00</strong>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="position-bottom-right">bottom right</label>
+                                                <input type="text" id="position-bottom-right" class="form-control demo" data-position="bottom right" value="#0088cc">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="position-top-right">top right</label>
+                                                <input type="text" id="position-top-right" class="form-control demo" data-position="top right" value="#0088cc">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer bg-white">
-                                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                              
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
+                        <!-- ============================================================== -->
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <!-- ============================================================== -->
-            <!-- end wrapper  -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                          
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">Voltar</a>
+                                <a href="javascript: void(0);">Suporte</a>
+                                <a href="javascript: void(0);">ContatoUs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
             <!-- ============================================================== -->
         </div>
     </div>
-        <!-- ============================================================== -->
-        <!-- end main wrapper  -->
-        <!-- ============================================================== -->
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 -->
-          <script src="chart_js/jquery-3.3.1.min.js"></script>
-        <!-- bootstap bundle js -->
-        <script src="chart_js/bootstrap.bundle.js"></script>
-        <!-- slimscroll js -->
-        <script src="chart_js/jquery.slimscroll.js"></script>
-        <!-- main js -->
-        <script src="chart_js/main-js.js"></script>
+
+    <!-- ============================================================== -->
+      <script src="chart_js/jquery-3.3.1.min.js"></script>
+    <script src="chart_js/bootstrap.bundle.js"></script>
+    <script src="chart_js/jquery.slimscroll.js"></script>
+    <script src="chart_js/main-js.js"></script>
+   
+    <!-- This Page JS -->
+    <script src="chart_js/jquery-asColor.min.js"></script>
+    <script src="chart_js/jquery-asGradient.js"></script>
+    <script src="chart_js/jquery-asColorPicker.min.js"></script>
+    <script src="chart_js/jquery.minicolors.min.js"></script>
+    <script>
+   $('.demo').each(function() {
+        //
+        // Dear reader, it's actually very easy to initialize MiniColors. For example:
+        //
+        //  $(selector).minicolors();
+        //
+        // The way I've done it below is just for the demo, so don't get confused
+        // by it. Also, data- attributes aren't supported at this time...they're
+        // only used for this demo.
+        //
+        $(this).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            defaultValue: $(this).attr('data-defaultValue') || '',
+            format: $(this).attr('data-format') || 'hex',
+            keywords: $(this).attr('data-keywords') || '',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: $(this).attr('data-letterCase') || 'lowercase',
+            opacity: $(this).attr('data-opacity'),
+            position: $(this).attr('data-position') || 'bottom left',
+            swatches: $(this).attr('data-swatches') ? $(this).attr('data-swatches').split('|') : [],
+            change: function(value, opacity) {
+                if (!value) return;
+                if (opacity) value += ', ' + opacity;
+                if (typeof console === 'object') {
+                    console.log(value);
+                }
+            },
+            theme: 'bootstrap'
+        });
+
+    });
+    </script>
+   
 </body>
  
 </html>

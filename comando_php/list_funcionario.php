@@ -5,6 +5,9 @@ include_once "crud_php/conexao_cadastro.php";
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
+//criando o caminho da pasta do gerente com as fotos
+
+
 if (!empty($pagina)) {
     $qnt_result_pg = 10; 
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
@@ -35,7 +38,7 @@ while ($row_usuario = $result_funcionario->fetch(PDO::FETCH_ASSOC)) {
     <tr>
     <td style='display:none;' id='valor_id$cd_funcionario'>$cd_funcionario</td>
     <td>
-        <div id='img_status_vagas$cd_funcionario' style='display:block' class='m-r-10'><img  id='valor_img$img_imagem' src='$img_imagem' alt='user' class='rounded' width='45'>
+        <div id='img_status_vagas$cd_funcionario' style='display:block' class='m-r-10'><img  id='valor_img$img_imagem' src='$diretorio/$img_imagem' alt='user' class='rounded' width='45'>
         </div>
     </td>
     

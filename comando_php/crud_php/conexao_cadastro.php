@@ -18,6 +18,20 @@ try{
     echo "Erro: Conexão com banco de dados não foi realizada com sucesso. Erro gerado " . $err->getMessage();
 }
 
+//  CONEXAO DO GERENTE
+
+$query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_reviews, nm_idade, nm_email, nm_senha, cd_telefone ,cd_img FROM tb_gerente WHERE cd_gerente= 1"; //QUAL GERENTE ESTA LOGANDO
+    $result_gerente = $conn->prepare($query_gerente);
+    $result_gerente->execute();
+    $row_gerente = $result_gerente->fetch(PDO::FETCH_ASSOC);
+    extract($row_gerente); // array
+    $nome_gerente = $row_gerente['nm_gerente'];
+    $foto_gerente = $row_gerente['cd_img'];
+    $id_gerente = $row_gerente['cd_gerente'];
+    $diretorio ='../img_funcionario/'.$nome_gerente.'_id-'.$id_gerente;
+    $diretorioRaiz ='img_funcionario/'.$nome_gerente.'_id-'.$id_gerente;
+       
+
 
 
 // Datos de login do usuario e suas sessao

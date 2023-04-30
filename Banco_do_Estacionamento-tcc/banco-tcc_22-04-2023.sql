@@ -316,7 +316,7 @@ cd_credencial varchar (30), -- usuario podera usar credencial para logar junto c
 cd_email_funcionario varchar(45),
 cd_senha_funcionario varchar (20),
 cd_telefone varchar (20),
-img_imagem varchar (150),
+img_imagem varchar (250),
 cd_bairro int,
 cd_gerente int,
 constraint pk_funcionario

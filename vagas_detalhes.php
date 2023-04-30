@@ -1,5 +1,4 @@
 <?php
-
 include("comando_php/crud_php/conexao_cadastro.php");
 ?>
 <!doctype html>
@@ -201,7 +200,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
@@ -222,7 +221,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/dashboard_tcc/configuracao.html" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link"  href="/dashboard_tcc/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                                
                             </li>                      
                         </ul>
