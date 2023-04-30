@@ -1,68 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Exemplo de Modal com Imagem</title>
-    <!-- Inclua os estilos CSS necessários para o modal -->
-    <style>
-        /* Estilos para o modal */
-        .modal {
-            display: none; /* Inicialmente oculto */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
+<form class="needs-validation"  action="cadastrar_funcionario.php" method="POST"  id="Cadas_funcionario_form>
+  <label for="password">Senha:</label>
+  <input type="password" id="password" name="password">
 
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            margin: auto;
-            display: block;
-        }
+  <label for="confirm-password">Confirmar senha:</label>
+  <input type="password" id="confirm-password" name="confirm-password">
+  
+  <button type="submit">Enviar</button>
+</form>
 
-        .modal .fechar {
-            color: #fff;
-            font-size: 36px;
-            font-weight: bold;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            cursor: pointer;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <!-- Botão para abrir o modal -->
-    <button onclick="abrirModal()">Abrir Modal</button>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <span onclick="fecharModal()" class="fechar">&times;</span>
-        <img id="imagemModal" src="" alt="Imagem do Modal">
-    </div>
-
-    <!-- Script JavaScript para controlar o modal -->
-    <script>
-        // Função para abrir o modal e exibir a imagem
-        function abrirModal() {
-            var modal = document.getElementById("modal");
-            modal.style.display = "block";
-
-            // Atualiza a imagem do modal com a imagem desejada
-            var imagemModal = document.getElementById("imagemModal");
-            imagemModal.src = "login_acesso.png"; // Substitua "caminho_da_imagem.jpg" pelo caminho da sua imagem
-        }
-
-        // Função para fechar o modal
-        function fecharModal() {
-            var modal = document.getElementById("modal");
-            modal.style.display = "none";
-        }
-    </script>
-</body>
-</html>
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const password = document.querySelector('#password').value;
+    const confirmPassword = document.querySelector('#confirm-password').value;
+    if (password !== confirmPassword) {
+      alert('As senhas não correspondem. Tente novamente.');
+      return;
+    }
+    form.submit();
+  });
+</script>

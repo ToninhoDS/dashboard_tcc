@@ -18,3 +18,7 @@ f.cd_credencial, f.cd_email_funcionario, f.cd_senha_funcionario, f.cd_telefone, 
     WHERE g.cd_gerente = 1 ORDER BY f.cd_funcionario;
     --OU
     WHERE f.cd_credencial = '30039' ORDER BY f.cd_funcionario;
+
+--30/04/2023
+      ALTER TABLE tb_funcionario
+    add nm_formacao varchar(100) null; -- acrescentar , nome_da_coluna int null;

@@ -303,10 +303,15 @@ create table if not exists tb_funcionario(
 cd_funcionario int not null auto_increment,
 nm_nome varchar (150),
 nm_cargo varchar (150),
+nm_formacao varchar (100) null,
 dt_emissao_contratual date,
 nm_sexo varchar (20),
+nm_maternidade varchar(150) null,
+nm_estado_civil varchar(50) null,
 cd_data_nascimento varchar (20),
+cd_idade varchar (5) null,
 cd_cpf varchar (20),
+cd_rg varchar (20) null,
 cd_credencial varchar (30), -- usuario podera usar credencial para logar junto com a senha a baixo
 cd_email_funcionario varchar(45),
 cd_senha_funcionario varchar (20),
@@ -387,23 +392,22 @@ insert into tb_gerente value
 ,'33','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/054.png','3');
 
 insert into tb_funcionario value
-('1','Antonio carlos','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
-,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
+('1','Antonio carlos','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
 
-('2','Carlos Fafa','Tec. Manutencao Informatica Junior','2023-04-22','Masculino','1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456',
-'13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
-,'1','1'),
-('3','Renato','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
-,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+('2','Carlos Fafa','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
+('3','Renato','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
 ,'1','2'),
-('4','Douglas','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
-,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+('4','Douglas','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
 ,'1','2'),
-('5','Julia','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
-,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+('5','Julia','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
 ,'1','2'),
-('6','RAfael','Tec. Manutencao Informatica Junior','2023-04-22','Masculino'
-,'1988-03-05','12345678901','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+('6','RAfael','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
 ,'1','3');
 
 insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status) values
