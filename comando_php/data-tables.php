@@ -1,6 +1,7 @@
 <?php
 session_start(); // iniciar a sessao
 include('crud_php/body.php');
+
 ?> 
 <!doctype html>
 <html lang="en">

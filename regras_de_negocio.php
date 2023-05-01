@@ -25,7 +25,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
    <div class="dashboard-main-wrapper">
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard_tcc/">Vagas Park</a>
+            <a class="navbar-brand" href="/dashboard_tcc/vagas_park.php">Vagas Park</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -332,7 +332,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                 <div class="cd-timeline__content js-cd-content">
                                     <h2>Gerenciar estacionamento</h2><hr>
                                     <p>Através do dashboard, é possível gerenciar as vagas disponíveis, monitorar a ocupação em tempo real, visualizar a localização das vagas em um mapa intuitivo e ter um controle preciso do cadastro de usuários, garantindo um gerenciamento eficiente e centralizado.</p>
-                                 <a href="index.php" class="btn btn-primary btn-lg" >Saiba mais</a>
+                                 <a href="vagas_park.php" class="btn btn-primary btn-lg" >Saiba mais</a>
                                    
                                     <span class="cd-timeline__date">05 Março, 2023</span>
                                 </div>

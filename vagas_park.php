@@ -1,5 +1,37 @@
 <?php
 include("comando_php/crud_php/conexao_cadastro.php");
+session_start(); // Iniciar a sessão
+
+// Limpara o buffer de redirecionamento
+ob_start();
+
+// Incluir o arquivo para validar e recuperar dados do token
+include_once 'valida_token.php';
+
+// Chamar a função validar o token, se a função retornar FALSE significa que o token é inválido e acessa o IF
+if(!validarToken()){
+    // Criar a mensagem de erro e atribuir para variável global
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redireciona o o usuário para o arquivo vagas_park.php
+    header("Location:adm/login_parceiro.php");
+
+    // Pausar o processamento da página
+    exit();
+}
+
+// Chamar a função para recuperar o nome salvo no token
+echo "Bem vindo " . recuperarNomeToken() . ". <br>";
+
+// Chamar a função para recuperar o e-mail salvo no token
+echo "E-mail do usuário logado " . recuperarEmailToken() . ". <br>";
+
+echo "<a href='dashboard.php'>Dashbard</a><br>";
+echo "<a href='listar-slides.php'>Listar Slides</a><br>";
+
+// Link para sair e apagar cookie token
+echo "<a href='logout.php'>Sair</a><br>";
+
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -27,7 +59,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
    <div class="dashboard-main-wrapper">
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/dashboard_tcc/">Vagas Park</a>
+                <a class="navbar-brand" href="/dashboard_tcc/vagas_park.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -127,7 +159,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                 </div>
                                  <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
                                 <a href="/dashboard_tcc/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                                <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                                <a a href='logout.php' class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
