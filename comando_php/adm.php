@@ -1,6 +1,21 @@
 <?php
-session_start(); // iniciar a sessao
 include("crud_php/conexao_cadastro.php");
+
+
+session_start(); 
+
+ob_start();
+
+include_once '../valida_token.php';
+
+if(!validarToken()){
+
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    header("Location:../adm/erro_404.php");
+
+    exit();
+}
 
 ?>
 <!doctype html>
@@ -133,7 +148,8 @@ include("crud_php/conexao_cadastro.php");
                             </div>
                              <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
                             <a href="/dashboard_tcc/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                            <a class="dropdown-item" onclick="sairDashboard()"><i class="fas fa-power-off mr-2"></i>Sair</a>
+                            <a href="logout.php" class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                            <!-- <a class="dropdown-item" onclick="sairDashboard()"><i class="fas fa-power-off mr-2"></i>Sair</a> -->
                         </div>
                     </li>
                 </ul>

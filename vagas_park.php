@@ -11,7 +11,7 @@ if(!validarToken()){
 
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
-    header("Location:adm/login_parceiro.php");
+    header("Location:adm/erro_404.php");
 
     exit();
 }

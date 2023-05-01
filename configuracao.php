@@ -15,7 +15,7 @@ if(!validarToken()){
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
     // Redireciona o o usuário para o arquivo vagas_park.php
-    header("Location:adm/login_parceiro.php");
+    header("Location:adm/erro_404.php");
 
     // Pausar o processamento da página
     exit();

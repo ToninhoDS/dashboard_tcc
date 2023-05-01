@@ -11,7 +11,7 @@ if(!validarToken()){
 
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
-    header("Location:adm/login_parceiro.php");
+    header("Location:adm/erro_404.php");
 
     exit();
 }
@@ -125,7 +125,7 @@ if(!validarToken()){
                                 </div>
                                  <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
                                 <a href="/dashboard_tcc/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                                <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                                <a href='/dashboard_tcc/logout.php' class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
