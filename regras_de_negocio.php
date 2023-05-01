@@ -162,7 +162,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                                                 <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.html">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -183,7 +183,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                     <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Detalhamento</a>
                                 </li>
                                  <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.html">Planilha</a>
+                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.php">Planilha</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" >vazio </a>
@@ -215,7 +215,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link active"  href="/dashboard_tcc/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">

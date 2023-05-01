@@ -162,7 +162,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                                                 <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.html">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -183,7 +183,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                                     <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Detalhamento</a>
                                 </li>
                                  <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.html">Planilha</a>
+                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.php">Planilha</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" >vazio </a>
@@ -215,7 +215,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">
@@ -300,7 +300,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <h5 class="card-header">Basic Example of Media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-1.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.phpimg/img_sistema/avatar-1.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5>Media heading</h5>
                                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -322,12 +322,12 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <h5 class="card-header" id="Mensagens">Nesting Media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.phpimg/img_sistema/avatar-2.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="mt-0">Media heading</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         <div class="media mt-3">
                                             <a class="pr-3" href="#">
-                                                  <img class="mr-2 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-3.jpg" alt="Generic placeholder image" ></a>
+                                                  <img class="mr-2 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.phpimg/img_sistema/avatar-3.jpg" alt="Generic placeholder image" ></a>
                                             <div class="media-body">
                                                 <h5 class="mt-0">Media heading</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                             </div>
@@ -342,7 +342,7 @@ include("comando_php/crud_php/conexao_cadastro.php");
                             <h5 class="card-header">Top-aligned media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.htmlimg/img_sistema/avatar-4.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/detalhamento_servico_tabela.phpimg/img_sistema/avatar-4.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="mt-0">Top aligned media</h5>
                                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>

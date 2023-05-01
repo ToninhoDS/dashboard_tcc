@@ -32,32 +32,32 @@ if (!empty($pagina)) {
             </tr>
         </thead>
         <tbody>";
-while ($row_usuario = $result_funcionario->fetch(PDO::FETCH_ASSOC)) {
-    extract($row_usuario);
-    $dados .= "
-    <tr>
-    <td style='display:none;' id='valor_id$cd_funcionario'>$cd_funcionario</td>
-    <td>
-        <div id='img_status_vagas$cd_funcionario' style='display:block' class='m-r-10'><img  id='valor_img$img_imagem' src='$diretorio/$img_imagem' alt='user' class='rounded' width='45'>
-        </div>
-    </td>
-    
-    <td id='valor_nome$cd_funcionario'>$nm_nome</td>
-    <td id='valor_placa$cd_funcionario'>$nm_cargo</td>
-    <td id='valor_credencial$cd_funcionario'>$cd_credencial</td>
-    
-    <td id='valor_entrada$cd_funcionario'>$cd_telefone</td>
-    <td >
-         <button class='btn btn-info btn-sm me-1'  style='font-size:12px;margin: 0 5px;' id='botao_visualizar$cd_funcionario' value='$cd_funcionario'name='id_visualizar$cd_funcionario' onclick='visualizar($cd_funcionario)'>Informações</button>
-         <button class='btn btn-danger btn-sm me-1'  style='font-size:12px;margin: 0 5px;' id='botao_delete_funcionario$cd_funcionario' value='$cd_funcionario'name='id_delete_funcionario$cd_funcionario' onclick='delete_funcionario($cd_funcionario)'>Delete</button>
-     </td>
-     </td>
-</tr>";
-}
-
-    $dados .= "</tbody>
-        </table>
-</div><br>";
+        while ($row_usuario = $result_funcionario->fetch(PDO::FETCH_ASSOC)) {
+            extract($row_usuario);
+            $dados .= "
+            <tr>
+            <td style='display:none;' id='valor_id$cd_funcionario'>$cd_funcionario</td>
+            <td >
+                <div id='img_status_vagas$cd_funcionario' style='display:block' class='m-r-10'><img  id='valor_img$img_imagem' src='$diretorio/$img_imagem'  alt='user' class='rounded' width='70px'height='70px' style='margin: auto;'>
+                </div>
+            </td>
+            
+            <td id='valor_nome$cd_funcionario'>$nm_nome</td>
+            <td id='valor_placa$cd_funcionario'>$nm_cargo</td>
+            <td id='valor_credencial$cd_funcionario'>$cd_credencial</td>
+            
+            <td id='valor_entrada$cd_funcionario'>$cd_telefone</td>
+            <td >
+                 <button class='btn btn-info btn-sm me-1'  id='botao_visualizar$cd_funcionario' value='$cd_funcionario'name='id_visualizar$cd_funcionario' onclick='visualizar($cd_funcionario)'>Informações</button>
+                 <button class='btn btn-danger btn-sm me-1'  id='botao_delete_funcionario$cd_funcionario' value='$cd_funcionario'name='id_delete_funcionario$cd_funcionario' onclick='delete_funcionario($cd_funcionario)'>Delete</button>
+             </td>
+             </td>
+        </tr>";
+        }
+        
+            $dados .= "</tbody>
+                </table>
+        </div><br>";
 
         $query_pg = "SELECT COUNT(cd_funcionario) AS num_result FROM tb_funcionario";
         $result_pg = $conn->prepare($query_pg);

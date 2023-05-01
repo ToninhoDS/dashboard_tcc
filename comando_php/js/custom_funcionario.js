@@ -43,23 +43,41 @@ function resetaPagina(){
    
 } 
 async function delete_funcionario(id){
-console.log("js id> " +id); // olhar se chamou a função
-const dados = await fetch('excluir_funcionario.php?id=' + id); 
-
-const retorna = await dados.json();
-if(retorna['erro']){
-    msgAlerta.innerHTML = retorna['msg'];
-    resetaPagina();
-    removerMsgALerta();
+        let text;
+        var nome_func = document.getElementById("valor_nome" + id).innerHTML; // apresentando nome do funcionario
+         if (confirm("Deseja Apagar o Cadastro do Funcionario: "+nome_func+"? \n Pressione o button!") == true) {
+            if (confirm("ESSA AÇÃO APAGARAR PERMANENTEMENTE DO BANCO DE DADOS, OK? \n Pressione o button!") == true) {
+                console.log("js id> " +id); // olhar se chamou a função
+                const dados = await fetch('excluir_funcionario.php?id=' + id); 
     
-    }else{
-        msgAlerta.innerHTML =retorna['msg'];
-  
-        removerMsgALerta();
-        
-        listarUsuarios(1);
+                const retorna = await dados.json();
+                if(retorna['erro']){
+                        msgAlerta.innerHTML = retorna['msg'];
+                        resetaPagina();
+                        removerMsgALerta();
+                        
+                        }else{
+                            msgAlerta.innerHTML =retorna['msg'];
+                    
+                            removerMsgALerta();
+                            
+                            listarUsuarios(1);
+    
+                        } 
+             } else {
+                 listarUsuarios(1);
+                 //window.location.reload(10); // carrega a pagina
+             text = "You canceled!";
+     
+             }
+         } else {
+             listarUsuarios(1);
+             //window.location.reload(10); // carrega a pagina
+         text = "You canceled!";
+ 
+         }
+    
 
-    }
 }
 
 
