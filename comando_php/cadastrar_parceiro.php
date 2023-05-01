@@ -6,10 +6,10 @@ session_start(); // Iniciar a sessão
 ob_start();
 
 // Incluir o arquivo que possui as configurações
-include_once './config/config.php';
+include_once '../adm/config/config.php';
 
 // Incluir o arquivo com a conexão com banco de dados
-include_once './lib/conexao.php';
+include_once '../adm/lib/conexao.php';
 
 ?>
 
@@ -55,7 +55,7 @@ include_once './lib/conexao.php';
             $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
 
             // Redirecionar o usuário para a página de login
-            header("Location: login_parceiro.php");
+            header("Location: /dashboard_tcc/login_parceiro.php");
         }else{
             echo "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>";
         }

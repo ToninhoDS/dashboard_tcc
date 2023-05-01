@@ -1,5 +1,6 @@
 <?php
 
+
 // Endereço do projeto
 define('URL', 'http://localhost/dashboard_tcc/');
 define('URLADM', 'http://localhost/dashboard_tcc/adm/');

@@ -38,6 +38,9 @@ include("crud_php/conexao_cadastro.php");
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item">
+<!-- nome de quem logou -->
+                        <li class=" nav-item  dropdown notification" style="margin:0 23px"> <a class="nav-link nav-icons"  id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span><?php echo "Bem vindo &nbsp;" ,recuperarNomeToken() ?></a></li>
+                        <!-- fim -->
                         <div id="custom-search" class="top-search-bar">
                             <input class="form-control" type="text" placeholder="Search..">
                         </div>

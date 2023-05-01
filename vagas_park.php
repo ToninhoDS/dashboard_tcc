@@ -1,38 +1,23 @@
 <?php
 include("comando_php/crud_php/conexao_cadastro.php");
-session_start(); // Iniciar a sessão
 
-// Limpara o buffer de redirecionamento
+session_start(); 
+
 ob_start();
 
-// Incluir o arquivo para validar e recuperar dados do token
 include_once 'valida_token.php';
 
-// Chamar a função validar o token, se a função retornar FALSE significa que o token é inválido e acessa o IF
 if(!validarToken()){
-    // Criar a mensagem de erro e atribuir para variável global
+
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
-    // Redireciona o o usuário para o arquivo vagas_park.php
     header("Location:adm/login_parceiro.php");
 
-    // Pausar o processamento da página
     exit();
 }
 
-// Chamar a função para recuperar o nome salvo no token
-echo "Bem vindo " . recuperarNomeToken() . ". <br>";
-
-// Chamar a função para recuperar o e-mail salvo no token
-echo "E-mail do usuário logado " . recuperarEmailToken() . ". <br>";
-
-echo "<a href='dashboard.php'>Dashbard</a><br>";
-echo "<a href='listar-slides.php'>Listar Slides</a><br>";
-
-// Link para sair e apagar cookie token
-echo "<a href='logout.php'>Sair</a><br>";
-
 ?>
+
 <!doctype html>
 <html lang="pt-BR">
  
@@ -66,6 +51,9 @@ echo "<a href='logout.php'>Sair</a><br>";
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
+                        <!-- nome de quem logou -->
+                        <li class=" nav-item  dropdown notification" style="margin:0 23px"> <a class="nav-link nav-icons"  id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span><?php echo "Bem vindo &nbsp;" ,recuperarNomeToken() ?></a></li>
+                        <!-- fim -->
                         <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
                                 <input class="form-control" type="text" placeholder="Search..">

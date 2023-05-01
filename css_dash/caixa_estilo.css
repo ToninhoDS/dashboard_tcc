@@ -1252,6 +1252,10 @@ Top Header
 .navbar-right-top .nav-item {
     border-right: 1px solid #e6e6f2;
 }
+.navbar-right-top .nome_parceiro {
+    border-right: 0px solid #00000000 ;
+   
+}
 
 .navbar-right-top .nav-item:last-child {
     border: none;

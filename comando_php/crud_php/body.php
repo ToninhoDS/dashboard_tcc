@@ -1,7 +1,20 @@
 <?php
 include_once "crud_php/conexao_cadastro.php"; 
 
+session_start(); 
 
+ob_start();
+
+include_once 'valida_token.php';
+
+if(!validarToken()){
+
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    header("Location:adm/login_parceiro.php");
+
+    exit();
+}
 ?>
  <!-- ============================================================== -->
    <!-- navbar e lateral do menu -->
@@ -15,8 +28,11 @@ include_once "crud_php/conexao_cadastro.php";
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
+                     <ul class="navbar-nav ml-auto navbar-right-top">
+                        <!-- nome de quem logou -->
+                     <li class=" nav-item  dropdown notification" style="margin:0 23px"> <a class="nav-link nav-icons"  id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span><?php echo "Bem vindo &nbsp;" ,recuperarNomeToken() ?></a></li>
+                    <!-- fim -->
+                    <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
                                 <input class="form-control" type="text" placeholder="Search..">
                             </div>

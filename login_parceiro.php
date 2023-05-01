@@ -174,7 +174,7 @@ if (isset($dados['senha'])) {
     </form>
     <!-- Fim do formulário de login -->
 
-    <a href="cadastrar.php">Cadastrar</a>
+    <a href="comando_php/cadastrar_parceiro.php">Cadastrar</a>
 
     <br><br>
     Usuário: cesar@celke.com.br<br>
