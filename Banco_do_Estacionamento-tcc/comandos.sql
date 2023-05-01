@@ -28,3 +28,6 @@ f.cd_credencial, f.cd_email_funcionario, f.cd_senha_funcionario, f.cd_telefone, 
     update tb_gerente
 SET CD_IMG = 'bernardo.png'
 WHERE CD_GERENTE = 1;
+
+UPDATE tb_funcionario SET nm_nome='tonico'  WHERE cd_credencial='30039';
+DELETE FROM tb_relatorio_atividade WHERE cd_relatorio_atividade >=191 ;

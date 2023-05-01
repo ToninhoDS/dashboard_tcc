@@ -25,7 +25,7 @@ f.cd_credencial, f.cd_email_funcionario, f.cd_senha_funcionario, f.cd_telefone, 
          // ler o resultados ,PDO ultilar conexao PDO, FETCH_ASSSOC para imprimir atravez da coluna
         $retorna = ['status' => true, 'dados' => $row_usuario];
     }else{
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum Funcionario foi encontrado!!!</div>"];
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum Funcionario foi encontradodcdsd!!!</div>"];
     }
 } else {
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Nenhum Funcionario foi encontrado!</div>"];

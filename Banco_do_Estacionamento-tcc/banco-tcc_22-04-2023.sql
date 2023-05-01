@@ -7,7 +7,6 @@
 -- create database db_tcc_estacionamento;
 -- use db_tcc_estacionamento;
 
-
 create table if not exists tb_uf(
 cd_uf int not null auto_increment,
 sg_uf char(10),
@@ -298,7 +297,6 @@ references tb_bairro_empresa(cd_bairro)
 engine=InnoDB;
 
 
-drop table tb_funcionario;
 create table if not exists tb_funcionario(
 cd_funcionario int not null auto_increment,
 nm_nome varchar (150),
@@ -385,29 +383,29 @@ insert into tb_bairro_empresa values
 
 insert into tb_gerente value
 ('1','Denisse','Gerente','Atuante no mercado','Compromisso'
-,'30','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1'),
+,'30','Denissegerente@vagaspark.com','123456','13981603708','bernardo.png','1'),
 ('2','Luciano','Gerente','Atuante no mercado','Compromisso'
-,'32','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png','2'),
+,'32','Denissegerente@vagaspark.com','123456','13981603708','antonio-mayda.png','2'),
 ('3','Anderson','Gerente','Atuante no mercado','Compromisso'
-,'33','Denissegerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/054.png','3');
+,'33','Denissegerente@vagaspark.com','123456','13981603708','screenshot-1.png','3');
 
 insert into tb_funcionario value
 ('1','Antonio carlos','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','screenshot-14.png','1','1'),
 
 ('2','Carlos Fafa','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png','1','1'),
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','screenshot-2.png','1','1'),
 ('3','Renato','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','feedback-do-cliente.png'
 ,'1','2'),
 ('4','Douglas','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','screenshot-2.png.png'
 ,'1','2'),
 ('5','Julia','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','feedback-do-cliente.png'
 ,'1','2'),
 ('6','RAfael','Tec. Manutencao Informatica Junior','Ensino Completo','2023-04-22','Masculino',
-'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png'
+'Elisete dos Santos','Casado','1988-03-05','30','12345678901','996665558','30039','Antoniogerente@vagaspark.com','123456','13981603708','screenshot-2.png.png'
 ,'1','3');
 
 insert into tb_status_vagas  (cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, dt_entrada, sg_placa, cd_cpf, nm_status) values
@@ -804,7 +802,6 @@ insert into tb_telefone values
 ('18','(41) 99549-8073', null,'18'),
 ('19','(16) 99195-9999', null,'19'),
 ('20','(11) 99214-9687', null,'20');
-
 
 
 -- VIEWs -- 

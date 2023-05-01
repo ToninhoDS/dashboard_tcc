@@ -25,6 +25,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
     $result_gerente->execute();
     $row_gerente = $result_gerente->fetch(PDO::FETCH_ASSOC);
     extract($row_gerente); // array
+    $cd_gerente = $row_gerente['cd_gerente'];
     $nome_gerente = $row_gerente['nm_gerente'];
     $foto_gerente = $row_gerente['cd_img'];
     $id_gerente = $row_gerente['cd_gerente'];

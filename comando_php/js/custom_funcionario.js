@@ -45,7 +45,7 @@ function resetaPagina(){
 async function delete_funcionario(id){
         let text;
         var nome_func = document.getElementById("valor_nome" + id).innerHTML; // apresentando nome do funcionario
-         if (confirm("Deseja Apagar o Cadastro do Funcionario: "+nome_func+"? \n Pressione o button!") == true) {
+         if (confirm("Deseja Apagar o Cadastro do Funcionario(a): "+nome_func+"? \n Pressione o button!") == true) {
             if (confirm("ESSA AÇÃO APAGARAR PERMANENTEMENTE DO BANCO DE DADOS, OK? \n Pressione o button!") == true) {
                 console.log("js id> " +id); // olhar se chamou a função
                 const dados = await fetch('excluir_funcionario.php?id=' + id); 
@@ -243,3 +243,9 @@ form.addEventListener('submit', function(event) {
   form.submit();
 });
 
+//sair do DashBoard
+
+function sairDashboard(){
+    console.log('ssd');
+    window.location.href = 'http://localhost/home_vagas/login.php';
+}
