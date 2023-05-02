@@ -1,5 +1,5 @@
 <?php
-include("comando_php/crud_php/conexao_cadastro.php");
+include("../comando_php/crud_php/conexao_cadastro.php");
 
 session_start(); 
 
@@ -11,12 +11,10 @@ if(!validarToken()){
 
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
-    header("Location:adm/erro_404.php");
+    header("Location:../adm/erro_404.php");
 
     exit();
 }
-
-?>
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -24,14 +22,12 @@ if(!validarToken()){
 <head>
     
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css_dash/rayra.css">
-    <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
-    <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 
-    <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="css_dash/morris.css">
-    
-    <link rel="stylesheet" href="css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../css_dash/tabela_estilo.css">
+    <link rel="stylesheet" href="../css_dash/bootstrap.min.css"> 
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_dash/caixa_estilo.css"> 
+    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 	
@@ -44,14 +40,14 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/dashboard_tcc/vagas_park.php">Vagas Park</a>
+                <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                      <ul class="navbar-nav ml-auto navbar-right-top">
-                        <!-- nome de quem logou -->
+                       <!-- nome de quem logou -->
                      <li class=" nav-item  dropdown notification" style="margin:0 23px"> <a class="nav-link nav-icons"  id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span><?php echo "Bem vindo &nbsp;" ,recuperarNomeToken() ?></a></li>
                     <!-- fim -->
                     <li class="nav-item">
@@ -281,69 +277,76 @@ if(!validarToken()){
 	<div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Status das Vagas do <strong>Estacionamento</strong></h3>       
-                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Relatório de <strong>Atividade</strong></h3> 
+                <div class='row'>    
+                	<div style="margin: 5px 5px ;" class="col-md-3">                                       
                     <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
-                    	<span class="listar-vagas_detalhes"></span>
+                	<div style="padding: 5px 5px ;" class="col-md-3">                                       
+                    <a href="relatorio_lixeira.php"><button  class="btn-success btn-lg"  style='width: 180px; height: 35px;padding: 0px 25px;'>Lixeira<div class="dot"></div></button></a>
+                 	</div>
+                     </div> 
+                    	<span class="listar-relatorio_atividade"></span>
 				</div>
 			</div>                
 		</div>
 	</div>
 </div>
+
 <!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"STYLE="font-size:30px">&times;</span>
-                </button>
-            </div>
-                <div class="modal-body">
-                    <dl class="row">
-                        <dt class="col-sm-3">ID</dt>
-                        <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">Nome:</dt>
-                        <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">CPF:</dt>
-                        <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
-                        <dt class="col-sm-3">Email:</dt></dt>
-                        <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">Bairro:</dt></dt>
-                        <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">Cidade:</dt></dt>
-                        <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">UF-Estado:</dt></dt>
-                        <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
-                        <dt class="col-sm-3">Telefone:</dt></dt>
-                        <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
-                    </dl>
-                </div>
-            <div class="modal-header">
-                <h5 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veiculo</h5>
-            </div>
-                <div class="modal-body">
-                    <dl class="row">
-                        <dt class="col-sm-3">Placa:</dt>
-                        <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
-                        <dt class="col-sm-3">Modelo:</dt>
-                        <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
-                        <dt class="col-sm-3">Marca:</dt>
-                        <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
-                        <dt class="col-sm-3">Cor:</dt></dt>
-                        <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
-                
-                    </dl>
-                </div>
-        </div>
+<!-- <div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"STYLE="font-size:30px">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Nome:</dt>
+            <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
+            <dt class="col-sm-3">CPF:</dt>
+            <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
+            <dt class="col-sm-3">Email:</dt></dt>
+            <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Bairro:</dt></dt>
+            <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Cidade:</dt></dt>
+            <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
+            <dt class="col-sm-3">UF-Estado:</dt></dt>
+            <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
+            <dt class="col-sm-3">Telefone:</dt></dt>
+            <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
+        </dl>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veiculo</h5>
+      </div>
+      <div class="modal-body">
+        <dl class="row">
+            <dt class="col-sm-3">Placa:</dt>
+            <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
+            <dt class="col-sm-3">Modelo:</dt>
+            <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
+            <dt class="col-sm-3">Marca:</dt>
+            <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
+            <dt class="col-sm-3">Cor:</dt></dt>
+            <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
+        
+        </dl>
+      </div>
+      
     </div>
-</div>
+  </div>
+</div> -->
 </div>  
- </div>
+ </div> 
   
 <!-- fim Modal -->
 <!-- footer -->
@@ -381,25 +384,25 @@ if(!validarToken()){
   
     
     <!-- Optional JavaScript -->
-    <script src="chart_js/jquery-3.3.1.min.js"></script>
-    <script src="chart_js/bootstrap.bundle.js"></script>
-    <script src="chart_js/jquery.slimscroll.js"></script>     
-    <script src="chart_js/main-js.js"></script>
-    <script src="chart_js/chartist.min.js"></script>
-    <script src="chart_js/jquery.sparkline.js"></script>
-    <script src="chart_js/raphael.min.js"></script>
-    <script src="chart_js/morris.js"></script>
-    <script src="chart_js/c3.min.js"></script>
-    <script src="chart_js/d3-5.4.0.min.js"></script>
-    <script src="chart_js/C3chartjs.js"></script>
+    <script src="../chart_js/jquery-3.3.1.min.js"></script>
+    <script src="../chart_js/bootstrap.bundle.js"></script>
+    <script src="../chart_js/jquery.slimscroll.js"></script>     
+    <script src="../chart_js/main-js.js"></script>
+    <script src="../chart_js/chartist.min.js"></script>
+    <script src="../chart_js/jquery.sparkline.js"></script>
+    <script src="../chart_js/raphael.min.js"></script>
+    <script src="../chart_js/morris.js"></script>
+    <script src="../chart_js/c3.min.js"></script>
+    <script src="../chart_js/d3-5.4.0.min.js"></script>
+    <script src="../chart_js/C3chartjs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js" integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="chart_js/chart.js"></script>
-	<script src="chart_js/Chart.bundle.js"></script>
-	<script src="chart_js/chartjs.js"></script>
-	<script src="chart_js/api_chart.js"></script>
-      <script src="chart_js/dashboard-influencer.js"></script>
-      <script src="chart_js/custom_vagas_detalhes.js"></script>
+    <script src="../chart_js/chart.js"></script>
+	<script src="../chart_js/Chart.bundle.js"></script>
+	<script src="../chart_js/chartjs.js"></script>
+	<script src="../chart_js/api_chart.js"></script>
+      <script src="../chart_js/dashboard-influencer.js"></script>
+      <script src="../chart_js/custom_relatorio_atividade.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- fim -->
 </body>
