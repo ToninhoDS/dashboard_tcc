@@ -338,16 +338,7 @@ constraint pk_status_vagas
 primary key (cd_status_vagas)
 ) engine=InnoDB auto_increment=0;
 
--- tabela teste de login sessao
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `senha_usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
--- fim login sessao
+
 create table if not exists tb_bike_outros(
 cd_bike_outros int not null auto_increment,
 cd_transporte varchar (50),
