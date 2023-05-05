@@ -6,10 +6,10 @@ session_start(); // Iniciar a sessão
 ob_start();
 
 // Incluir o arquivo que possui as configurações
-include_once '../adm/config/config.php';
+include_once './adm/config/config.php';
 
 // Incluir o arquivo com a conexão com banco de dados
-include_once '../adm/lib/conexao.php';
+include_once './adm/lib/conexao.php';
 
 ?>
 <!DOCTYPE html>
@@ -174,10 +174,10 @@ if (isset($dados['senha'])) {
     </form>
     <!-- Fim do formulário de login -->
 
-    <a href="../comando_php/cadastrar_parceiro.php">Cadastrar</a>
+    <a href="comando_php/cadastrar_parceiro.php">Cadastrar</a>
 
     <br><br>
-    Usuário: tonico@ds<br>
+    Usuário: cesar@celke.com.br<br>
     Senha: 123456
     
 </body>

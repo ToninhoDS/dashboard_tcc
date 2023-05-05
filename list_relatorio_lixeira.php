@@ -1,7 +1,7 @@
 
 <?php
 
-include_once "../comando_php/crud_php/conexao_cadastro.php";
+include_once "comando_php/crud_php/conexao_cadastro.php";
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
                             
@@ -76,7 +76,7 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     <tr  class='$nm_nome_acao_tabela' >
         <td  id='valor_id$cd_relatorio_atividade_lixeira'>$cd_relatorio_atividade_lixeira</td> 
         <td><div id='img_status_vagas$cd_relatorio_atividade_lixeira' style='display:block' class='m-r-10'>
-             <img id='valor_img$img_icon' src='../$img_icon' alt='user' class='rounded' width='45'></div>
+             <img id='valor_img$img_icon' src='$img_icon' alt='user' class='rounded' width='45'></div>
          </td>
         <td id='valor_nome$cd_relatorio_atividade_lixeira'>$nm_nome_acao</td>
         <td  id='valor_cpf$cd_relatorio_atividade_lixeira'>$nm_origem</td>

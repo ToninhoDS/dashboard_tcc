@@ -78,7 +78,7 @@ include_once '../adm/lib/conexao.php';
     </form>
     <!-- Fim do formulário cadastrar usuário -->
 
-    <a href="../vagas_park/login_parceiro.php">Login</a><br><br>
+    <a href="login_parceiro.php">Login</a><br><br>
     
 </body>
 </html>

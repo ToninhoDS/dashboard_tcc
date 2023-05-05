@@ -1,5 +1,5 @@
 <?php
-include("../comando_php/crud_php/conexao_cadastro.php");
+include("comando_php/crud_php/conexao_cadastro.php");
 
 session_start(); 
 
@@ -11,7 +11,7 @@ if(!validarToken()){
 
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
-    header("Location:../adm/erro_404.php");
+    header("Location:adm/erro_404.php");
 
     exit();
 }
@@ -24,14 +24,14 @@ if(!validarToken()){
 <head>
     
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css_dash/tabela_estilo.css">
-    <link rel="stylesheet" href="../css_dash/bootstrap.min.css"> 
-    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css_dash/caixa_estilo.css"> 
-    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../css_dash/morris.css">
+    <link rel="stylesheet" href="css_dash/tabela_estilo.css">
+    <link rel="stylesheet" href="css_dash/bootstrap.min.css"> 
+    <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css_dash/caixa_estilo.css"> 
+    <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="css_dash/morris.css">
     
-    <link rel="stylesheet" href="../css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>VAGASPARK</title>
@@ -44,7 +44,7 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
+                <a class="navbar-brand" href="/dashboard_tcc/vagas_park.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -727,26 +727,26 @@ $query_usuarios = "SELECT  cd_status_vagas, cd_numero_vaga, nm_nome, img_icon, d
     
     <!-- Optional JavaScript -->
     <!-- sempre excluir o  link do js, mesmo  '// marcado com texto ele ainda vai buscar e da erro' -->
-    <script src="../chart_js/jquery-3.3.1.min.js"></script>
-    <script src="../chart_js/bootstrap.bundle.js"></script>
-    <script src="../chart_js/jquery.slimscroll.js"></script>     
-    <script src="../chart_js/main-js.js"></script>
-    <script src="../chart_js/chartist.min.js"></script>
-    <script src="../chart_js/jquery.sparkline.js"></script>
-    <script src="../chart_js/raphael.min.js"></script>
-    <script src="../chart_js/morris.js"></script>
-    <script src="../chart_js/c3.min.js"></script>
-    <script src="../chart_js/d3-5.4.0.min.js"></script>
-    <script src="../chart_js/C3chartjs.js"></script>
+    <script src="chart_js/jquery-3.3.1.min.js"></script>
+    <script src="chart_js/bootstrap.bundle.js"></script>
+    <script src="chart_js/jquery.slimscroll.js"></script>     
+    <script src="chart_js/main-js.js"></script>
+    <script src="chart_js/chartist.min.js"></script>
+    <script src="chart_js/jquery.sparkline.js"></script>
+    <script src="chart_js/raphael.min.js"></script>
+    <script src="chart_js/morris.js"></script>
+    <script src="chart_js/c3.min.js"></script>
+    <script src="chart_js/d3-5.4.0.min.js"></script>
+    <script src="chart_js/C3chartjs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js" integrity="sha512-Cv3WnEz5uGwmTnA48999hgbYV1ImGjsDWyYQakowKw+skDXEYYSU+rlm9tTflyXc8DbbKamcLFF80Cf89f+vOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../chart_js/chart.js"></script>
-	<script src="../chart_js/Chart.bundle.js"></script>
-    <script src="../chart_js/custom_vagas.js"></script>
+    <script src="chart_js/chart.js"></script>
+	<script src="chart_js/Chart.bundle.js"></script>
+    <script src="chart_js/custom_vagas.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- graficos -->
-      <script src="../chart_js/card_quantp_hora.js"></script>
-      <script src="../chart_js/graficos_vagas.js"></script>
+      <script src="chart_js/card_quantp_hora.js"></script>
+      <script src="chart_js/graficos_vagas.js"></script>
     <!-- fim -->
 </body>
  
