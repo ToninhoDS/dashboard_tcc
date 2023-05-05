@@ -1,5 +1,5 @@
 <?php
-include("comando_php/crud_php/conexao_cadastro.php");
+include("../comando_php/crud_php/conexao_cadastro.php");
 
 session_start(); // Iniciar a sessão
 
@@ -15,7 +15,7 @@ if(!validarToken()){
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
     // Redireciona o o usuário para o arquivo vagas_park.php
-    header("Location:adm/erro_404.php");
+    header("Location:../adm/erro_404.php");
 
     // Pausar o processamento da página
     exit();
@@ -35,11 +35,11 @@ if(!validarToken()){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css_dash/bootstrap.min.css">
-    <link href="css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="css_dash/caixa_estilo.css">
+    <link rel="stylesheet" href="../css_dash/bootstrap.min.css">
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="../css_dash/caixa_estilo.css">
     
-    <link rel="stylesheet" href="css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link href="css_dash/jquery.minicolors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link href="../css_dash/jquery.minicolors.css" rel="stylesheet">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
 </head>
@@ -52,7 +52,7 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard_tcc/vagas_park.php">Vagas Park</a>
+            <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -378,16 +378,16 @@ if(!validarToken()){
     </div>
 
     <!-- ============================================================== -->
-      <script src="chart_js/jquery-3.3.1.min.js"></script>
-    <script src="chart_js/bootstrap.bundle.js"></script>
-    <script src="chart_js/jquery.slimscroll.js"></script>
-    <script src="chart_js/main-js.js"></script>
+      <script src="../chart_js/jquery-3.3.1.min.js"></script>
+    <script src="../chart_js/bootstrap.bundle.js"></script>
+    <script src="../chart_js/jquery.slimscroll.js"></script>
+    <script src="../chart_js/main-js.js"></script>
    
     <!-- This Page JS -->
-    <script src="chart_js/jquery-asColor.min.js"></script>
-    <script src="chart_js/jquery-asGradient.js"></script>
-    <script src="chart_js/jquery-asColorPicker.min.js"></script>
-    <script src="chart_js/jquery.minicolors.min.js"></script>
+    <script src="../chart_js/jquery-asColor.min.js"></script>
+    <script src="../chart_js/jquery-asGradient.js"></script>
+    <script src="../chart_js/jquery-asColorPicker.min.js"></script>
+    <script src="../chart_js/jquery.minicolors.min.js"></script>
     <script>
    $('.demo').each(function() {
         //

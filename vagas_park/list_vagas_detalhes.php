@@ -1,7 +1,7 @@
 
 <?php
 
-include_once "comando_php/crud_php/conexao_cadastro.php";
+include_once "../comando_php/crud_php/conexao_cadastro.php";
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($pagina)) {
@@ -48,25 +48,25 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
                              
                             
     if($row_usuario ['img_icon'] == 'Carro'){
-        $img_icon ="img/carro_vagas.png";
+        $img_icon ="../img/carro_vagas.png";
     }else{if($row_usuario ['img_icon'] == 'Moto'){
-        $img_icon ="img/moto_vagas.png";
+        $img_icon ="../img/moto_vagas.png";
     }else{if($row_usuario ['img_icon'] == 'Bicicleta'){
-        $img_icon ="img/bike_vagas.jpg";
+        $img_icon ="../img/bike_vagas.jpg";
     }else{if($row_usuario ['img_icon'] == 'Patins'){
-        $img_icon ="img/patins_vagas.png";
+        $img_icon ="../img/patins_vagas.png";
     }else{if($row_usuario ['img_icon'] == 'Outros'){
-        $img_icon ="img/outros_vagas.png";
+        $img_icon ="../img/outros_vagas.png";
     }else{if($row_usuario ['img_icon'] == 'Livre'){
-        $img_icon ="img/disponivel_vagas.png";
+        $img_icon ="../img/disponivel_vagas.png";
     }else{if($row_usuario ['img_icon'] == ''){
-        $img_icon ="img/disponivel_vagas.png";
+        $img_icon ="../img/disponivel_vagas.png";
     }else{}
 }}}}}}
     // limpar a tabela quando select for Livre
     if($row_usuario ['nm_status'] == 'Livre'){
         $status = 'badge-success';
-        $img_icon = "img/disponivel_vagas.png";
+        $img_icon = "../img/disponivel_vagas.png";
         $diff_hours = 0;
         $diff_minutes = 0;
         $data_vagas = '';
