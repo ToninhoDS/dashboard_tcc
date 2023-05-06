@@ -55,7 +55,7 @@ include_once '../adm/lib/conexao.php';
             $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
 
             // Redirecionar o usuário para a página de login
-            header("Location: /dashboard_tcc/login_parceiro.php");
+            header("Location: ../vagas_park/login_parceiro.php");
         }else{
             echo "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>";
         }

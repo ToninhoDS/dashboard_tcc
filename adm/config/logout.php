@@ -9,4 +9,4 @@ setcookie('token');
 $_SESSION['msg'] = "<p style='color: green;'>Deslogado com sucesso!</p>";
 
 // Redireciona o o usuário para o arquivo vagas_park.php
-header("Location: login_parceiro.php");
+header("Location: /dashboard_tcc/vagas_park/login_parceiro.php");

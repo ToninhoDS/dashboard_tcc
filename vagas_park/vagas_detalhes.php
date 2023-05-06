@@ -5,7 +5,7 @@ session_start();
 
 ob_start();
 
-include_once 'valida_token.php';
+include_once '../adm/config/valida_token.php';
 
 if(!validarToken()){
 
@@ -146,7 +146,7 @@ if(!validarToken()){
                                     <span class="status"></span><span class="ml-2">Perfil</span>
                                 </div>
                                  <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
-                                <a href="/dashboard_tcc/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
+                                <a href="/dashboard_tcc/vagas_park/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
                                 <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
@@ -184,7 +184,7 @@ if(!validarToken()){
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.php">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -202,10 +202,10 @@ if(!validarToken()){
                                     
                                     
                                      <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                    <a class="nav-link" href="/dashboard_tcc/vagas_park/profile_empresa.html">Detalhamento</a>
                                 </li>
                                  <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/nota_gastos.php">Planilha</a>
+                                        <a class="nav-link" href="/dashboard_tcc/vagas_park/nota_gastos.php">Planilha</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" >vazio </a>
@@ -220,28 +220,28 @@ if(!validarToken()){
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/vagas_park/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            <a class="nav-link" href="/dashboard_tcc/vagas_park/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                            <a class="nav-link" href="/dashboard_tcc/vagas_park/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
                         </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                                <a class="nav-link"  href="/dashboard_tcc/vagas_park/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                                 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/dashboard_tcc/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link"  href="/dashboard_tcc/vagas_park/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                                
                             </li>                      
                         </ul>
