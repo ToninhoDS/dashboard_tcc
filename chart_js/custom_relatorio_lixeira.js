@@ -58,7 +58,7 @@ function resetaPagina(){
 
 async function confirma_registro(){
 
-const dados = await fetch('comando_php/excluir_relatorio_lixeira.php?id=' ); 
+const dados = await fetch('excluir_relatorio_lixeira.php?id=' ); 
 const retorna = await dados.json();
 if(retorna['erro']){
     msgAlerta.innerHTML = retorna['msg'];

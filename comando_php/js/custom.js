@@ -225,7 +225,7 @@ async function excluir_registro(id){
 async function confirma_registro(id){
 
 var  $id_valor = document.getElementById("valor_id" + id).innerHTML;
-console.log("js id> " +id); // olhar se chamou a função
+console.log("excluir > id> " +id); // olhar se chamou a função
 
 
 // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario

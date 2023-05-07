@@ -1,6 +1,21 @@
 <?php
-
 include("crud_php/conexao_cadastro.php");
+
+
+session_start(); 
+
+ob_start();
+
+include_once '../adm/config/valida_token.php';
+
+if(!validarToken()){
+
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    header("Location:../adm/erro_404.php");
+
+    exit();
+}
 
 ?>
 <!doctype html>
@@ -30,7 +45,7 @@ include("crud_php/conexao_cadastro.php");
    <div class="dashboard-main-wrapper">
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard_tcc/">Vagas Park</a>
+            <a class="navbar-brand" href="/dashboard_tcc/comando_php/vagas_park.php">Vagas Park</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,6 +53,9 @@ include("crud_php/conexao_cadastro.php");
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item">
+<!-- nome de quem logou -->
+                        <li class=" nav-item  dropdown notification" style="margin:0 23px"> <a class="nav-link nav-icons"  id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span><?php echo "Bem vindo &nbsp;" ,recuperarNomeToken() ?></a></li>
+                        <!-- fim -->
                         <div id="custom-search" class="top-search-bar">
                             <input class="form-control" type="text" placeholder="Search..">
                         </div>
@@ -122,15 +140,16 @@ include("crud_php/conexao_cadastro.php");
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/img_sistema/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name">Antonio Carlos</h5>
+                                <h5 class="mb-0 text-white nav-user-name"><?php echo $nome_gerente?></h5>
                                 <span class="status"></span><span class="ml-2">Perfil</span>
                             </div>
-                            <a class="dropdown-item" ><i class="fas fa-user mr-2"></i>Conta</a>
-                            <a class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                            <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                             <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
+                            <a href="/dashboard_tcc/comando_php/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
+                            <a href="logout.php" class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                            <!-- <a class="dropdown-item" onclick="sairDashboard()"><i class="fas fa-power-off mr-2"></i>Sair</a> -->
                         </div>
                     </li>
                 </ul>
@@ -167,7 +186,7 @@ include("crud_php/conexao_cadastro.php");
                                                                 <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/detalhamento_servico_tabela.html">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/comando_php/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -182,16 +201,14 @@ include("crud_php/conexao_cadastro.php");
                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                             <div id="submenu-16" class="collapse submenu">
                                 <ul class="nav flex-column">
-                                    
-                                    
                                      <li class="nav-item">
-                                    <a class="nav-link" href="dashboard_tcc/profile_empresa.html">Detalhamento</a>
+                                    <a class="nav-link" href="#">Detalhamento</a>
                                 </li>
                                  <li class="nav-item">
-                                        <a class="nav-link" href="dashboard_tcc/nota_gastos.html">Planilha</a>
+                                        <a class="nav-link" href="#">Planilha</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" >vazio </a>
+                                        <a class="nav-link" href="#" >vazio </a>
                                     </li>
                                 </ul>
                             </div>
@@ -203,28 +220,28 @@ include("crud_php/conexao_cadastro.php");
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/cards.html" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                          </li>
                          <li class="nav-item">
-                        <a class="nav-link" href="/dashboard_tcc/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                        <a class="nav-link" href="/dashboard_tcc/comando_php/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
                          </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/regras_de_negocio.html" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/configuracao.html" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -233,20 +250,12 @@ include("crud_php/conexao_cadastro.php");
         </div>
     </div>
              <!-- navbar e lateral do menu -->
-     <!-- ============================================================== -->
+
         <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-profile">
                 <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader -->
-                    <!-- ============================================================== -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
@@ -264,31 +273,14 @@ include("crud_php/conexao_cadastro.php");
                         </div>
                     </div>
                     <!-- ============================================================== -->
-             
-            
-                    <?php
-
-$query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_reviews, nm_idade, nm_email, nm_senha, cd_telefone ,cd_img FROM tb_gerente WHERE cd_gerente= 1"; //QUAL GERENTE ESTA LOGANDO
-    $result_gerente = $conn->prepare($query_gerente);
-    $result_gerente->execute();
-    $row_gerente = $result_gerente->fetch(PDO::FETCH_ASSOC);
-    extract($row_gerente); // array
-  
-?>
-<!-- pegando contador de vagas -->
-                    <!-- ============================================================== -->
+                    <!-- =========PEGANDO AS INFORMAÇÕES DO GERENTE NO BANCO=========== -->
                     <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- profile -->
-                        <!-- ============================================================== -->
+              
                         <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
-                            <!-- ============================================================== -->
-                            <!-- card profile -->
-                            <!-- ============================================================== -->
                             <div class="card">
                                 <div class="card-body">
                                     <div class="user-avatar text-center d-block">
-                                        <img src="<?php echo $row_gerente['cd_img'] ?>" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                                        <img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="User Avatar" class="rounded-circle user-avatar-xxl">
                                     </div>
                                     <div class="text-center">
                                         <h2 class="font-24 mb-0"><?php echo $row_gerente['nm_gerente'] ?></h2>
@@ -337,8 +329,17 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                 </div> -->
                             </div>
                         </div>
+
                         <!-- ============================================================== -->
                         <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
+<?php
+    if(isset($_SESSION['msg'])){
+
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']); 
+}  
+
+?>
                             <div class="influence-profile-content pills-regular">
                                 <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
                                     <li class="nav-item" style="margin:0 10px;">
@@ -536,7 +537,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-packages" role="tabpanel" aria-labelledby="pills-packages-tab">
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="section-block">
                                                     <h2 class="section-title">My Packages</h2>
@@ -610,7 +611,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
                                     
@@ -618,7 +619,6 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                                         <div class="row">
                         <!-- ============================================================== -->
                         <!-- tabela DE FUNCIONARIO DO GERENTE -->
-                        <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 </div>
@@ -651,8 +651,8 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
                 </div>
                 <div class="col-md-4">
                   <label for="inputAddress2" style=" " class="form-label">Imagens</label>
-                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" >
-                  <!-- <input type="text" value='https://assets.pokemon.com/assets/cms2/img/pokedex/full/330.png' style="width: 100%;padding:2px;margin:2px 0px" placeholder="Código Imagem" name="img_imagem" id="img_imagem_modal" > -->
+                  <img type="image" class="form-control" name="img_imagem" id="img_imagem_modal" src="">
+                
                 </div>
                 </div>
                   <div class="col-md-8">
@@ -726,64 +726,222 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
             <!-- ============================================================== -->
            <!-- JANELA MODAL DE CONFIRMAÇÃO -->
 <!-- Modal -->
-<div class="modal fade" id="msgCardSucesso" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header alert alert-success">
-        <h4 class="modal-title" id="TituloModalCentralizado">Atualização de Cadastro</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4 id="msgCardconfirmacao" style="font-size:28px">Dados do Funcionario, <strong>Atualizados!!!</strong></h4>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-outline-success " id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- CADASTRO DE FUNCIONARIO-->
-            <!-- ============================================================== -->
-            <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
-                                        <div class="card">
-                                            <h5 class="card-header">Send Messages</h5>
-                                            <div class="card-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="offset-xl-3 col-xl-6 offset-lg-3 col-lg-3 col-md-12 col-sm-12 col-12 p-4">
-                                                            <div class="form-group">
-                                                                <label for="name">Your Name</label>
-                                                                <input type="text" class="form-control form-control-lg" id="name" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="email">Your Email</label>
-                                                                <input type="email" class="form-control form-control-lg" id="email" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="subject">Subject</label>
-                                                                <input type="text" class="form-control form-control-lg" id="subject" placeholder="">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="messages">Messgaes</label>
-                                                                <textarea class="form-control" id="messages" rows="3"></textarea>
-                                                            </div>
-                                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
+             <div class="modal fade" id="msgCardSucesso" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                 <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                            <div class="modal-header alert alert-success">
+                                <h4 class="modal-title" id="TituloModalCentralizado">Atualização de Cadastro</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true"></span>
+                                </button>
+                                     </div>
+                            <div class="modal-body">
+                                <h4 id="msgCardconfirmacao" style="font-size:28px">Dados do Funcionario, <strong>Atualizados!!!</strong></h4>
+                                 </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-success " id="edit-clouse-btn" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+ <!-- CADASTRO DE FUNCIONARIO-->
+ <!-- ============================================================== -->
+                        <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
+                            <div class="card">
+                                <h5 class="card-header">Cadastro de Funcionario</h5>
+                                <div class="card-body">
+                                <form class="needs-validation"  action="cadastrar_funcionario.php" method="POST" id="Cadas_funcionario_form" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Cargo</label>
+                                             <input  name="nm_cargo" id="nm_cargo" required="Campo em Branco" placeholder="Digite" class="form-control"  type="text" >
+                                             <div class="valid-feedback">
+                                                    Correto!
                                             </div>
                                         </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Numero de Registro</label>
+                                             <input  name="cd_credencial" id="cd_credencial" required="Campo em Branco" placeholder="Digite" class="form-control"  type="number" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustom01">Data de Matricula</label>
+                                             <input  name="dt_emissao_contratual" id="dt_emissao_contratual" required="Campo em Branco" placeholder="Digite" class="form-control"  type="date" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 "><br>
+                                            <label for="validationCustom01">Nome Completo do Funcionario</label>
+                                             <input  name="nm_nome" id="nm_nome" required="Campo em Branco" placeholder="Digite o nome" class="form-control"  type="text" >
+                                             <div class="valid-feedback">
+                                                    Correto!
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">CPF</label>
+                                            <input  name="cd_cpf" id="cd_cpf" placeholder="Digite o CPF" required="Campo em Branco" class="form-control"  type="number">
+                                            <div class="invalid-feedback">
+                                                CPF incorreto!.
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom04">Sexo</label>
+                                            <input  name="nm_sexo" id="nm_sexo" placeholder="Digite o Sexo" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><br>
+                                        <div id="img_imagem" style="">
+                                            <img id="imgFuncionario"style="width:250px; height:200px;">
+                                                <input style="width:250px; height:35px;"type="file" name="img_imagem" class="form-control" required="Campo em Branco"  id='imagem' onchange="previewImagem()"/>
+                                            <div class="valid-feedback">
+                                                     Correto!
+                                            </div>
+                                            </div>
+                                        </div>
+                                    <br><br>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom04">Formação</label>
+                                            <input  name="nm_formacao" id="nm_formacao" required="Campo em Branco" placeholder="Profissional" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Invalido
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom05">Nome da Mãe</label>
+                                            <input name="nm_maternidade" id="nm_maternidade"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="mother">
+                                            <div class="invalid-feedback">
+                                                Numero incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom05">Celular</label>
+                                            <input name="cd_telefone" id="cd_telefone"  required="Campo em Branco" placeholder="Digite o numero"  class="form-control"  type="tel">
+                                            <div class="invalid-feedback">
+                                                Numero incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Data de Nascimento</label>
+                                            <input type="date" name="cd_data_nascimento" id="cd_data_nascimento" placeholder="Digite o nascimento" required="Campo em Branco" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Placa do Carro invalida!.
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        <br>
+                        
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Estado Civil</label>
+                                            <input type="text" name="nm_estado_civil" id="nm_estado_civil" placeholder="Digite "  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Marca do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">RG</label>
+                                            <input type="number" name="cd_rg" id="cd_rg" placeholder="Digite"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Modelo do Carro invalido!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Idade</label>
+                                            <input type="number" name="cd_idade" required="Campo em Branco" id="cd_idade" placeholder="Digite" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                                Cor do Carro invalido!.
+                                            </div>
+                                        </div>
+                            
+                                       
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <label for="validationCustomUsername">Email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">📧 </span>
+                                                </div>
+                                                <input name="cd_email_funcionario" id="cd_email_funcionario"  required="Campo em Branco" placeholder="Email" class="form-control"  type="text">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">🔒</span>
+                                                </div>                                                
+                                                <input name="cd_senha_funcionario" id="cd_senha_funcionario"  required="Campo em Branco" placeholder="Senha" class="form-control"  type="password">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupPrepend">🔒👍</span>
+                                                </div>
+                                                <input name="cd_senha_funcionario_conf" id="cd_senha_funcionario_conf" required="Campo em Branco" placeholder="Confirmar senha" class="form-control"  type="password">
+                                                <div class="invalid-feedback">
+                                                    Email incorreto!.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom03">Bairro</label>
+                                            <input  name="nm_bairro" id="nm_bairro"  required="Campo em Branco" placeholder="Digite o Bairro"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            Bairro incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom04">Cidade</label>
+                                            <input  name="nm_cidade" id="nm_cidade"  required="Campo em Branco" placeholder="Digite a Cidade" class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            Cidade incorreto!.
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2"><br>
+                                            <label for="validationCustom05">UF-Estado</label>
+                                            <input name="sg_uf" id="sg_uf"  required="Campo em Branco" placeholder="Digite o Estado"  class="form-control"  type="text">
+                                            <div class="invalid-feedback">
+                                            UF-Estado incorreto!.
+                                            </div>
+                                        </div>
+                                    </div>                                       
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><br>
+                                            <div class="form-group">
+                                                <div class="form-check" style="margin:0 1%">
+                                                    <input class="form-check-input" style="font-size:22px;"type="checkbox" value="" id="invalidCheck" required>
+                                                    <label class="form-check-label" style="font-size:20px" for="invalidCheck">
+                                                        As informações estão corretas?
+                                                    </label>
+                                                    <div class="invalid-feedback">
+                                                        Você, precisa confirma, se as informações estão corretas!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <input type="submit" value="Cadastrar" class="btn btn-lg btn-primary" >
+                                            <button type="reset" class="btn btn-secondary btn-lg"  onclick="LimparpreviewImagem()">Limpar</button>        
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+    </div>
             <!-- ============================================================== -->
            <div class="footer">
                 <div class="container-fluid">
@@ -805,6 +963,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
     </div>
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- jquery 3.3.1  -->
     <script src="../chart_js/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->

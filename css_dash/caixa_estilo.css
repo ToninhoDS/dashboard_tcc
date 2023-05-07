@@ -299,7 +299,7 @@ select.form-control {
     background-position: 99% 52%;
     background-size: auto;
     background-repeat: no-repeat;
-    background-image: url(/dashboard_tcc/detalhamento_servico_tabela.html/dashboard_tcc/detalhamento_servico_tabela.htmlimages/down-arrow.png);
+    background-image: url(/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimages/down-arrow.png);
     padding-right: 15px;
     border: 1px solid #d2d2e4;
     border-radius: 2px;
@@ -1251,6 +1251,10 @@ Top Header
 
 .navbar-right-top .nav-item {
     border-right: 1px solid #e6e6f2;
+}
+.navbar-right-top .nome_parceiro {
+    border-right: 0px solid #00000000 ;
+   
 }
 
 .navbar-right-top .nav-item:last-child {
@@ -5313,7 +5317,7 @@ Vertical Timeline - by CodyHouse.co
     margin: 0 .5em;
     height: 8px;
     width: 6px;
-    background-image: url(/dashboard_tcc/detalhamento_servico_tabela.html/dashboard_tcc/detalhamento_servico_tabela.htmlimages/drag-indicator.png);
+    background-image: url(/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimages/drag-indicator.png);
     -webkit-transform: translate3d(-.5em, 0, 0);
     transform: translate3d(-.5em, 0, 0);
     -webkit-user-select: none;
@@ -5660,7 +5664,7 @@ Vertical Timeline - by CodyHouse.co
 .mailbox .drop-title:after {
     content: "";
     position: absolute;
-    background: url(/dashboard_tcc/detalhamento_servico_tabela.html/dashboard_tcc/detalhamento_servico_tabela.htmlassets/images/background/img5.html) no-repeat;
+    background: url(/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpassets/images/background/img5.html) no-repeat;
     opacity: 0.2;
     top: 0px;
     left: 0px;
