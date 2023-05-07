@@ -2,8 +2,8 @@
 
 
 // Endereço do projeto
-define('URL', 'http://localhost/dashboard_tcc/vagas_park/');
-define('URLADM', 'http://localhost/dashboard_tcc/vagas_park/adm/');
+define('URL', 'http://localhost/dashboard_tcc/comando_php/');
+define('URLADM', 'http://localhost/dashboard_tcc/comando_php/adm/');
 
 // Credenciais do banco de dados
 define('HOST', 'localhost');

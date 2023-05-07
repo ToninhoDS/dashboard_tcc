@@ -358,4 +358,7 @@ constraint pk_bike_outros
 primary key(cd_bike_outros))
 engine=InnoDB;
 
+
+-- criar tabela que resgistra tudo que foi apagado na lixeira 'registros_apagados'
+
 -- fim -- 

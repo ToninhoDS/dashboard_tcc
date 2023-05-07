@@ -1,5 +1,5 @@
 <?php
-include("../comando_php/crud_php/conexao_cadastro.php");
+include("crud_php/conexao_cadastro.php");
 
 session_start(); 
 
@@ -40,7 +40,7 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
+            <a class="navbar-brand" href="/dashboard_tcc/comando_php/vagas_park.php">Vagas Park</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -135,15 +135,15 @@ if(!validarToken()){
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorioRaiz,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name"><?php echo $nome_gerente?></h5>
                                 <span class="status"></span><span class="ml-2">Perfil</span>
                             </div>
                              <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
-                            <a href="/dashboard_tcc/vagas_park/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                            <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                            <a href="/dashboard_tcc/comando_php/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
+                            <a href="logout.php" class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                         </div>
                     </li>
                 </ul>
@@ -180,7 +180,7 @@ if(!validarToken()){
                                                                 <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/comando_php/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -194,17 +194,15 @@ if(!validarToken()){
                         <li class="nav-item">
                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                             <div id="submenu-16" class="collapse submenu">
-                                <ul class="nav flex-column">
-                                    
-                                    
+                            <ul class="nav flex-column">
                                      <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard_tcc/vagas_park/profile_empresa.html">Detalhamento</a>
+                                    <a class="nav-link" href="#">Detalhamento</a>
                                 </li>
                                  <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/vagas_park/nota_gastos.php">Planilha</a>
+                                        <a class="nav-link" href="#">Planilha</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" >vazio </a>
+                                        <a class="nav-link" href="#" >vazio </a>
                                     </li>
                                 </ul>
                             </div>
@@ -216,28 +214,28 @@ if(!validarToken()){
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/dashboard_tcc/vagas_park/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link active" href="/dashboard_tcc/comando_php/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
                         </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/vagas_park/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/vagas_park/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -318,7 +316,7 @@ if(!validarToken()){
                             <h5 class="card-header">Basic Example of Media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimg/img_sistema/avatar-1.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/img/img_sistema/avatar-1.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5>Media heading</h5>
                                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
@@ -340,12 +338,12 @@ if(!validarToken()){
                             <h5 class="card-header" id="Mensagens">Nesting Media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimg/img_sistema/avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/img/img_sistema/avatar-2.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="mt-0">Media heading</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         <div class="media mt-3">
                                             <a class="pr-3" href="#">
-                                                  <img class="mr-2 user-avatar-lg rounded" src="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimg/img_sistema/avatar-3.jpg" alt="Generic placeholder image" ></a>
+                                                  <img class="mr-2 user-avatar-lg rounded" src="/dashboard_tcc/img/img_sistema/avatar-3.jpg" alt="Generic placeholder image" ></a>
                                             <div class="media-body">
                                                 <h5 class="mt-0">Media heading</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                             </div>
@@ -360,7 +358,7 @@ if(!validarToken()){
                             <h5 class="card-header">Top-aligned media</h5>
                             <div class="card-body">
                                 <div class="media">
-                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.phpimg/img_sistema/avatar-4.jpg" alt="Generic placeholder image">
+                                    <img class="mr-3 user-avatar-lg rounded" src="/dashboard_tcc/img/img_sistema/avatar-4.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="mt-0">Top aligned media</h5>
                                         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>

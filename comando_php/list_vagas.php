@@ -3,7 +3,7 @@
 //Colocando nosso fuso horario
 
 //fim
-include_once "../comando_php/crud_php/conexao_cadastro.php";
+include("crud_php/conexao_cadastro.php");
 
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 

@@ -30,7 +30,7 @@ $query_gerente  = "SELECT cd_gerente, nm_cargo,nm_gerente, nm_descricao, nm_revi
     $foto_gerente = $row_gerente['cd_img'];
     $id_gerente = $row_gerente['cd_gerente'];
     $diretorio ='../img_funcionario/'.$nome_gerente.'_id-'.$id_gerente;
-    $diretorioRaiz ='img_funcionario/'.$nome_gerente.'_id-'.$id_gerente;
+    
        
 
 

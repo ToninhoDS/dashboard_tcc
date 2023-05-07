@@ -90,16 +90,17 @@ async function excluir_registro(id){
 async function confirma_registro(id){
 
 var  $id_valor = document.getElementById("valor_id" + id).innerHTML;
-console.log("js id> " +id); // olhar se chamou a função
+console.log("ecluir id> " +id); // olhar se chamou a função
 
 
 // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
 
-const dados = await fetch('comando_php/excluir_relatorio_atividade.php?id=' + id); // atribuir a uma constante
+const dados = await fetch('excluir_relatorio_atividade.php?id=' + id); // atribuir a uma constante
 
 const retorna = await dados.json();
 if(retorna['erro']){
     msgAlerta.innerHTML = retorna['msg'];
+    console.log('voltei');
         listarUsuarios(1);
         removerMsgALerta();
         resetaPagina();
@@ -115,7 +116,7 @@ if(retorna['erro']){
 
 async function confirma_limpeza(){
 
-    const dados = await fetch('comando_php/limpar_tudo_relatorio.php?id='); 
+    const dados = await fetch('limpar_tudo_relatorio.php?id='); 
     const retorna = await dados.json();
     if(retorna['erro']){
         msgAlerta.innerHTML = retorna['msg'];

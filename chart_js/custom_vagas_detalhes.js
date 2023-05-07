@@ -121,7 +121,7 @@ async function salvar_registro(id){
 
     // fazer requisicao com FEtch para um arquivo php e enviar patravez do metodo POST dados do formulario
    //console.log(dadosForm);
-    const dados = await fetch("comando_php/editar_tabela_vagas.php",{
+    const dados = await fetch("editar_tabela_vagas.php",{
         method: "POST",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: dadosForm
@@ -215,7 +215,7 @@ async  function visualizar(id){
     //criar uma array
     var array_placa_modal = document.getElementById("valor_placa" + id).innerHTML;
     console.log('placa: ' +array_placa_modal);
-    const dados = await fetch('comando_php/visualizar.php?id=' +array_placa_modal);
+    const dados = await fetch('visualizar.php?id=' +array_placa_modal);
     const resposta = await dados.json();
     //console.log(resposta);
   

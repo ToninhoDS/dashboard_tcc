@@ -126,8 +126,8 @@ if (!empty($dados['SendLogin'])) {
 
             // Redirecionar o usuário para página dashboard
         //header("Location: dashboard.php");
-            header("Location:vagas_park.php");
-
+           header("Location:vagas_park.php");
+            //header("Location:/dashboard_tcc/comando_php/adm.php");
         } else {
             // Criar a mensagem de erro e atribuir para variável global "msg"
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou senha inválida!</p>";

@@ -1,5 +1,5 @@
 <?php
-include("../comando_php/crud_php/conexao_cadastro.php");
+include("crud_php/conexao_cadastro.php");
 
 session_start(); 
 
@@ -23,16 +23,17 @@ if(!validarToken()){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css_dash/bootstrap.min.css">
-    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css_dash/caixa_estilo.css">
+    <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet"><link rel="stylesheet" href="../css_dash/caixa_estilo.css">
     
     <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="icon" href="img/vagas.ico" type="image/png">
+    <link href="assets/vendor/bootstrap-colorpicker/%40claviska/jquery-minicolors/jquery.minicolors.css" rel="stylesheet">
+    <link rel="icon"  href="img/vagas.ico"  type="image/png">
     <title>VAGASPARK</title>
 </head>
+
 
 <body>
     <!-- ============================================================== -->
@@ -41,7 +42,7 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
+            <a class="navbar-brand" href="/dashboard_tcc/comando_php/vagas_park.php">Vagas Park</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -136,15 +137,15 @@ if(!validarToken()){
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorioRaiz,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
+                        <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name"><?php echo $nome_gerente?></h5>
                                 <span class="status"></span><span class="ml-2">Perfil</span>
                             </div>
                              <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
-                            <a href="/dashboard_tcc/vagas_park/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                            <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                            <a href="/dashboard_tcc/comando_php/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
+                            <a href="logout.php" class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                         </div>
                     </li>
                 </ul>
@@ -165,7 +166,7 @@ if(!validarToken()){
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link "  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Vagas Park<span class="badge badge-success">6</span></a>
+                            <a class="nav-link active"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Vagas Park<span class="badge badge-success">6</span></a>
                             <div id="submenu-1" class="collapse submenu">
                                 <ul class="nav flex-column">
                                      
@@ -181,7 +182,7 @@ if(!validarToken()){
                                                                 <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/comando_php/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -195,17 +196,15 @@ if(!validarToken()){
                         <li class="nav-item">
                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                             <div id="submenu-16" class="collapse submenu">
-                                <ul class="nav flex-column">
-                                    
-                                    
+                            <ul class="nav flex-column">
                                      <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard_tcc/vagas_park/profile_empresa.html">Detalhamento</a>
-                                </li>
-                                 <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/vagas_park/nota_gastos.php">Planilha</a>
-                                    </li>
+                                          <a class="nav-link" href="#">Detalhamento</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="nav-link" href="#">Planilha</a>
+                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" >vazio </a>
+                                         <a class="nav-link" href="#" >vazio </a>
                                     </li>
                                 </ul>
                             </div>
@@ -217,28 +216,28 @@ if(!validarToken()){
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
-                        </li>
+                         </li>
+                         <li class="nav-item">
+                        <a class="nav-link" href="/dashboard_tcc/comando_php/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                         </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/dashboard_tcc/vagas_park/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="/dashboard_tcc/vagas_park/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                            <a class="nav-link"  href="/dashboard_tcc/comando_php/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                            
                         </li>                      
                     </ul>
@@ -248,8 +247,8 @@ if(!validarToken()){
     </div>
              <!-- navbar e lateral do menu -->
      <!-- ============================================================== -->
-
         <!-- FIM DO MENU LATERAL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
@@ -257,193 +256,192 @@ if(!validarToken()){
         <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
-            <div class="container-fluid dashboard-content">
-                <!-- ============================================================== -->
-                    <!-- pageheader -->
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                           <h2 class="pageheader-title">Regras de Negocio</h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/dashboard_tcc/vagas_park/" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a  class="breadcrumb-link">Linha do tempo Sistema</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Sistema</li>
-                                      </ol>
+                                <h2 class="pageheader-title">E-commerce Product Invoice </h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Invoice</li>
+                                        </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end pageheader -->
+                    <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                      <!-- ============================================================== -->
-                    <!-- timeline  -->
-                    <!-- ============================================================== -->
-                
-                    <section class="cd-timeline js-cd-timeline" style='font-size: 20px;'>
-                        <div class="cd-timeline__container">
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
-                                    <img src="img/passos.png" alt="Picture">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Primeiro acesso</h2><hr>
-                                    <p>O acesso inicial ao sistema não requear experiência ou ter conhecimento em RH para fazer um  cadastro completo de usuário, em pouco tempo já consegui mexer no sistema, garantindo a segurança e a integridade dos dados.</p>
-                                    <a href="adm.php" class="btn btn-primary btn-lg">Saiba mais</a>
-                                    <span class="cd-timeline__date">10 Janeiro, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
-                                    <img src="img/cadastro_semd.png" alt="Movie">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Gerenciamento de cadastro</h2><hr>
-                                    <p>O sistema permite a adição, edição e exclusão de usuários de forma intuitiva e segura, garantindo a integridade e a privacidade das informações dos usuários.</p>
-                                 <a href="comando_php/data-tables.php" class="btn btn-primary btn-lg">Saiba mais</a>
-                                    <span class="cd-timeline__date">20 Janeiro, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
-                                    <img src="img/visaosem.png" alt="Picture">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Visão do dashboard</h2><hr>
-                                    <p>A visão do dashboard é projetada de forma abrangente, oferecendo uma visão panorâmica e detalhada das atividades do estacionamento, com informações relevantes apresentadas em gráficos interativos </p>
-                                  <a href="cards.php" class="btn btn-primary btn-lg">Saiba mais</a>
-                                    <span class="cd-timeline__date">04 Fervereiro, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--location js-cd-img">
-                                    <img src="img/mapa_va.png" alt="Location">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Gráficos e mapa</h2><hr>
-                                    <p>O sistema apresenta gráficos interativos e visualmente atraentes, oferecendo informações detalhadas sobre a ocupação do estacionamento, além de um mapa intuitivo para visualização da localização das vagas.</p>
-                                 <a href="#0" class="btn btn-primary btn-lg">Saiba mais</a>
-                                    <span class="cd-timeline__date">12 Fervereiro, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
-                                    <img src="img/gestenci_esta.png" alt="Location">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Gerenciar estacionamento</h2><hr>
-                                    <p>Através do dashboard, é possível gerenciar as vagas disponíveis, monitorar a ocupação em tempo real, visualizar a localização das vagas em um mapa intuitivo e ter um controle preciso do cadastro de usuários, garantindo um gerenciamento eficiente e centralizado.</p>
-                                 <a href="vagas_park.php" class="btn btn-primary btn-lg" >Saiba mais</a>
+                    <div class="row">
+                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header p-4">
+                                     <a class="pt-2 d-inline-block" href="index.html">Concept</a>
                                    
-                                    <span class="cd-timeline__date">05 Março, 2023</span>
+                                    <div class="float-right"> <h3 class="mb-0">Invoice #1</h3>
+                                    Date: 3 Dec, 2020</div>
                                 </div>
-                                <!-- cd-timeline__content -->
+                                <div class="card-body">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-6">
+                                            <h5 class="mb-3">From:</h5>                                            
+                                            <h3 class="text-dark mb-1">Gerald A. Garcia</h3>
+                                         
+                                            <div>2546 Penn Street</div>
+                                            <div>Sikeston, MO 63801</div>
+                                            <div>Email: info@gerald.com.pl</div>
+                                            <div>Phone: +573-282-9117</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5 class="mb-3">To:</h5>
+                                            <h3 class="text-dark mb-1">Anthony K. Friel</h3>                                            
+                                            <div>478 Collins Avenue</div>
+                                            <div>Canal Winchester, OH 43110</div>
+                                            <div>Email: info@anthonyk.com</div>
+                                            <div>Phone: +614-837-8483</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive-sm">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">#</th>
+                                                    <th>Item</th>
+                                                    <th>Description</th>
+                                                    <th class="right">Unit Cost</th>
+                                                    <th class="center">Qty</th>
+                                                    <th class="right">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">1</td>
+                                                    <td class="left strong">Origin License</td>
+                                                    <td class="left">Extended License</td>
+                                                    <td class="right">$1500,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$1500,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">2</td>
+                                                    <td class="left">Custom Services</td>
+                                                    <td class="left">Instalation and Customization (cost per hour)</td>
+                                                    <td class="right">$110,00</td>
+                                                    <td class="center">20</td>
+                                                    <td class="right">$22.000,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">3</td>
+                                                    <td class="left">Hosting</td>
+                                                    <td class="left">1 year subcription</td>
+                                                    <td class="right">$309,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$309,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="center">4</td>
+                                                    <td class="left">Platinum Support</td>
+                                                    <td class="left">1 year subcription 24/7</td>
+                                                    <td class="right">$5.000,00</td>
+                                                    <td class="center">1</td>
+                                                    <td class="right">$5.000,00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-5">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-5 ml-auto">
+                                            <table class="table table-clear">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Subtotal</strong>
+                                                        </td>
+                                                        <td class="right">$28,809,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Discount (20%)</strong>
+                                                        </td>
+                                                        <td class="right">$5,761,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">VAT (10%)</strong>
+                                                        </td>
+                                                        <td class="right">$2,304,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong class="text-dark">Total</strong>
+                                                        </td>
+                                                        <td class="right">
+                                                            <strong class="text-dark">$20,744,00</strong>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
+                                </div>
                             </div>
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--location js-cd-img">
-                                    <img src="img/estaci002.png" alt="Movie">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2Controle de vagas</h2><hr>
-                                    <p>Com recursos gráficos avançados, o sistema proporciona uma análise aprofundada do uso do estacionamento, permitindo tomadas de decisões estratégicas com base em dados concretos.</p>
-                                    <a href="vagas_detalhes.php" class="btn btn-primary btn-lg">Saiba mais</a>
-                                    <span class="cd-timeline__date">04 Abril, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
-                                    <img src="img/ferramenta.png" alt="Movie">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Configurações</h2><hr>
-                                    <p>Configurar um sistema simples e intuitivo, com interface de usuário amigável, fluxos de navegação claros e recursos de fácil compreensão, visando tornar a utilização do software fácil e intuitiva para os usuários, mesmo sem experiência prévia no sistema.</p>
-                                    <a href="configuracao.php" class="btn btn-primary btn-lg" >Saiba mais</a>
-                                    <span class="cd-timeline__date">15 Abril, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                            <!-- cd-timeline__block -->
-                            <div class="cd-timeline__block js-cd-block">
-                                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
-                                    <img src="img/equipe01.png" alt="Movie">
-                                </div>
-                                <!-- cd-timeline__img -->
-                                <div class="cd-timeline__content js-cd-content">
-                                    <h2>Nossa Equipe</h2><hr>
-                                Sistema conta com um suporte eficiente de humanos, composto por uma equipe de atendimento dedicada, pronta para auxiliar os usuários em caso de dúvidas, problemas técnicos ou necessidade de suporte adicional.<br><br>Esse suporte é realizado de forma rápida e personalizada, visando garantir a satisfação e a confiança dos usuários no sistema, oferecendo um atendimento humanizado e resolutivo.</p>
-                                    <span class="cd-timeline__date">19 Abril, 2023</span>
-                                </div>
-                                <!-- cd-timeline__content -->
-                            </div>
-                            <!-- cd-timeline__block -->
-                        </div>
-                    </section>
-                    <!-- cd-timeline -->
-               
-                  <!-- ============================================================== -->
-                    <!-- end timeline  -->
-                    <!-- ============================================================== -->
-            </div>
-               <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                      
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="javascript: void(0);">Voltar</a>
-                            <a href="javascript: void(0);">Suporte</a>
-                            <a href="javascript: void(0);">Contato</a>
                         </div>
                     </div>
                 </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                              
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="text-md-right footer-links d-none d-sm-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
+            <!-- ============================================================== -->
+            <!-- end wrapper  -->
+            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- end footer -->
-        <!-- ============================================================== -->
-        </div>
-      
     </div>
-   <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-      <script src="../chart_js/jquery-3.3.1.min.js"></script>
-    <script src="../chart_js/bootstrap.bundle.js"></script>
-    <script src="../chart_js/jquery.slimscroll.js"></script>
-    <script src="../chart_js/main-js.js"></script>
-    <script src="assets/vendor/timeline/js/main.js"></script>
+        <!-- ============================================================== -->
+        <!-- end main wrapper  -->
+        <!-- ============================================================== -->
+        <!-- Optional JavaScript -->
+        <!-- jquery 3.3.1 -->
+          <script src="../chart_js/jquery-3.3.1.min.js"></script>
+        <!-- bootstap bundle js -->
+        <script src="../chart_js/bootstrap.bundle.js"></script>
+        <!-- slimscroll js -->
+        <script src="../chart_js/jquery.slimscroll.js"></script>
+        <!-- main js -->
+        <script src="../chart_js/main-js.js"></script>
 </body>
-
  
 </html>

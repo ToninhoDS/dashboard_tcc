@@ -1,5 +1,5 @@
 <?php
-include("../comando_php/crud_php/conexao_cadastro.php");
+include("crud_php/conexao_cadastro.php");
 
 session_start(); 
 
@@ -16,7 +16,7 @@ if(!validarToken()){
     exit();
 }
 
-
+?>
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -29,6 +29,8 @@ if(!validarToken()){
     <link href="../css_dash/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css_dash/caixa_estilo.css"> 
     <link rel="stylesheet" href="../css_dash/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../css_dash/morris.css">
+    
     <link rel="stylesheet" href="../css_dash/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="icon" href="img/vagas.ico" type="image/png">
     <title>VAGASPARK</title>
@@ -42,7 +44,7 @@ if(!validarToken()){
    <div class="dashboard-main-wrapper">
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/dashboard_tcc/vagas_park/vagas_park.php">Vagas Park</a>
+                <a class="navbar-brand" href="/dashboard_tcc/comando_php/vagas_park.php">Vagas Park</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -137,15 +139,15 @@ if(!validarToken()){
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorioRaiz,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
+                            <a class="nav-link nav-user-img"  id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $diretorio,'/',$foto_gerente ?>" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name"><?php echo $nome_gerente?></h5>
                                     <span class="status"></span><span class="ml-2">Perfil</span>
                                 </div>
                                  <a href="/dashboard_tcc/comando_php/adm.php" class="dropdown-item" ><i  class="fas fa-user mr-2"></i>Conta</a>
-                                <a href="/dashboard_tcc/vagas_park/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
-                                <a class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
+                                <a href="/dashboard_tcc/comando_php/configuracao.php" class="dropdown-item" ><i class="fas fa-cog mr-2"></i>Configuração</a>
+                                <a href="logout.php" class="dropdown-item" ><i class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
@@ -182,7 +184,7 @@ if(!validarToken()){
                                                                     <a class="nav-link" href="/dashboard_tcc/comando_php/data-tables.php">Lista de Clientes</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                <a class="nav-link" href="/dashboard_tcc/vagas_park/detalhamento_servico_tabela.php">Planilha de Serviços</a>
+                                                                <a class="nav-link" href="/dashboard_tcc/comando_php/detalhamento_servico_tabela.php">Planilha de Serviços</a>
                                                             </li>
                                                           
                                                         </ul>
@@ -196,17 +198,15 @@ if(!validarToken()){
                         <li class="nav-item">
                             <a class="nav-link"  data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"><i class="fas fa-building"></i>Detalhes Empresa</a>
                             <div id="submenu-16" class="collapse submenu">
-                                <ul class="nav flex-column">
-                                    
-                                    
+                            <ul class="nav flex-column">
                                      <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard_tcc/vagas_park/profile_empresa.html">Detalhamento</a>
-                                </li>
-                                 <li class="nav-item">
-                                        <a class="nav-link" href="/dashboard_tcc/vagas_park/nota_gastos.php">Planilha</a>
-                                    </li>
+                                          <a class="nav-link" href="#">Detalhamento</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="nav-link" href="#">Planilha</a>
+                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" >vazio </a>
+                                         <a class="nav-link" href="#" >vazio </a>
                                     </li>
                                 </ul>
                             </div>
@@ -218,28 +218,28 @@ if(!validarToken()){
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/cards.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Avisos</a>
                            
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/vagas_detalhes.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-rocket"></i>Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard_tcc/comando_php/adm.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Administrador</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard_tcc/vagas_park/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
+                            <a class="nav-link" href="/dashboard_tcc/comando_php/relatorio_atividade.php" aria-expanded="false" data-target="#submenu-2"  ><i class="fa fa-fw fa-users"></i>Relatório de Atividade</a>
                         </li>
                         <li class="nav-divider">
                             Suporte
                         </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/dashboard_tcc/vagas_park/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
+                                <a class="nav-link"  href="/dashboard_tcc/comando_php/regras_de_negocio.php" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Regras de Negocio</a>
                                 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/dashboard_tcc/vagas_park/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link"  href="/dashboard_tcc/comando_php/configuracao.php" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Configurações<span class="badge badge-secondary">New</span></a>
                                
                             </li>                      
                         </ul>
@@ -279,72 +279,69 @@ if(!validarToken()){
 	<div class="row">					       
         	<div class='col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12'>
         		<div class="card">
-            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" ><strong>Lixeira</strong></h3>       
+            	<h3 class="card-header"  style='font-size: 40px;'id="msgAlerta" >Status das Vagas do <strong>Estacionamento</strong></h3>       
                 	<div style="padding: 5px 5px ;" class="col-md-3">                                       
-                    <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Lixeira" value="" required="">
+                    <input id="search-input" type="text" class="form-control"  placeholder="Pesquisar Vaga" value="" required="">
                  	</div>
-                    	<span class="listar_relatorio_lixeira"></span>
+                    	<span class="listar-vagas_detalhes"></span>
 				</div>
 			</div>                
 		</div>
 	</div>
 </div>
-
-
 <!-- Button trigger modal -->
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"STYLE="font-size:30px">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <dl class="row">
-            <dt class="col-sm-3">ID</dt>
-            <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Nome:</dt>
-            <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
-            <dt class="col-sm-3">CPF:</dt>
-            <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
-            <dt class="col-sm-3">Email:</dt></dt>
-            <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Bairro:</dt></dt>
-            <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Cidade:</dt></dt>
-            <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
-            <dt class="col-sm-3">UF-Estado:</dt></dt>
-            <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
-            <dt class="col-sm-3">Telefone:</dt></dt>
-            <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
-        </dl>
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veiculo</h5>
-      </div>
-      <div class="modal-body">
-        <dl class="row">
-            <dt class="col-sm-3">Placa:</dt>
-            <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
-            <dt class="col-sm-3">Modelo:</dt>
-            <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
-            <dt class="col-sm-3">Marca:</dt>
-            <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
-            <dt class="col-sm-3">Cor:</dt></dt>
-            <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
-        
-        </dl>
-      </div>
-      
+<div class="modal fade" id="visualiza_status_vaga" tabindex="-1" role="dialog" aria-labelledby="visualiza_status_vaga" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:30px">Detalhes do Cliente</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"STYLE="font-size:30px">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">ID</dt>
+                        <dd class="col-sm-9"><span id="id_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">Nome:</dt>
+                        <dd class="col-sm-9"><span id="nm_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">CPF:</dt>
+                        <dd class="col-sm-9"><h5 id="cpf_cliente_modal"></h5></dd>
+                        <dt class="col-sm-3">Email:</dt></dt>
+                        <dd class="col-sm-9"><span id="email_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">Bairro:</dt></dt>
+                        <dd class="col-sm-9"><span id="bairro_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">Cidade:</dt></dt>
+                        <dd class="col-sm-9"><span id="cidade_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">UF-Estado:</dt></dt>
+                        <dd class="col-sm-9"><span id="sg_uf_cliente_modal"></span></dd>
+                        <dt class="col-sm-3">Telefone:</dt></dt>
+                        <dd class="col-sm-9"><span id="telefone_cliente_modal"></span></dd>
+                    </dl>
+                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="visualiza_status_vaga_Title" STYLE="font-size:25px">Detalhes do Veiculo</h5>
+            </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Placa:</dt>
+                        <dd class="col-sm-9"><span id="placa_cliente_modal">u</span></dd>
+                        <dt class="col-sm-3">Modelo:</dt>
+                        <dd class="col-sm-9"><span id="modelo_cliente_modal">u</span>u</dd>
+                        <dt class="col-sm-3">Marca:</dt>
+                        <dd class="col-sm-9"><span id="marca_cliente_modal">u</span></dd>
+                        <dt class="col-sm-3">Cor:</dt></dt>
+                        <dd class="col-sm-9"><span id="cor_cliente_modal">u</span></dd>
+                
+                    </dl>
+                </div>
+        </div>
     </div>
-  </div>
-</div> -->
+</div>
 </div>  
- </div> 
+ </div>
   
 <!-- fim Modal -->
 <!-- footer -->
@@ -400,7 +397,7 @@ if(!validarToken()){
 	<script src="../chart_js/chartjs.js"></script>
 	<script src="../chart_js/api_chart.js"></script>
       <script src="../chart_js/dashboard-influencer.js"></script>
-      <script src="../chart_js/custom_relatorio_lixeira.js"></script>
+      <script src="../chart_js/custom_vagas_detalhes.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- fim -->
 </body>
